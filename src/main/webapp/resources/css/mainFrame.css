@@ -1,0 +1,121 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid black; */
+}
+
+li>a{
+  text-decoration: none;
+  color: black;
+}
+
+li{
+  list-style: none;
+  padding: 15px;
+}
+
+/* header */
+header{ height: 57px; border-bottom: 2px solid #ccc; display: flex; justify-content: center;}
+
+.logomenuicon{
+  height: 100%;
+  margin: auto;
+  width: 960px;
+  display: flex;
+}
+
+.logo{width: 15%;}
+.menu{width: 70%;}
+.icon{width: 15%;}
+
+/* 로고 */
+
+.logo{display: flex; justify-content: center; align-items: center;}
+.logo img{
+  height: 80%;
+  cursor: pointer;
+}
+
+/* 메뉴 */
+.menu>ul{display: flex;}
+
+/* 아이콘 */
+.icon{
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* main */
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding-bottom: 250px;
+}
+
+.mainframe{
+  width: 100%;
+  min-height: 1000px;
+}
+
+iframe{
+  width: 100%;
+  min-height: 1000px;
+}
+
+/* footer */
+footer{
+  width: 100%;
+  /* position: absolute;
+  transform: translateY(-100%); */
+  /* bottom: 0px; */
+
+  height: 250px;
+  background-color: #ccc;
+  
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.footerList{
+  display: flex;
+  width: 960px;
+  justify-content: space-around;
+}
+
+.footerList>div{
+  width: 100%;
+}
+
+.footerList *{
+  text-align: left;
+  padding: 5px;
+}
+
+.footerList h2{ font-size: 16px; }
+
+.footerList li{ font-size: 12px; }
+
+.last{
+  width: 960px;
+  padding: 15px;
+  font-size: 12px;
+  border-top: 1px solid #828282;
+}
+
+.admin{
+  font-weight: bold;
+  font-size: 14px;
+  color: #515151;
+}
+
+.last>p{
+  color: #515151;
+  font-weight: 600;
+}

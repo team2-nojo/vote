@@ -1,0 +1,198 @@
+/* div, main, section, header, footer, article, nav, aside, form
+{border: 1px solid black;} */
+
+*{  
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+main{
+}
+
+header{
+    height: 200px; /* 임시 */
+    display: flex;
+}
+
+body {
+    font-size: 12px;
+    font-family: '나눔고딕';
+}
+
+div{
+    display: block;
+}
+
+/* 기본 박스 */
+.defaultbox {
+    padding: 20px !important;
+    border: 1px solid #D9D9D9;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* 본문 */
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 반응형으로 할 시에 움직이는 한 뭉치 */
+.contentBox{
+    width: 80%;
+    max-width: 960px;
+}
+
+.row{
+    display: table;
+}
+
+/* 프로필 편집 텍스트를 담는 Frame */
+.edeit-profile-top-frame {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 프로필 편집 텍스트 */
+.row > #editProfileTitle {
+    font-size: 36px;
+    text-align: center !important;
+    line-height: 1.22 ;
+    margin: 50px;
+    font-weight: bold;
+}
+
+/* 프로필 편집을 담는 텍스트 */
+#editProfileContainer {
+    text-align: center !important;
+    line-height: 1.5;
+    width: 80%;
+    max-width: 620px;  /* 920px이 너무 커서 620px로 줄여서 맞춤 */
+}
+
+/* 이미지 미리보기 화면 */           
+#imageContainer {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #ccc;
+}
+
+/* 업로드 포토 라벨 */  
+.upload-photo {
+    display: block;
+    color: #E01A2B;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 50px;
+    margin-top: 25px;
+    text-align: center !important;
+}
+
+/* input/text area위의 텍스트 */
+.edit-profile-text{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 4px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* 닉네임 부분 프레임 */
+#editProfileInputName {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Edit Profile 페이지의 input (width 80%) */
+.edit-profile-input {
+    display: inline-block;
+    width: 80%;
+    height: 50px;
+    padding : 10px;
+    border: 1px solid #dbd9db;
+    border-radius: 5px;
+}
+
+/* 자기소개 작성을 위한 textarea */
+#editProfileDescription {
+    overflow: hidden;
+    resize: none;
+    width: 100%;
+    height: 172px;
+    padding: 10px;
+    border: 1px solid #dbd9db;
+    border-radius: 5px;
+    display: block;
+}
+
+
+/* 중복확인, 주소찾기 버튼 */
+.edit-profile-btn {
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 17%;
+    color: #2DB400;
+    border : 1px solid #dbd9db;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+    cursor: pointer;
+}
+
+/* Edit Prifile 페이지의 input (width 100%) */
+.edit-profile-input-long {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    padding : 10px;
+    border: 1px solid #dbd9db;
+    border-radius: 5px;
+}
+
+/* 저장, 취소 버튼을 오른쪽으로 두기 위한 div...shit */
+.goRight {
+    display: flex;
+}
+
+/* 저장, 취소 버튼을 담은 프레임 */
+.submit-cancel-button-frame {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 저장, 취소 버튼 클래스*/
+.submit-cancel-button {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    border : 2px solid #2DB400;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+    cursor : pointer;
+    margin: 5px;
+}
+
+/* 저장 버튼 */
+#submit{
+    background-color: #2DB400;
+    color: #ffffff;
+}
+
+/* 취소 버튼 */
+#cancel{
+    background-color: #ffffff;
+    color: #2DB400;
+}

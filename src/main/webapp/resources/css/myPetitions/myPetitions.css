@@ -12,14 +12,14 @@
     align-items: ;
 }
 
-/* login_mypettitions 아이디 */
+/* login_myPetitions 아이디 */
 .userProfileID{
     font-size: 36px;
     font-weight: bold;
     margin: 12px 0px;
 }
 
-/* login_mypettitions 지역 */
+/* login_myPetitions 지역 */
 .userProfileLocation{
     margin:0px 0px 15px;
 }
@@ -86,14 +86,14 @@
 
 
 
-/* myPettitionStatus 청원 진행 상태 */
-.defaultbox > .myPettitionStatus{
+/* myPetitionstatus 청원 진행 상태 */
+.defaultbox > .myPetitionstatus{
     margin-bottom: 3px !important;
     line-height: 1.5;
 }
 
 
-.defaultbox > .myPettitionStatus > div{
+.defaultbox > .myPetitionstatus > div{
     margin-bottom: 20px !important;
     background-color: #f6f4f6;
     border-right: 10px;
@@ -108,15 +108,15 @@
 
 
 
-/* myPettitionTitle 청원 타이틀 양식 */
-.myPettitionTitle {
+/* myPetitionTitle 청원 타이틀 양식 */
+.myPetitionTitle {
     font-size: 24px !important;
     font-weight: bold;
     cursor: pointer;
 }
 
-/* myPettitionText 청원 본문 양식 */
-.myPettitionText{
+/* myPetitionText 청원 본문 양식 */
+.myPetitionText{
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 1em;
@@ -125,10 +125,10 @@
     line-height: 1.5;
 }
 
-/* myPettitionWriter 청원 글 작성자 양식 */
+/* myPetitionWriter 청원 글 작성자 양식 */
 
-/* myPettitionSupporter 서포터 수 양식 */
-.myPettitionSupporter, .myPettitionWriter {
+/* myPetitionsupporter 서포터 수 양식 */
+.myPetitionsupporter, .myPetitionWriter {
     text-align: right !important;
     cursor: pointer;
     float: left;
@@ -137,11 +137,11 @@
     flex-grow: 1;
 }
 
-.myPettitionWriter{
+.myPetitionWriter{
    text-align: left !important;
 }
 
-.defaultbox > .myPettitionBottom {
+.defaultbox > .myPetitionBottom {
     display: flex;
     width: 100%;
 }

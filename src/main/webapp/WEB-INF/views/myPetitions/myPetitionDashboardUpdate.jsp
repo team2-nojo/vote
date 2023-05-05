@@ -13,8 +13,8 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <!-- css -->
-    <link rel="stylesheet" href="/resources/css/myPettitions/myPettitions.css">
-    <link rel="stylesheet" href="/resources/css/myPettitions/pettitionDashboardUpdate.css">
+    <link rel="stylesheet" href="/resources/css/myPetitions/myPetitions.css">
+    <link rel="stylesheet" href="/resources/css/myPetitions/petitionDashboardUpdate.css">
 
 </head>
 <body>
@@ -108,7 +108,7 @@
             <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
         </footer>
     </main>
-    <script src="/resources/js/myPettitions/pettitionDashboardUpdate.js"></script>
+    <script src="/resources/js/myPetitions/petitionDashboardUpdate.js"></script>
     <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
     <script>
         $('#summernote').summernote({

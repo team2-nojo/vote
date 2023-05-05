@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login_mypettitions</title>
-    <link rel="stylesheet" href="/resources/css/myPettitions/myPettitions.css">
-    <link rel="stylesheet" href="/resources/css/myPettitions/myPettitionsCommon.css">
+    <title>login_myPetitions</title>
+    <link rel="stylesheet" href="/resources/css/myPetitions/myPetitions.css">
+    <link rel="stylesheet" href="/resources/css/myPetitions/myPetitionsCommon.css">
     <!-- font awesome 라이브러리 추가 + key 등록 -->
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
@@ -27,7 +27,7 @@
                     <div class="EditProfileText">
                         <div class="userProfileID">JJ</div>
                         <div class="userProfileLocation">South Korea</div>
-                        <a href="/editProfiile">Edit profile</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
+                        <a href="/myPage/editProfiile">Edit profile</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
                     </div>
                 </div>
                 <ul class="tabs"> <!-- 내가 시작한, 사인한 청원 목록 보는 탭 -->
@@ -40,7 +40,7 @@
             <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
         </footer>
     </main>
-    <script src="/resources/js/myPettitions/myPettitions.js">
+    <script src="/resources/js/myPetitions/myPetitions.js">
     </script>
 </body>
 </html>

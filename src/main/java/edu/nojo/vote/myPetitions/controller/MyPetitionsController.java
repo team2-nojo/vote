@@ -16,11 +16,17 @@ public class MyPetitionsController {
 	@Autowired 
 	private MyPetitionsService service;
 	
-	
 	// myPetitions 페이지로 이동
 	@GetMapping("/myPetitions")
 	public String myPetitions() {
-		return "myPetitions/myPetitions";
+		return "/myPetitions/myPetitions";
 	}
+	
+	// myPetitions 페이지로 이동
+	@GetMapping("/myPetitionsDashboard")
+	public String myPetitionsDashboard() {
+		return "/myPetitions/myPetitionsDashboard";
+	}
+	
 	
 }

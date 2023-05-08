@@ -1,0 +1,175 @@
+.container4 {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.container5 {
+  padding-left: 30px;
+  padding-top: 20px;
+  margin-top: 40px;
+  margin-left: 3px;
+  align-self: start;
+  position: sticky;
+  top: 0px;
+  min-width: 0px;
+  float: right;
+}
+.main-section {
+  flex-basis: 70%; /* 메인 섹션의 너비 */
+}
+
+.side-section {
+  flex-basis: 30%; /* 사이드 섹션의 너비 */
+}
+
+.content {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 0;
+}
+
+.pet-title {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+.pet-title a:first-child {
+  margin-right: auto;
+}
+.container4 li {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  list-style: none;
+}
+#more {
+  color: #2db400;
+  text-decoration: underline;
+}
+
+.pet-title a:last-child {
+  margin-left: auto;
+  padding-right: 15px;
+  font-size: 13px;
+}
+.article {
+  padding: 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start; /* 수정 */
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* 
+#photo2 {
+  width: 145px;
+  height: 145px;
+  background-image: url('../img/article-photo2.jpeg')
+  background-size: cover;
+  float: right;
+}
+#photo3 {
+  width: 145px;
+  height: 145px;
+  background-image: url('../img/article-photo3.png');
+  background-size: cover;
+  float: right;
+}
+#photo4 {
+  width: 145px;
+  height: 145px;
+  background-image: url('../img/article-photo4.png');
+  background-size: cover;
+  float: right;
+} */
+
+.article {
+  display: grid;
+  gap: 15px;
+
+  grid-template-areas:
+    'a a c'
+    'b b c';
+}
+
+.article-title {
+  grid-area: a;
+}
+.text {
+  grid-area: b;
+}
+.photo {
+  grid-area: c;
+}
+.text div {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.id a:first-child {
+  margin-right: auto;
+}
+
+.id a:last-child {
+  margin-left: auto;
+  padding-right: 15px;
+  font-size: 13px;
+  text-decoration: none;
+}
+.id {
+  display: flex;
+  align-items: center;
+}
+.title-icon {
+  border: 1px solid lightgray;
+  text-decoration: none;
+  color: #666666;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+.title-list {
+  list-style: none;
+}
+.container5 li {
+  margin-bottom: 20px;
+}
+#icon-topic {
+  color: #666666;
+  font-size: 18px;
+}
+.title-list a:hover {
+  border: 1px solid red;
+  color: red;
+}
+.id-profile {
+  margin-left: 15px;
+}
+
+div a {
+  text-decoration: none;
+  color: black;
+}
+/* @media screen and (min-width: 768px) .article {
+  display: none;
+} */
+/* .article {
+  flex-direction: column;
+  padding: 20px;
+  display: flex;
+} */
+/* 
+#slide-btn1 {
+  position: absolute;
+  margin-left: -150px;
+  margin-top: 130px;
+  font-size: 30px;
+}
+#slide-btn2 {
+  position: relative;
+  margin-top: -380px;
+  margin-left: 1080px;
+  font-size: 30px;
+} */

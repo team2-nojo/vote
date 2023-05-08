@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <link rel="stylesheet" href="/resources/css/common/mainFrame.css">
+
+<link rel="stylesheet" href="resources/css/mainPage/mainFrame.css">
+<link rel="stylesheet" href="resources/css/mainPage/maincontent2.css">
+<link rel="stylesheet" href="resources/css/mainPage/maincontent.css">
 <header>
-    <header>
-      <div class="logomenuicon">
-        <div class="logo"><img id="logoimg" src="/resources/images/common/Logo.png" /></div>
+    <div class="logomenuicon">
+        <div class="logo"><img id="logoimg" src="/resources/images/mainPage/voteLogo2.png" /></div>
         <div class="menu">
           <ul>
             <li class="nav-menu"><a id="startPetitions" href="#">Start a petition</a></li>
@@ -20,4 +22,3 @@
       </div>
     </header>
 </header>
-

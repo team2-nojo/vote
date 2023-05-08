@@ -1,26 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>html문서 제목</title>
+    <title>main</title>
+    <link rel="stylesheet" href="/resources/css/common/maincontent.css">
+    <link rel="stylesheet" href="/resources/css/common/maincontent2.css">
 </head>
 <body>
-    <jsp:include page="/WEB-INF/views/common/header.jsp" />
+    <header>
+        <jsp:include page="/WEB-INF/views/common/header.jsp" />
+    </header>
     <main>
+
       <section class="section1">
+
       <div class="container id="mf">
         <div style="margin-top: 100px;">
           <h1 class="title">당신의 투표를 기다립니다.</h1>
           <h3 class="subTitle">508,140,283명이 행동에 나섰습니다. 매일 승리하십시오.</h3>
+
           <a href="#"><button class="titleBtn">청원시작</button></a>
+
         </div>
       </div>
      </section>
       <div class="container2">
+
         <a href="http://www.naver.com" style="cursor:pointer" id="mainNewsLink"><div class="item box1"><img src="/resources/images/mainPage/news1.jpeg" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
         <div class="item box2" id="newsTitle">
           <div id="newsTitle">
@@ -33,6 +45,7 @@
         </div>
         <div class="item box3">
           <div><img src="/resources/images/mainPage/profile1.jpeg" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div>
+
           <div class="main-news-id-container">
             <div id="main-news-id-box">
             <div id="main-news-id"></div>
@@ -47,6 +60,7 @@
           </div>
         </div>
      
+
       </div>
       </div>
       <div class="container3">
@@ -57,6 +71,7 @@
         <div class="box10"><img src="/resources/images/mainPage/news5.jpeg" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
         <div class="box11"><img src="/resources/images/mainPage/news6.jpeg" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
         <div class="box12 small-news"><a href="#"></a></div>
+
         <div class="box13 small-news"><a href="#"></a></div>
         <div class="box14 small-news"><a href="#"></a></div>
         <div class="box15 small-news"><a href="#"></a></div>
@@ -86,10 +101,12 @@
                 <a href="#">더보기</a>
               </div>
             </div>
+
               <div class="photo"><img src="/resources/images/mainPage/news1.jpeg" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>
             <div class="pettition1 id">
               <span class="id-profile"><img src="/resources/images/mainPage/profile1.jpeg" style="height: 28px; margin: 5px;" class="profile-image"></span>
+
               <span>Coby</span>
               <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>852 Supporters</a>
             </div>
@@ -105,10 +122,12 @@
               <div class="text"><div>최근 외국계 증권사 소시에테제네랄(SG)증권발 주가 하락 사태와 관련해 수십억원의 손해를 본 것으로 알려진 가수 
                 임창정이 주가 조작 의심 세력이 주최한 파티에 참석했다는 의혹에 대해 참석사실을 인정하면서도 “게스트 자격으로 참석한 것”이라는 입장을 밝혔다.
                 임창정의 법률 대리인인 법무법인 대환은 “임창정이 해당 파티에 참석한 것은 당시 엔터테 ... <a href="#">더보기</a></div></div>
+
                 <div class="photo"><img src="/resources/images/mainPage/news2.jpeg" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>
             <div class="pettition1 id">
               <span class="id-profile"><img src="/resources/images/mainPage/profile2.jpeg" style="height: 28px; margin: 5px;" alt=""></span>
+
               <span>Jayden</span>
               <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>852 Supporters</a>
             </div>
@@ -126,10 +145,12 @@
                 기상청에 따르면 오후 7시20분까지 지진을 느꼈다는 신고 80여건이 소방당국에 접수됐다.
                 기상청 관계자는 “이번 지진은 올해 3번째로 규모가 컸다”며 “올해 한반도와 주변 해역에서 발생한 지진 가운데 규모 2.0 이상 지진은 이번까지 합쳐 36번째”라고 밝혔다. 
                 이번 지진은 계기진도가... <a href="#">더보기</a></div></div>
+
                 <div class="photo"><img src="/resources/images/mainPage/news3.jpeg" style="width: 145px; height: 145px; object-fit: cover;"></div>  
             </div>
             <div class="pettition1 id">
               <span class="id-profile"><img src="./resources/images/mainPage/profile3.jpeg" style="height: 28px; margin: 5px;" alt=""></span>
+
               <span>Daniel</span>
               <a href="#" style="text-decoration: underline;"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>2,510 Supporters</a>
             </div>
@@ -146,10 +167,12 @@
                 30일 기획재정부는 오는 6월 로또 추첨 현장을 국민들이 참관할 수 있게 대규모 행사를 계획했다고 밝혔다.
                 앞서 지난달 4일 추첨한 로또 1057회차에는 1억 1252만장이 팔렸고, 2등 당첨이 664건이나 나왔다. 이 중 103건이 모두 서울 동대문구 한 판매점에서 나와 조작 논란이 일었다.
                 복권위는 2등 당첨 664장 중에서 609장은 특정 번호를 수동으로 선택한 것으로, 개개인이 선호하는 번호 조합이 우연 ... <a href="#">더보기</a></div></div>
+
                 <div class="photo"><img src="/resources/images/mainPage/news4.jpeg" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>
             <div class="pettition1 id">
               <span class="id-profile"><img src="/resources/images/mainPage/profile4.jpeg" style="height: 28px; margin: 5px;" alt=""></span>
+
               <span>Stella</span>
               <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>1,623 Supporters</a>
             </div>
@@ -173,5 +196,7 @@
     </section>
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    <script src="/resources/js/common/mainFrame.js">
+    </script>
 </body>
 </html>

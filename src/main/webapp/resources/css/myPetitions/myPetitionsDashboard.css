@@ -1,0 +1,307 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid black; */
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+li{list-style: none;}
+
+/* title */
+.title{ width: 960px; margin: auto;}
+
+.title ul{
+  height: 53px;
+}
+
+.title li{
+  padding: 15px;
+  height: 53px;
+}
+
+.title a:hover{color: red;}
+
+/* nav */
+nav{
+  width: 960px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav>ul{display: flex;}
+
+#navSelect{border-bottom: 3px solid red;}
+#navSelect>a{color: red;}
+
+/* content */
+.content{
+  background-color: #eeeeee;
+  border-top: 1px solid #ccc;
+}
+
+/* content-dashborad */
+.content-dashborad{
+  width: 960px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  height: 927px;
+  text-align: center;
+}
+
+/* 내부틀 */
+#contentFrame{
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 90%;
+  height: 90%;
+  border-radius: 5px;
+}
+/* 좌 */
+.content-left{width: 40%;}
+
+.graph{
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-frame-img{
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.graph-text{
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border-top: 1px solid #ccc;
+}
+
+.graph-text>div{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agree{
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.support{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.support> *{
+  padding: 10px;
+}
+
+.agree-top{ border-bottom: 1px solid #828282;}
+.agreeBt{ border-top: 1px solid #828282;}
+.agreeBt>*{padding: 5px;}
+.support-list>*{
+  height: 160px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+#exportOpt{
+  font-size: 16px;
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.export{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  border: 2px solid #828282;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* 우 */
+.content-right{width: 60%;}
+
+.share{
+  width: 576px;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.share-content{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.share-content div{padding: 10px;}
+
+.input-url input{
+  width: 75%;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.input-url button{
+  font-size: 16px;
+  width: 20%;
+  height: 40px;
+  border-radius: 5px; 
+  padding: 5px;
+}
+
+.share-link{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.share-link>div{
+  width: 95%;
+  padding: 15px;
+  background-color: #eeeeee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.share-link a{
+  color: red;
+  text-decoration: underline;
+}
+
+.out-link{
+  display: flex;
+  justify-content: space-around;
+}
+
+.out-link button{
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.reflesh, .marketing{
+  padding: 10px;
+  height: 24%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.reflesh div, .marketing div{
+  padding: 3px;
+}
+
+.reflesh a, #mkt{
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  border: 2px solid red;
+  border-radius: 5px;
+  font-size: 12px;
+  color: red;
+  font-weight: 600;
+}
+
+.marketing a{
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: red;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.mkt{
+  display: flex;
+}
+
+/* 체크리스트 */
+.check-list{
+  width: 960px;
+  margin: auto;
+  padding: 10px;
+}
+
+.check-list h2{padding-left: 10px;}
+.check-list ul{
+  color: #828282;
+  background-color: white;
+  border: 2px solid #eeeeee;
+  border-radius: 5px;
+}
+
+.check-list li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+  border-bottom: 1px solid #828282;
+}
+
+.check-list h3{
+  font-weight: 500;
+  color: black;
+}
+
+
+.check-list div{
+  padding: 5px 10px;
+}
+
+/* 가이드 */
+.guide{
+  width: 960px;
+  margin: auto;
+  display: flex;
+  padding: 15px;
+}
+
+.guide-left{width: 60%;}
+.guide-right{width: 40%;}
+
+
+
+.guide-right a{
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: red;
+  font-weight: 600;
+  text-decoration: underline;
+}

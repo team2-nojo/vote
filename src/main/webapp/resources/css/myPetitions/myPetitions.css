@@ -9,7 +9,7 @@
 .userProfileframe > .row {
     display: flex;
     justify-content: center;
-    align-items: ;
+    align-items: center;
 }
 
 /* login_myPetitions 아이디 */
@@ -138,19 +138,13 @@
 }
 
 .myPetitionWriter{
-   text-align: left !important;
+    text-align: left !important;
 }
 
 .defaultbox > .myPetitionBottom {
     display: flex;
     width: 100%;
 }
-
-footer{
-}
-
-
-
 
 
 /* 반응형 웹 : 브라우저나 장치 환경(크기)에 따라 웹페이지의 모습이 변하는 웹페이지 */

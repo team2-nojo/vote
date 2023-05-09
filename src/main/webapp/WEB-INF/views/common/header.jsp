@@ -13,7 +13,7 @@
     <div class="header-logo"><a href="/"><img id="logoimg" src="/resources/images/common/Logo.png" /></a></div>
     <div class="header-menu">
       <ul>
-        <li><a id="startPetitions" href="#">Start a petition</a></li>
+        <li><a id="startPetitions" href="/writePetition">Start a petition</a></li>
         <li><a id="myPetitions" href="/myPetitions/myPetitions">My petitions</a></li>
         <li><a id="browse" href="#">Browse</a></li>
       </ul>

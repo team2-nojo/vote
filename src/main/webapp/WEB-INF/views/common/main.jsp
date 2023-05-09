@@ -10,13 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>main</title>
-    <link rel="stylesheet" href="/resources/css/common/maincontent.css">
-    <link rel="stylesheet" href="/resources/css/common/maincontent2.css">
+    <link rel="stylesheet" href="resources/css/mainPage/maincontent.css">
+    <link rel="stylesheet" href="resources/css/mainPage/maincontent2.css">
 </head>
 <body>
-    <header>
-        <jsp:include page="/WEB-INF/views/common/header.jsp" />
-    </header>
+    <%-- header --%>
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <main>
 
       <section class="section1">
@@ -30,7 +29,7 @@
 
         </div>
       </div>
-     </section>
+    </section>
       <div class="container2">
 
         <a href="http://www.naver.com" style="cursor:pointer" id="mainNewsLink"><div class="item box1"><img src="/resources/images/mainPage/news1.jpeg" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
@@ -41,7 +40,7 @@
           <div id="newsContent">
             <h5 id="news"></div>
           </h5>
-         
+        
         </div>
         <div class="item box3">
           <div><img src="/resources/images/mainPage/profile1.jpeg" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div>
@@ -59,7 +58,7 @@
             <div id='supporter' style="font-size: 15px; margin-bottom: 0;">Supporters</div>
           </div>
         </div>
-     
+    
 
       </div>
       </div>
@@ -195,8 +194,9 @@
     <section class="side-section">
     </section>
     </main>
+    <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-    <script src="/resources/js/common/mainFrame.js">
-    </script>
+    <%-- main.js --%>
+    <script src="/resources/js/mainPage/mainPage.js"></script>
 </body>
 </html>

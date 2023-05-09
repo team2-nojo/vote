@@ -1,3 +1,26 @@
+main * {
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid black; */
+}
+
+.title {
+  font-size: 50px;
+}
+.subTitle {
+  margin-top: 10px;
+}
+.titleBtn {
+  border-radius: 5px;
+  background-color: #2db400;
+  margin: 30px;
+  width: 100px;
+  height: 40px;
+  color: white;
+  border: none;
+  font-size: 16px;
+}
+
 .item {
   border: 1px solid lightgray;
   justify-content: center;

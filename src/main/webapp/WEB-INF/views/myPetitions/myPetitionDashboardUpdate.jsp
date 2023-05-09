@@ -19,9 +19,7 @@
 </head>
 <body>
     <main>
-        <header>
-            <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-        </header>
+        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
         <form action="#" method="get">
             <div class="content" id="dashboardUpdate">
                 <div class="contentbox" id="dashboardUpdateContainer">
@@ -109,13 +107,12 @@
         </footer>
     </main>
     <script src="/resources/js/myPetitions/petitionDashboardUpdate.js"></script>
-    <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
     <script>
         $('#summernote').summernote({
-          placeholder: 'Hello stand alone ui',
-          tabsize: 2,
-          height: 400,
-          toolbar: [
+            placeholder: 'Hello stand alone ui',
+            tabsize: 2,
+            height: 400,
+            toolbar: [
             ['style', ['style']],
             ['font', ['bold', 'underline', 'clear']],
             ['color', ['color']],
@@ -123,7 +120,7 @@
             ['table', ['table']],
             ['insert', ['link', 'picture', 'video']],
             ['view', ['fullscreen', 'codeview', 'help']]
-          ]
+            ]   
         });
     </script>
 </body>

@@ -1,0 +1,268 @@
+
+
+/* EditProfileText 상단 */
+.EditProfileText{
+    text-align: center !important;
+}
+
+/* user profile이 적힌 row를 가운데로 */
+.userProfileframe > .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* login_myPetitions 아이디 */
+.userProfileID{
+    font-size: 36px;
+    font-weight: bold;
+    margin: 12px 0px;
+}
+
+/* login_myPetitions 지역 */
+.userProfileLocation{
+    margin:0px 0px 15px;
+}
+
+/* edit profile 버튼 */
+.EditProfileText>a{
+    width: 101.52px;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 15px 0px;
+    padding: 8px 16px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 12px !important;
+}
+
+/* edit profile 버튼 hover시 하단에 빨간 줄이 나오는 설정(start/signed nav바에 적용되는) 제거 */
+.EditProfileText>a:hover{
+    border: 1px solid lightgray !important;
+}
+
+/* tabs */
+.userProfileframe>ul{
+    display: flex;
+    justify-content: left;
+    list-style: none;
+    height: 34px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 50px;
+}
+
+/* tabs 속 list */
+.userProfileframe>ul>li{
+    flex: 0 1 150px; /* flex : grow, shrink, basis를 순서대로 지정 */
+}
+
+/* tabs 속 list 속 (Start, Signed) */
+.userProfileframe a {
+    font-weight: bold;
+    padding: 11px 0; /* a태그는 기본적으로 inline */
+    display: block;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    margin: 0px 0px -1px;
+    padding: 6px 0px;
+    text-align:center;
+    transition-duration: 0.2s;
+}
+
+/* started, signed 탭 메뉴 hover */
+.userProfileframe a:hover{
+    color: #e01a2b;
+    border-bottom: 2px solid red;
+}
+
+
+
+.userProfileframe > .defaultbox {
+    margin: 25px 0px;
+    border: 1px solid #737273;
+    border-radius: 5px;
+}
+
+
+
+/* myPetitionstatus 청원 진행 상태 */
+.defaultbox > .myPetitionstatus{
+    margin-bottom: 3px !important;
+    line-height: 1.5;
+}
+
+
+.defaultbox > .myPetitionstatus > div{
+    margin-bottom: 20px !important;
+    background-color: #f6f4f6;
+    border-right: 10px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .15em;
+    line-height: 1.5;
+    padding: 0.3em 0.9em;
+    cursor: pointer;
+}
+
+
+
+/* myPetitionTitle 청원 타이틀 양식 */
+.myPetitionTitle {
+    font-size: 24px !important;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* myPetitionText 청원 본문 양식 */
+.myPetitionText{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 1em;
+    margin-inline-end: 1em;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+/* myPetitionWriter 청원 글 작성자 양식 */
+
+/* myPetitionsupporter 서포터 수 양식 */
+.myPetitionsupporter, .myPetitionWriter {
+    text-align: right !important;
+    cursor: pointer;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-grow: 1;
+}
+
+.myPetitionWriter{
+    text-align: left !important;
+}
+
+.defaultbox > .myPetitionBottom {
+    display: flex;
+    width: 100%;
+}
+
+
+/* 반응형 웹 : 브라우저나 장치 환경(크기)에 따라 웹페이지의 모습이 변하는 웹페이지 */
+
+
+/* @media(미디어 쿼리) : 사용 환경, 크기에 따라 CSS를 지정 가능하게 해주는 구문 */
+/*  min-width :     최소 너비
+                    내부 요소 또는 화면의 크기가 지정된 너비보다 넓으면 자동으로 증가
+    min-height :    최소 높이
+                    내부 요소 또는 화면의 크기가 지정된 높이보다 높으면 자동으로 증가
+    max-width :     최대 너비
+                    내부 요소 또는 화면의 크기가 지정된 너비보다 좁으면 자동으로 축소,
+                    내부 요소 또는 화면의 크기가 지정된 너비보다 크더라도 더 이상 증가하지 않는다.
+                    지정된 값 이상으로 증가하지 않는다.
+    max-height :    최대 높이
+                    내부 요소 또는 화면의 크기가 지정된 높이보다 낮으면 자동으로 축소,
+                    내부 요소 또는 화면의 크기가 지정된 높이보다 크더라도 더 이상 증가하지 않는다.
+                    지정된 값 이상으로 증가하지 않는다.
+*/
+
+
+/* @media 미디어유형 and (속성)*/
+/* 미디어유형 : 지정할 미디어의 종류 (all, screen, print, ...) */
+/* 
+    1024px 이상 : 16:9 비율 모니터, 노트북
+    768~1024 : 태블릿 가로, 4:3 비율 모니터 
+    480~768 : 태블릿 세로, 모바일 가로
+    ~480 : 모바일
+    보통 디자인을 할 때는 모바일화면을 제일 먼저 디자인 함
+*/
+
+
+
+
+/* nav 버튼(햄버거 버튼) */
+.nav-btn{
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: none;
+    font-size: 1.5em;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    user-select: none; /* 드레그 불가 */
+    cursor: pointer;
+    display: none !important;
+}
+
+
+
+
+@media screen and (max-width:1024px) {
+    /* 모니터, 스마트폰, 태블릿 같은 화면이 최대 너비 1024px 보다 작을 때 적용(화면 너비가 최대 1024px이 되기 전까지 적용) */
+    main{
+        width: 100%;;
+        margin-top: 10px;
+        min-width: 768px;
+    }
+
+    header{
+        height: 150px;
+        /* row->column 방향으로 변경 */
+        flex-direction: column;
+    }
+
+    header>section{
+        width: initial !important; /* 초기값(auto) */
+    }
+
+    /* 로고 너비 변경 */
+    #homeLogo{
+        width: 80px;
+    }
+
+    /* 검색창 너비 변경 */
+    .search-area{
+        width: 90%;
+    }
+
+    .content{
+        padding:0 10px;
+    }
+
+    /* nav 관련 설정 */
+    .nav-btn{display: block !important;}
+
+    nav{
+        width: 100vw; /* 화면 너비 100% */
+        height: 100vh; /* 화면 높이 100% */
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+
+    nav>ul{
+        background: white;
+        width: 300px;
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding-top: 60px;
+        padding-left: 20px;
+    }
+
+    nav>ul>li{
+        /* 중심축 방향 크기 자동 조정 */
+        flex-basis: auto;
+    }
+
+    nav a:hover{
+        background-color: initial;
+        color: #455ba8;
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width:768px) { 
+
+}
+

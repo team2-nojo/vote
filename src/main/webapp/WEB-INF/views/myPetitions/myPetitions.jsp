@@ -10,15 +10,11 @@
     <title>login_myPetitions</title>
     <link rel="stylesheet" href="/resources/css/myPetitions/myPetitions.css">
     <link rel="stylesheet" href="/resources/css/myPetitions/myPetitionsCommon.css">
-    <!-- font awesome 라이브러리 추가 + key 등록 -->
-    <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
-    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
 </head>
 <body>
+    <%-- header --%>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <header>
-            <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-        </header>
         <nav>
         </nav>
         <div class="userProfile content"> <!-- 본문 -->
@@ -36,11 +32,10 @@
                 </ul> 
             </div>
         </div>
-        <footer>
-            <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-        </footer>
     </main>
-    <script src="/resources/js/myPetitions/myPetitions.js">
-    </script>
+    <%-- footer --%>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <%-- myPetitions.js --%>
+    <script src="/resources/js/myPetitions/myPetitions.js"></script>
 </body>
 </html>

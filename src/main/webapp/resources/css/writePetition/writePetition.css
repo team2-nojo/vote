@@ -1,0 +1,289 @@
+.write-petition-container{
+  width: 960px;
+  margin: 0 auto;
+}
+
+.border{
+  /* border:1px solid black; */
+}
+
+
+main *{
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+}
+
+.wp-progress-bar {
+  width: 960px;
+  height: 8px;
+  margin: auto;
+  background-color: #eee;
+}
+
+.wp-progress {
+  height: 100%;
+  background-color: #2DB400;
+  width: 0px;
+  transition: width 0.1s ease-in-out;
+}
+
+
+.container{
+  display: flex;
+  width: 600px;
+  margin: 30px auto;
+  flex-direction: column;
+}
+.container>*{
+  margin-bottom:20px
+}
+
+.medium{
+  font-size: 1.5rem;
+}
+
+.large{
+  font-size: 2rem;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.btnContainer{
+  width: 600px;
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px auto;
+}
+
+.selectContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item{
+  display: flex;
+  height: 80px;
+  flex-basis: 32%;
+  border: 1px solid black;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.item:hover{
+  background-color: #eee;
+}
+
+.selectedItem{
+  border: 2px solid #2DB400;
+  color: #2DB400;
+  font-weight: bold;
+}
+
+.myBtn{
+  margin: 5px;
+  width: 100px;
+  height: 40px;
+  border: 2px solid #2DB400;
+  border-radius: 5px;
+  /* font-size: 1rem; */
+  font-weight: bold;
+}
+
+.myBtn:hover{
+  border-color: black;
+}
+
+#prevBtn{
+  display: none;
+}
+
+#nextBtn{
+  background-color: #2DB400;
+  color: white;
+}
+
+
+#submitBtn{
+  display: none;
+  width: auto;
+  background-color: #2DB400;
+  color: white;
+}
+
+.tip{
+  border: 1px solid #bbb;
+  background-color: #eee;
+  border-radius: 5px;
+  width: 100%;
+  /* height:0px; */
+  align-items: center;
+  padding: 20px 0;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai-center{
+  display: flex;
+  align-items: center;
+}
+
+.scope-icon{
+  margin-left: 10px;
+  margin-right: 10px;
+  pointer-events: none;
+}
+
+.page{
+  display:none;
+}
+
+.page.current{
+  display: flex;
+}
+
+#categoryContainer{
+  display: flex;
+  padding: 3px;
+  flex-wrap: wrap;
+}
+
+.categoryItem{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 3px;
+  display: flex;
+  cursor: pointer;
+}
+
+.pointer-events-none{
+  pointer-events: none;
+}
+
+#titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+#titleContainer > div:first-child {
+  font-size: 0.8rem;
+}
+
+/* #inputTitle {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0;
+  border: none;
+  outline: none;
+} */
+
+#inputTitle {
+  width: 100%;
+  padding: 10px;
+  /* margin-bottom: 10px; */
+  outline: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+#titleCountContainer {
+  display: flex;
+  align-self: flex-end;
+}
+
+.red{
+  color: red;
+}
+
+button:disabled{
+  background-color: #bbb !important;
+}
+
+button:disabled:hover{
+  cursor: not-allowed;
+}
+
+
+.inputImgContainer{
+  width: 560px;
+  height: 350px;
+  border: 1px dashed #aaa;
+  border-radius: 8px;
+}
+.inputImgBtn{
+  background-color: white;
+  color: #2DB400;
+}
+
+#page6{
+  width: 960px;
+}
+#previewContainer{
+  width: 100%;
+  display: flex;
+}
+
+#previewTitle{
+  font-weight: bold;
+  align-self: center;
+}
+
+#previewImgAndSignContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.profileImg{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.startPetition{
+  font-weight: bold;
+}
+
+#signContainer{
+  padding: 10px;
+}
+#signContainer *{
+  margin: 5px;
+}
+
+#progC{
+  height: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 0px;
+}
+
+#prog{
+  width: 20%;
+  height: 100%;
+  background-image: linear-gradient(to right, orange, red);
+  border-radius: 10px;
+  margin: 0px;
+}
+
+.sticky{
+  background-color: white;
+  bottom: 0px;
+  position: sticky;
+  z-index: 1000;
+}

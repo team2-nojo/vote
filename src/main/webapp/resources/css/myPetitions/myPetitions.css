@@ -70,9 +70,15 @@
     transition-duration: 0.2s;
 }
 
-/* started, signed 탭 메뉴 hover */
-.userProfileframe a:hover{
-    color: #e01a2b;
+/* started, signed 탭 메뉴 mouseover */
+.myPetitions-mouseover{
+    color: #e01a2b !important;
+    border-bottom: 2px solid red;
+}
+
+/* started, signed 탭 메뉴 mouseover */
+.myPetitions-click {
+    color: #e01a2b !important;
     border-bottom: 2px solid red;
 }
 

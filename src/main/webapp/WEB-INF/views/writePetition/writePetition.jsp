@@ -7,15 +7,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>청원하기</title>
-        <!-- include libraries(jQuery, bootstrap) -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         
         <!-- include summernote css/js -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+        
         <link rel="stylesheet" href="resources/css/writePetition/writePetition.css">
     </head>
     <body>
@@ -41,24 +38,15 @@
                         </span>
                     </div>
                     <div id="page1Tip" class="tip"><span class="scope-icon">icon</span><span> 지역 청원은 승리할 확률이 50% 더 높습니다.</span></div>
-                    
                 </div>
                 
                 <!-- page2 -->
                 <div id="page2" class="page container border">
                     <h1>이 청원에 가장 적합한 주제는 무엇인가요?</h1>
-                    <div id="themeContainer" class="border">
-                        <span class="theme" name="theme">임시데이터1</span>
-                        <span class="theme" name="theme">임시데이터2</span>
-                        <span class="theme" name="theme">임시데이터3</span>
-                        <span class="theme" name="theme">임시데이터4</span>
-                        <span class="theme" name="theme">임시데이터5</span>
-                        <span class="theme" name="theme">임시데이터6</span>
-                        <span class="theme" name="theme">임시데이터7</span>
-                        <span class="theme" name="theme">임시데이터8</span>
-                        <span class="theme" name="theme">임시데이터9</span>
-                        <span class="theme" name="theme">임시데이터10</span>
-                        <span class="theme">직접 입력</span>
+                    <div id="categoryContainer" class="border">
+                        <input type="checkbox" name="asdf" id="a" style="display:none;">
+                        <label for="a" class="categoryItem">임시데이터1</label>
+                        <span class="categoryItem">직접 입력</span>
                     </div>
                 </div>
                 
@@ -69,7 +57,7 @@
                     <div id="titleContainer">
                         <div>청원 제목</div>
                         <input type="text" name="title" id="inputTitle">
-                        <div id="countContainer"><div id="charCount">0</div><div>/90</div></div>
+                        <div id="titleCountContainer"><div id="titleCharCount">0</div><div>/90</div></div>
                     </div>
                 </div>
                 
@@ -133,19 +121,18 @@
                     </div>
                 </div>
                 
-                <div id="btnContainer" class="btnContainer border">
-                    <button type="button" id="prevBtn" class="myBtn">이전으로</button>
-                    <button type="button" id="nextBtn" class="myBtn">다음으로</button>
-                    <button type="submit" id="submitBtn" class="myBtn">청원서 최종 제출</button>
-                </div>
-                </form>
+            <div id="btnContainer" class="btnContainer border">
+                <button type="button" id="prevBtn" class="myBtn">이전으로</button>
+                <button type="button" id="nextBtn" class="myBtn">다음으로</button>
+                <button type="submit" id="submitBtn" class="myBtn">청원서 최종 제출</button>
             </div>
-        </main>
+            </form>
+        </div>
+    </main>
         <jsp:include page="/WEB-INF/views/common/footer.jsp" />
         <script src="resources/js/writePetition/writePetition.js"></script>
         <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
         <script>
-        
             $('#summernote').summernote({
                 placeholder: 'Hello stand alone ui',
                 tabsize: 2,

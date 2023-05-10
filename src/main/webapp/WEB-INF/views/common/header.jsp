@@ -19,9 +19,10 @@
       </ul>
     </div>
     <div class="header-icon">
-      <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-      <i class="fa-sharp fa-solid fa-user"></i>
-      <i class="fa-sharp fa-solid fa-bell"></i>
+      <a href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+      <%-- <i class="fa-sharp fa-solid fa-user"></i>
+      <i class="fa-sharp fa-solid fa-bell"></i> --%>
+      <a href="#" id="loginBtn">Log in</a>
     </div>
   </section>
 </header>

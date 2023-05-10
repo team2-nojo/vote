@@ -1,12 +1,3 @@
-/* body{
-  height: 100%;
-} */
-
-/* main{
-  width: 100%;
-  min-height: 80vh;
-} */
-
 .write-petition-container{
   width: 960px;
   margin: 0 auto;
@@ -15,16 +6,12 @@
 .border{
   /* border:1px solid black; */
 }
-*{
+
+
+main *{
   box-sizing: border-box;
   /* border: 1px solid black; */
 }
-
-/* body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
 
 .wp-progress-bar {
   width: 960px;
@@ -164,13 +151,13 @@
   display: flex;
 }
 
-#themeContainer{
+#categoryContainer{
   display: flex;
   padding: 3px;
   flex-wrap: wrap;
 }
 
-.theme{
+.categoryItem{
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
@@ -215,7 +202,7 @@
   border-radius: 8px;
 }
 
-#countContainer {
+#titleCountContainer {
   display: flex;
   align-self: flex-end;
 }

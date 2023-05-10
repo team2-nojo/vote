@@ -1,23 +1,25 @@
-let currentPage = 0;
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const sbmtBtn = document.getElementById('submitBtn');
-const pages = document.getElementsByClassName('page');
-const progressBar = document.querySelector('.wp-progress');
-const inputTitle = document.getElementById('inputTitle');
-const countContainer = document.getElementById('countContainer');
-const charCount = document.getElementById('charCount');
+let currentPage = 0; // 현재 페이지 0으로 설정
+const prevBtn = document.getElementById('prevBtn'); // 이전 버튼
+const nextBtn = document.getElementById('nextBtn'); // 다음 버튼
+const sbmtBtn = document.getElementById('submitBtn'); // 제출 버튼
+const pages = document.getElementsByClassName('page'); // 페이지 배열
+const progressBar = document.querySelector('.wp-progress'); // 프로그레스 바
+
+const inputTitle = document.getElementById('inputTitle'); // 제목 input
+
+const titleCountContainer = document.getElementById('titleCountContainer'); // 제목 글자 수 카운트컨테이너
+const titleCharCount = document.getElementById('titleCharCount'); // 제목 글자 수 표시 div
 const btnContainer = document.getElementById('btnContainer');
 const titleCharCheck = () =>{
   const remainingChars = inputTitle.value.length;
-  charCount.textContent = String(remainingChars);
+  titleCharCount.textContent = String(remainingChars);
   if(remainingChars>90){
-    countContainer.classList.add('red');
+    titleCountContainer.classList.add('red');
     nextBtn.disabled = true;
   } else if(remainingChars == 0){
     nextBtn.disabled = true;
   } else {
-    countContainer.classList.remove('red');
+    titleCountContainer.classList.remove('red');
     nextBtn.disabled = false;
   }
 }
@@ -39,7 +41,6 @@ const updatePage = () => {
     sbmtBtn.style.display = 'none';
     btnContainer.style.width = '600px';
   }
-
   if(currentPage == 2){
     titleCharCheck();
   } else {
@@ -47,8 +48,14 @@ const updatePage = () => {
   }
 }
 
-prevBtn.addEventListener('click', () => {if (currentPage > 0) currentPage--; updatePage();})
-nextBtn.addEventListener('click', () => {if (currentPage < pages.length) currentPage++;updatePage();});
+// 이전 버튼 클릭 시 currentPage 감소 후 페이지 업데이트
+prevBtn.addEventListener('click', () => {
+  if (currentPage > 0)
+    currentPage--;
+  updatePage();
+});
+// 다음 버튼 클릭 시 currentPage 증감 후 페이지 업데이트
+nextBtn.addEventListener('click', () => {if (currentPage < pages.length) currentPage++; updatePage();});
 
 const page1Items = document.querySelectorAll('.item');
 const page1Tip = document.querySelector('#page1Tip');
@@ -63,7 +70,5 @@ page1Items.forEach(item => {
   })
 })
 inputTitle.addEventListener('input', titleCharCheck);
-
-
 
 updatePage();

@@ -16,13 +16,27 @@
         <li><a id="startPetitions" href="/writePetition">Start a petition</a></li>
         <li><a id="myPetitions" href="/myPetitions/myPetitions">My petitions</a></li>
         <li><a id="browse" href="#">Browse</a></li>
+        <li><a id="Help" href="#">Help</a></li>
       </ul>
     </div>
-    <div class="header-icon">
-      <a href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
-      <%-- <i class="fa-sharp fa-solid fa-user"></i>
-      <i class="fa-sharp fa-solid fa-bell"></i> --%>
-      <a href="#" id="loginBtn">Log in</a>
-    </div>
+    <c:choose>
+      <c:when test="${empty sessionScope.user}">
+        <div class="header-icon">
+          <a href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+          <%-- <i class="fa-sharp fa-solid fa-user"></i>
+          <i class="fa-sharp fa-solid fa-bell"></i> --%>
+          <a href="/user/login" id="loginBtn">Log in</a>
+        </div>
+      </c:when>
+      <%-- 로그인 되었을 때 --%>
+      <c:otherwise>
+        <div class="header-icon">
+          <a href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+          <%-- <i class="fa-sharp fa-solid fa-user"></i>
+          <i class="fa-sharp fa-solid fa-bell"></i> --%>
+          <a href="/user/login" id="loginBtn">Log in</a>
+        </div>
+      </c:otherwise>
+    </c:choose>
   </section>
 </header>

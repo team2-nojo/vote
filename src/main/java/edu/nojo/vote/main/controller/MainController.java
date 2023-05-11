@@ -9,4 +9,8 @@ public class MainController {
 	public String mainForward() {
 		return "common/main";
 	}
+	
+	
+	
+	
 }

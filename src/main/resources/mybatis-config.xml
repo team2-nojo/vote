@@ -12,15 +12,18 @@
 	</settings>
 	<!-- 별칭 작성 부분 -->
 	<!-- VO클래스의 패키지명 + 클래스명 작성하는 것이 불편하기 때문에 짧은 별칭 부여 -->
-	<!-- <typeAliases>
-		<typeAlias type="edu.nojo.vote.member.model.dto.Member" alias="Member" />
-	</typeAliases> -->
+	<typeAliases>
+	
+		<typeAlias type="edu.nojo.vote.user.model.dto.User" alias="User" />
+		
+	</typeAliases>
+	
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 	<mappers>
 		<mapper resource="/mappers/administrator-mapper.xml" />
 		<mapper resource="/mappers/browse-mapper.xml" />
 		<mapper resource="/mappers/help-mapper.xml" />
-		<mapper resource="/mappers/login-mapper.xml" />
+		<mapper resource="/mappers/user-mapper.xml" />
 		<mapper resource="/mappers/myPage-mapper.xml" />
 		<mapper resource="/mappers/writePetition-mapper.xml" />
 	</mappers>

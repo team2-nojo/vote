@@ -1,0 +1,157 @@
+
+*{ 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* 임시테두리 */
+/* main, header, section, footer{
+    border: 1px solid black;
+} */
+
+main{
+    width: 960px;
+    height: 925px;
+    margin: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* body */
+
+main section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: auto;
+}
+
+#loginFrm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: auto;
+}
+
+#logIn{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+#DontHaveAccount{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+#SignUp{
+    color: red;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.searchPw{
+    
+    margin-left: 100px;
+}
+
+
+#searchPw{
+    margin-left: 100px;
+    color: red;
+    font-size: 13px;
+
+}
+
+
+
+#kakao{
+    background-color: white;
+    width: 350px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+
+
+.or{
+    /* margin: 30px auto; */
+    width: 330px; 
+    display: flex;
+    flex-direction: row;
+    flex-basis: 1%;
+    align-items: center;
+    color: #ccc;
+    font-size: 16px;
+    
+}
+
+
+
+.or::after, .or::before{
+    content: "";
+    flex-grow: 1;
+    border-top: 1px solid #ccc;
+    height: 1;
+    margin: 0px 15px;
+}
+
+
+main input{
+    width: 200px;
+    height: 40px;
+    margin: 5px;
+}
+
+
+
+#email{
+    height: 40px;
+    width: 300px;
+}
+
+
+#password{
+    height: 40px;
+    width: 300px;
+    
+}
+
+
+#agree{
+    height: 15px;
+    width: 15px;
+}
+
+
+
+main button{
+    height: 40px;
+    width: 90px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+#loginSubmit{
+    width: 300px;
+    height: 45px;
+    color: white;
+    font-size: 16px;
+    background-color: #2DB400;
+    border: none;
+    margin: 8px;
+    border-radius: 5px;
+}

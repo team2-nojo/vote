@@ -146,8 +146,17 @@ smallNews.forEach((newBox, index) => {
   //smallNews[index].src = pettitions[index].image;
   //smallNews[index].src.backgroundSize = 'cover';
   newBox.addEventListener('click', () => {
-    newBox.style.borderBottom = '6px solid #2DB400';
+    // 모든 요소의 스타일 초기화
+    smallNews.forEach((box) => {
+      box.style.borderBottom = 'none';
+    });
+    newsTitles.forEach((title) => {
+      title.style.color = 'black';
+    });
 
+    // 클릭한 요소에 대해서만 스타일 변경
+    newBox.style.borderBottom = '6px solid #2DB400';
+    newsTitles[index].style.color = 'rgba(40, 144, 5, 1)';
     if (index === 0) {
       newsTitle.innerText = pettitions[0].title;
       newsSub.innerText = pettitions[0].content;
@@ -167,7 +176,6 @@ smallNews.forEach((newBox, index) => {
     }
   });
   newBox.addEventListener('click', () => {
-    newsTitles[index].style.color = 'red';
     // newBox.style.borderBottom = 'none';
     // newsTitle.innerText = pettitions[0].title;
     // newsSub.innerText = pettitions[0].content;

@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <ul class="tabs"> <!-- 내가 시작한, 사인한 청원 목록 보는 탭 -->
-                    <li><a href="#" id="start">Start(3)</a></li> <!-- 내가 시작한 청원 목록  -->
+                    <li><a href="#" id="start" class="myPetitions-click">Start(3)</a></li> <!-- 내가 시작한 청원 목록  -->
                     <li><a href="#" id="signed">Signed(2)</a></li> <!-- 내가 사인한 청원 목록 -->
                 </ul> 
             </div>

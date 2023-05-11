@@ -71,6 +71,31 @@ signed.addEventListener('mouseleave', () => {
 
 
 
+// start, signed 버튼을 마우스오버 하면 빨간색으로 변경
+start.addEventListener('mouseenter', () => {
+    if(signed.classList.contains("myPetitions-mouseover")) {
+        signed.classList.remove("myPetitions-mouseover");
+    }
+    start.classList.add("myPetitions-mouseover");
+});
+
+start.addEventListener('mouseleave', () => {
+    start.classList.remove("myPetitions-mouseover");
+});
+
+signed.addEventListener('mouseenter', () => {
+    if(start.classList.contains("myPetitions-mouseover")) {
+        start.classList.remove("myPetitions-mouseover");
+    }
+    signed.classList.add("myPetitions-mouseover");
+});
+
+signed.addEventListener('mouseleave', () => {
+    signed.classList.remove("myPetitions-mouseover");
+});
+
+
+
 // tab[0](start) 탭을 누르면 작성한 청원글이 나오는 함수
 start.addEventListener("click", () => {
     if(signed.classList.contains("myPetitions-click")) {
@@ -92,13 +117,18 @@ signed.addEventListener("click", () => {
 
 function myPetitionTabs(num) {
 
+
       // 만약 이미 start/signed 버튼을 눌러 내 start/signed가 나와있는 화면이면 기존 div 다 삭제하고 다시 생성
     if(userProfileframe.childElementCount>2) {
         const defaultboxToRemove = document.querySelectorAll(".defaultbox");
         defaultboxToRemove.forEach(e => {
             e.parentNode.removeChild(e);
         });
-    }   
+
+      }
+
+    
+
       for(let i = 0; i < num; i++){ // DB에 있는 내 작성 청원 개수를 매개변수로 받아와 개수만큼 실행
         // defaultbox 생성(큰 틀 생성)
         const defaultbox = document.createElement("div");
@@ -171,3 +201,24 @@ function myPetitionTabs(num) {
         defaultbox.append(myPetitionBottom);
     }
 };
+
+(function(){
+    myPetitionTabs(num1)
+    userProfileframe.style
+})();
+
+
+
+
+// 만약 작성한 청원이 없다면 start a pettition으롤 가는 박스를 생성해서 보여줌
+// (function(){
+//    if(userProfileframe.childElementCount=0) {
+
+//     // 박스 생성
+//     const defaultbox = document.createElement("div");
+//     defaultbox.classList.add("defaultbox");
+//     userProfileframe.append(defaultbox);
+
+//    }
+// })();
+

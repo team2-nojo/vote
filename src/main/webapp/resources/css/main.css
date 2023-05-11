@@ -1,11 +1,12 @@
-header *, footer * {
+header *,
+footer * {
   margin: 0;
   padding: 0;
   /* border: 1px solid black; */
 }
 
 /* header */
-header{
+header {
   height: 57px;
   border-bottom: 2px solid #ccc;
   display: flex;
@@ -25,7 +26,7 @@ header{
 .header-logo {
   width: 160px;
 }
-.header-menu{
+.header-menu {
   width: 65%;
   display: flex;
   align-items: center;
@@ -48,7 +49,7 @@ header{
   justify-content: center;
   align-items: center;
 }
-#logoimg{
+#logoimg {
   height: 40px;
 }
 
@@ -66,11 +67,11 @@ header{
   color: black;
 }
 
-.header-menu a:hover{
+.header-menu a:hover {
   color: #2db400;
 }
 
-.header-menu li{
+.header-menu li {
   list-style: none;
   padding: 15px;
 }
@@ -94,7 +95,7 @@ main {
 footer {
   position: absolute;
 
-  left:0px;
+  left: 0px;
   margin-top: 20px;
   width: 100%;
 
@@ -108,7 +109,7 @@ footer {
   align-items: center;
 }
 
-.footer-list{
+.footer-list {
   display: flex;
   width: 960px;
   justify-content: space-around;
@@ -148,4 +149,9 @@ footer {
   color: #515151;
   font-weight: 600;
   padding: 5px 3px;
+}
+#loginBtn {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
 }

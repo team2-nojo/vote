@@ -20,7 +20,7 @@
       </ul>
     </div>
     <c:choose>
-      <c:when test="${empty sessionScope.user}">
+      <c:when test="${empty sessionScope.loginUser}">
         <div class="header-icon">
           <a href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
           <%-- <i class="fa-sharp fa-solid fa-user"></i>
@@ -32,9 +32,15 @@
       <c:otherwise>
         <div class="header-icon">
           <a href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
-          <%-- <i class="fa-sharp fa-solid fa-user"></i>
-          <i class="fa-sharp fa-solid fa-bell"></i> --%>
-          <a href="/user/login" id="loginBtn">Log in</a>
+          <label for="userMenuToggle">
+            <i class="fa-sharp fa-solid fa-user"></i>
+          </label>
+          <input type="checkbox" id="userMenuToggle">
+          <div class="user-menu">
+            <a href="#">마이페이지</a>
+            <a href="#">로그아웃</a>
+          </div>
+          <i class="fa-sharp fa-solid fa-bell"></i>
         </div>
       </c:otherwise>
     </c:choose>

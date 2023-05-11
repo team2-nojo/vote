@@ -106,6 +106,28 @@
     cursor: pointer;
 }
 
+/* 작성한 청원이 없을 시 나타나는 defaultbox 속 area */
+
+
+
+
+/* 작성한 청원이 없을 시 나타나는 defaultbox 속 버튼 */
+.toStartAPetition {
+    display: inline-block;
+    padding : 8px 16px;
+    
+    color : #2DB400;
+    font-weight: bold;
+    text-align: center;
+
+    border-radius: 5px;
+    border: 2px solid #2DB400;
+
+    cursor : pointer;
+}
+
+
+
 
 
 /* myPetitionTitle 청원 타이틀 양식 */

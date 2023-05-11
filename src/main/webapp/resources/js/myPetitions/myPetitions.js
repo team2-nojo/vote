@@ -9,21 +9,89 @@ const userProfileframe = document.getElementsByClassName("userProfileframe")[0];
 // 나중에 DB에서 받아 올 숫자들 임시로 선언
 // num1 : start 글 개수(작성글)
 // num2 : signed 글 개수(서명한 글)
-num1 = 3;
-num2 = 2;
+num1 = 0;
+num2 = 0;
+
+
+// 로딩 화면에서 실행
+
+(function(){
+    // myPetitions가 있을 시 start 화면 default
+    if(num1 > 0) {
+        myPetitionTabs(num1)
+        start.classList.add("myPetitions-mouseover");
+    // myPetitions가 없을 시 defaultbox 생성    
+    } else {
+
+        const defaultbox = document.createElement("div");
+        defaultbox.classList.add("defaultbox");
+        
+        const defaultboxarea = document.createElement("div");
+        defaultbox.classList.add("defaultboxarea");
+
+        const defaultboxContent = document.createElement("span");
+        defaultboxContent.innerText = "바꾸고 싶은 세상이 있으신가요? 당신이 걱정하는 것에 대해 청원을 작성해 보세요.";
+        
+        const toStartAPetition = document.createElement("div");
+        toStartAPetition.setAttribute("href", "/writePetition");
+        toStartAPetition.classList.add("toStartAPetition");
+        toStartAPetition.innerText = "청원 시작";
+
+        defaultboxarea.append(defaultboxContent);
+        defaultboxarea.append(toStartAPetition);
+        defaultbox.append(defaultboxarea);
+        userProfileframe.append(defaultbox);
+    }
+})();
+
+
+// start, signed 버튼을 마우스오버 하면 빨간색으로 변경
+start.addEventListener('mouseenter', () => {
+    if(signed.classList.contains("myPetitions-mouseover")) {
+        signed.classList.remove("myPetitions-mouseover");
+    }
+    start.classList.add("myPetitions-mouseover");
+});
+
+start.addEventListener('mouseleave', () => {
+    start.classList.remove("myPetitions-mouseover");
+});
+
+signed.addEventListener('mouseenter', () => {
+    if(start.classList.contains("myPetitions-mouseover")) {
+        start.classList.remove("myPetitions-mouseover");
+    }
+    signed.classList.add("myPetitions-mouseover");
+});
+
+signed.addEventListener('mouseleave', () => {
+    signed.classList.remove("myPetitions-mouseover");
+});
+
+
+
 
 // tab[0](start) 탭을 누르면 작성한 청원글이 나오는 함수
 start.addEventListener("click", () => {
+    if(signed.classList.contains("myPetitions-click")) {
+        signed.classList.remove("myPetitions-click");
+    }
+    start.classList.add("myPetitions-click");
     myPetitionTabs(num1); // start 글 개수를 매개변수로 전달
 });
 
 signed.addEventListener("click", () => {
+    if(start.classList.contains("myPetitions-click")) {
+        start.classList.remove("myPetitions-click");
+    }
+    signed.classList.add("myPetitions-click");
     myPetitionTabs(num2); // signed 글 개수를 매개변수로 전달
 });
 
 
+
 function myPetitionTabs(num) {
-      // defaultbox를 만들어 DB에 작성된 내 작성글 중 하나를 입력
+
       // 만약 이미 start/signed 버튼을 눌러 내 start/signed가 나와있는 화면이면 기존 div 다 삭제하고 다시 생성
     if(userProfileframe.childElementCount>2) {
         const defaultboxToRemove = document.querySelectorAll(".defaultbox");

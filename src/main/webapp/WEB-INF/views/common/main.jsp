@@ -20,7 +20,7 @@
 
       <section class="section1">
 
-      <div class="container id="mf">
+      <div class="container" id="mf">
         <div style="margin-top: 100px;">
           <h1 class="title">당신의 투표를 기다립니다.</h1>
           <h3 class="subTitle">508,140,283명이 행동에 나섰습니다. 매일 승리하십시오.</h3>

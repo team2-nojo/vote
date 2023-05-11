@@ -78,9 +78,52 @@ header {
 
 /* 아이콘 */
 .header-icon {
+  position: relative;
+
   padding: 10px;
   text-align: center;
   font-size: 24px;
+}
+
+/* 로그인했을때 유저옵션 */
+#userMenuToggle{display: none;}
+
+label[for='userMenuToggle']{cursor: pointer;}
+label[for='userMenuToggle']:hover{ text-decoration: underline; }
+
+#userMenuToggle + div{display: none;}
+
+#userMenuToggle:checked + div{display: block;}
+
+.user-menu{
+  position: absolute;
+  top: 55px;
+
+  background-color: white;
+  z-index: 10;
+
+  border: 2px solid #ccc;
+}
+
+.user-menu>a{
+  width: 120px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+}
+
+.user-menu > a:first-child{
+  border-bottom: 2px solid #ccc;
+}
+
+.user-menu > a:hover{
+  background-color: #2db400;
+  color: white;
+  border: 2px solid #515151;
 }
 
 /* main */

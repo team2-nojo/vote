@@ -17,7 +17,7 @@ loginMember.addEventListener("click", () => {
 openPopup.addEventListener("click", () => {
     
     // 열기 이벤트
-    window.open("agreeService.html", "서비스_이용약관_동의", "width=500, hight=500px");
+    window.open("/user/agreeService", "서비스_이용약관_동의", "width=500, hight=500px");
     
     
 });  

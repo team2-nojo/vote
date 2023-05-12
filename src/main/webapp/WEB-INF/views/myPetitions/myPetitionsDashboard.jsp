@@ -93,7 +93,7 @@
                   <div><button><i class="fa-brands fa-facebook"></i> 페이스북</button></div>
                   <div><button><i class="fa-brands fa-square-twitter"></i> 트위터</button></div>
                   <div><button><i class="fa-regular fa-envelope"></i> 이메일</button></div>
-                  <div><button><i class="fa-sharp fa-solid fa-phone"></i> 왓츠앱</button></div>
+                  <div><button><i class="fa-sharp fa-solid fa-phone"></i> 카카오톡</button></div>
                 </div>
               </div>
             </div>

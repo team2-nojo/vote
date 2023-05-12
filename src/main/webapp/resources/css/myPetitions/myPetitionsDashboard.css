@@ -1,19 +1,22 @@
-*{
+main *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   /* border: 1px solid black; */
 }
 
-a{
+main a{
   text-decoration: none;
   color: black;
 }
 
-li{list-style: none;}
+main li{list-style: none;}
 
 /* title */
-.title{ width: 960px; margin: auto;}
+.title{
+  width: 860px;
+  margin: auto;
+}
 
 .title ul{
   height: 53px;
@@ -27,8 +30,8 @@ li{list-style: none;}
 .title a:hover{color: red;}
 
 /* nav */
-nav{
-  width: 960px;
+main nav{
+  width: 860px;
   display: flex;
   flex-direction: column;
 }
@@ -46,7 +49,7 @@ nav{
 
 /* content-dashborad */
 .content-dashborad{
-  width: 960px;
+  width: 860px;
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -111,14 +114,19 @@ nav{
 }
 
 .support> *{
-  padding: 10px;
+  padding: 4px;
 }
 
 .agree-top{ border-bottom: 1px solid #828282;}
 .agreeBt{ border-top: 1px solid #828282;}
 .agreeBt>*{padding: 5px;}
+
+.support-list{
+  height: 200px;
+  overflow: hidden;
+}
+
 .support-list>*{
-  height: 160px;
   padding-left: 10px;
   font-size: 20px;
 }
@@ -208,7 +216,8 @@ nav{
 }
 
 .reflesh, .marketing{
-  padding: 10px;
+  /* padding: 10px; */
+  width: 576px;
   height: 24%;
   display: flex;
   justify-content: center;
@@ -217,7 +226,7 @@ nav{
 }
 
 .reflesh div, .marketing div{
-  padding: 3px;
+  padding: 4px;
 }
 
 .reflesh a, #mkt{

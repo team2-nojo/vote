@@ -120,6 +120,10 @@ main input{
     width: 15px;
 }
 
+#agreeServiceGo{
+    font-size: 15px;
+    color: black;
+}
 
 
 main button{

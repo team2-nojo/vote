@@ -1,5 +1,5 @@
 // 서비스약관 체크하려고 할 때 팝업으로 약관 볼 수 있게 하기
-const openPopup = document.getElementById("agree");
+const openPopup = document.getElementById("agreeServiceGo");
 const loginMember = document.getElementById("loginMember");
 
 // 로그인 클릭 시 로그인 화면으로 이동

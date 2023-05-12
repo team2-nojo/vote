@@ -55,9 +55,9 @@
                 </div>
 
                 <div>
-                <a href="/user/agreeService" id="agreeServiceGo"></a>
-                    <input type="checkbox" id="agree"><label for="agree"> vote 서비스약관에 동의합니다.</label> 
-                </a>
+                    <a href="/user/agreeService" id="agreeServiceGo">
+                        <input type="checkbox" id="agree"><label for="agree"> vote 서비스약관에 동의합니다.</label> 
+                    </a>
                 </div>
 
                 <div>

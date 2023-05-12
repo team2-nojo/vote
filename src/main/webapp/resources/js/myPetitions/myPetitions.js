@@ -10,26 +10,29 @@ const userProfileframe = document.getElementsByClassName("userProfileframe")[0];
 // num1 : start 글 개수(작성글)
 // num2 : signed 글 개수(서명한 글)
 num1 = 0;
-num2 = 0;
+num2 = 2;
+
+// document.querySelectorAll(".empty-default-box").forEach(e=>e.remove())
 
 
 // 로딩 화면에서 실행
-
 (function(){
     // myPetitions가 있을 시 start 화면 default
     if(num1 > 0) {
+
         myPetitionTabs(num1)
         start.classList.add("myPetitions-mouseover");
+
     // myPetitions가 없을 시 defaultbox 생성    
     } else {
 
-        const defaultbox = document.createElement("div");
-        defaultbox.classList.add("defaultbox");
-        
-        const defaultboxarea = document.createElement("div");
-        defaultbox.classList.add("defaultboxarea");
+        const emptyDefaultBox = document.createElement("div");
+        emptyDefaultBox.classList.add("empty-default-box");
 
-        const defaultboxContent = document.createElement("span");
+        const emptyDefaultBoxArea = document.createElement("div");
+        emptyDefaultBoxArea.classList.add("emptyDefaultBoxArea");
+
+        const defaultboxContent = document.createElement("div");
         defaultboxContent.innerText = "바꾸고 싶은 세상이 있으신가요? 당신이 걱정하는 것에 대해 청원을 작성해 보세요.";
         
         const toStartAPetition = document.createElement("div");
@@ -37,36 +40,21 @@ num2 = 0;
         toStartAPetition.classList.add("toStartAPetition");
         toStartAPetition.innerText = "청원 시작";
 
-        defaultboxarea.append(defaultboxContent);
-        defaultboxarea.append(toStartAPetition);
-        defaultbox.append(defaultboxarea);
-        userProfileframe.append(defaultbox);
+        emptyDefaultBoxArea.append(defaultboxContent);
+        emptyDefaultBoxArea.append(toStartAPetition);
+        emptyDefaultBox.append(emptyDefaultBoxArea);
+        userProfileframe.append(emptyDefaultBox);
     }
+
 })();
 
 
-// start, signed 버튼을 마우스오버 하면 빨간색으로 변경
-start.addEventListener('mouseenter', () => {
-    if(signed.classList.contains("myPetitions-mouseover")) {
-        signed.classList.remove("myPetitions-mouseover");
-    }
-    start.classList.add("myPetitions-mouseover");
-});
 
-start.addEventListener('mouseleave', () => {
-    start.classList.remove("myPetitions-mouseover");
-});
 
-signed.addEventListener('mouseenter', () => {
-    if(start.classList.contains("myPetitions-mouseover")) {
-        start.classList.remove("myPetitions-mouseover");
-    }
-    signed.classList.add("myPetitions-mouseover");
-});
 
-signed.addEventListener('mouseleave', () => {
-    signed.classList.remove("myPetitions-mouseover");
-});
+
+
+
 
 
 
@@ -93,24 +81,82 @@ signed.addEventListener('mouseenter', () => {
 signed.addEventListener('mouseleave', () => {
     signed.classList.remove("myPetitions-mouseover");
 });
+
+
+
+
+
+
+
 
 
 
 // tab[0](start) 탭을 누르면 작성한 청원글이 나오는 함수
 start.addEventListener("click", () => {
+
+
+    // 만약 signed가 클릭된 상태라면, signed 활성화 제거 후 start 활성화
     if(signed.classList.contains("myPetitions-click")) {
         signed.classList.remove("myPetitions-click");
     }
     start.classList.add("myPetitions-click");
-    myPetitionTabs(num1); // start 글 개수를 매개변수로 전달
+
+    // 만약 start한 myPetitions가 있다면
+    if(num1 > 0) {
+
+        myPetitionTabs(num1)
+        start.classList.add("myPetitions-mouseover");
+
+    // start한 myPetitions가 없다면
+    } else {
+
+        
+
+        const emptyDefaultBox = document.createElement("div");
+        emptyDefaultBox.classList.add("empty-default-box");
+
+        const emptyDefaultBoxArea = document.createElement("div");
+        emptyDefaultBoxArea.classList.add("emptyDefaultBoxArea");
+
+        const defaultboxContent = document.createElement("div");
+        defaultboxContent.innerText = "바꾸고 싶은 세상이 있으신가요? 당신이 걱정하는 것에 대해 청원을 작성해 보세요.";
+        
+        const toStartAPetition = document.createElement("div");
+        toStartAPetition.setAttribute("href", "/writePetition");
+        toStartAPetition.classList.add("toStartAPetition");
+        toStartAPetition.innerText = "청원 시작";
+
+        emptyDefaultBoxArea.append(defaultboxContent);
+        emptyDefaultBoxArea.append(toStartAPetition);
+        emptyDefaultBox.append(emptyDefaultBoxArea);
+        userProfileframe.append(emptyDefaultBox);
+    }
+    
 });
 
+
+
+
+
+
 signed.addEventListener("click", () => {
+
+    // 만약 start가 클릭된 상태라면, start 활성화 제거 후 signed 활성화
     if(start.classList.contains("myPetitions-click")) {
         start.classList.remove("myPetitions-click");
     }
     signed.classList.add("myPetitions-click");
-    myPetitionTabs(num2); // signed 글 개수를 매개변수로 전달
+
+    // 만약 signed글 개수가 없다면
+    // 청원 시작 박스 로딩
+
+    // 만약 sigend 글 개수가 있다면
+    // signed한 글 불러오기
+        // 
+
+     
+    // signed 글 개수를 매개변수로 전달
+    myPetitionTabs(num2); 
 });
 
 
@@ -120,14 +166,16 @@ function myPetitionTabs(num) {
 
       // 만약 이미 start/signed 버튼을 눌러 내 start/signed가 나와있는 화면이면 기존 div 다 삭제하고 다시 생성
     if(userProfileframe.childElementCount>2) {
+        
         const defaultboxToRemove = document.querySelectorAll(".defaultbox");
+   
+
         defaultboxToRemove.forEach(e => {
             e.parentNode.removeChild(e);
         });
 
-      }
 
-    
+      }
 
       for(let i = 0; i < num; i++){ // DB에 있는 내 작성 청원 개수를 매개변수로 받아와 개수만큼 실행
         // defaultbox 생성(큰 틀 생성)
@@ -202,10 +250,6 @@ function myPetitionTabs(num) {
     }
 };
 
-(function(){
-    myPetitionTabs(num1)
-    userProfileframe.style
-})();
 
 
 

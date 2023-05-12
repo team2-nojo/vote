@@ -64,4 +64,27 @@ public class UserController {
 	}
 	
 	
+	
+	// 회원가입 페이지로 이동
+	@GetMapping("/signUp")
+	public String signUp() {
+		return "/user/signUp";
+	}
+	
+	
+	// 비밀번호 찾기 페이지로 이동
+	@GetMapping("/searchPw")
+	public String searchPw() {
+		return "/user/searchPw";
+	}
+	
+	
+	
+	// 가입동의 페이지로 이동
+	@GetMapping("/agreeService")
+	public String agreeService() {
+		return "/user/agreeService";
+	}
+	
+	
 }

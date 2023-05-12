@@ -21,7 +21,7 @@
                 <div id="logIn">Log in</div>
                 <br>
                 
-                <div id="DontHaveAccount">Don't have an account? <a href="#" id="SignUp">Sign up</a></div>
+                <div id="DontHaveAccount">Don't have an account? <a href="/user/signUp" id="SignUp">Sign up</a></div>
                 <br>
                 
                 <button type="button" id="kakao"><img src="/resources/images/user/kakaoLogin.png"></button>
@@ -34,7 +34,7 @@
                 </div>
             
                 <div class="searchPw">
-                    <a href="#"  id="searchPw">Forget Password</a>
+                    <a href="/user/searchPw"  id="searchPw">Forget Password</a>
                 </div>
                 
 

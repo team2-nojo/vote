@@ -1,0 +1,78 @@
+
+*{ 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* 임시테두리 */
+/* main, header, section, footer{
+    border: 1px solid black;
+} */
+
+main{
+    width: 960px;
+    height: 925px;
+    margin: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* body */
+
+
+
+main section{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+main section>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    margin: 10px;
+
+}
+
+
+
+#searchPw{
+    color: red;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+
+
+#email{
+    height: 40px;
+    width: 400px;
+
+}
+
+
+
+#resetPw{
+    width: 400px;
+    height: 45px;
+    color: white;
+    font-size: 16px;
+    background-color: #2DB400;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+

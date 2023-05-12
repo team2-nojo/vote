@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/resources/css/user/signUp.css">
 </head>
 <body>
-    <%-- signUp페이지로 이동 시 agreeService팝업도 동시에 뜨는 현상 수정해야 함 --%>
+    
     <%-- header --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>

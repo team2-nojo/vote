@@ -14,12 +14,12 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="/resources/css/myPetitions/myPetitions.css">
-    <link rel="stylesheet" href="/resources/css/myPetitions/petitionDashboardUpdate.css">
-
+    <link rel="stylesheet" href="/resources/css/myPetitions/myPetitionsDashboardUpdate.css">
 </head>
 <body>
+    <%-- header --%>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
         <form action="#" method="get">
             <div class="content" id="dashboardUpdate">
                 <div class="contentbox" id="dashboardUpdateContainer">
@@ -102,11 +102,13 @@
                 </div>
             </div>
         </form>
-        <footer>
-            <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-        </footer>
     </main>
-    <script src="/resources/js/myPetitions/petitionDashboardUpdate.js"></script>
+    <%-- footer --%>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <%-- js --%>
+    <script src="/resources/js/myPetitions/myPetitionDashboardUpdate.js"></script>
+    <%-- summernote --%>
+    <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
     <script>
         $('#summernote').summernote({
             placeholder: 'Hello stand alone ui',
@@ -120,7 +122,7 @@
             ['table', ['table']],
             ['insert', ['link', 'picture', 'video']],
             ['view', ['fullscreen', 'codeview', 'help']]
-            ]   
+            ]
         });
     </script>
 </body>

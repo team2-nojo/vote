@@ -16,17 +16,37 @@ public class MyPetitionsController {
 	@Autowired 
 	private MyPetitionsService service;
 	
-	// myPetitions 페이지로 이동
+	// myPetitions 메인에서 내 청원 페이지로 이동
 	@GetMapping("/myPetitions")
 	public String myPetitions() {
 		return "/myPetitions/myPetitions";
 	}
 	
-	// myPetitions 페이지로 이동
+	// myPetitionsDashboard 대시보드 페이지로 이동
 	@GetMapping("/myPetitionsDashboard")
 	public String myPetitionsDashboard() {
 		return "/myPetitions/myPetitionsDashboard";
 	}
+	
+//	// myPetitionDetails 상세페이지로 이동
+//	@GetMapping("/myPetitionDetails")
+//	public String myPetitionDetails() {
+//		return "/myPetitions/myPetitionsDetails";
+//	}
+	
+//	// myPetitionEdit 페이지로 이동
+//	@GetMapping("/myPetitionEdit")
+//	public String myPetitionEdit() {
+//		return "/myPetitions/myPetitionsEdit";
+//	}
+	
+//	// myPetitionComments 페이지로 이동
+//	@GetMapping("/myPetitionComments")
+//	public String myPetitionComments() {
+//		return "/myPetitions/myPetitionsEdit";
+//	}
+	
+
 	
 	
 }

@@ -84,12 +84,11 @@
 
 
 
-.userProfileframe > .defaultbox {
+.userProfileframe  .defaultbox {
     margin: 25px 0px;
     border: 1px solid #737273;
     border-radius: 5px;
 }
-
 
 
 /* myPetitionstatus 청원 진행 상태 */
@@ -112,12 +111,36 @@
     cursor: pointer;
 }
 
-/* 작성한 청원이 없을 시 나타나는 defaultbox 속 area */
+
+/* 빈 청원 박스 */
+.empty-default-box {
+    font-size: 12px;
+    box-sizing: border-box;
+    display: block;
+    padding: 20px !important;
+    flex-direction: row;
+    justify-content: center;
+    margin: 25px 0px;
+    border: 1px solid #737273;
+    border-radius: 5px;
+}
 
 
+/* 작성한 청원이 없을 시 나타나는 empty-default-box 속 emptyDefaultBoxArea */
+.emptyDefaultBoxArea {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 작성한 청원이 없을 시 나타나는 empty-default-box 속 emptyDefaultBoxArea 속 문구*/
+.emptyDefaultBoxArea:first-child {
+    display: flex;
+    align-items: center;
+}
 
 
-/* 작성한 청원이 없을 시 나타나는 defaultbox 속 버튼 */
+/* 작성한 청원이 없을 시 나타나는 defaultbox-none 속 버튼 */
 .toStartAPetition {
     display: inline-block;
     padding : 8px 16px;
@@ -173,6 +196,9 @@
     display: flex;
     width: 100%;
 }
+
+
+
 
 
 /* 반응형 웹 : 브라우저나 장치 환경(크기)에 따라 웹페이지의 모습이 변하는 웹페이지 */

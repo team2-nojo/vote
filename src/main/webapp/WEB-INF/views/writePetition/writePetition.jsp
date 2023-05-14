@@ -20,33 +20,72 @@
     <main>
         <div class="write-petition-container">
             <div class="wp-progress-bar"><div class="wp-progress"></div></div>
-            <form action="">
+            <form action="a.html">
                 <!-- page1 -->
                 <div id="page1" class="page container border current">
                     <h1>변화를 향한 첫 걸음</h1>
                     <p>청원 범위 선택:</p>
-                    <div class="selectContainer border">
-                        <span class="item selectedItem" name="scope" value="local">
+                    <div class="select-container border">
+                        <span class="scope-item selected-item" name="scope" value="local">
                             <span class="scope-icon pointer-events-none">icon</span>
                             <span class="pointer-events-none">지역</span>
-                        </span><span class="item" name="scope" value="national">
+                        </span><span class="scope-item" name="scope" value="national">
                             <span class="scope-icon pointer-events-none">icon</span>
                             <span class="pointer-events-none">국가</span>
-                        </span><span class="item" name="scope" value="global">
+                        </span><span class="scope-item" name="scope" value="global">
                             <span class="scope-icon pointer-events-none">icon</span>
                             <span class="pointer-events-none">세계</span>
                         </span>
                     </div>
-                    <div id="page1Tip" class="tip"><span class="scope-icon">icon</span><span> 지역 청원은 승리할 확률이 50% 더 높습니다.</span></div>
+                    <div id="page1Tip" class="tip"><span class="scope-icon">icon</span><span>지역 청원은 승리할 확률이 50% 더 높습니다.</span></div>
                 </div>
                 
                 <!-- page2 -->
                 <div id="page2" class="page container border">
                     <h1>이 청원에 가장 적합한 주제는 무엇인가요?</h1>
                     <div id="categoryContainer" class="border">
-                        <input type="checkbox" name="asdf" id="a" style="display:none;">
-                        <label for="a" class="categoryItem">임시데이터1</label>
-                        <span class="categoryItem">직접 입력</span>
+                        <c:forEach items="${defaultCategoryList}" var="defaultCategory">
+                            <input type="checkbox" name="categoryItem" class="hidden" id="defaultCategoryItem${defaultCategory.categoryNo}"
+                            value="${defaultCategory.categoryNo}">
+                            <label class="category-item" for="defaultCategoryItem${defaultCategory.categoryNo}">${defaultCategory.categoryName}</label>
+                        </c:forEach>
+                        <%-- <input type="checkbox" name="categoryItem" class="hidden" id="item1" value="1">
+                        <label for="item1" class="category-item">임시데이터1</label> --%>
+                        <input type="checkbox" name="directInput" class="hidden" id="directInputCheckbox" value="y">
+                        <label for="directInputCheckbox" class="category-item">직접 입력</label>
+                    </div>
+                    <div id="directInputContainer" class="hidden">
+                        <div id="directInputInputContainer">
+                            <input type="text" id="categoryInput">
+                            <input id="categoryInputBtn" class="my-btn" type="button" value="입력">
+                        </div>
+                        <div id="directInputItemContainer">
+                            <label class="direct-input-item category-item">
+                                <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
+                                직접 입력한 샘플데이터
+                                <span>X</span>
+                            </label>
+                            <label class="direct-input-item category-item">
+                                <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
+                                직접 입력한 샘플데이터
+                                <span>X</span>
+                            </label>
+                            <label class="direct-input-item category-item">
+                                <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
+                                직접 입력한 샘플데이터
+                                <span>X</span>
+                            </label>
+                            <label class="direct-input-item category-item">
+                                <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
+                                직접 입력한 샘플데이터
+                                <span>X</span>
+                            </label>
+                            <label class="direct-input-item category-item">
+                                <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
+                                직접 입력한 샘플데이터
+                                <span>X</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
                 
@@ -64,6 +103,7 @@
                 <!-- page4 -->
                 <div id="page4" class="page container border">
                     <h1>당신의 이야기를 들려주세요.</h1>
+                    <textarea class="hidden" name="content" id="content"></textarea>
                     <div id="summernote"></div>
                 </div>
                 
@@ -72,9 +112,9 @@
                     <h1>이미지를 추가하세요.</h1>
                     <p>(선택 사항)</p>
                     <p>이미지가 있는 청원은 6배 많은 서명을 받습니다.</p>
-                    <div id="inputImgContainer" class="inputImgContainer container border center">
+                    <div id="inputImgContainer" class="input-img-container container border center">
                         <img data-testid="drop-target" width="115" alt="Target for dropping an image to upload." src="resources/images/writePetition/uploadimg.svg" class="">
-                        <button type="button" id="inputImgBtn" class="inputImgBtn myBtn nextBtn">이미지 등록</button>
+                        <button type="button" id="inputImgBtn" class="input-img-btn my-btn next-btn">이미지 등록</button>
                     </div>
                     <p>이미지 크기는 1200 x 675픽셀에 최적화 되어 있습니다.</p>
                 </div>
@@ -93,38 +133,37 @@
                     <div id="previewContainer" class="border container">
                         <h1 id="previewTitle">제목이 작성되는 곳</h1>
                         <div id="previewImgAndSignContainer">
-                            <div class="inputImgContainer container border center">
+                            <div class="input-img-container container border center">
                                 <img data-testid="drop-target" width="115" alt="Target for dropping an image to upload."
                                     src="resources/images/writePetition/uploadimg.svg" class="">
-                                <button type="button" class="inputImgBtn myBtn nextBtn">이미지 등록</button>
+                                <button type="button" class="input-img-btn my-btn next-btn">이미지 등록</button>
                             </div>
                             <div id="signContainer">
                                 <br><br>
                                 <div class="bold">현재 1명이 청원에 서명하였습니다.</div>
                                 <div>다음 목표는 5명입니다.</div>
                                 <div id="progC"><div id="prog"></div></div>
-                                <hr style="width:100%;">
-                                <div class="signer"><img class="profileImg" src="resources/images/writePetition/dog1.jpg"><span> firstname lastname</span></div>
+                                <hr id="progHr" style="width:100%;">
+                                <div id="signer">
+                                    <img id="signerProfileImage" class="profile-img" src="${loginUser.profileImage}">
+                                    <div id="signerName">${loginUser.userName}</div>
+                                </div>
                             </div>
                         </div>
-                        <p class="startPetition" ><img class="profileImg" src="resources/images/writePetition/dog1.jpg"> firstname lastname님이 이 청원을 시작하였습니다.</p>
-                        <div id="previewContents">
-                            <p>가나다라</p>
-                            <p>가나다라</p>
-                            <p>가나다라</p>
-                            <p>가나다라</p>
-                            <p>가나다라</p>
-                            <p>가나다라</p>
-                            <p>가나다라</p>
-                            <p>가나다라</p>
+                        <div id="writer">
+                            <img class="profile-img" src="${loginUser.profileImage}">
+                            ${loginUser.userName}님이 이 청원을 시작하였습니다.
+                        </div>
+                        <div id="previewContentContainer">
+                            <pre id="previewContent">내용</pre>
                         </div>
                     </div>
                 </div>
                 
-            <div id="btnContainer" class="btnContainer border">
-                <button type="button" id="prevBtn" class="myBtn">이전으로</button>
-                <button type="button" id="nextBtn" class="myBtn">다음으로</button>
-                <button type="submit" id="submitBtn" class="myBtn">청원서 최종 제출</button>
+            <div id="btnContainer" class="btn-container border">
+                <button type="button" id="prevBtn" class="my-btn">이전으로</button>
+                <button type="button" id="nextBtn" class="my-btn">다음으로</button>
+                <button type="submit" id="submitBtn" class="my-btn">청원서 최종 제출</button>
             </div>
             </form>
         </div>
@@ -134,8 +173,8 @@
         <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
         <script>
             $('#summernote').summernote({
-                placeholder: 'Hello stand alone ui',
-                tabsize: 2,
+                // placeholder: 'Hello stand alone ui',
+                tabsize: 1,
                 height: 400,
                 toolbar: [
                 ['style', ['style']],

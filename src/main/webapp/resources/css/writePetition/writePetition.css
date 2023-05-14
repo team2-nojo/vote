@@ -3,9 +3,6 @@
   margin: 0 auto;
 }
 
-.border{
-  /* border:1px solid black; */
-}
 
 
 main *{
@@ -50,20 +47,20 @@ main *{
   font-weight: bold;
 }
 
-.btnContainer{
+.btn-container{
   width: 600px;
   display: flex;
   justify-content: flex-end;
   margin: 30px auto;
 }
 
-.selectContainer{
+.select-container{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.item{
+.scope-item{
   display: flex;
   height: 80px;
   flex-basis: 32%;
@@ -75,17 +72,17 @@ main *{
   cursor: pointer;
 }
 
-.item:hover{
+.scope-item:hover{
   background-color: #eee;
 }
 
-.selectedItem{
+.selected-item{
   border: 2px solid #2DB400;
   color: #2DB400;
   font-weight: bold;
 }
 
-.myBtn{
+.my-btn{
   margin: 5px;
   width: 100px;
   height: 40px;
@@ -95,7 +92,7 @@ main *{
   font-weight: bold;
 }
 
-.myBtn:hover{
+.my-btn:hover{
   border-color: black;
 }
 
@@ -132,10 +129,10 @@ main *{
   align-items: center;
 }
 
-.ai-center{
+/* .ai-center{
   display: flex;
   align-items: center;
-}
+} */
 
 .scope-icon{
   margin-left: 10px;
@@ -157,11 +154,11 @@ main *{
   flex-wrap: wrap;
 }
 
-.categoryItem{
+.category-item{
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
-  margin: 3px;
+  margin: 5px;
   display: flex;
   cursor: pointer;
 }
@@ -181,23 +178,14 @@ main *{
   font-size: 0.8rem;
 }
 
-/* #inputTitle {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 0;
-  border: none;
-  outline: none;
-} */
-
 #inputTitle {
   width: 100%;
   padding: 10px;
   /* margin-bottom: 10px; */
   outline: none;
-  background: transparent;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  appearance: none; */
   border: 1px solid black;
   border-radius: 8px;
 }
@@ -220,13 +208,13 @@ button:disabled:hover{
 }
 
 
-.inputImgContainer{
+.input-img-container{
   width: 560px;
   height: 350px;
   border: 1px dashed #aaa;
   border-radius: 8px;
 }
-.inputImgBtn{
+.input-img-btn{
   background-color: white;
   color: #2DB400;
 }
@@ -249,14 +237,20 @@ button:disabled:hover{
   flex-direction: row;
 }
 
-.profileImg{
+.profile-img{
   border-radius: 50%;
   width: 30px;
   height: 30px;
 }
 
-.startPetition{
+#writer{
+  display: flex;
+  align-items: center;
   font-weight: bold;
+}
+
+.profile-img{
+  margin-right: 5px;
 }
 
 #signContainer{
@@ -286,4 +280,71 @@ button:disabled:hover{
   bottom: 0px;
   position: sticky;
   z-index: 1000;
+}
+
+/* 숨기기 */
+.hidden{
+  display: none;
+}
+
+/* 체크박스 선택되었을 때, 검색된 아이템의 색상 변경 */
+input[name="categoryItem"]:checked + label,#directInputCheckbox:checked + label, .direct-input-item {
+  border: 2px solid #2DB400;
+  background-color: #2DB400;
+  color: white;
+  font-weight: bold;
+}
+
+.direct-input-item {
+  display: inline;
+  position:relative;
+}
+
+.category-item:hover {
+  background-color: #eee;
+  color: black;
+}
+
+.direct-input-item:hover>span{
+  color: red;
+}
+
+#directInputInputContainer,
+#directInputItemContainer{
+  display: flex;
+  align-items: center;
+}
+
+
+#progHr{
+  width: 100%;
+  margin: 10px 0;
+}
+
+#signer{
+  display: flex;
+  align-items: center;
+}
+
+#directInputItemContainer{
+  display: flex;
+  padding: 3px;
+  flex-wrap: wrap;
+}
+
+#categoryInput {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 5px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+#categoryInputBtn{
+  background-color: #2DB400;
+  color: white;
 }

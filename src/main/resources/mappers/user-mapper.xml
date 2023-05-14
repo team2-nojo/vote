@@ -18,6 +18,4 @@
 		FROM "USER"
 		WHERE USER_EMAIL = #{userEmail}
 	</select>
-	
-	
 </mapper>

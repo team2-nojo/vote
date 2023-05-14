@@ -20,7 +20,7 @@
       </ul>
     </div>
     <c:choose>
-      <c:when test="${empty sessionScope.loginUser}">
+      <c:when test="${empty loginUser}">
         <div class="header-icon">
           <a href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
           <%-- <i class="fa-sharp fa-solid fa-user"></i>

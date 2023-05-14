@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="memberMapper">
+<mapper namespace="writePetitionMapper">
+	<resultMap type="edu.nojo.vote.writePetition.model.dto.PetitionCategory"
+		id="petition_category_rm">
+		<id property="categoryNo" column="CAT_NO" />
+		<result property="categoryName" column="CAT_NAME" />
+		<result property="categoryMainFl" column="CAT_MAIN_FL" />
+	</resultMap>
 
+	<select id="selectPetitionCategoryList" resultMap="petition_category_rm">
+		SELECT CAT_NO, CAT_NAME FROM PETITION_CATEGORY_LIST WHERE CAT_MAIN_FL = 'Y'
+	</select>
 </mapper>

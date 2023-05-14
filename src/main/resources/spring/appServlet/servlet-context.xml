@@ -23,6 +23,11 @@
 	
 	<context:component-scan base-package="edu.nojo.vote" />
 	
-	
-	
+	<interceptors>
+		<interceptor>
+			<mapping path="/writePetition"/>
+			<beans:bean id="WritePetitionInterceptor"
+						class="edu.nojo.vote.common.interceptor.WritePetitionInterceptor"/>
+		</interceptor>
+	</interceptors>
 </beans:beans>

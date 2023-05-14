@@ -67,7 +67,7 @@ public class UserController {
 	}
 	
 	
-	// 로그아웃(작성예정)
+	// 로그아웃
 	@GetMapping("/logout")
 	public String logout(SessionStatus status, HttpSession session) {
 		

@@ -1,0 +1,178 @@
+*{ 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* 임시테두리 */
+/* main, header, section, footer{
+    border: 1px solid black;
+} */
+
+
+main{
+    width: 960px;
+    height: 925px;
+    margin: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* body */
+
+
+
+section{
+    margin-top: auto;
+    margin-bottom: auto;
+
+    
+}
+
+
+section>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+
+
+/* 검색창 */
+#searchP{
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+#search{
+    margin-bottom: 40px;
+    margin-left: 6px;
+}
+
+
+
+
+#searchPetitions{
+    height: 40px;
+    width: 400px;
+
+}
+
+
+
+#searchButton{
+    width: 100px;
+    height: 40px;
+    color: white;
+    font-size: 15px;
+    background-color: #2DB400;
+    border: none;
+    border-radius: 5px;
+
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+
+
+/* 검색결과 */
+
+.result{
+    border: 3px solid #ccc;
+
+    display: flex;
+    flex-direction: row;
+
+    border-collapse: collapse;
+
+    margin: 20px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.row{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+
+
+.column{
+    width: 350px;
+
+}
+
+
+#title{
+    margin: 20px;
+}
+
+
+#content{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+
+
+
+.col{
+    margin: 15px;
+}
+
+#column-2{
+    border-top: 3px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+/* 사진 */
+
+#rowPicture{
+    width: 170px;
+    border-left: 3px solid #ccc;
+}
+
+.picture{
+    width: 100%;
+    height: 100%;
+    
+    
+}
+
+/* 더보기버튼 */
+#moreView{
+    width: 520px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    
+    border: 3px solid #2DB400;
+    border-radius: 5px;
+    background-color: white;
+    color: #2DB400;
+    
+    margin-left: 3px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+
+

@@ -1,0 +1,37 @@
+
+#commentPlace{
+    width: 600px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+
+#wrtComment2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+#content{
+    width: 400px;
+    height: 70px;
+    resize: none;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+
+#commentBtn{
+    width: 70px;
+    height: 70px;
+    border: 3px solid #2DB400;
+    border-radius: 5px;
+    background-color: white;
+    color: #2DB400;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -15,7 +15,7 @@
       <ul>
         <li><a id="startPetitions" href="/writePetition">Start a petition</a></li>
         <li><a id="myPetitions" href="/myPetitions/myPetitions">My petitions</a></li>
-        <li><a id="browse" href="/browse/browse_search">Browse</a></li>
+        <li><a id="browse" href="/browse/browse_search/featured">Browse</a></li>
         <li><a id="Help" href="#">Help</a></li>
       </ul>
     </div>

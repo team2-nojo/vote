@@ -10,7 +10,7 @@
     <title>신고팝업</title>
 
     <%-- report_popUp.css --%>
-    <link rel="stylesheet" href="/resources/css/browse/report_popUp.css">
+    <link rel="stylesheet" href="/resources/css/browse/petitionView/report_popUp.css">
 
 </head>
 <body>

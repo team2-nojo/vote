@@ -31,37 +31,42 @@ tipHover("owner");
 tipHover("twitter");
 
 /* 사진 또는 비디오 주소 추가 */
-document.getElementById("AddBtn").addEventListener("click", () => {
-    const addurl = document.getElementById("AddUrl").value;
-    document.querySelector(".content-img").innerHTML = "";
-    document.querySelector(".content-img").style = "height:300px"
+// document.getElementById("AddBtn").addEventListener("click", () => {
+//     const addurl = document.getElementById("AddUrl").value;
+//     document.querySelector(".content-img").innerHTML = "";
+//     document.querySelector(".content-img").style = "height:300px"
 
-    if(addurl == null){
-        document.querySelector(".content-img").innerHTML
-    }
+//     if(addurl == null){
+//         document.querySelector(".content-img").innerHTML
+//     }
 
+//     const input = document.createElement("div");
 
-    const input = document.createElement("div");
+//     const closeBtn = document.createElement("button");
+//     closeBtn.innerText = "버튼";
 
-    const closeBtn = document.createElement("button");
-    closeBtn.innerText = "버튼";
-    // closeBtn.style.position = "absolute";
-    // closeBtn.style.top = "50"
-    // closeBtn.style.left = "50"
+//     closeBtn.style = "position : absolute, color : blue ";
 
-    // closeBtn.style.backgroundColor = "red";
+//     closeBtn.addEventListener("click", () =>{return});
 
-    closeBtn.style = "position : absolute, color : blue ";
+//     const youtube = document.createElement("iframe");
 
-    closeBtn.addEventListener("click", () =>{return});
+//     input.append(closeBtn, youtube);
 
-    const youtube = document.createElement("iframe");
-    youtube.width = "560";
-    youtube.height = "315";
-    youtube.src = addurl;
-    youtube.allow = accelerometer;
+//     document.querySelector(".content-img").append(input);
+// });
 
-    input.append(closeBtn, youtube);
+/* 주제추가 */
+const topicInput = document.getElementById("topicInput");
+const addTopicBox = document.getElementsByClassName("addTopicBox");
 
-    document.querySelector(".content-img").append(input);
+topicInput.addEventListener("keydown", e => {
+    
+    const addTopic = document.createElement("div");
+    addTopic.innerText = topicInput.value;
+    addTopic.style.borderRadius = "5px"
+    addTopic.style.backgroundColor = "#ccc"
+
+    topicInput.append(addTopic);
+
 });

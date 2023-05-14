@@ -19,9 +19,9 @@
         </div>
         <div class="nav">
           <ul>
-            <li id="navSelect"><a href="#">Dashboard</a></li>
+            <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard">Dashboard</a></li>
             <li><a href="#">Petition details</a></li>
-            <li><a href="#">Edit</a></li>
+            <li><a href="/myPetitions/myPetitionEdit">Edit</a></li>
             <li><a href="#">Comments</a></li>
           </ul>
         </div>

@@ -128,15 +128,13 @@ label[for='userMenuToggle']:hover{ text-decoration: underline; }
 main {
   height: 100%;
   position: relative;
-  padding-bottom: 30px;
   min-height: 100vh
 }
 
 /* footer */
 footer{
-  bottom: 0;
   position: absolute;
-  -ms-transform-origin-y : -100%;
+  margin-top: 50px;
 
   left: 0px;
   width: 100%;

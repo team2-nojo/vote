@@ -13,30 +13,24 @@ main a{
 main li{list-style: none;}
 
 /* title */
-.title{
-  width: 960px;
-  margin: auto;
-}
+.title{ width: 960px; margin: auto;}
 
-.title ul{
-  height: 53px;
-}
-
-.title li{
-  padding: 15px;
-  height: 53px;
-}
-
-.title a:hover{color: red;}
 
 /* nav */
-main nav{
+nav{
   width: 960px;
   display: flex;
   flex-direction: column;
+  margin-top: 5px;
 }
 
-.nav>ul{display: flex;}
+nav a:hover{color: red;}
+
+.nav>ul{
+  display: flex;
+}
+
+.nav li{ padding: 15px;}
 
 #navSelect{border-bottom: 3px solid red;}
 #navSelect>a{color: red;}

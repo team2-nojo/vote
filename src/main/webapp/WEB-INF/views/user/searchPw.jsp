@@ -21,13 +21,13 @@
         
         <section>
             <div id="searchPw">
-                Forget Password?
+                비밀번호를 잊어버리셨나요?
             </div>
 
 
             <div>
-                Enter your email address here, then check your inbox <br>
-                for a link to reset your password.
+                여기에 이메일 주소를 입력한 후 받은 편지함을 확인하십시오.<br>
+                암호를 재설정하는 링크를 보내드립니다.
             </div>
 
             

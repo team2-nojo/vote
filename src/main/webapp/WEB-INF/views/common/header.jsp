@@ -38,7 +38,7 @@
           <input type="checkbox" id="userMenuToggle">
           <div class="user-menu">
             <a href="#">마이페이지</a>
-            <a href="#">로그아웃</a>
+            <a href="/user/logout">로그아웃</a>
           </div>
           <i class="fa-sharp fa-solid fa-bell"></i>
         </div>

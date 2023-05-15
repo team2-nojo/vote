@@ -35,7 +35,7 @@ main{
     flex-direction: column;
     justify-content:start;
 
-    margin-right: 50%;
+    margin-right: 60%;
 }
 
 
@@ -56,14 +56,32 @@ main{
     
 }
 
-#menu *:hover{
-    color: red;
+#Comments:hover{
+    color: #2DB400;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+#updates{
+    color: black;
+    text-decoration: none;
+    
+}
+
+#updates:hover{
+    color: #2DB400;
     font-weight: bold;
     text-decoration: none;
     
 }
 
 
+#details{
+    color: #2DB400;
+    text-decoration: underline;
+    font-weight: bold;
+}
 
 /* 게시글뷰 */
 

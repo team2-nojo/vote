@@ -10,7 +10,7 @@
     <title>브라우저 게시글 View</title>
 
     <%-- petitionView.css --%>
-    <link rel="stylesheet" href="/resources/css/browse/petitionView.css">
+    <link rel="stylesheet" href="/resources/css/browse/petitionView/details.css">
 
     <%-- 신고 깃발 아이콘 --%>
     <script src="https://kit.fontawesome.com/f7459b8054.js"crossorigin="flag"></script>
@@ -25,10 +25,9 @@
         <!-- 상단메뉴 -->
         <section class="top">
             <div id="menu">
-                <div id="featured"><a href="#">Featured</a></div>
-                <div id="popular"><a href="#">Popular</a></div>
-                <div id="recent"><a href="#">Recent</a></div>
-                <div id="victories"><a href="#">Victories</a></div>
+                <div id="details">Petition details</div>
+                <div><a href="#" id="Comments">Comments</a></div>
+                <div ><a href="#" id="updates">updates</a></div>
             </div>
         </section>
 
@@ -240,6 +239,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <%-- petitionView.js --%>
-    <script src="/resources/js/browes/petitionView.js"></script>
+    <script src="/resources/js/browes/petitionView/details.js"></script>
 </body>
 </html>

@@ -31,10 +31,10 @@ public class WritePetitionInterceptor implements HandlerInterceptor{
 		}
 		
 		
-		// 임시로 로그인
-		if(application.getAttribute("loginUser") == null) {
-			application.setAttribute("loginUser", new User(1, "user01@kh.or.kr", "", "유저일", "resources/images/user/dog1.jpg"));
-		}
+//		// 임시로 로그인
+//		if(application.getAttribute("loginUser") == null) {
+//			application.setAttribute("loginUser", new User(1, "user01@kh.or.kr", "", "유저일", "resources/images/user/dog1.jpg"));
+//		}
 		
 		
 		

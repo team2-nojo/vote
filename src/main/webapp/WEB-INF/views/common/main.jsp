@@ -20,25 +20,24 @@
 
       <section class="section1">
 
-      <div class="container" id="mf">
+      <div class="container id="mf">
         <div style="margin-top: 100px;">
           <h1 class="title">당신의 투표를 기다립니다.</h1>
           <h3 class="subTitle">508,140,283명이 행동에 나섰습니다. 매일 승리하십시오.</h3>
 
-          <a href="#"><button class="titleBtn">청원시작</button></a>
+          <a href="/adminLogin"><button class="titleBtn">청원시작</button></a>
 
         </div>
       </div>
     </section>
       <div class="container2">
-
-        <a href="http://www.naver.com" style="cursor:pointer" id="mainNewsLink"><div class="item box1"><img src="/resources/images/mainPage/news1.jpeg" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
+        <a href="#" style="cursor:pointer" id="mainNewsLink"><div class="item box1"><img src="/${mainPtList[0].petitionImage}" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
         <div class="item box2" id="newsTitle">
           <div id="newsTitle">
-            <h3 id="news-title">d</h3></a>
+            <h3 id="news-title">${mainPtList[0].petitionTitle}</h3></a>
           </div>
           <div id="newsContent">
-            <h5 id="news"></div>
+            <h5 id="news">${mainPtList[0].petitionContent}</div>
           </h5>
         
         </div>
@@ -63,19 +62,13 @@
       </div>
       </div>
       <div class="container3">
-        <div class="box6"><img src="/resources/images/mainPage/news1.jpeg" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
-        <div class="box7"><img src="/resources/images/mainPage/news2.jpeg" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
-        <div class="box8"><img src="/resources/images/mainPage/news3.jpeg" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
-        <div class="box9"><img src="/resources/images/mainPage/news4.jpeg" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
-        <div class="box10"><img src="/resources/images/mainPage/news5.jpeg" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
-        <div class="box11"><img src="/resources/images/mainPage/news6.jpeg" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
-        <div class="box12 small-news"><a href="#"></a></div>
-
-        <div class="box13 small-news"><a href="#"></a></div>
-        <div class="box14 small-news"><a href="#"></a></div>
-        <div class="box15 small-news"><a href="#"></a></div>
-        <div class="box16 small-news"><a href="#"></a></div>
-        <div class="box17 small-news"><a href="#"></a></div>
+        <c:forEach var="mainPt" items="${mainPtList}" >
+          <div class="box6"><img src="/${mainPt.petitionImage}" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
+          
+        </c:forEach>
+        <c:forEach var="mainPt" items="${mainPtList}" >
+          <div class="box13 small-news"><a href="#">${mainPt.petitionTitle}</a></div>
+        </c:forEach>
       </div>
       
       <i class="fa-solid fa-angle-up fa-rotate-90" id="slide-btn2" style="color: #a9aaad;"></i>
@@ -148,7 +141,7 @@
                 <div class="photo"><img src="/resources/images/mainPage/news3.jpeg" style="width: 145px; height: 145px; object-fit: cover;"></div>  
             </div>
             <div class="pettition1 id">
-              <span class="id-profile"><img src="./resources/images/mainPage/profile3.jpeg" style="height: 28px; margin: 5px;" alt=""></span>
+              <span class="id-profile"><img src="/resources/images/mainPage/profile3.jpeg" style="height: 28px; margin: 5px;" alt=""></span>
 
               <span>Daniel</span>
               <a href="#" style="text-decoration: underline;"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>2,510 Supporters</a>

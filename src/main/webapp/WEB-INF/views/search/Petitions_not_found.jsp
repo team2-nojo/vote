@@ -15,9 +15,9 @@
 </head>
 <body>
     
+    <%-- header --%>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <%-- header --%>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
         <section>
             <div id="search">
@@ -38,9 +38,9 @@
             </div>
             
         </section>
-        <%-- footer --%>
-        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     </main>
+    <%-- footer --%>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
     <%-- 돋보기 아이콘 --%>
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>

@@ -28,7 +28,7 @@ main{
 
 /* body */
 
-.top{
+main .top{
     display: flex;
     flex-direction: column;
     justify-content:start;
@@ -37,7 +37,7 @@ main{
 }
 
 
-.middle{
+main .middle{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,7 +49,7 @@ main{
 
 
 
-#discoverP{
+main #discoverP{
     font-size: 30px;
     font-weight: bold;
 
@@ -59,58 +59,58 @@ main{
 
 
 
-.menu{
+main .menu{
     display: flex;
     flex-direction: row;
     
 }
 
 
-.menu>*{
+main .menu>*{
     
     margin: 5px 10px;
 }
 
-#featured{
+main #featured{
     color: #2DB400;
     text-decoration: underline;
     font-weight: bold;
 }
 
 
-#popular{
+main #popular{
     color: black;
     text-decoration: none;
     
 }
 
-#recent{
+main #recent{
     color: black;
     text-decoration: none;
     
 }
 
-#victories{
+main #victories{
     color: black;
     text-decoration: none;
     
 }
 
-#popular:hover{
+main #popular:hover{
     color: #2DB400;
     font-weight: bold;
     text-decoration: none;
     
 }
 
-#recent:hover{
+main #recent:hover{
     color: #2DB400;
     font-weight: bold;
     text-decoration: none;
     
 }
 
-#victories:hover{
+main #victories:hover{
     color: #2DB400;
     font-weight: bold;
     text-decoration: none;
@@ -119,7 +119,7 @@ main{
 
 
 
-.result{
+main .result{
     border: 3px solid #ccc;
     width: 520px;
 
@@ -131,13 +131,13 @@ main{
     margin: 20px 0px;
 }
 
-#title{
+main #title{
     margin: 20px;
     font-weight: bold;
 }
 
 
-#content{
+main #content{
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 5px;
@@ -145,7 +145,7 @@ main{
     font-size: 3px;
 }
 
-#readMore{
+main #readMore{
     color: #ccc;
 }
 
@@ -153,13 +153,13 @@ main{
 
 
 /* 사진 */
-#rowPicture{
+main #rowPicture{
     width: 170px;
 
     border-right: 3px solid #ccc;
 }
 
-.picture{
+main .picture{
     width: 168px;
     height: 150px;
 
@@ -171,7 +171,7 @@ main{
 
 /* progress */
 
-#progress{
+main #progress{
     width: 300px;
     height: 12px;
 
@@ -180,12 +180,12 @@ main{
 
 }
 
-#progress::-webkit-progress-bar{
+main #progress::-webkit-progress-bar{
     background-color: #ccc;
     border-radius: 10px;
 }
 
-#progress::-webkit-progress-value {
+main #progress::-webkit-progress-value {
     border-radius: 10px;
     background: #DC143C;
     background: -webkit-linear-gradient(to right, #FFD700, #DC143C);
@@ -194,7 +194,7 @@ main{
 
 
 
-#goal{
+main #goal{
     color: gray;
     font-size: 10px;
 }
@@ -202,7 +202,7 @@ main{
 
 
 /* 더보기버튼 */
-#moreView{
+main #moreView{
     width: 520px;
     height: 40px;
     font-size: 15px;

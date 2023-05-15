@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class User {
-<<<<<<< HEAD
+	
 	private int userNo;						// 회원 번호
 	private String userGrade;				// 회원 등급
 	private String userImage;				// 회원 이미지
@@ -22,20 +22,7 @@ public class User {
 	private String userSocialLogin;			// 회원 소셜로그인
 	private String userEnrollDate;			// 회원 가입일
 	private String userDelFl;
-=======
 
-	private int userNo; // 회원번호
-	private String userEmail; // 회원이메일
-	private String userPw; // 비밀번호
-	private String userGrade; // 회원등급
-	private String userNickname; // 닉네임
-	private String userAdd; // 회원주소
-	private String userEndrollDt; // 가입일
-	private String userDelFl; // 탈퇴여부
->>>>>>> origin/woong
-	
-	
-	
 	public User() {
 	}			
 	

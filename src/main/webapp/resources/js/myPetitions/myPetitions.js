@@ -12,7 +12,6 @@ const userProfileframe = document.getElementsByClassName("userProfileframe")[0];
 num1 = 0;
 num2 = 2;
 
-// document.querySelectorAll(".empty-default-box").forEach(e=>e.remove())
 
 
 // 로딩 화면에서 실행
@@ -162,6 +161,10 @@ signed.addEventListener("click", () => {
 
 
 function myPetitionTabs(num) {
+
+    
+    document.querySelectorAll(".empty-default-box").forEach(e=>e.remove());
+    document.querySelectorAll(".defaultbox").forEach(e=>e.remove());ss
 
 
       // 만약 이미 start/signed 버튼을 눌러 내 start/signed가 나와있는 화면이면 기존 div 다 삭제하고 다시 생성

@@ -21,8 +21,8 @@
             <div class="userProfileframe contentBox"> <!-- 화면 크기와 상관없이 가운데에 위치하는 -->
                 <div class="row"> <!-- 사용자 프로필 영역 -->
                     <div class="EditProfileText">
-                        <div class="userProfileID">JJ</div>
-                        <div class="userProfileLocation">South Korea</div>
+                        <div class="userProfileID">${loginUser.userNickname}</div>
+                        <div class="userProfileLocation">${loginUser.userAddress}</div>
                         <a href="/myPage/editProfiile">Edit profile</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
                     </div>
                 </div>

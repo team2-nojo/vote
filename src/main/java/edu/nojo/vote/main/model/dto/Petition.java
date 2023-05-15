@@ -12,12 +12,16 @@ public class Petition {
 	private int petitionViewCount;
 	private String petitionVictory;
 	private String petitionImage;
+	private String petitionDelFl;
 	
 	//회원 join
 	private int userNo;
 	
 	//카테고리 join
 	private int categoryNo;
+	
+	// 좋아요
+	private int petitionLikeNo;
 	
 	
 

@@ -6,16 +6,25 @@
 	
 		<id property="userNo" column="USER_NO" />
 		
+		<result property="userGrade" column="USER_GRADE" />
+		<result property="userImage" column="USER_IMG" />
 		<result property="userEmail" column="USER_EMAIL" />
+		<result property="userNickname" column="USER_NICKNAME" />
 		<result property="userPw" column="USER_PW" />
+		<result property="userAddress" column="USER_ADD" />
+		<result property="userAboutMe" column="USER_ABOUT_ME" />
+		<result property="userSocialLogin" column="USER_SOCIAL_LOGIN" />
+		<result property="userEnrollDate" column="USER_ENDROLL_DT" />
+		<result property="userDelFl" column="USER_DEL_FL" />
 	
 	</resultMap>
 
 
 	<!-- 로그인 -->
 	<select id="login" resultMap="user_rm">
-		SELECT USER_NO, USER_EMAIL, USER_PW 
+		SELECT USER_NO, USER_EMAIL, USER_NICKNAME, USER_PW, USER_ADD, USER_ABOUT_ME
 		FROM "USER"
 		WHERE USER_EMAIL = #{userEmail}
 	</select>
+	
 </mapper>

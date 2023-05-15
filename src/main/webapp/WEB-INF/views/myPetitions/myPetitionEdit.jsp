@@ -19,21 +19,19 @@
   <%-- header --%>
   <jsp:include page="/WEB-INF/views/common/header.jsp"/>
   <main>
-    <div class="title">
-      <nav>
-        <div class="nav-title">
-          <h2>청원 글제목</h2>
-        </div>
-        <div class="nav">
-          <ul>
-            <li><a href="/myPetitions/myPetitionsDashboard">Dashboard</a></li>
-            <li><a href="#">Petition details</a></li>
-            <li id="navSelect"><a href="/myPetitions/myPetitionEdit">Edit</a></li>
-            <li><a href="#">Comments</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <nav >
+      <div class="nav-title">
+        <h2>청원 글제목</h2>
+      </div>
+      <div class="nav">
+        <ul>
+          <li><a href="/myPetitions/myPetitionsDashboard">Dashboard</a></li>
+          <li><a href="#">Petition details</a></li>
+          <li id="navSelect"><a href="/myPetitions/myPetitionEdit">Edit</a></li>
+          <li><a href="#">Comments</a></li>
+        </ul>
+      </div>
+    </nav>
     <div class="content">
       <div class="content-edit">
         <div class="content-top">

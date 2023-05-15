@@ -22,7 +22,7 @@
     <c:choose>
       <c:when test="${empty loginUser}">
         <div class="header-icon">
-          <a href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+          <a href="#"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
           <%-- <i class="fa-sharp fa-solid fa-user"></i>
           <i class="fa-sharp fa-solid fa-bell"></i> --%>
           <a href="/user/login" id="loginBtn">Log in</a>
@@ -37,7 +37,9 @@
           </label>
           <input type="checkbox" id="userMenuToggle">
           <div class="user-menu">
+            <a href="/myPetitions/myPetitions">나의 청원</a>
             <a href="#">마이페이지</a>
+            <span>${loginUser.userNickname}</span>
             <a href="/user/logout">로그아웃</a>
           </div>
           <i class="fa-sharp fa-solid fa-bell"></i>

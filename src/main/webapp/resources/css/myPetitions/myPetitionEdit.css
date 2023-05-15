@@ -13,12 +13,10 @@ main a{
 
 main li{list-style: none;}
 
-/* title */
-.title{ width: 960px; margin: auto;}
-
 
 /* nav */
 nav{
+  margin: auto;
   width: 960px;
   display: flex;
   flex-direction: column;
@@ -39,6 +37,7 @@ nav a:hover{color: red;}
 /* content */
 .content{
   border-top: 1px solid #ccc;
+  height: 2000px;
 }
 
 /* content-edit */

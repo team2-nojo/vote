@@ -57,16 +57,19 @@ tipHover("twitter");
 // });
 
 /* 주제추가 */
-const topicInput = document.getElementById("topicInput");
 const addTopicBox = document.getElementsByClassName("addTopicBox");
 
-topicInput.addEventListener("keydown", e => {
+function addTopic(){
+
+    const topicInput = document.getElementById("topicInput");
     
-    const addTopic = document.createElement("div");
-    addTopic.innerText = topicInput.value;
-    addTopic.style.borderRadius = "5px"
-    addTopic.style.backgroundColor = "#ccc"
 
-    topicInput.append(addTopic);
+        const addTopic = document.createElement("div");
+        addTopic.innerText = topicInput.value;
+        addTopic.style.borderRadius = "5px"
+        addTopic.style.backgroundColor = "#ccc"
+    
+        input.append(addTopic);
 
-});
+};
+

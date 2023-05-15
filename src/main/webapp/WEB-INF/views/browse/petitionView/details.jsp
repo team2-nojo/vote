@@ -26,8 +26,8 @@
         <section class="top">
             <div id="menu">
                 <div id="details">Petition details</div>
-                <div><a href="#" id="Comments">Comments</a></div>
-                <div ><a href="#" id="updates">updates</a></div>
+                <div><a href="/browse/petitionView/comments" id="comments">Comments</a></div>
+                <div ><a href="#" id="updates">Updates</a></div>
             </div>
         </section>
 
@@ -59,7 +59,7 @@
                 <!-- 신고하기 -->
                 <div id="report1">
                     <i class="fa-regular fa-flag"></i>
-                    <a href="/browse/report_popUp" id="reportClick">정책 위반 신고하기</a>
+                    <a href="/browse/petitionView/report_popUp" id="reportClick">정책 위반 신고하기</a>
                 </div>
 
 
@@ -121,7 +121,7 @@
                     <!-- 댓글 사이 마다 수평선 추가 -->
                     <!-- <hr> -->
                 </div>
-                <!-- 버튼 클릭 시 펼쳐지게 -->
+                <!-- 버튼 클릭 시 이동 -->
                 <button type="button" id="commentMore" >댓글 더 보기</button>
             
 

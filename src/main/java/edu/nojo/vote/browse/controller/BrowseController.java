@@ -26,7 +26,7 @@ public class BrowseController {
 		return "/browse/browse_search/recent";
 	}
 	
-	// browse 페이지 이동
+	// browse 페이지 이동(victories)
 	@GetMapping("/browse_search/victories")
 	public String victories() {
 		return "/browse/browse_search/victories";
@@ -38,24 +38,22 @@ public class BrowseController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// view 페이지 이동
+	// petitionView 페이지 이동(details)
 	@GetMapping("/petitionView/details")
 	public String details() {
 		return "/browse/petitionView/details";
 	}
 
 	
-	
-	
+	// petitionView 페이지 이동(comments)
+	@GetMapping("/petitionView/comments")
+	public String comments() {
+		return "/browse/petitionView/comments";
+	}
+
+		
+		
+	// petitionView 페이지 이동(updates)
 	
 	
 	
@@ -67,9 +65,9 @@ public class BrowseController {
 	
 	
 	// 정책위반신고 페이지 이동
-	@GetMapping("/report_popUp")
+	@GetMapping("/petitionView/report_popUp")
 	public String report_popUp() {
-		return "/browse/report_popUp";
+		return "/browse/petitionView/report_popUp";
 	}
 
 	

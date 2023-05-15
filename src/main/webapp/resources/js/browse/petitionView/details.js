@@ -1,11 +1,15 @@
 const signButton = document.getElementById("signButton");
 const progress = document.getElementById("progress");
-
+const commentMore = document.getElementById("commentMore");
 
 signButton.addEventListener("click", ()=>{
 
     
 
+});
+
+commentMore.addEventListener("click", ()=>{
+    location.href="comments.jsp"; 
 });
 
 

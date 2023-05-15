@@ -2,7 +2,7 @@
 const SignUp = document.getElementById("SignUp");
 
 SignUp.addEventListener("click", () => {
-    location.href="signUp.html"; 
+    location.href="signUp.jsp"; 
 });  
 
 
@@ -11,7 +11,7 @@ SignUp.addEventListener("click", () => {
 const searchPw = document.getElementById("searchPw");
 
 searchPw.addEventListener("click", () => {
-    location.href="searchPw.html"; 
+    location.href="searchPw.jsp"; 
 });  
 
 

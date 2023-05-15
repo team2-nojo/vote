@@ -35,7 +35,7 @@ public class UserController {
 	@PostMapping("/login")
 	public String login(User inputUser
 						// 파라미터를 필드에 담은 커맨드 객체
-						,Model model
+						, Model model
 						, @RequestHeader(value="referer") String referer
 						// -> 요청 HTTP header에서 "referer"(이전주소) 값을 얻어와 매개 변수 String referer에 저장
 						, RedirectAttributes ra

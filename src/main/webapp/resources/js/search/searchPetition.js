@@ -13,10 +13,10 @@ searchButton.addEventListener("click", () => {
         // 검색창에 값이 입력되었을 때
         if(searchPetitions.value == search){ 
             // 검색창에 입력된 값이 DB에 있을 때(임시변수와 같을 때로 임시적용 수정예정)
-            location.href="searchPetition_result.html"; 
+            location.href="searchPetition_result.jsp"; 
         }else{
             // 검색차에 입력된 값이 없을 때
-            location.href="Petitions_not_found.html"; 
+            location.href="Petitions_not_found.jsp"; 
         }
     }else{ // 검색창이 공란일 때
         alert("검색어를 입력해주세요.")

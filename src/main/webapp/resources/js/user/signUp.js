@@ -6,7 +6,7 @@ const loginMember = document.getElementById("loginMember");
 loginMember.addEventListener("click", () => {
     
     // 열기 이벤트
-    location.href= "login.html";
+    location.href= "login.jsp";
 });  
 
 

@@ -30,5 +30,6 @@
 		<mapper resource="/mappers/search-mapper.xml" />
 		<mapper resource="/mappers/mainPage-mapper.xml" />
 		<mapper resource="/mappers/myPetitions-mapper.xml" />
+	</mappers>
 
 </configuration>

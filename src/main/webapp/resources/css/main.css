@@ -27,12 +27,13 @@ header {
   width: 160px;
 }
 .header-menu {
-  width: 65%;
+  width: 90%;
   display: flex;
   align-items: center;
 }
 
 .header-icon {
+  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,17 +128,13 @@ label[for='userMenuToggle']:hover{ text-decoration: underline; }
 /* main */
 main {
   height: 100%;
-  position: relative;
-  min-height: 100vh
+  min-height: 100vh;
+  padding-bottom: 8rem;
 }
 
 /* footer */
 footer{
-  position: absolute;
-  margin-top: 50px;
-
-  left: 0px;
-  width: 100%;
+  position: relative;
 
   height: 8rem;
   background-color: #30312f;

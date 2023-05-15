@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService{
 		// 이메일 일치하는 회원 존재 여부
 		if(loginUser != null) { // 있을경우
 			// 비밀번호 암호화 된거랑 안된거 비교 - 지금은 구현안됨( 유저2 일경우만 로그인 가능)
-			if(loginUser.getUserPw().equals("pass02!")) { 
+			if(loginUser.getUserPw().equals(inputUser.getUserPw())) { 
 				loginUser.setUserPw(null);
 			}else {
 				loginUser = null;

@@ -30,7 +30,7 @@
                 <br>
                 <div>
                     <input type="text" name="userEmail" id="email" placeholder=" Email"><br>
-                    <input type="password" name="userPw" id="password" placeholder=" Password">
+                    <input type="password" name="userPw" id="password" placeholder=" Password" autocomplete="off">
                 </div>
             
                 <div class="searchPw">

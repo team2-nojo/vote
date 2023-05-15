@@ -15,7 +15,7 @@
       <ul>
         <li><a id="startPetitions" href="/writePetition">Start a petition</a></li>
         <li><a id="myPetitions" href="/myPetitions/myPetitions">My petitions</a></li>
-        <li><a id="browse" href="#">Browse</a></li>
+        <li><a id="browse" href="/browse/browse_search">Browse</a></li>
         <li><a id="Help" href="#">Help</a></li>
       </ul>
     </div>
@@ -31,14 +31,14 @@
       <%-- 로그인 되었을 때 --%>
       <c:otherwise>
         <div class="header-icon">
-          <a href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+          <a href="/search/searchPetition"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
           <label for="userMenuToggle">
             <i class="fa-sharp fa-solid fa-user"></i>
           </label>
           <input type="checkbox" id="userMenuToggle">
           <div class="user-menu">
             <a href="#">마이페이지</a>
-            <a href="#">로그아웃</a>
+            <a href="/user/logout">로그아웃</a>
           </div>
           <i class="fa-sharp fa-solid fa-bell"></i>
         </div>

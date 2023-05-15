@@ -20,7 +20,7 @@ header {
   margin: auto;
   width: 960px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .header-logo {
@@ -46,7 +46,7 @@ header {
 
 .header-logo {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 #logoimg {
@@ -79,8 +79,6 @@ header {
 /* 아이콘 */
 .header-icon {
   position: relative;
-
-  padding: 10px;
   text-align: center;
   font-size: 24px;
 }
@@ -128,73 +126,46 @@ label[for='userMenuToggle']:hover{ text-decoration: underline; }
 
 /* main */
 main {
+  height: 100%;
   position: relative;
-  padding-bottom: 50px;
-  height: auto;
-  min-height: 100vh;
+  min-height: 100vh
 }
 
 /* footer */
-footer {
+footer{
   position: absolute;
+  margin-top: 50px;
 
   left: 0px;
-  margin-top: 20px;
   width: 100%;
 
-  height: 250px;
-  background-color: #ccc;
+  height: 8rem;
+  background-color: #30312f;
 
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   align-items: center;
+
+  font-size: 10px;
+  color: white;
 }
 
-.footer-list {
+.footer-content{
+  width: 960px;
+}
+
+.footer-header{
   display: flex;
-  width: 960px;
-  justify-content: space-around;
+  align-items: center;
+  
 }
 
-.footer-list > div {
-  width: 100%;
+#footlogo{
+  height: 20px;
 }
 
-.footer-list * {
-  text-align: left;
-  padding: 5px;
-}
-
-.footer-list h2 {
-  font-size: 16px;
-}
-
-.footer-list li {
-  list-style: none;
-  font-size: 12px;
-}
-
-.footer-last {
-  width: 960px;
-  font-size: 12px;
-  border-top: 1px solid #828282;
-}
-
-.footer-copy {
-  font-weight: bold;
-  font-size: 14px;
-  color: #515151;
-}
-
-.footer-last > p {
-  color: #515151;
-  font-weight: 600;
-  padding: 5px 3px;
-}
-#loginBtn {
-  font-size: 20px;
+.footer-header a{
+  color: white;
   text-decoration: none;
-  color: black;
 }

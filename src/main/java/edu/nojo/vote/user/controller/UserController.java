@@ -1,5 +1,7 @@
 package edu.nojo.vote.user.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.nojo.vote.user.model.dto.User;
@@ -64,12 +67,22 @@ public class UserController {
 	}
 	
 	
+	// 로그아웃
+	@GetMapping("/logout")
+	public String logout(SessionStatus status, HttpSession session) {
+		
+		status.setComplete();
+		
+		return "redirect:/";
+	}
+	
 	
 	// 회원가입 페이지로 이동
 	@GetMapping("/signUp")
 	public String signUp() {
 		return "/user/signUp";
 	}
+	
 	
 	
 	// 비밀번호 찾기 페이지로 이동

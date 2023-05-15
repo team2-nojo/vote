@@ -1,43 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <footer>
-    <div class="footer-list">
-        <div>
-            <h2>COMPANY</h2>
-            <ul>
-                <li>About</li>
-                <li>Impact</li>
-                <li>Careers</li>
-                <li>Team</li>
-            </ul>
+    <div class="footer-content">
+        <div class="footer-header">
+            <div><img id="footlogo" src="/resources/images/common/Logo.png" /></div>
+            <div><a href="#">| 개인정보처리방침</a></div>
+            <div><a href="#">| 이용약관</a></div>
         </div>
-        <div>
-            <h2>COMMUNITY</h2>
-            <ul>
-                <li>Blog</li>
-                <li>Community Guidelines</li>
-            </ul>
+        <div class="footer-body">
+            <p>KH-nojo.kr | 만든사람 | 경규원 | 권재웅 | 김자민 | 배진현 | 이도현 | 정송이</p>
+            <p>제작기간 2023.03.27 ~ 2023.05.25 | 주소:서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F</p>
         </div>
-        <div>
-            <h2>SUPPORT</h2>
-            <ul>
-                <li>Help</li>
-                <li>Guides</li>
-                <li>Privacy</li>
-                <li>Policies</li>
-                <li>Cookies</li>
-            </ul>
+        <div class="footer-last">
+            <span class="footer-copy">Copyright &copy; nojo.kr</span>
+            <span>| 이 사이트는 reCAPTCHA로 보호되며 Google 개인정보 보호정책 및 서비스 약관이 적용됩니다.</span>
         </div>
-        <div>
-            <h2>CONNECT</h2>
-            <ul>
-                <li>Twitter</li>
-                <li>Facebook</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-last">
-        <p class="footer-copy">Copyright &copy; nojo.kr</p>
-        <p>이 사이트는 reCAPTCHA로 보호되며 Google 개인정보 보호정책 및 서비스 약관이 적용됩니다.</p>
     </div>
 </footer>

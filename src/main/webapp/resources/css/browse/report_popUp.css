@@ -1,0 +1,73 @@
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 20px, 10px;
+}
+
+#reportFrm{
+    display: block;
+    margin: 5px;
+}
+
+#reportTitle{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+
+#reportContent1{
+    margin: 5px;
+    padding: 5px;
+}
+
+#reportContent2{
+    font-size: 15px;
+    margin: 5px;
+    padding: 5px;
+}
+
+#reportContent3{
+    font-size: 12px;
+    margin: 5px;
+}
+
+input{
+    margin: 5px;
+}
+
+/* textarea */
+#reportContent4{
+    width: 500px;
+    height: 150px;
+    resize: none;
+
+    border-radius: 5px;
+
+    margin: 5px;
+}
+
+/* 버튼 */
+#reportContent5{
+    width: 80px;
+    height: 30px;
+    
+    background-color: #2DB400;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    
+    margin: 5px;
+    
+}
+
+#reportContent5:hover{
+    cursor: pointer;
+}
+
+#reportContent6{
+    font-size: 12px;
+    margin: 5px;
+}

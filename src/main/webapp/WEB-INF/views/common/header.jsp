@@ -17,6 +17,14 @@
         <li><a id="myPetitions" href="/myPetitions/myPetitions">My petitions</a></li>
         <li><a id="browse" href="/browse/browse_search/featured">Browse</a></li>
         <li><a id="Help" href="#">Help</a></li>
+        <%-- 임시 --%>
+        <li>
+          <form action="/user/login" method="post" id="loginFrm">
+            <input type="hidden" name="userEmail" value="user02@kh.or.kr">
+            <input type="hidden" name="userPw" value="pass02!">
+            <button id=btn>user02로그인</button>
+          </form>
+        </li>
       </ul>
     </div>
     <c:choose>

@@ -27,5 +27,6 @@
 		<mapper resource="/mappers/myPage-mapper.xml" />
 		<mapper resource="/mappers/writePetition-mapper.xml" />
 		<mapper resource="/mappers/search-mapper.xml" />
+		<mapper resource="/mappers/mainPage-mapper.xml" />
 	</mappers>
 </configuration>

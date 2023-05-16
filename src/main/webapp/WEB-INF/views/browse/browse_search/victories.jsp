@@ -33,7 +33,7 @@
         </section>
 
         <section class="middle">
-            
+            달성된 청원
             <div class="result">
                 <div class="row" id="rowPicture">
                     <img src="/resources/images/순덕이.png" class="picture">

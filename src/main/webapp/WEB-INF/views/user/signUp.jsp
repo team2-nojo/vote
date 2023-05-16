@@ -19,7 +19,7 @@
     <main>
 
         <section>
-            <form action="/user/signUp" method="POST" name="signUpFrm" id="signUpFrm">
+            <form action="/user/signUp" method="post" name="signUpFrm" id="signUpFrm">
                 <div id="signUp">Sign up</div>
                 <br>
                 
@@ -37,21 +37,21 @@
                 <br>
 
                 <div>
-                    <input type="text" id="email" placeholder=" Email">
-                    <button id="doubleCheck">중복확인</button> 
+                    <input type="text" name="userEmail" id="email" placeholder=" Email">
+                    <button type="button" id="doubleCheck">중복확인</button> 
                 </div>
                 <div>
-                    <input type="text" id="name" placeholder=" Nickname">
-                    <button id="NicknameCheck">중복확인</button>    
+                    <input type="text" name="userNickname" id="name" placeholder=" Nickname">
+                    <button type="button" id="NicknameCheck">중복확인</button>    
                 </div>
                 <div>
-                    <input type="text" id="password1" placeholder=" Password">
-                    <input type="text" id="password2" placeholder=" Password">
+                    <input type="text" name="userPw" id="password1" placeholder=" Password">
+                    <input type="text" name="userPwConfirm" id="password2" placeholder=" Password">
                 </div>
                 <div>
-                    <input type="text" id="sample6_address" placeholder=" Address">
+                    <input type="text" name="userAddress" id="sample6_address" placeholder=" Address">
                     <button type="button" id="addressSearch" onclick="sample6_execDaumPostcode()">주소찾기</button> <br>
-                    <input type="text" id="sample6_detailAddress" placeholder=" Address">
+                    <input type="text" name="userAddress" id="sample6_detailAddress" placeholder=" Address">
                 </div>
 
                 <div>

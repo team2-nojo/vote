@@ -1,0 +1,112 @@
+main *{
+    box-sizing: border-box;
+}
+
+.innerContainer{
+    width: 960px;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-center{
+    display: flex;
+    align-items: center;
+    
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.largeFont{
+    font-size: 1.5em;
+}
+
+.block{
+    display: block;
+}
+
+.smallFont{
+    font-size: 0.8em;
+}
+
+.flexRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
+}
+
+.gray{
+    color:gray;
+}
+
+#accountInfoContainer{
+    /* height: 500px; */
+    border-bottom: 1px solid #999;
+    padding : 60px 0px 15px 0px;
+    /* margin: 0px -10px; */
+}
+
+#accountInfo > *{
+    margin: 5px;
+}
+
+.profileImg{
+    border-radius: 50%;
+}
+
+#settingsMenuContainer{
+    display: flex;
+    flex-direction: column;
+    width: 620px;
+}
+#settingsMenuContainer>*{
+    margin: 20px 0px;
+}
+
+.menu-container{
+    width: 100%;
+}
+
+
+.menu-container > a {
+    text-decoration: none;
+    color: black;
+    padding: 20px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.menu-container > a > i {
+    margin-right: 20px;
+}
+
+.menu-container > a:hover {
+    color: #2DB400;
+}
+
+hr{
+    width: 100%;
+}
+
+.h1{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.row-center > * {
+    margin: 20px 0;
+}
+
+.between{
+    justify-content: space-between;
+}

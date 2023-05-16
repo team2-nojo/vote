@@ -27,17 +27,17 @@
                     <p>청원 범위 선택:</p>
                     <div class="select-container border">
                         <span class="scope-item selected-item" name="scope" value="local">
-                            <span class="scope-icon pointer-events-none">icon</span>
+                            <span class="scope-icon pointer-events-none"><i class="fa-solid fa-house"></i></span>
                             <span class="pointer-events-none">지역</span>
                         </span><span class="scope-item" name="scope" value="national">
-                            <span class="scope-icon pointer-events-none">icon</span>
+                            <span class="scope-icon pointer-events-none"><i class="fa-sharp fa-solid fa-landmark-dome"></i></span>
                             <span class="pointer-events-none">국가</span>
                         </span><span class="scope-item" name="scope" value="global">
-                            <span class="scope-icon pointer-events-none">icon</span>
+                            <span class="scope-icon pointer-events-none"><i class="fa-solid fa-earth-americas"></i></span>
                             <span class="pointer-events-none">세계</span>
                         </span>
                     </div>
-                    <div id="page1Tip" class="tip"><span class="scope-icon">icon</span><span>지역 청원은 승리할 확률이 50% 더 높습니다.</span></div>
+                    <div id="page1Tip" class="tip"><span class="scope-icon"><i class="fa-solid fa-arrow-trend-up"></i></span><span>지역 청원은 승리할 확률이 50% 더 높습니다.</span></div>
                 </div>
                 
                 <!-- page2 -->

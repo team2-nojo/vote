@@ -21,10 +21,13 @@
 
 
 	<!-- 로그인 -->
+ 
 	<select id="login" resultMap="user_rm">
-		SELECT USER_NO, USER_EMAIL, USER_NICKNAME, USER_PW, USER_ADD, USER_ABOUT_ME
+		SELECT USER_NO, USER_EMAIL, USER_GRADE, USER_NICKNAME, USER_PW, USER_ADD, USER_ABOUT_ME, USER_IMG, 
+          TO_CHAR(USER_ENDROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') USER_ENDROLL_DT
 		FROM "USER"
-		WHERE USER_EMAIL = #{userEmail}
+		WHERE USER_DEL_FL = 'N'
+		AND USER_EMAIL = #{userEmail}
 	</select>
 	
 </mapper>

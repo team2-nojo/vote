@@ -49,6 +49,19 @@ VALUES (SEQ_USER_NO.NEXTVAL, 1, '/resources/images/mainPage/profile7.jpeg', 'use
 	
 	
 SELECT * FROM "USER";	
+
+-- 로그인
+SELECT USER_NO, USER_EMAIL, USER_GRADE, USER_NICKNAME, USER_ADD, USER_IMG, USER_PW, 
+				TO_CHAR(USER_ENDROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') USER_ENDROLL_DT
+		FROM "USER"
+		WHERE USER_DEL_FL = 'N'
+		AND USER_EMAIL = 'user03@kh.or.kr';
+
+-- 비밀번호 암호화
+UPDATE "USER" SET
+USER_PW = '$2a$10$nxEfdIGsSboDg.32irKM/uj3AwlaQqpFasc0T.xSAW2JkTIdO7Uhe';
+
+COMMIT;
 	
 
 -- USER 테이블 코멘트

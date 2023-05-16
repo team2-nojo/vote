@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+.item {
+  border: 1px solid lightgray;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-template-rows: 16.67% 33.33% 33.33%;
+  height: 1200px;
+}
+
+.color1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#chart-box {
+  color: #333;
+  padding: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.slide-container {
+  width: 800px;
+  height: 100%;
+  background-color: gray;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.slides,
+.controller {
+  width: 800px;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+}
+
+.slides {
+  list-style: none;
+  display: flex;
+  transition-duration: 0.5s;
+  z-index: 100;
+  /* transform: translateX(-800px); */
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  float: left;
+  flex-shrink: 0;
+}
+
+.item > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.item > a > img {
+  height: 100%;
+}
+
+.controller > div {
+  z-index: 110;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 150px;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.slide-btn:hover {
+  color: rgba(200, 200, 200, 0.5);
+}
+
+.prev-btn {
+  left: 10px;
+}
+.next-btn {
+  right: 10px;
+}
+
+.slied-page-btn {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.slied-page-btn > span {
+  cursor: pointer;
+  display: inline-block;
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.slied-page-btn > span.active {
+  background-color: orangered;
+}

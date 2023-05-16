@@ -1,7 +1,7 @@
 
 
 
-*{ 
+main *{ 
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -29,13 +29,13 @@ main{
 
 /* body */
 
-section{
+main section{
     margin-top: auto;
     margin-bottom: auto;
 }
 
 
-section>div{
+main section>div{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,14 +84,14 @@ section>div{
 }
 
 
-table{
+main table{
     width: auto;
     border-collapse: collapse; 
 }
 
 
 
-th, td{
+main th, td{
     padding: 10px;
     border-collapse: collapse; 
 }
@@ -163,76 +163,4 @@ th, td{
     margin-top: 10px;
 }
 
-
-
-/*  footer */
-footer{
-    width: 960px;
-    height: 335px;
-    margin: auto;
-    
-    background-color: #ccc;
-    
-    
-    display: block; 
-}
-
-
-
-footer>article{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-}
-
-
-
-footer>article>dl{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-
-} 
-
-
-
-footer>article *{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    
-    
-}
-
-
-
-footer>article>dl>dt{
-    font-size: 15px;
-    color: grey;
-    font-weight: bold;
-
-    
-}
-
-
-
-footer>div>p{
-    font-size: 12px;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    margin-top: 1.5%;
-    margin-bottom: 1.5%;
-}
-
-
-
-footer>article>dl>dd>a{
-    color: black;
-    font-size: 15px;
-    text-decoration: none;
-    
-}
 

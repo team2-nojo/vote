@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/myPage/*", "/myPetitions/*"})
+@WebFilter(filterName = "loginFilter", urlPatterns = {"/myPage/*", "/myPetitions/*", "/writePetition"})
 public class LoginFilter implements Filter {
 
 

@@ -201,6 +201,7 @@ main *{
 
 button:disabled{
   background-color: #bbb !important;
+  border: 2px solid #bbb;
 }
 
 button:disabled:hover{
@@ -347,4 +348,8 @@ input[name="categoryItem"]:checked + label,#directInputCheckbox:checked + label,
 #categoryInputBtn{
   background-color: #2DB400;
   color: white;
+}
+
+.scope-item i{
+  font-size: 20px;
 }

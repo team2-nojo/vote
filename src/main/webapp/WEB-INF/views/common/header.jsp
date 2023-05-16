@@ -46,7 +46,7 @@
           <input type="checkbox" id="userMenuToggle">
           <div class="user-menu">
             <a class="header-a" href="/myPetitions/myPetitions">나의 청원</a>
-            <a class="header-a" href="#">마이페이지</a>
+            <a class="header-a" href="/myPage">마이페이지</a>
             <span>${loginUser.userNickname}</span>
             <a class="header-a" href="/user/logout">로그아웃</a>
           </div>

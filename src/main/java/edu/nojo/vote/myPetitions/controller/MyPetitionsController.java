@@ -39,11 +39,11 @@ public class MyPetitionsController {
 		// 조회한 내가 작성한 글 목록을 화면으로 전달
 		model.addAttribute("petitionList", petitionList);
 		
-		// 로그인 한 유저의 좋아요 한 글을 조회 
-//		List<Petition> likeList = service.selectLikePetition(loginUser.getUserNo());
+//		 로그인 한 유저의 좋아요 한 글을 조회 
+		List<Petition> likeList = service.selectLikePetition(loginUser.getUserNo());
 		
 		// 조회한 좋아요 한 글 목록을 화면으로 전달
-//		model.addAttribute("likeList", likeList);
+		model.addAttribute("likeList", likeList);
 		
 		
 		

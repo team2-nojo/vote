@@ -24,14 +24,14 @@ public class MyPetitionsDAO {
 	}
 
 
-//	/** 로그인 한 유저의 좋아요 한 글을 조회 
-//	 * @param userNo
-//	 * @return likeList
-//	 */
-//	public List<Petition> selectLikePetition(int userNo) {
-//		return sqlSession.selectList("myPetitionsMapper.selectLikePetition", userNo);
-//	}
-//	
+	/** 로그인 한 유저의 좋아요 한 글을 조회 
+	 * @param userNo
+	 * @return likeList
+	 */
+	public List<Petition> selectLikePetition(int userNo) {
+		return sqlSession.selectList("myPetitionsMapper.selectLikePetition", userNo);
+	}
+	
 
 	
 	

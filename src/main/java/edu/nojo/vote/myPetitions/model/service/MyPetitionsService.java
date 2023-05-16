@@ -12,11 +12,11 @@ public interface MyPetitionsService {
 	 */
 	List<Petition> selectMyPetitions(int userNo);
 
-//	/** 로그인 한 유저의 좋아요 한 글을 조회 
-//	 * @param userNo
-//	 * @return likeList
-//	 */
-//	List<Petition> selectLikePetition(int userNo);
+	/** 로그인 한 유저의 좋아요 한 글을 조회 
+	 * @param userNo
+	 * @return likeList
+	 */
+	List<Petition> selectLikePetition(int userNo);
 
 
 

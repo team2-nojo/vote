@@ -25,22 +25,90 @@
                     <div class="EditProfileText">
                         <div class="userProfileID">${loginUser.userNickname}</div>
                         <div class="userProfileLocation">${loginUser.userAddress.split(" ")[0]}</div>
-                        <a href="/myPage/editProfiile">Edit profile</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
+                        <div>
+                            <a href="/myPage/editProfiile">Edit profile</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
+                        </div>
                     </div>
                 </div>
                 <ul class="tabs"> <!-- 내가 시작한, 사인한 청원 목록 보는 탭 -->
                     <li><a href="#" id="start" class="myPetitions-click">Start(${fn:length(petitionList)})</a></li> <!-- 내가 시작한 청원 목록  -->
-                    <li><a href="#" id="signed">Signed(2)</a></li> <!-- 내가 사인한 청원 목록 -->
+                    <li><a href="#" id="signed">Signed(${fn:length(likeList)})</a></li> <!-- 내가 사인한 청원 목록 -->
                 </ul> 
-                <div>
-                <c:forEach items="${petitionList}" var="petition">
-                <div class="defaultbox">
-                    <div class="myPetitionTitle">${petition.petitionTitle}</div>
-                    <div class="myPetitionText">${petition.petitionContent}</div>
-                    <div class="myPetitionWriter">${loginUser.userNickname}</div>
-                    <div class="myPetitionsuppoerter">좋아요 한 사람 수</div>
+                <div id="myStartPetitions">
+                    <c:choose>
+                        <c:when test="${empty petitionList}">
+                            <%-- start한 청원이 없을 경우 empty default box 출력 --%>
+                            <div class="empty-default-box">
+                                <div class="emptyDefaultBoxArea">
+                                    <div>바꾸고 싶은 세상이 있으신가요? 당신이 걱정하는 것에 대해 청원을 작성해 보세요.</div>
+                                    <div><a href="/writePetition" class="toStartAPetition">청원 시작</a></div>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <%-- start한 청원이 있을 경우 petitionList 출력 --%>
+                            <c:forEach items="${petitionList}" var="petition">
+                            <div class="defaultbox">
+                                <div class="myPetitionTitle">${petition.petitionTitle}</div>
+                                <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
+                                <div class="myPetitionText">
+                                <c:choose>
+                                    <c:when test="${fn:length(petition.petitionContent) > 200}">
+                                        <c:out value="${fn:substring(petition.petitionContent, 0, 201)}">...
+                                        </c:out>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:out value="${petition.petitionContent}">
+                                        </c:out>
+                                    </c:otherwise>
+                                </c:choose>
+                                </div>
+                                <div>
+                                    <div class="myPetitionWriter">${loginUser.userNickname}</div>
+                                    <div class="myPetitionsupporter">좋아요 한 사람 수</div>
+                                </div>
+                            </div>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
-                </c:forEach>
+                <div id="mySignedPetitions" class="invisibleMyPetitions">
+                    <c:choose>
+                        <c:when test="${empty petitionList}">
+                            <%-- signed한 청원이 없을 경우 empty default box 출력 --%>
+                            <div class="empty-default-box">
+                                <div class="emptyDefaultBoxArea">
+                                    <div>관심이 있는 문제에 선한 영향력을 주는 청원을 찾아 지지를 표시하세요.</div>
+                                    <div><a href="/writePetition" class="toStartAPetition">청원 둘러보기</a></div>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <%-- signed한 청원이 있을 경우 petitionList 출력 --%>
+                            <c:forEach items="${likeList}" var="petition">
+                                <div class="defaultbox">
+                                    <div class="myPetitionTitle">${petition.petitionTitle}</div>
+                                    <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
+                                    <div class="myPetitionText">
+                                    <c:choose>
+                                        <c:when test="${fn:length(petition.petitionContent) > 200}">
+                                            <c:out value="${fn:substring(petition.petitionContent, 0, 201)}">...
+                                            </c:out>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:out value="${petition.petitionContent}">
+                                            </c:out>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    </div>
+                                    <div>
+                                        <div class="myPetitionWriter">${loginUser.userNickname}</div>
+                                        <div class="myPetitionsupporter">좋아요 한 사람 수</div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>

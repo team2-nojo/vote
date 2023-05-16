@@ -23,10 +23,10 @@ public class MyPetitionsServiceImpl implements MyPetitionsService {
 	}
 
 
-//	// 로그인 한 유저의 좋아요 한 글을 조회 
-//	@Override
-//	public List<Petition> selectLikePetition(int userNo) {
-//		return dao.selectLikePetition(userNo);
-//	}
+	// 로그인 한 유저의 좋아요 한 글을 조회 
+	@Override
+	public List<Petition> selectLikePetition(int userNo) {
+		return dao.selectLikePetition(userNo);
+	}
 
 }

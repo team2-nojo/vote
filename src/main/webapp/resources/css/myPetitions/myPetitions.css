@@ -1,8 +1,12 @@
-
+/* 전체 화면 출력 부분 */
+.userProfileframe {
+    margin-bottom: 100px;
+}
 
 /* EditProfileText 상단 */
 .EditProfileText{
     text-align: center !important;
+    display: block;
 }
 
 /* user profile이 적힌 row를 가운데로 */
@@ -10,6 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin : 50px 0px;
 }
 
 /* login_myPetitions 아이디 */
@@ -26,7 +31,7 @@
 }
 
 /* edit profile 버튼 */
-.EditProfileText>a{
+.EditProfileText div >a{
     width: 101.52px;
     background-color: #fff;
     cursor: pointer;
@@ -35,6 +40,7 @@
     border: 1px solid lightgray;
     border-radius: 5px;
     font-size: 12px !important;
+    display: inline-block;
 }
 
 /* edit profile 버튼 hover시 하단에 빨간 줄이 나오는 설정(start/signed nav바에 적용되는) 제거 */
@@ -89,6 +95,11 @@
     margin: 25px 0px;
     border: 1px solid #737273;
     border-radius: 5px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
 }
 
 
@@ -158,13 +169,10 @@
 
 
 
-
-
 /* myPetitionTitle 청원 타이틀 양식 */
 .myPetitionTitle {
     font-size: 24px !important;
     font-weight: bold;
-    cursor: pointer;
 }
 
 /* myPetitionText 청원 본문 양식 */
@@ -173,25 +181,29 @@
     margin-block-end: 1em;
     margin-inline-start: 1em;
     margin-inline-end: 1em;
-    cursor: pointer;
     line-height: 1.5;
 }
 
-/* myPetitionWriter 청원 글 작성자 양식 */
+/* myPetitionsupporter, myPetitionWriter를 담고 있는 div */
+.defaultbox > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
 
 /* myPetitionsupporter 서포터 수 양식 */
 .myPetitionsupporter, .myPetitionWriter {
     text-align: right !important;
-    cursor: pointer;
-    float: left;
+    display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
-    flex-grow: 1;
 }
 
 .myPetitionWriter{
     text-align: left !important;
 }
+
+
 
 .defaultbox > .myPetitionBottom {
     display: flex;
@@ -199,5 +211,7 @@
 }
 
 
-
+.invisibleMyPetitions {
+    display: none;
+}
 

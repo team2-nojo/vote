@@ -33,14 +33,19 @@ public class MyPetitionsController {
 		// 청원 좋아요 : 청원 좋아요 개수 (로그인 멤버의 회원 번호를 받아 청원 좋아요한 글을 조회)
 		// 청원 좋아요 글 : 글 번호, 글 제목, 글 내용, 글 삭제여부(청원 좋아요한 글의 번호를 받아 청원 좋아요한 글을 조회)
 		
-		// 로그인 한 멤버의 회원 번호를 이용해 작성한 글 목록 조회
+		// 로그인 한 유저의 회원 번호를 이용해 작성한 글 목록 조회
 		List<Petition> petitionList = service.selectMyPetitions(loginUser.getUserNo());
+	
+		// 조회한 내가 작성한 글 목록을 화면으로 전달
+		model.addAttribute("petitionList", petitionList);
 		
-		//테스트
-		System.out.println(petitionList.get(0).getPetitionTitle());
-		System.out.println(petitionList.size());
+//		 로그인 한 유저의 좋아요 한 글을 조회 
+		List<Petition> likeList = service.selectLikePetition(loginUser.getUserNo());
 		
-		// 
+		// 조회한 좋아요 한 글 목록을 화면으로 전달
+		model.addAttribute("likeList", likeList);
+		
+		
 		
 		
 		

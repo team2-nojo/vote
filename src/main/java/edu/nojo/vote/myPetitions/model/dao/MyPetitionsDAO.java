@@ -13,11 +13,26 @@ public class MyPetitionsDAO {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+	
 
+	/** 로그인 한 멤버의 회원 번호를 이용해 작성한 글 조회
+	 * @param userNo
+	 * @return petitionList
+	 */
 	public List<Petition> selectMyPetitions(int userNo) {
 		return sqlSession.selectList("myPetitionsMapper.selectMyPetitions", userNo);
 	}
+
+
+	/** 로그인 한 유저의 좋아요 한 글을 조회 
+	 * @param userNo
+	 * @return likeList
+	 */
+	public List<Petition> selectLikePetition(int userNo) {
+		return sqlSession.selectList("myPetitionsMapper.selectLikePetition", userNo);
+	}
 	
+
 	
 	
 	

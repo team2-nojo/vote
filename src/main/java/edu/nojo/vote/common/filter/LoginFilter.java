@@ -41,7 +41,7 @@ public class LoginFilter implements Filter {
 //		}
 		
 		
-		if(session.getAttribute("loginMember") == null) {
+		if(session.getAttribute("loginUser") == null) {
 			resp.sendRedirect("/user/login");
 		// 4) 로그인 상태인 경우 다음 필터 또는 Dispatcher Servlet으로 전달
 		} else {

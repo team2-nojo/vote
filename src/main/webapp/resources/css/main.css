@@ -1,3 +1,7 @@
+body{
+  margin: 0;
+}
+
 header *,
 footer * {
   margin: 0;
@@ -61,7 +65,7 @@ header {
   font-size: 16px;
 }
 
-.header-menu a {
+.header-a{
   display: inline-block; /* 인라인 블록 요소로 설정하여 가로 정렬 */
   text-align: center; /* 수평 중앙 정렬 */
   text-decoration: none;
@@ -128,15 +132,15 @@ label[for='userMenuToggle']:hover{ text-decoration: underline; }
 /* main */
 main {
   height: 100%;
-  min-height: 100vh;
-  padding-bottom: 8rem;
+  min-height: calc(100vh - 57px - 150px);
+  padding-bottom: 10px;
 }
 
 /* footer */
 footer{
   position: relative;
-
-  height: 8rem;
+  
+  height: 150px;
   background-color: #30312f;
 
   display: flex;

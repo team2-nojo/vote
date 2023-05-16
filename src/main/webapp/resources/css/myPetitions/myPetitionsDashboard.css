@@ -2,7 +2,7 @@ main *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 
 main a{
@@ -73,7 +73,22 @@ nav a:hover{color: red;}
   height: 80%;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
+
+  position: relative;
+}
+
+.content-frame-img>svg{
+  top: 50px;
+  background-color:transparent;
+  display:block;
+  height:100%;
+  margin-left:auto;
+  margin-right:auto;
+  left:0;
+  right:0;
+  position:absolute;
+  width:90%
 }
 
 .graph-text{

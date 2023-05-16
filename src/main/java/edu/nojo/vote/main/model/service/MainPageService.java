@@ -7,4 +7,6 @@ public interface MainPageService {
 
 	List<Map<String, Object>> selectMainPtList();
 
+	List<Map<String, Object>> selectMainUserList();
+
 }

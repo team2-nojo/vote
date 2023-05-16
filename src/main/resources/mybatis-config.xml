@@ -15,6 +15,7 @@
 	<typeAliases>
 	
 		<typeAlias type="edu.nojo.vote.user.model.dto.User" alias="User" />
+		<typeAlias type="edu.nojo.vote.main.model.dto.Petition" alias="Petition" />
 		
 	</typeAliases>
 	
@@ -27,5 +28,8 @@
 		<mapper resource="/mappers/myPage-mapper.xml" />
 		<mapper resource="/mappers/writePetition-mapper.xml" />
 		<mapper resource="/mappers/search-mapper.xml" />
+		<mapper resource="/mappers/mainPage-mapper.xml" />
+		<mapper resource="/mappers/myPetitions-mapper.xml" />
 	</mappers>
+
 </configuration>

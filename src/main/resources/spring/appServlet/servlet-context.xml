@@ -29,5 +29,12 @@
 			<beans:bean id="WritePetitionInterceptor"
 						class="edu.nojo.vote.common.interceptor.WritePetitionInterceptor"/>
 		</interceptor>
+		
+		<interceptor>
+			<!-- 인터셉터가 동작할 url 패턴  -->
+			<mapping path="/**"/>
+			<beans:bean id="mainPageInterceptor"
+						class="edu.nojo.vote.common.interceptor.MainPageInterceptor"/>
+		</interceptor>
 	</interceptors>
 </beans:beans>

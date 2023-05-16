@@ -6,12 +6,14 @@
 	
 		<id property="userNo" column="USER_NO" />
 		
-		<result property="userEmail" column="USER_EMAIL" />
-		<result property="userPw" column="USER_PW" />
 		<result property="userGrade" column="USER_GRADE" />
-		<result property="userNickname" column="USER_NICKNAME" />
-		<result property="userAddress" column="USER_ADD" />
 		<result property="userImage" column="USER_IMG" />
+		<result property="userEmail" column="USER_EMAIL" />
+		<result property="userNickname" column="USER_NICKNAME" />
+		<result property="userPw" column="USER_PW" />
+		<result property="userAddress" column="USER_ADD" />
+		<result property="userAboutMe" column="USER_ABOUT_ME" />
+		<result property="userSocialLogin" column="USER_SOCIAL_LOGIN" />
 		<result property="userEnrollDate" column="USER_ENDROLL_DT" />
 		<result property="userDelFl" column="USER_DEL_FL" />
 	
@@ -19,9 +21,10 @@
 
 
 	<!-- 로그인 -->
-	<select id="login" parameterType="User" resultMap="user_rm">
-		SELECT USER_NO, USER_EMAIL, USER_GRADE, USER_NICKNAME, USER_ADD, USER_IMG, USER_PW, 
-				TO_CHAR(USER_ENDROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') USER_ENDROLL_DT
+ 
+	<select id="login" resultMap="user_rm">
+		SELECT USER_NO, USER_EMAIL, USER_GRADE, USER_NICKNAME, USER_PW, USER_ADD, USER_ABOUT_ME, USER_IMG, 
+          TO_CHAR(USER_ENDROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') USER_ENDROLL_DT
 		FROM "USER"
 		WHERE USER_DEL_FL = 'N'
 		AND USER_EMAIL = #{userEmail}

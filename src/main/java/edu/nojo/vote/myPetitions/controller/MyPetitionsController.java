@@ -61,11 +61,7 @@ public class MyPetitionsController {
 //		return "/myPetitions/myPetitionsDetails";
 //	}
 	
-	// myPetitionEdit 페이지로 이동
-	@GetMapping("/myPetitionEdit")
-	public String myPetitionEdit() {
-		return "/myPetitions/myPetitionEdit";
-	}
+
 	
 //	// myPetitionComments 페이지로 이동
 //	@GetMapping("/myPetitionComments")

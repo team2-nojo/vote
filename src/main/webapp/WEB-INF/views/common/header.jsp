@@ -16,7 +16,7 @@
         <li><a class="header-a" id="startPetitions" href="/writePetition">Start a petition</a></li>
         <li><a class="header-a" id="myPetitions" href="/myPetitions/myPetitions">My petitions</a></li>
         <li><a class="header-a" id="browse" href="/browse/browse_search/featured">Browse</a></li>
-        <li><a class="header-a" id="Help" href="#">Help</a></li>
+        <li><a class="header-a" id="Help" href="/clientCenter/FAQ">Help</a></li>
         <%-- 임시 --%>
         <li>
           <form action="/user/login" method="post" id="loginFrm">

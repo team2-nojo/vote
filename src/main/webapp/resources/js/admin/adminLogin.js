@@ -1,7 +1,3 @@
-function openSignUpAdmin() {
-  window.open('../html/test.html', '_blank');
-}
-
 const loginId = document.getElementById('id');
 const loginPw = document.getElementById('pw');
 const loginBtn = document.getElementById('loginBtn');

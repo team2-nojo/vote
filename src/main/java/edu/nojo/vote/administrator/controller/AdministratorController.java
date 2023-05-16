@@ -10,4 +10,9 @@ public class AdministratorController {
 	public String adminLogin() {
 		return "admin/adminLogin";
 	}
+	
+	@GetMapping("/adminDashBoard")
+	public String adminDashBoard() {
+		return "admin/adminDashBoard";
+	}
 }

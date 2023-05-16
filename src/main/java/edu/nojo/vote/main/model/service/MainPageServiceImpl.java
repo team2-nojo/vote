@@ -21,6 +21,13 @@ public class MainPageServiceImpl implements MainPageService {
 		
 		return dao.selectMainPtList();
 	}
+
+
+	@Override
+	public List<Map<String, Object>> selectMainUserList() {
+		// TODO Auto-generated method stub
+		return dao.selectMainUserList();
+	}
 	
 	
 }

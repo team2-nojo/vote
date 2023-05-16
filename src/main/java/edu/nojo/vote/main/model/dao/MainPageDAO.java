@@ -22,4 +22,10 @@ public class MainPageDAO {
 		
 		return sqlSession.selectList("mainPageMapper.selectMainPtList");
 	}
+
+
+	public List<Map<String, Object>> selectMainUserList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("mainPageMapper.selectMainUserList");
+	}
 }

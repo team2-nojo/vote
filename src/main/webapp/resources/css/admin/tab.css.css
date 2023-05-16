@@ -1,0 +1,89 @@
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  margin: 0 0;
+  z-index: 50;
+  color: black;
+}
+
+/* 탭 스타일 */
+.tab_item {
+  width: calc(100% / 3);
+  height: 50px;
+  background-color: rgb(229, 225, 225);
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #333333;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/* 라디오 버튼 UI삭제*/
+input[name='tab_item'] {
+  display: none;
+}
+
+/* 탭 컨텐츠 스타일 */
+.tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+/* 선택 된 탭 콘텐츠를 표시 */
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content,
+#design:checked ~ #design_content {
+  display: block;
+}
+
+/* 선택된 탭 스타일 */
+.tabs input:checked + .tab_item {
+  background-color: #555555;
+  color: #fff;
+}
+
+#helpmenu {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  width: 60px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background: #03c75a;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  box-shadow: 0px 5px 15px gray;
+  cursor: pointer;
+}
+#helpmenu:active {
+  box-shadow: 1px 1px 1px 1px #333333;
+  position: fixed;
+}
+
+.helpmenu {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background-color: #03c75a;
+  padding: 10px;
+}
+#delete-help-menu {
+  width: 20px;
+  top: 0;
+  right: 0;
+}

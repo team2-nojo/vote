@@ -8,7 +8,6 @@ const newsCountry = document.querySelector('#main-news-country');
 const viewers = document.querySelector('#view');
 const mainPhoto = document.querySelector('#mainPhoto');
 const idImg = document.querySelector('#news-id');
-
 smallNews.forEach((newBox, index) => {
   //smallNews[index].src = pettitions[index].image;
   //smallNews[index].src.backgroundSize = 'cover';
@@ -19,39 +18,19 @@ smallNews.forEach((newBox, index) => {
     });
     newsTitles.forEach((title) => {
       title.style.color = 'black';
+      title.lastChild.style.color = '';
     });
 
     // 클릭한 요소에 대해서만 스타일 변경
     newBox.style.borderBottom = '6px solid #2DB400';
-    newsTitles[index].style.color = 'rgba(40, 144, 5, 1)';
+    newsTitles[index].lastChild.style.color = 'rgba(40, 144, 5, 1)';
     if (index === 0) {
       newsTitle.innerText = newsTitles[0].childNodes[0].innerText;
       mainPhoto.src = smallNews[0].src;
-      // newsSub.innerText = pettitions[0].content;
-      // newsId.innerText = pettitions[0].name;
-      // newsCountry.innerText = pettitions[0].country;
-      // viewers.innerText = pettitions[0].viewers;
-      // mainPhoto.src = pettitions[0].image;
-      // idImg.src = pettitions[0].profile;
     } else {
       newsTitle.innerText = newsTitles[index].childNodes[0].innerText;
       mainPhoto.src = smallNews[index].src;
-      // newsSub.innerText = pettitions[index].content;
-      // newsId.innerText = pettitions[index].name;
-      // newsCountry.innerText = pettitions[index].country;
-      // viewers.innerText = pettitions[index].viewers;
-      // mainPhoto.src = pettitions[index].image;
-      // idImg.src = pettitions[index].profile;
     }
-  });
-  newBox.addEventListener('click', () => {
-    // newBox.style.borderBottom = 'none';
-    // newsTitle.innerText = pettitions[0].title;
-    // newsSub.innerText = pettitions[0].content;
-    // newsCountry.innerText = pettitions[0].country;
-    // viewers.innerText = pettitions[0].viewers;
-    // idImg.src = pettitions[0].profile;
-    // mainPhoto.src = pettitions[0].image;
   });
 });
 

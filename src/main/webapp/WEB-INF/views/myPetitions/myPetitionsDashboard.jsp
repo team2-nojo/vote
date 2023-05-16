@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:set var="petitionTitle" value="${petitionList.get(0).getPetitionTitle()}"/>
-
+<c:set var="likeCount" value="${likeList.size()}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -43,12 +43,22 @@
         <div class="content-left">
           <div class="graph">
             <div id="contentFrame">
+              <div class="graph-tip">
+                <i id="graphI" class="fa-regular fa-circle-question">
+                  <div id="graphP">
+                    <span>보기에는 vote . kh 사이트 및 이메일에서 귀하의 청원에 대한 방문 및 청원에 대한 프로모션 광고의 조회가 포함됩니다. 대부분의 청원은 25회 조회당 약 1명의 지지자를 받습니다.</span>
+                  </div>
+                </i>
+              </div>
               <div class="content-frame-img">
+                <span class="supporter">${likeCount}</span>
+                <span>Supporter</span>
                 <svg id="my-svg" viewBox="-1.04 -1.04 2.08 2.08">
-                    <path style="stroke:#dbd9db" stroke-width="0.08px" d="M -0.8910065241883681 0.45399049973954625 A 1 1 0 1 1 0.8910065241883677 0.4539904997395472" fill="transparent" stroke-linecap="round"></path>
-                    <path id="animated-path" style="stroke:#ec2c22" stroke-width="0.08px" d="M -0.8910065241883681 0.45399049973954625 A 1 1 0 1 1 0.8910065241883677 0.4539904997395472" fill="transparent" stroke-linecap="round" stroke-dasharray="0.8168140899333463 10"></path>
+                    <path style="stroke:#ec2c22" stroke-width="0.08px" d="M -0.8910065241883681 0.45399049973954625 A 1 1 0 1 1 0.8910065241883677 0.4539904997395472" fill="transparent" stroke-linecap="round"></path>
+                    <path id="animated-path" style="stroke:#dbd9db" stroke-width="0.09px" d="M -0.8910065241883681 0.45399049973954625 A 1 1 0 1 1 0.8910065241883677 0.4539904997395472" fill="transparent" stroke-linecap="round" stroke-dasharray="0.8168140899333463 10"></path>
                 </svg>
               </div>
+              <div class="maxnum">다음 목표까지 서포터 단 ${5 - likeCount}명만 더!</div>
               <div class="graph-text">
                 <div>1 보기</div>
                 <div>0 주</div>

@@ -28,7 +28,8 @@ public class UserServiceImpl implements UserService{
 		// 이메일 일치하는 회원 정보 얻어오기
 		User loginUser = dao.login(inputUser);
 		
-		
+		System.out.println(inputUser);
+		System.out.println(loginUser);
 		
 		// 이메일 일치하는 회원 존재 여부
 		if(loginUser != null) { // 있을경우

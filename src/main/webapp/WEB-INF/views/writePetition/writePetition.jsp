@@ -145,14 +145,14 @@
                                 <div id="progC"><div id="prog"></div></div>
                                 <hr id="progHr" style="width:100%;">
                                 <div id="signer">
-                                    <img id="signerProfileImage" class="profile-img" src="${loginUser.profileImage}">
-                                    <div id="signerName">${loginUser.userName}</div>
+                                    <img id="signerProfileImage" class="profile-img" src="${loginUser.userImage}">
+                                    <div id="signerName">${loginUser.userNickname}</div>
                                 </div>
                             </div>
                         </div>
                         <div id="writer">
-                            <img class="profile-img" src="${loginUser.profileImage}">
-                            ${loginUser.userName}님이 이 청원을 시작하였습니다.
+                            <img class="profile-img" src="${loginUser.userImage}">
+                            ${loginUser.userNickname}님이 이 청원을 시작하였습니다.
                         </div>
                         <div id="previewContentContainer">
                             <pre id="previewContent">내용</pre>

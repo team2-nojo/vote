@@ -33,7 +33,7 @@
         </section>
 
         <section class="middle">
-            
+            특집 청원??? 조회수 많은 순??
             <div class="result">
                 <div class="row" id="rowPicture">
                     <img src="/resources/images/순덕이.png" class="picture">

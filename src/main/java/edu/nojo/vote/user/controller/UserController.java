@@ -111,7 +111,7 @@ public class UserController {
 	}
 	
 	
-	// 회원가입 (미완성)
+	// 회원가입 
 	@PostMapping("/signUp")
 	public String signUp(User inputUser
 						, String[] userAddress
@@ -145,8 +145,6 @@ public class UserController {
 		
 		return path;
 	}
-	
-	
 	
 	
 	

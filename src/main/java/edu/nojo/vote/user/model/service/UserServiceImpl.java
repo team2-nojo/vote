@@ -3,6 +3,7 @@ package edu.nojo.vote.user.model.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.nojo.vote.user.model.dao.UserDAO;
 import edu.nojo.vote.user.model.dto.User;
@@ -45,12 +46,21 @@ public class UserServiceImpl implements UserService{
 	
 	
 	// 회원가입
+	@Transactional(rollbackFor = {Exception.class}) 
 	@Override
 	public int signUp(User inputUser) {
 		
+		
+		// 비밀번호 암호화 후 inputUser에 세팅
+		String encPw = bcrypt.encode(inputUser.getUserPw());
+		inputUser.setUserPw(encPw);
+		
 		System.out.println(inputUser);
 		
-		return dao.signUp(inputUser);
+		// DAO호출 결과로 성공한 갯수 받음
+		int result =  dao.signUp(inputUser);
+		
+		return result;
 	}
 	
 	

@@ -33,7 +33,7 @@
         </section>
 
         <section class="middle">
-            
+            인기청원 내림차순(좋아요 많은 순)
             <div class="result">
                 <div class="row" id="rowPicture">
                     <img src="/resources/images/순덕이.png" class="picture">

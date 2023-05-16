@@ -33,7 +33,7 @@
         </section>
 
         <section class="middle">
-            
+            신규청원 내림차순(최근날짜 순)
             <div class="result">
                 <div class="row" id="rowPicture">
                     <img src="/resources/images/순덕이.png" class="picture">

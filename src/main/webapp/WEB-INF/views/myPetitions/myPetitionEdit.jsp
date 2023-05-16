@@ -135,11 +135,11 @@
               <div>사진 또는 비디오에 대한 링크 붙여넣기</div>
               <div class="content-img-url">
                 <input id="AddUrl" type="url" placeholder="http://">
-                <button id="AddBtn">추가하다</button>
+                <button id="AddBtn" type="button">추가하다</button>
               </div>
               <hr>
               <div class="content-img-up">
-                <div class="content-img-up-button"><button>사진 업로드</button></div>
+                <div class="content-img-up-button"><button type="button">사진 업로드</button></div>
                 <div id="and">또는</div>
                 <div><p>사진은 최소 1200 × 675 픽셀이어야 합니다. 텍스트가 없는 큰 사진이 가장 좋습니다.</p></div>
               </div>
@@ -184,8 +184,8 @@
                 </div>
               </i>
             </div>
-            <div class="addTopicBox">
-              <input id="topicInput" rows="3">
+            <div id="addTopicBox">
+              <input id="topicInput" placeholder="예시 : 뭐하지">
             </div>
           </div>
           <div>
@@ -218,7 +218,7 @@
           </div>
           <div class="edit-btn">
             <button id="cancel" type="reset">cancel</button>
-            <button id="save">save</button>
+            <button id="save" type="button">save</button>
           </div>
         </form>
       </div>

@@ -43,4 +43,15 @@ public class UserServiceImpl implements UserService{
 		return loginUser;
 	}
 	
+	
+	// 회원가입
+	@Override
+	public int signUp(User inputUser) {
+		
+		System.out.println(inputUser);
+		
+		return dao.signUp(inputUser);
+	}
+	
+	
 }

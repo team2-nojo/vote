@@ -20,6 +20,19 @@ public class UserDAO {
 		
 		return sqlSession.selectOne("userMapper.login",inputUser);
 	}
+
+	
+	
+	/** 회원가입
+	 * @param inputUser
+	 * @return result
+	 */
+	public int signUp(User inputUser) {
+		return sqlSession.insert("userMapper.signUp", inputUser);
+	}
+	
+	
+	
 	
 	
 	

@@ -30,4 +30,23 @@
 		AND USER_EMAIL = #{userEmail}
 	</select>
 	
+	
+	
+	<!-- 회원가입 -->
+	<insert id="signUp" parameterType="User">
+		INSERT INTO "USER"
+		VALUES(SEQ_USER_NO.NEXTVAL
+			, DEFAULT
+			, NULL
+			, #{userEmail}
+			, #{userNickname}
+			, #{userPw}
+			, #{userAddress}
+			, NULL, NULL, DEFAULT, DEFAULT)
+	</insert>
+	
+	
+	
+	
+	
 </mapper>

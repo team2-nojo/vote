@@ -1,0 +1,203 @@
+article {
+  color: #fff;
+  height: 950px;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'nav    main'
+    'nav    footer'; /* footer를 추가하여 grid-template-areas를 조정 */
+  grid-template-columns: 210px 1fr;
+  grid-template-rows: 80px 1000px 50px; /* grid-template-rows를 조정하여 footer를 맨 아래로 옮김 */
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  height: 70px;
+  padding: 8px 12px;
+  user-select: none;
+  top: 0;
+  left: 0;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.navbar_logo {
+  width: 20%;
+}
+.navbar_menu {
+  width: 60%;
+}
+.navbar_links {
+  width: 18%;
+  margin: 5px;
+  position: relative;
+}
+#admin {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+main {
+  grid-area: main;
+  height: auto;
+}
+
+footer {
+  background: #24c0a5;
+  display: none;
+}
+
+/*  */
+#vote_logo {
+  height: 50px;
+  cursor: pointer;
+}
+/* 
+#admin {
+} */
+
+.navbar_logo {
+  font-size: 24px;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+.nave .navbar_logo i {
+  color: #03c75a;
+}
+.navbar_menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+.navbar_menu li {
+  padding: 8px 12px;
+  user-select: none;
+}
+
+.navbar_icons li {
+  padding: 8px 10px;
+  width: 10px;
+  user-select: none;
+}
+.navbar_icons {
+  list-style: none;
+  display: flex;
+}
+
+.fa-solid:active {
+  box-shadow: 0;
+  position: relative;
+  top: 2px;
+}
+
+.left {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 210px;
+  height: auto;
+  overflow-y: scroll;
+  bottom: 0;
+  background-color: #555555;
+}
+.left-panel ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.left-panel li {
+  padding: 11px;
+
+  margin: 0;
+  color: white;
+  font-size: 15px;
+  user-select: none;
+}
+#menu1,
+#menu2,
+#menu3 {
+  font-size: 15px;
+  margin-top: 5px;
+  font-weight: bold;
+  color: lightgrey;
+}
+.left-panel li:hover {
+  background-color: #2db400;
+}
+#menu1:hover,
+#menu2:hover,
+#menu3:hover,
+#remove1:hover,
+#remove2:hover {
+  background-color: inherit;
+}
+.mainLang:hover {
+  background-color: #333 !important;
+}
+
+#menu-wrap1 {
+  list-style-type: none;
+}
+#menu-wrap1 ul li img.menu-icon {
+  float: left;
+  margin-right: 8px;
+  width: 16px;
+}
+#remove1 {
+  padding: 8px;
+}
+#remove2 {
+  padding: 8px;
+}
+.menu > .sub {
+  height: 0;
+  list-style: none;
+  overflow: hidden;
+  transition: height ease-out 1s 0s;
+}
+.menu > .sub li {
+  background-color: rgb(212, 209, 209);
+  border-top: 1px white solid;
+  font-weight: bold;
+  cursor: pointer;
+}
+.menu > .sub li:hover {
+  background-color: #6a866c;
+  color: #ffffff; /* 글자색을 하얀색(#ffffff)으로 설정 */
+}
+.menu > .sub li {
+  text-decoration: none;
+  color: #333;
+}
+.mainLang {
+  background-color: #333;
+  color: #75b8d3 !important;
+  font-weight: bold;
+}
+#admin-profile-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid rgb(66, 65, 65);
+  padding-bottom: 5px;
+  user-select: none;
+  margin-top: -5px;
+}
+#admin-img {
+  width: 75px;
+  margin: 20px 0;
+  flex-direction: column;
+}
+#admin-id {
+  margin-top: -8px;
+}

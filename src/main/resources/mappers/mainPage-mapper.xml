@@ -23,6 +23,13 @@
 		SELECT * FROM PETITION
 	</select>
 	
+	
+
+	
+	<select id="selectMainUserList" resultType="map">
+		SELECT * FROM "USER"
+	</select>
+	
 
 	
 </mapper>

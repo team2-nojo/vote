@@ -22,6 +22,17 @@
 			<version>1.18.24</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		
+		      <!-- Spring WebSocket -->
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-websocket</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+		
+		
 
 		<!-- OJDBC -->
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->

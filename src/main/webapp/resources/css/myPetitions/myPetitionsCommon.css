@@ -1,4 +1,4 @@
-*{  
+main *{  
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -7,15 +7,8 @@
 /* div, main, section, header, footer, article, nav, aside, form
 {border: 1px solid black;}
  */
-main{
-}
 
-header{
-    height: 200px; /* 임시 */
-    display: flex;
-}
-
-body {
+main {
     font-size: 12px;
     font-family: '나눔고딕';
 }

@@ -37,11 +37,16 @@ public class MainPageInterceptor implements HandlerInterceptor{
 			System.out.println("메인페이지 조회 서비스 호출");
 			
 			List<Map<String, Object>> mainPtList = service.selectMainPtList();
+			List<Map<String, Object>> mainUserList = service.selectMainUserList();
+			
 			
 			System.out.println(mainPtList);
+			System.out.println(mainUserList);
+			
 			
 			// application scope에 세팅
 			application.setAttribute("mainPtList", mainPtList);
+			application.setAttribute("mainUserList", mainUserList);
 			
 		}
 		

@@ -48,12 +48,7 @@ public class MyPetitionsController {
 		
 		return "/myPetitions/myPetitions";
 	}
-	
-	// myPetitionsDashboard 대시보드 페이지로 이동
-	@GetMapping("/myPetitionsDashboard")
-	public String myPetitionsDashboard() {
-		return "/myPetitions/myPetitionsDashboard";
-	}
+
 	
 //	// myPetitionDetails 상세페이지로 이동
 //	@GetMapping("/myPetitionDetails")

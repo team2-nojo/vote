@@ -31,7 +31,7 @@
       </div>
     </section>
       <div class="container2">
-        <a href="#" style="cursor:pointer" id="mainNewsLink"><div class="item box1"><img src="/${mainPtList[0].petitionImage}" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
+        <a href="#" style="cursor:pointer" id="mainNewsLink"><div class="item box1"><img src="${mainPtList[0].petitionImage}" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
         <div class="item box2" id="newsTitle">
           <div id="newsTitle">
             <h3 id="news-title">${mainPtList[0].petitionTitle}</h3></a>
@@ -42,18 +42,18 @@
         
         </div>
         <div class="item box3">
-          <div><img src="/resources/images/mainPage/profile1.jpeg" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div>
+          <div><img src="${mainUserList[0].USER_IMG}" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div>
 
           <div class="main-news-id-container">
             <div id="main-news-id-box">
-            <div id="main-news-id"></div>
-            <div id="main-news-country"></div>
+            <div id="main-news-id">${mainUserList[0].USER_NICKNAME}</div>
+            <div id="main-news-country">${mainUserList[0].USER_ADD}</div>
           </div>
           </div>
         </div>
         <div class="item box4">
           <div class="news-view">
-            <i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-left: 5px;"></i><span id="view">s</span>
+            <i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-left: 5px;"></i><span id="view">${mainPtList[0].petitionViewCount}</span>
             <div id='supporter' style="font-size: 15px; margin-bottom: 0;">Supporters</div>
           </div>
         </div>
@@ -63,7 +63,7 @@
       </div>
       <div class="container3">
         <c:forEach var="mainPt" items="${mainPtList}" >
-          <div class="box6"><img src="/${mainPt.petitionImage}" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
+          <div class="box6"><img src="${mainPt.petitionImage}" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2"></div>
           
         </c:forEach>
         <c:forEach var="mainPt" items="${mainPtList}" >

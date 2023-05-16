@@ -1,29 +1,26 @@
 /* 청원 주요내용 팁보기 */
-document.getElementById("titleTipBtn").addEventListener("click", () => {
-    document.getElementById("titleTip").style.display = "block";
-});
-document.getElementById("descriptTipBtn").addEventListener("click", () => {
-    document.getElementById("descriptTip").style.display = "block";
-});
-document.getElementById("imgTipBtn").addEventListener("click", () => {
-    document.getElementById("imgTip").style.display = "block";
-});
+function tipView(input){
+    const inputTip = document.getElementById(input.slice(0,-3));
+    const inputBtn = document.getElementById(input);
+    inputBtn.addEventListener("click", () => {
+        if(input.slice(-3,-2) == 'B') inputTip.classList.add("dp-block");
+        else inputTip.classList.remove("dp-block");
+    });
+};
+tipView('titleTipBtn');
+tipView('descriptTipBtn');
+tipView('imgTipBtn');
+tipView('titleTipCtn');
+tipView('descriptTipCtn');
+tipView('imgTipCtn');
 
 /* 청원 데이터 팁보기 */
 function tipHover(input){
     const inputI = document.getElementById(`${input}I`);
     const inputP = document.getElementById(`${input}P`);
-
-    inputI.addEventListener("mouseover", () =>{
-        inputP.style.display = "block";
-    });
-    
-    inputI.addEventListener("mouseout", () =>{
-        inputP.style.display = "none";
-    });
-
-}
-
+    inputI.addEventListener("mouseover", () =>{inputP.style.display = "block";});
+    inputI.addEventListener("mouseout", () =>{inputP.style.display = "none";});
+};
 tipHover("scope");
 tipHover("location");
 tipHover("topic");
@@ -57,62 +54,47 @@ tipHover("twitter");
 // });
 
 /* 주제추가 */
-// const addTopicBox = document.getElementById("addTopicBox");
-
-// function addTopic(){
-
-//     const topicInput = document.getElementById("topicInput");
-    
-//     const addTopic = document.createElement("div");
-//     addTopic.innerHTML = `<span>${topicInput.value}</span> <span>X</span>`;
-
-
-//     addTopic.addEventListener('click', e => {
-//         e.target.remove();
-//     });
-
-//     topicInput.insertAdjacentElement('beforebegin', addTopic);
-
-// };
-
-
-// addTopicBox.addEventListener('keyup', (e) =>{
-//     if(e.key === 'Enter'){
-//         addTopic();
-//     }
-// })
 const addTopicBox = document.getElementById("addTopicBox");
-let topicCount = 0; // 추가된 요소의 개수를 카운트하는 변수
+let topicCount = 0;
+let topicInputReference;
 
 function addTopic() {
-    if (topicCount >= 5) {
-        return; // 요소 개수가 5개 이상이면 추가하지 않음
-    }
-
+    if (topicCount >= 5) return;
     const topicInput = document.getElementById("topicInput");
-    const topicValue = topicInput.value.trim(); // 입력된 내용에서 앞뒤 공백을 제거하여 가져옴
-
-    if (topicValue === "") {
-        return; // 내용이 비어있으면 추가하지 않음
-    }
+    const topicValue = topicInput.value.trim();
+    if (topicValue === "") return;
 
     const addTopic = document.createElement("div");
-    addTopic.innerHTML = `<span>${topicValue}</span> <span>X</span>`;
-
-    addTopic.addEventListener('click', e => {
+    addTopic.innerHTML = `<span>${topicValue}&nbsp;<i class="fa-regular fa-rectangle-xmark"></i></span>`;
+    addTopic.addEventListener("click", (e) => {
         e.target.remove();
-        topicCount--; // 요소가 제거될 때 카운트 감소
+        topicCount--;
+        if (topicCount === 4 && topicInputReference) restoreTopicInput();
     });
 
-    topicInput.insertAdjacentElement('beforebegin', addTopic);
-    topicInput.value = ""; // 요소가 추가된 후 입력란 내용 초기화
-    topicCount++; // 요소가 추가될 때 카운트 증가
+    topicInput.insertAdjacentElement("beforebegin", addTopic);
+    topicInput.value = "";
+    topicCount++;
 
-    if (topicCount >= 5) {
+    if (topicCount === 5 && !topicInputReference) {
+        topicInputReference = topicInput;
         topicInput.remove();
     }
 }
-// 요소 삭제 후 다시 input 생성하기 
+
+function restoreTopicInput() {
+    if (topicInputReference) {
+        addTopicBox.insertBefore(topicInputReference, addTopicBox.lastChild);
+        topicInputReference = null;
+    };
+};
+
+addTopicBox.addEventListener("click", () => {
+    if (topicCount === 4 && topicInputReference) {
+        restoreTopicInput();
+    }
+});
+
 addTopicBox.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
         addTopic();

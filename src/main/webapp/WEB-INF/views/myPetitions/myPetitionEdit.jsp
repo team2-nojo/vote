@@ -47,7 +47,7 @@
                 <div class="tip-container">
                   <div class="tip-top">
                     <div><h3>제목 팁</h3></div>
-                    <div><a href="">X</a></div>
+                    <div><span id="titleTipCtn"><i class="fa-regular fa-rectangle-xmark"></i></span></div>
                   </div>
                   <div>
                     <ul>
@@ -78,7 +78,7 @@
                 <div class="tip-container">
                   <div class="tip-top">
                     <div><h3>설명 팁</h3></div>
-                    <div><a href="">X</a></div>
+                    <div><span id="descriptTipCtn"><i class="fa-regular fa-rectangle-xmark"></i></span></div>
                   </div>
                   <div>
                     <ul>
@@ -110,7 +110,7 @@
                 <div class="tip-container">
                   <div class="tip-top">
                     <div><h3>이미지 팁</h3></div>
-                    <div><a href="">X</a></div>
+                    <div><span id="imgTipCtn"><i class="fa-regular fa-rectangle-xmark"></i></span></div>
                   </div>
                   <div>
                     <ul>

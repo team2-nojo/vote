@@ -11,13 +11,14 @@
     <title>FAQ</title>
 
   
-  <link rel="stylesheet" href="../css/FAQ.css">
+  <link rel="stylesheet" href="/resources/css/clientCenter/FAQ.css">
 </head>
 <body>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
   <main>
+  <div class="content">
   <h1 id="title">질문해보세요</h1>
 
   <article class="search-area">
@@ -75,11 +76,12 @@
   <a href="chatbot.html" id="button2"><i class="fa-regular fa-comment fa-4x" id="ic"></i>챗봇</a>
   </div>
 
+</div>
 </main>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-  <script src="../js/FAQ.js"></script>
+  <script src="/resources/js/clientCenter/FAQ.js"></script>
   <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
 </body>
 

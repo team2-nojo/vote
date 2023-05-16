@@ -57,19 +57,64 @@ tipHover("twitter");
 // });
 
 /* 주제추가 */
-const addTopicBox = document.getElementsByClassName("addTopicBox");
+// const addTopicBox = document.getElementById("addTopicBox");
 
-function addTopic(){
+// function addTopic(){
+
+//     const topicInput = document.getElementById("topicInput");
+    
+//     const addTopic = document.createElement("div");
+//     addTopic.innerHTML = `<span>${topicInput.value}</span> <span>X</span>`;
+
+
+//     addTopic.addEventListener('click', e => {
+//         e.target.remove();
+//     });
+
+//     topicInput.insertAdjacentElement('beforebegin', addTopic);
+
+// };
+
+
+// addTopicBox.addEventListener('keyup', (e) =>{
+//     if(e.key === 'Enter'){
+//         addTopic();
+//     }
+// })
+const addTopicBox = document.getElementById("addTopicBox");
+let topicCount = 0; // 추가된 요소의 개수를 카운트하는 변수
+
+function addTopic() {
+    if (topicCount >= 5) {
+        return; // 요소 개수가 5개 이상이면 추가하지 않음
+    }
 
     const topicInput = document.getElementById("topicInput");
-    
+    const topicValue = topicInput.value.trim(); // 입력된 내용에서 앞뒤 공백을 제거하여 가져옴
 
-        const addTopic = document.createElement("div");
-        addTopic.innerText = topicInput.value;
-        addTopic.style.borderRadius = "5px"
-        addTopic.style.backgroundColor = "#ccc"
-    
-        input.append(addTopic);
+    if (topicValue === "") {
+        return; // 내용이 비어있으면 추가하지 않음
+    }
 
-};
+    const addTopic = document.createElement("div");
+    addTopic.innerHTML = `<span>${topicValue}</span> <span>X</span>`;
 
+    addTopic.addEventListener('click', e => {
+        e.target.remove();
+        topicCount--; // 요소가 제거될 때 카운트 감소
+    });
+
+    topicInput.insertAdjacentElement('beforebegin', addTopic);
+    topicInput.value = ""; // 요소가 추가된 후 입력란 내용 초기화
+    topicCount++; // 요소가 추가될 때 카운트 증가
+
+    if (topicCount >= 5) {
+        topicInput.remove();
+    }
+}
+// 요소 삭제 후 다시 input 생성하기 
+addTopicBox.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        addTopic();
+    }
+});

@@ -11,6 +11,16 @@ loginMember.addEventListener("click", () => {
 
 
 
+// 회원가입 폼 제출 시
+document.getElementById("signUpFrm").addEventListener("submit", () => {
+    
+});
+
+
+
+
+
+
 
 
 // 서비스_이용약관_동의 체크박스 클릭 시 새 창으로 이동

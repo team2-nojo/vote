@@ -19,7 +19,7 @@
     <main>
 
         <section>
-            <form action="/../signUp" method="POST" name="signUpFrm" id="signUpFrm">
+            <form action="/user/signUp" method="POST" name="signUpFrm" id="signUpFrm">
                 <div id="signUp">Sign up</div>
                 <br>
                 
@@ -35,23 +35,23 @@
                 
                 <div class="or"> OR </div>
                 <br>
-                <div>
-                    <input type="text" id="name" placeholder=" Nickname">
-                    <button id="NicknameCheck">중복확인</button>    
-                </div>
-                
+
                 <div>
                     <input type="text" id="email" placeholder=" Email">
                     <button id="doubleCheck">중복확인</button> 
+                </div>
+                <div>
+                    <input type="text" id="name" placeholder=" Nickname">
+                    <button id="NicknameCheck">중복확인</button>    
                 </div>
                 <div>
                     <input type="text" id="password1" placeholder=" Password">
                     <input type="text" id="password2" placeholder=" Password">
                 </div>
                 <div>
-                    <input type="text" id="address1" placeholder=" Address">
-                    <button id="addressSearch" onclick="searchAddr()">주소찾기</button> <br>
-                    <input type="text" id="address2" placeholder=" Address">
+                    <input type="text" id="sample6_address" placeholder=" Address">
+                    <button type="button" id="addressSearch" onclick="sample6_execDaumPostcode()">주소찾기</button> <br>
+                    <input type="text" id="sample6_detailAddress" placeholder=" Address">
                 </div>
 
                 <div>
@@ -61,7 +61,7 @@
                 </div>
 
                 <div>
-                    <button id="SignUPSubmit">Sign up</button>
+                    <button id="SignUpSubmit">Sign up</button>
                 </div>
             </form>
         </section>
@@ -82,7 +82,7 @@
     -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
-        function searchAddr() {
+        function sample6_execDaumPostcode() {
             new daum.Postcode({
                 oncomplete: function(data) {
                     // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -100,9 +100,9 @@
 
                     // 우편번호와 주소 정보를 해당 필드에 넣는다.
                     // document.getElementById('sample6_postcode').value = data.zonecode;
-                    document.getElementById("address1").value = addr;
+                    document.getElementById("sample6_address").value = addr;
                     // 커서를 상세주소 필드로 이동한다.
-                    document.getElementById("address2").focus();
+                    document.getElementById("sample6_detailAddress").focus();
                 }
             }).open();
         }

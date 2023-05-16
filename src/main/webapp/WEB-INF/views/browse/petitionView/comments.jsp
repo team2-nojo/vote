@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>브라우저 게시글 View</title>
+    <title>브라우저 게시글 View(comments)</title>
 
     <link rel="stylesheet" href="/resources/css/browse/petitionView/comments.css">
     
@@ -31,8 +31,8 @@
 
         <!-- comment -->
         <section id="comment">
-            <div id="comment1">Reasons for signing</div>
-            <div id="comment2">See why other supporters are signing, why this petition is important to them, and share your reason for signing (this will mean a lot to the starter of the petition).</div>
+            <div id="comment1">서명한 사유를 적어주세요.</div>
+            <div id="comment2">다른 지지자들이 서명하는 이유, 이 청원이 그들에게 중요한 이유를 확인하고 서명 이유를 공유합니다(이는 청원 시작자에게 큰 의미가 있을 것입니다).</div>
             <div id="comment3">
                 <div id="commentFrame">
                     <div id="cImage">

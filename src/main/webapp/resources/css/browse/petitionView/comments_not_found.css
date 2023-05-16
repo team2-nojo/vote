@@ -1,0 +1,154 @@
+
+
+
+*{ 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* 임시테두리 */
+/* main, header, section, footer{
+    border: 1px solid black;
+} */
+
+main{
+    width: 960px;
+    /* height: 925px; */
+    margin: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* body */
+
+
+/* 상단메뉴 */
+.top{
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+
+    margin-right: 60%;
+}
+
+
+#menu{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+#menu>*{
+    margin: 5px 10px;
+}
+
+#menu *{
+    color: black;
+    text-decoration: none;
+    
+}
+
+#details:hover{
+    color: #2DB400;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+#updates{
+    color: black;
+    text-decoration: none;
+    
+}
+
+#updates:hover{
+    color: #2DB400;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+
+#comments{
+    color: #2DB400;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* comment */
+
+
+
+#comment{
+    width: 800px;
+}
+
+
+
+
+#comment1{
+    font-weight: bold;
+    font-size: 25px;
+
+    margin: 30px 0px 15px 0px;
+    
+}
+
+
+
+
+
+
+#comment3{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 30px 0px 20px 0px;
+}
+
+
+#comment3>*{
+    margin: 10px;
+}
+
+#comment3 *{
+    margin: 5px;
+}
+
+#commentFrame{
+    width: 800px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 30%;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

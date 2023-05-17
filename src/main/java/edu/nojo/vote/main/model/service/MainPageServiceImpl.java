@@ -1,5 +1,6 @@
 package edu.nojo.vote.main.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -19,20 +20,15 @@ public class MainPageServiceImpl implements MainPageService {
 	
 	// 메인페이지 박스에 청원 보이기
 	@Override
-	public List<Map<String, Object>> selectMainPtList() {
-		
+	public List<Petition> selectMainPtList() {
+//		List<Integer> mainPtNoList = dao.selectMainPtNoList();
+//		List<Petition> result = new ArrayList<>();
+//		for(int mainPtNo : mainPtNoList) {
+//			Petition petition = dao.selectPetition(mainPtNo);
+//			petition.setCategoryList(dao.selectCategoryList(mainPtNo));
+//			
+//			result.add(petition);
+//		}
 		return dao.selectMainPtList();
 	}
-
-
-	@Override
-	public List<Map<String, Object>> selectMainUserList() {
-		// TODO Auto-generated method stub
-		return dao.selectMainUserList();
-	}
-
-
-	
-	
-	
 }

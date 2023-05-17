@@ -42,33 +42,31 @@
         
         </div>
         <div class="item box3">
-          <div><img src="${mainUserList[0].USER_IMG}" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div>
+          <div><img src="${mainPtList[0].userImage}" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div>
 
           <div class="main-news-id-container">
             <div id="main-news-id-box">
-            <div id="main-news-id">${mainUserList[0].USER_NICKNAME}</div>
-            <div id="main-news-country">${mainUserList[0].USER_ADD}</div>
+            <div id="main-news-id">${mainPtList[0].userNickname}</div>
+            <div id="main-news-country">${mainPtList[0].userAddress}</div>
           </div>
           </div>
         </div>
         <div class="item box4">
           <div class="news-view">
-            <i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-left: 5px;"></i><span id="view">${mainPtList[0].petitionViewCount}</span>
-            <div id='supporter' style="font-size: 15px; margin-bottom: 0;">Supporters</div>
+              <i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-left: 5px;"></i><span id="view">${mainPtList[0].petitionLikeCount}</span>
+              <div id='supporter' style="font-size: 15px; margin-bottom: 0;">Supporters</div>
+            </div>
           </div>
         </div>
-    
-
-      </div>
       </div>
       <div class="container3">
-        <c:forEach var="mainPt" items="${mainPtList}" begin="13" end="18">
-		  <div class="box6">
-		    <img src="${mainPt.petitionImage}" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2">
-		  </div>
+        <c:forEach var="mainPt" items="${mainPtList}">
+      <div class="box6">
+        <img src="${mainPt.petitionImage}" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2">
+      </div>
 		</c:forEach>
 
-        <c:forEach var="mainPt" items="${mainPtList}" begin="13" end="18">
+        <c:forEach var="mainPt" items="${mainPtList}">
           <div class="box13 small-news"><a href="#">${mainPt.petitionTitle}</a></div>
         </c:forEach>
       </div>
@@ -79,31 +77,30 @@
       <div class="container4">
         <div>
         <ul class="content2">
-        
-   <c:forEach var="mainPt" items="${mainPtList}" begin="10" end="14">
-  <li class="content pettition1">
-    <div class="pettition1 pet-title">
-      <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
-      <span>Trending in Environment</span>
-      <a href="#" style="text-decoration: underline;">See more</a>
-    </div>
-    <div class="pettition1 article">
-      <div class="article-title"><h3>${mainPt.petitionTitle}</h3></div>
-      <div class="text">
-        <div>
-          ${mainPt.petitionContent}
-          <a href="#">더보기</a>
-        </div>
+  <c:forEach var="mainPt" items="${mainPtList}" begin="10" end="14">
+    <li class="content pettition1">
+      <div class="pettition1 pet-title">
+        <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
+        <span>Trending in Environment</span>
+        <a href="#" style="text-decoration: underline;">See more</a>
       </div>
-      <div class="photo"><img src="${mainPt.petitionImage}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
-    </div>
-    <div class="pettition1 id">
-      <span class="id-profile"><img src="${mainUserList[6].USER_IMG}" style="height: 28px; margin: 5px;" class="profile-image"></span>
-      <span>Coby</span>
-      <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>${mainPt.petitionViewCount} Supporters</a>
-    </div>
-  </li>
-</c:forEach>
+      <div class="pettition1 article">
+        <div class="article-title"><h3>${mainPt.petitionTitle}</h3></div>
+        <div class="text">
+          <div>
+            ${mainPt.petitionContent}
+            <a href="#">더보기</a>
+          </div>
+        </div>
+        <div class="photo"><img src="${mainPt.petitionImage}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
+      </div>
+      <div class="pettition1 id">
+        <span class="id-profile"><img src="${mainUserList[6].USER_IMG}" style="height: 28px; margin: 5px;" class="profile-image"></span>
+        <span>Coby</span>
+        <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>${mainPt.petitionViewCount} Supporters</a>
+      </div>
+    </li>
+  </c:forEach>
 
           
           

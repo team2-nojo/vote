@@ -12,9 +12,7 @@
 </head>
 <body>
     <main>
-        <header>
-            <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-        </header>
+        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
         <form action="#" method="get">
             <div class="content" id="editProfile">
                 <div class="contentbox" id="editProfileContainer">
@@ -24,21 +22,32 @@
                         </div>
                     </div>
                     <div>
-                        <div id="imageContainer"></div>
+                        <div id="imageContainer">
+                            <%-- 프로필 이미지가 없으면 기본 이미지 --%>
+                            <c:if test="${empty loginUser.userImage}" >
+                                <img src="/resources/images/common/user.png" id="profileUserImage">
+                            </c:if>
+
+                            <%-- 프로필 이미지가 있으면 있는 이미지 --%>
+                            <c:if test="${not empty loginUser.userImage}">
+                                <img src="${loginUser.userImage}" id="profileUserImage">
+                            </c:if>
+                        </div>
                     </div>
                     <div>
-                        <label class="upload-photo">Upload photo</label>
+                        <label class="upload-photo" for="inputUserImage">Upload photo</label>
+                        <input type="file" name="userImage" id="inputUserImage" accept="image/*">
                     </div>
                     <div id="editPrifileNameFrame">
                         <label class="edit-profile-text">닉네임</label>
                         <div id="editProfileInputName">
-                            <input type="text" class="edit-profile-input" placeholder="홍길동">
+                            <input type="text" class="edit-profile-input" placeholder="${loginUser.userNickname}">
                             <button class="edit-profile-btn" type="button">중복확인</button>
                         </div>
                     </div>
                     <div>
                         <label class="edit-profile-text">자기소개</label>
-                        <textarea id="editProfileDescription" placeholder="자신기자신에 대한 짧은 소개를 적어주세요"
+                        <textarea id="editProfileDescription" placeholder="${loginUser.userAboutMe}"
                         row="6" maxlength="255"></textarea>
                     </div>
                     <div>
@@ -51,7 +60,7 @@
                     <div>
                         <label class="edit-profile-text">상세주소</label>
                         <div id="editProfileInputName">
-                            <input type="text" class="edit-profile-input-long" id="sample6_detailAddress" placeholder="2층 KH 정보교육원 종로지원">
+                            <input type="text" class="edit-profile-input-long" id="sample6_detailAddress">
                         </div>
                     </div>
                     <div id="goRight">
@@ -63,9 +72,7 @@
                 </div>
             </div>
         </form>
-        <footer>
-            <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-        </footer>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     </main>    
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
@@ -94,5 +101,7 @@
             }).open();
         }
     </script>
+    <%-- editProfile.js --%>
+    <script src="/resources/js/myPage/editProfile.js"></script>
 </body>
 </html>

@@ -26,7 +26,7 @@
                         <div class="userProfileID">${loginUser.userNickname}</div>
                         <div class="userProfileLocation">${loginUser.userAddress.split(" ")[0]}</div>
                         <div>
-                            <a href="/myPage/editProfiile">Edit profile</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
+                            <a href="/myPage/editProfile">Edit profile</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
                         </div>
                     </div>
                 </div>
@@ -48,8 +48,20 @@
                         <c:otherwise>
                             <%-- start한 청원이 있을 경우 petitionList 출력 --%>
                             <c:forEach items="${petitionList}" var="petition">
-                            <div class="defaultbox">
-                                <div class="myPetitionTitle">${petition.petitionTitle}</div>
+                            <div class="defaultbox" onclick="location.href =`/myPetitions/myPetitionsDashboard`">
+                                <%-- Title이 30자 초과이면 ...로 출력, 30자 이하면 그대로 출력 --%>
+                                <div class="myPetitionTitle">
+                                <c:choose>
+                                    <c:when test="${fn:length(petition.petitionTitle) > 30}">
+                                        <c:out value="${fn:substring(petition.petitionTitle, 0, 31)}">...
+                                        </c:out>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:out value="${petition.petitionTitle}">
+                                        </c:out>
+                                    </c:otherwise>
+                                </c:choose>
+                                </div>
                                 <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
                                 <div class="myPetitionText">
                                 <c:choose>
@@ -65,7 +77,7 @@
                                 </div>
                                 <div>
                                     <div class="myPetitionWriter">${loginUser.userNickname}</div>
-                                    <div class="myPetitionsupporter">좋아요 한 사람 수</div>
+                                    <div class="myPetitionsupporter">${petition.petitionLikeCount}</div>
                                 </div>
                             </div>
                             </c:forEach>
@@ -86,8 +98,20 @@
                         <c:otherwise>
                             <%-- signed한 청원이 있을 경우 petitionList 출력 --%>
                             <c:forEach items="${likeList}" var="petition">
-                                <div class="defaultbox">
-                                    <div class="myPetitionTitle">${petition.petitionTitle}</div>
+                                <div class="defaultbox"  onclick="location.href =`/myPetitions/myPetitionsDashboard`">
+                                <%-- Title이 30자 초과이면 ...로 출력, 30자 이하면 그대로 출력 --%>
+                                    <div class="myPetitionTitle">
+                                    <c:choose>
+                                        <c:when test="${fn:length(petition.petitionTitle) > 30}">
+                                            <c:out value="${fn:substring(petition.petitionTitle, 0, 31)}">...
+                                            </c:out>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:out value="${petition.petitionTitle}">
+                                            </c:out>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    </div>
                                     <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
                                     <div class="myPetitionText">
                                     <c:choose>
@@ -103,7 +127,7 @@
                                     </div>
                                     <div>
                                         <div class="myPetitionWriter">${loginUser.userNickname}</div>
-                                        <div class="myPetitionsupporter">좋아요 한 사람 수</div>
+                                        <div class="myPetitionsupporter">${petition.petitionLikeCount}</div>
                                     </div>
                                 </div>
                             </c:forEach>

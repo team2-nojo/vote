@@ -14,7 +14,7 @@ const checkObj = {
     "userEmail" : false, 
     "userPw" : false,
     "userPwConfirm" : false,
-    "userNickname" : false,
+    "userNickname" : false
 
 };
 
@@ -33,6 +33,7 @@ doubleCheck.addEventListener("click", () => {
         userEmail.focus(); // 이메일 input태그에 초점을 맞춤
         return;
     }
+
 
     // 정규식 객체 생성
     const regEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
@@ -62,6 +63,7 @@ doubleCheck.addEventListener("click", () => {
         checkObj.userEmail = false; // 유효 X
         userEmail.focus(); // 이메일 input태그에 초점을 맞춤
     }
+    
 });
 
 
@@ -112,6 +114,7 @@ NicknameCheck.addEventListener("click", () => {
 
 
 
+// 비밀번호는 확인 버튼이 없으므로 submit버튼 안에 합쳐야 할 것 같음..
 
 // 비밀번호/비밀번호 확인 유효성 검사
 const userPw = document.getElementById("userPw");

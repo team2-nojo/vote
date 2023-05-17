@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
@@ -44,8 +43,6 @@ public class MyPetitionsDashboardController {
 		
 		// 청원 좋아요 누른 회원 리스트 조회 서비스 호출
 		List<Map> likeUserList = service.selectlikeUserList(petitionNo);
-		
-//		System.out.println(likeUserList);
 		
 		model.addAttribute("myPetition", myPetition);
 		model.addAttribute("likeUserList", likeUserList);

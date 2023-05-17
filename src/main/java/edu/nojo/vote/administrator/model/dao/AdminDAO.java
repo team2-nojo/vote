@@ -44,8 +44,7 @@ public class AdminDAO {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
 		// 3) selectList("namespace.id", 파라미터, RowBounds)
-		
-		return sqlSession.selectList("adminMapper.selectPetitionList", rowBounds);
+		return sqlSession.selectList("adminMapper.selectPetitionList", null, rowBounds);
 	}
 
 

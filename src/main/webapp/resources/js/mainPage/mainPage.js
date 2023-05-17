@@ -8,6 +8,7 @@ const newsCountry = document.querySelector('#main-news-country');
 const viewers = document.querySelector('#view');
 const mainPhoto = document.querySelector('#mainPhoto');
 const idImg = document.querySelector('#news-id');
+const newsContent = document.querySelector('#newsContent');
 smallNews.forEach((newBox, index) => {
   //smallNews[index].src = pettitions[index].image;
   //smallNews[index].src.backgroundSize = 'cover';
@@ -27,6 +28,7 @@ smallNews.forEach((newBox, index) => {
     if (index === 0) {
       newsTitle.innerText = newsTitles[0].childNodes[0].innerText;
       mainPhoto.src = smallNews[0].src;
+      // newsContent.lastChild.innerText = '${mainPt.petitionContent}';
     } else {
       newsTitle.innerText = newsTitles[index].childNodes[0].innerText;
       mainPhoto.src = smallNews[index].src;

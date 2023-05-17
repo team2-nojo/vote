@@ -1,20 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%-- 나눔고딕 --%>
-<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
-
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11ent</title>
+    <title>Petition List</title>
     <link rel="stylesheet" href="resources/css/admin/layout.css" />
     <link rel="stylesheet" href="resources/css/admin/basic.css">
-    <link rel="stylesheet" href="resources/css/admin/css/tab.css">
-    <link rel="stylesheet" href="resources/css/admin/css/chart.css">
+    <link rel="stylesheet" href="resources/css/admin/adminDashBoard.css">
   </head>
   <body>
   <article>
@@ -22,7 +18,7 @@
         <nav class="navbar">
           <div class="navbar_logo">
             <img src="resources/images/mainPage/voteLogo2.png" id="vote_logo" />
-            <a href="#" id="admin">Administrator</a>
+            <a href="/" id="admin">Administrator</a>
           </div>
           <ul class="navbar_menu"></ul>
           <ul class="navbar_links">
@@ -150,9 +146,4 @@
         </div>
       </div>
       </nav>
-          <footer>푸터</footer>
-  </article>
-  <script src="resources/js/admin/layout.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-  <script src="https://kit.fontawesome.com/8be2100736.js" crossorigin="anonymous"></script>
-  <script src="resources/js/admin/chart.js"></script>
+      </article>

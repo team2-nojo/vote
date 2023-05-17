@@ -3,8 +3,8 @@
 
 <%-- map에 저장된 값들을 각각 변수에 저장 --%>
 <c:set var="pagination" value="${map.pagination}"/>
-<c:set var="boardList" value="${map.boardList}"/>
-<c:set var="boardName" value="${boardTypeList[boardCode-1].BOARD_NAME}"/>
+<c:set var="Q&A3List" value="${map.Q&A3List}"/>
+
 
 <%-- <c:forEach items="${boardTypeList}" var="boardType">
     <c:if test="${boardType.BOARD_CODE == boardCode}" >
@@ -24,20 +24,13 @@
 
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
-        
+    <div class="content">
         <section class="board-list">
-
-            <h1 class="board-name">${boardName}</h1>
-
-
+            <h1 class="board-name">문의 조회</h1>
             <div class="list-wrapper">
                 <table class="list-table">
-                    
                     <thead>
                         <tr>
                             <th></th>
@@ -47,43 +40,38 @@
                             <th>작성일</th>
                         </tr>
                     </thead>
-
                     <tbody>
                         <c:choose>
-                            <c:when test="${empty boardList}">
-                                <%-- 조회된 게시글 목록이 비어있거나 null인경우 --%>
-                                
-                                <!-- 게시글 목록 조회 결과가 비어있다면 -->
-                            
+                            <c:when test="${empty Q&AList}">
+                              
                                 <tr>
                                     <th colspan="6">게시글이 존재하지 않습니다.</th>
                                 </tr>
                             </c:when>
-
+                                
                             <c:otherwise>
-						<!-- 게시글 목록 조회 결과가 있다면 -->
-                            <c:forEach items="${boardList}" var="board">                       
-                                <tr>
-                                    <td>${board.boardNo}</td>
-                                    <td> 
-                                    <%-- 썸네일이 있을 경우 --%>
-                                    <c:if test="${not empty board.thumbnail}" >
-                                        <img class="list-thumbnail" src="${board.thumbnail}">
-                                    </c:if>
-
-                                    <%-- ${boardCode} : @Pathvariable로 request scope에 추가된 값 --%>
-                                        <a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a>   
-                                        [${board.commentCount}]                        
-                                    </td>
-                                    <td>${board.memberNickname}</td>
-                                    <td>${board.boardCreateDate}</td>
-                                    <td>${board.readCount}</td>
-                                    <td>${board.likeCount}</td>
-                                </tr>
+                                
+                                <c:forEach items="${Q&AList}" var="QNA">
+                                    <tr>
+                                        <td>${Q&A3.Q&A3No}</td>
+                                        <td> 
+                                        
+                                            <img class="list-thumbnail" src="${Q&A3.userImage}">
+                                            
+                                            <%-- ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 --%>
+                                            <a href="/Q&A/${Q&A3No}/${Q&A.categoryNo}">${Q&A3.Q&ATitle}</a>                   
+                                        </td>
+                                        <td>${Q&A3.userNickname}</td>
+                                        <td>${Q&A3.Q&A3Date}</td>
+                                        <td>${Q&A3.Q&A3ViewCount}</td>
+                                        <td>${Q&A3.categoryNo}</td>
+                                    </tr>
                                 </c:forEach>
+
                             </c:otherwise>
                         </c:choose>
-                    
+                   	
+
                     </tbody>
                 </table>
             </div>
@@ -91,13 +79,8 @@
 
             <div class="btn-area">
 
-				
-                <c:if test="${not empty loginMember}" >
-                    <!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
-                <button id="insertBtn">글쓰기</button> 
-                
-                </c:if>
-            
+				<!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
+                <button id="insertBtn">메인 등록</button>                     
 
             </div>
 
@@ -108,36 +91,37 @@
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=1">&lt;&lt;</a></li>
+                    <li><a href="/Q&A3?cp=1">&lt;&lt;</a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.prevPage}">&lt;</a></li>
+                    <li><a href="/Q&A3?cp=${pagination.prevPage}">&lt;</a></li>
 
 					
                     <!-- 특정 페이지로 이동 -->
-                    <c:forEach var="i" begin="${pagination.startPage}"
-                            end="${pagination.endPage}" step="1">
+                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
 
                         <c:choose>
-                            <c:when test="${i == pagination.currentPage}">
-                                <!-- 현재 보고있는 페이지 -->
+                            <c:when test="${i==pagination.currentPage}">
+                                 <!-- 현재 보고있는 페이지 -->
                                 <li><a class="current">${i}</a></li>
                             </c:when>
-                        
+
                             <c:otherwise>
-                                <!-- 현재 페이지를 제외한 나머지 -->
-                                <li><a href="/board/${boardCode}?cp=${i}">${i}</a></li>
+                            <!-- 현재 페이지를 제외한 나머지 -->
+                                 <li><a href="/Q&A3?cp=${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
-        
+
                     </c:forEach>
-
-
+                   
+                    
+    
+                    
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="/Q&A3?cp=${pagination.nextPage}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                    <li><a href="/Q&A3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                 </ul>
             </div>
@@ -149,7 +133,7 @@
                 <select name="key" id="searchKey">
                     <option value="t">제목</option>
                     <option value="c">내용</option>
-                    <option value="tc">제목+내용</option>
+                    <option value="tc">제목+내용</tion>
                     <option value="w">작성자</option>
                 </select>
 
@@ -160,6 +144,7 @@
 
         </section>
     </main>
+
 
     <!-- 썸네일 클릭 시 모달창 출력 -->
     <div class="modal">

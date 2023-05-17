@@ -7,6 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>FAQ</title>
 
@@ -71,9 +72,9 @@
   </div>
 
   <div class="center-btn">
-  <a href="Q&A.html" id="button2"><i class="fa-solid fa-user fa-4x" id="ic"></i>1:1 문의</a>
-  <a href="Q&A3.html" id="button2"><i class="fa-solid fa-scroll fa-4x" id="ic"></i>문의내역</a>
-  <a href="chatbot.html" id="button2"><i class="fa-regular fa-comment fa-4x" id="ic"></i>챗봇</a>
+  <a href="/clientCenter/Q&A" id="button2"><i class="fa-solid fa-user fa-4x" id="ic"></i>1:1 문의</a>
+  <a href="/clientCenter/Q&A3" id="button2"><i class="fa-solid fa-scroll fa-4x" id="ic"></i>문의내역</a>
+  <a href="/clientCenter/chatbot" id="button2"><i class="fa-regular fa-comment fa-4x" id="ic"></i>챗봇</a>
   </div>
 
 </div>

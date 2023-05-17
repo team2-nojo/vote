@@ -20,32 +20,35 @@ const checkObj = {
 
 
 const doubleCheck = document.getElementById("doubleCheck");
-const userEmail = document.getElementById("userEmail");
+const userEmail = document.getElementById("email");
+const inputEmail = document.getElementById("inputEmail");
 
 // 이메일 중복확인 버튼 클릭될 시
 doubleCheck.addEventListener("click", () => {
-
     // 입력이 되지 않은 경우(공란일 때)
     if(userEmail.value.trim().length == 0) {
-        alert("메일을 받을 수 있는 이메일을 입력해주세요.");
+        alert("메일을 받을 수 있는 이메일을 입력해주세요.")
         userEmail.value=""; // 띄어쓰기 못 넣게 하기
         checkObj.userEmail = false; // 유효 X
         userEmail.focus(); // 이메일 input태그에 초점을 맞춤
         return;
     }
-
+    
+    
 
     // 정규식 객체 생성
     const regEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
-
+    
     // 입력받은 이메일과 정규식 일치 여부 판별
     if( regEx.test(userEmail.value) ){ // 유효한 경우
+        /**/
         // GET방식 ajax요청(파라미터는 쿼리스트링)
         fetch('/dupCheck/email?email=' + userEmail.value)
         .then(Response => Response.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
         .then(count => {
             // count : 중복되면 1, 중복 아니면 0
 
+            /* 계속 중복으로 나옴
             if(count == 0){ // 중복이 아니면
                 alert("사용 가능한 이메일 입니다.");
                 checkObj.userEmail = true; // 유효 O
@@ -54,30 +57,30 @@ doubleCheck.addEventListener("click", () => {
                 checkObj.userEmail = false; // 유효 X
                 userEmail.focus(); // 이메일 input태그에 초점을 맞춤
             }
+            */
 
         }) //파싱한 데이터를 이용해서 수행할 코드 작성
         // .catch(err => console.log(err)); // 예외처리
-
+        
     }else{ // 유효하지 않은 경우(무효인 경우)
         alert("이메일 형식이 유효하지 않습니다.");
         checkObj.userEmail = false; // 유효 X
         userEmail.focus(); // 이메일 input태그에 초점을 맞춤
     }
     
+    
 });
-
-
 
 
 // 닉네임 유효성 검사
 
 const NicknameCheck = document.getElementById("NicknameCheck");
-const userNickname = document.getElementById("userNickname");
+const userNickname = document.getElementById("name");
 
 
 // 닉네임이 입력이 되었을 때
 NicknameCheck.addEventListener("click", () => {
-
+    
     // 닉네임에 입력이 되지 않은 경우
     if(userNickname.value.trim().length == "") {
         alert("한글,영어,숫자로만 2~10글자 입력해주세요.");
@@ -85,12 +88,13 @@ NicknameCheck.addEventListener("click", () => {
         userNickname.value=""; 
         return;
     }
+    
 
     // 정규 표현식으로 유효성 검사
     const regEx = /^[가-힣\w\d]{2,10}$/;
-
+    
     if(regEx.test(userNickname.value)){ //유효할 때
-
+        /*
         fetch("/dupCheck/nickname?nickname=" + userNickname.value)
         .then(resp => resp.text()) // 응답 객체를 text로 파싱(변환)
         .then(count => {
@@ -104,26 +108,24 @@ NicknameCheck.addEventListener("click", () => {
             }
         })
         // .catch(err => console.error(err));
-
+         */
 
     }else{ //무효
     }
+
 });
-
-
-
 
 
 // 비밀번호는 확인 버튼이 없으므로 submit버튼 안에 합쳐야 할 것 같음..
 
 // 비밀번호/비밀번호 확인 유효성 검사
-const userPw = document.getElementById("userPw");
-const userPwConfirm = document.getElementById("userPwConfirm");
+const userPw = document.getElementById("password1");
+const userPwConfirm = document.getElementById("password2");
 
 
 // 비밀번호  검사
-userPw.addEventListener("input", () => {
-
+userPw.addEventListener("keyup", () => {
+    
     // 비밀번호가 입력되지 않은 경우
     if(userPw.value.trim().length == 0){
         alert("영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.");
@@ -131,7 +133,9 @@ userPw.addEventListener("input", () => {
         checkObj.userPw = false; //빈칸 == 유효 X
         return;
     }
-
+    
+    
+    /*
 
     // 정규표현식을 이용한 비밀번호 유효성 검사
     // 영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이
@@ -157,6 +161,7 @@ userPw.addEventListener("input", () => {
         alert("비밀번호 형식이 유효하지 않습니다.");
         checkObj.userPw = false;
     }
+    */
 });
 
 
@@ -184,6 +189,7 @@ userPwConfirm.addEventListener('input', ()=>{
 
 
 
+/*
 
 
 
@@ -208,8 +214,7 @@ document.getElementById("signUpFrm").addEventListener("submit", () => {
 });
 
 
-
-
+*/
 
 
 

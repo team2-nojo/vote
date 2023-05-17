@@ -54,9 +54,17 @@ public class BrowseController {
 		
 		
 	// petitionView 페이지 이동(updates)
+	@GetMapping("/petitionView/updates")
+	public String updates() {
+		return "/browse/petitionView/updates";
+	}
+
 	
-	
-	
+	// petitionView 페이지 이동(updates_detail)
+	@GetMapping("/petitionView/updates_detail")
+	public String updates_detail() {
+		return "/browse/petitionView/updates_detail";
+	}	
 	
 	
 	

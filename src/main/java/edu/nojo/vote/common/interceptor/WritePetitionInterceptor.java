@@ -24,10 +24,10 @@ public class WritePetitionInterceptor implements HandlerInterceptor{
 		
 		ServletContext application = request.getServletContext();
 		if(application.getAttribute("defaultCategoryList") == null) {
-			System.out.println("카테고리리스트불러오기!");
+//			System.out.println("카테고리리스트불러오기!");
 			List<PetitionCategory> categoryList = service.selectPetitionCategoryList();
 			application.setAttribute("defaultCategoryList", categoryList);
-			System.out.println(categoryList);
+//			System.out.println(categoryList);
 		}
 		
 		

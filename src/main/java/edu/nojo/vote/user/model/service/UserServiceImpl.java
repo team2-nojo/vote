@@ -22,15 +22,15 @@ public class UserServiceImpl implements UserService{
 	// 로그인 서비스
 	@Override
 	public User login(User inputUser) {
-		
+
 //		System.out.println("암호화 확인 : " + bcrypt.encode(inputUser.getUserPw()));
 
 		
 		// 이메일 일치하는 회원 정보 얻어오기
 		User loginUser = dao.login(inputUser);
 		
-		System.out.println(inputUser);
-		System.out.println(loginUser);
+//		System.out.println(inputUser);
+//		System.out.println(loginUser);
 		
 		// 이메일 일치하는 회원 존재 여부
 		if(loginUser != null) { // 있을경우

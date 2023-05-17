@@ -1,7 +1,12 @@
-/* 단계별 달성목표 변경 함수 구현필요
-    5의배수?
-    5명 / 10 / 15 / 20 ...
-*/
+/* 팁보기 */
+function tipHover(input){
+    const inputI = document.getElementById(`${input}I`);
+    const inputP = document.getElementById(`${input}P`);
+    inputI.addEventListener("mouseover", () =>{inputP.style.display = "block";});
+    inputI.addEventListener("mouseout", () =>{inputP.style.display = "none";});
+};
+tipHover("graph");
+
 
 /* graph */
 const animatedPath = document.getElementById('animated-path');
@@ -9,9 +14,15 @@ const length = animatedPath.getTotalLength();
 animatedPath.style.strokeDasharray = length;
 animatedPath.style.strokeDashoffset = length;
 
-function animatePath(max) {
+function animatePath(input) {
     document.addEventListener('DOMContentLoaded', () => {
-        const targetOffset = length - (length * max / (Math.ceil(max / 5) * 5));
+        let max = 0;
+        if(input == (Math.ceil(input / 5) * 5)){
+            max = Math.ceil((input + 1) / 5) * 5;
+        }else{
+            max = Math.ceil(input / 5) * 5;
+        }
+        const targetOffset = length - (length * input / max);
         animatedPath.style.transition = 'none';
 
         requestAnimationFrame(() => {
@@ -21,15 +32,6 @@ function animatePath(max) {
     });
 }
 
-
 animatePath(likeUserCount);
 
 
-/* 팁보기 */
-function tipHover(input){
-    const inputI = document.getElementById(`${input}I`);
-    const inputP = document.getElementById(`${input}P`);
-    inputI.addEventListener("mouseover", () =>{inputP.style.display = "block";});
-    inputI.addEventListener("mouseout", () =>{inputP.style.display = "none";});
-};
-tipHover("graph");

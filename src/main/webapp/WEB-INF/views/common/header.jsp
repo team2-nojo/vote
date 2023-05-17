@@ -18,13 +18,39 @@
         <li><a class="header-a" id="browse" href="/browse/browse_search/featured">Browse</a></li>
         <li><a class="header-a" id="Help" href="/clientCenter/FAQ">Help</a></li>
         <%-- 임시 --%>
-        <li>
-          <form action="/user/login" method="post" id="loginFrm">
+        <div style="width: 150px; display:flex; flex-wrap: wrap; ">
+          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
             <input type="hidden" name="userEmail" value="user02@kh.or.kr">
             <input type="hidden" name="userPw" value="pass02!">
-            <button id=btn>user02로그인</button>
+            <button id=btn>user02</button>
           </form>
-        </li>
+          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+            <input type="hidden" name="userEmail" value="user03@kh.or.kr">
+            <input type="hidden" name="userPw" value="pass03!">
+            <button id=btn>user03</button>
+          </form>
+          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+            <input type="hidden" name="userEmail" value="user04@kh.or.kr">
+            <input type="hidden" name="userPw" value="pass04!">
+            <button id=btn>user04</button>
+          </form>
+          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+            <input type="hidden" name="userEmail" value="user05@kh.or.kr">
+            <input type="hidden" name="userPw" value="pass05!">
+            <button id=btn>user05</button>
+          </form>
+          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+            <input type="hidden" name="userEmail" value="user06@kh.or.kr">
+            <input type="hidden" name="userPw" value="pass06!">
+            <button id=btn>user06</button>
+          </form>
+          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+            <input type="hidden" name="userEmail" value="user07@kh.or.kr">
+            <input type="hidden" name="userPw" value="pass07!">
+            <button id=btn>user07</button>
+          </form>
+        </div>
+        <%-- 임시끝 --%>
       </ul>
     </div>
     <c:choose>
@@ -45,12 +71,13 @@
           </label>
           <input type="checkbox" id="userMenuToggle">
           <div class="user-menu">
+            <span>${loginUser.userNickname} 님</span>
+            <span>${loginUser.userEmail}</span>
             <a class="header-a" href="/myPetitions/myPetitions">나의 청원</a>
             <a class="header-a" href="/myPage">마이페이지</a>
-            <span>${loginUser.userNickname}</span>
             <a class="header-a" href="/user/logout">로그아웃</a>
           </div>
-          <i class="fa-sharp fa-solid fa-bell"></i>
+          <a class="header-a" href="#"><i class="fa-sharp fa-solid fa-bell"></i></a>
         </div>
       </c:otherwise>
     </c:choose>

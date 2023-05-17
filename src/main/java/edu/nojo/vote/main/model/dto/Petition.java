@@ -19,7 +19,7 @@ public class Petition {
 	private int petitionViewCount;
 	private String petitionVictory;
 	private String petitionImage;
-//	private String petitionDelFl;
+	private String petitionDelFl;
 
 	
 	// 회원 join
@@ -28,6 +28,8 @@ public class Petition {
 	private String userNickname;
 	private String userAddress;
 	
+	// 청원 좋아요
+	private int petitionLikeNo;
 	
 	// 카테고리
 	private List<PetitionCategory> categoryList;

@@ -54,7 +54,7 @@
               <div id="login_check">
                 <input type="checkbox" name="login_chk" id="login_chk" />
                 <!-- <label for="login_chk"><span></span>로그인 상태 유지</label> -->
-                <a href="/adminDashBoard"><button type="button" class="adminSignUp">
+                <a href="/adminPetitionList"><button type="button" class="adminSignUp">
                   관리자 회원가입
                 </button></a>
               </div>

@@ -5,16 +5,17 @@
 
 <resultMap type="edu.nojo.vote.main.model.dto.Petition" id="petition_rm">
 		<result property="petitionContent" column="PT_CONTENT" jdbcType="CLOB" javaType="String" />
-		
 		 <result property="petitionNo" column="PT_NO" />
       	<result property="petitionTitle" column="PT_TITLE" />
       	<result property="petitionContent" column="PT_CONTENT" />
       	<result property="petitionDate" column="PT_DATE" />
       	<result property="petitionViewCount" column="PT_VIEW_COUNT" />
-      	<result property="petitionVictory" column="PT_VICT" />
       	<result property="petitionImage" column="PT_IMG" />
       	<result property="userNo" column="USER_NO" />
+      	<result property="userImage" column="USER_IMAGE" />
+      	<result property="userNickname" column="USER_NICKNAME" />
       	<result property="categoryNo" column="CAT_NO" />
+      	<result property="petitionLikeNo" column="PT_LIKE_NO" />
 </resultMap>
 	
 		
@@ -30,6 +31,6 @@
 		SELECT * FROM "USER"
 	</select>
 	
-
+	
 	
 </mapper>

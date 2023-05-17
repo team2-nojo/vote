@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="myPageMapper">
+<mapper namespace="adminMapper">
 	
+	<resultMap type="edu.nojo.vote.main.model.dto.Petition" id="petition_rm">
+		<result property="petitionContent" column="PT_CONTENT" jdbcType="CLOB" javaType="String" />
+		 <result property="petitionNo" column="PT_NO" />
+      	<result property="petitionTitle" column="PT_TITLE" />
+      	<result property="petitionContent" column="PT_CONTENT" />
+      	<result property="petitionDate" column="PT_DATE" />
+      	<result property="petitionViewCount" column="PT_VIEW_COUNT" />
+      	<result property="petitionImage" column="PT_IMG" />
+      	<result property="userNo" column="USER_NO" />
+      	<result property="userImage" column="USER_IMG" />
+      	<result property="userNickname" column="USER_NICKNAME" />
+      	<result property="categoryNo" column="CAT_NO" />
+      	<result property="petitionLikeNo" column="PT_LIKE_NO" />
+</resultMap>
+	
+	<!-- 삭제되지 않은 청원 수 조회 -->
+	<select id="getListCount" resultType="_int">
+		SELECT COUNT(*) FROM "PETITION" 
+		WHERE PT_DEL_FL = 'N'
+	</select>
+	
+	<!-- 청원 조회 -->
+	<select id="selectPetitionList" resultMap="petition_rm">
+		SELECT PT_NO, PT_TITLE, USER_NICKNAME, PT_VIEW_COUNT, USER_IMG, CAT_NO,PT_DATE,
+			<![CDATA[
+			CASE  
+				WHEN SYSDATE - PT_DATE < 1     
+				THEN FLOOR( (SYSDATE - PT_DATE) ) || '일 전'
+				WHEN SYSDATE - PT_DATE < 30
+				THEN FLOOR( (SYSDATE - PT_DATE) / 7 ) || '주 전'
+				WHEN SYSDATE - PT_DATE < 365
+				THEN FLOOR( (SYSDATE - PT_DATE) / 30 ) || '달 전'
+					ELSE FLOOR( (SYSDATE - PT_DATE) / 365 ) || '년 전'
+			END PT_DATE
+			]]>
+			FROM "PETITION" P
+			JOIN "USER" USING(USER_NO)
+			WHERE PT_DEL_FL = 'N'
+			ORDER BY PT_NO DESC
+	</select>
 </mapper>

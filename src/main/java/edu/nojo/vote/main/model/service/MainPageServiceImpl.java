@@ -6,7 +6,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.main.model.dao.MainPageDAO;
+import edu.nojo.vote.main.model.dto.Petition;
 
 @Service
 public class MainPageServiceImpl implements MainPageService {
@@ -28,6 +30,9 @@ public class MainPageServiceImpl implements MainPageService {
 		// TODO Auto-generated method stub
 		return dao.selectMainUserList();
 	}
+
+
+	
 	
 	
 }

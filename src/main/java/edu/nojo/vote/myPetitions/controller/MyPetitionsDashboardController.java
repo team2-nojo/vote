@@ -1,6 +1,8 @@
 package edu.nojo.vote.myPetitions.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.nojo.vote.main.model.dto.Petition;
-import edu.nojo.vote.myPetitions.model.service.MyPetitionsService;
+import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 import edu.nojo.vote.user.model.dto.User;
 
 @SessionAttributes({"loginMember"}) 
@@ -22,21 +24,31 @@ import edu.nojo.vote.user.model.dto.User;
 public class MyPetitionsDashboardController {
 
 	@Autowired 
-	private MyPetitionsService service;
+	private MyPetitionsDashboardService service;
 	
 	
 	// myPetitionsDashboard 대시보드 페이지로 이동
-	@GetMapping("/myPetitionsDashboard")
+	@GetMapping("/myPetitionsDashboard/{petitionNo}")
 	public String myPetitionsDashboard(
-			@SessionAttribute User loginUser
-									, Model model
+							  @SessionAttribute User loginUser
+							, Model model
+							, @PathVariable("petitionNo") int petitionNo
 									) {
 		
-		List<Petition> petitionList = service.selectMyPetitions(loginUser.getUserNo());
-		List<Petition> likeList = service.selectLikePetition(loginUser.getUserNo());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("loginUserNo", loginUser.getUserNo());
+		map.put("petitionNo", petitionNo);
 		
-		model.addAttribute("likeList", likeList);
-		model.addAttribute("petitionList", petitionList);
+		// 청원 조회 서비스 호출
+		List<Petition> myPetition = service.selectMyPetition(map);
+		
+		// 청원 좋아요 누른 회원 리스트 조회 서비스 호출
+		List<Map> likeUserList = service.selectlikeUserList(petitionNo);
+		
+//		System.out.println(likeUserList);
+		
+		model.addAttribute("myPetition", myPetition);
+		model.addAttribute("likeUserList", likeUserList);
 		
 		return "/myPetitions/myPetitionsDashboard";
 	}

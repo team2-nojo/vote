@@ -71,6 +71,4 @@ signed.addEventListener("click", () => {
     // myStartPetitions에 invisibleMyPetitions클래스 추가
     myStartPetitions.classList.add("invisibleMyPetitions");
 
-   
 });
-

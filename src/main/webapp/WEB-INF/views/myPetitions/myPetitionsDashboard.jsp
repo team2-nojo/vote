@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:set var="petitionTitle" value="${petitionList.get(0).getPetitionTitle()}"/>
-<c:set var="likeCount" value="${likeList.size()}"/>
+<c:set var="PT" value="${myPetition.get(0).getPetitionTitle()}"/>
+<c:set var="likeUserCount" value="${likeUserList.size()}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -18,16 +18,19 @@
   <main>
     <div class="title">
       <nav>
-        <div class="nav-title">
-          <c:choose>
-            <c:when test="${empty petitionTitle}">
+        <c:choose>
+          <c:when test="${not empty PT}">
+            <div class="nav-title">
+              <h2>${PT}</h2>
+            </div>
+          </c:when>
+          <c:otherwise>
+            <div class="nav-title">
               <h2>청원 글제목</h2>
-            </c:when>
-            <c:otherwise>
-              <h2>${petitionTitle}</h2>
-            </c:otherwise>
-          </c:choose>
-        </div>
+            </div>
+          </c:otherwise>
+        </c:choose>
+
         <div class="nav">
           <ul>
             <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard">Dashboard</a></li>
@@ -51,14 +54,14 @@
                 </i>
               </div>
               <div class="content-frame-img">
-                <span class="supporter">${likeCount}</span>
+                <span class="supporter">${likeUserCount}</span>
                 <span>Supporter</span>
                 <svg id="my-svg" viewBox="-1.04 -1.04 2.08 2.08">
-                    <path style="stroke:#ec2c22" stroke-width="0.08px" d="M -0.8910065241883681 0.45399049973954625 A 1 1 0 1 1 0.8910065241883677 0.4539904997395472" fill="transparent" stroke-linecap="round"></path>
-                    <path id="animated-path" style="stroke:#dbd9db" stroke-width="0.09px" d="M -0.8910065241883681 0.45399049973954625 A 1 1 0 1 1 0.8910065241883677 0.4539904997395472" fill="transparent" stroke-linecap="round" stroke-dasharray="0.8168140899333463 10"></path>
+                    <path style="stroke:#dbd9db" stroke-width="0.08px" d="M -0.8910065241883681 0.45399049973954625 A 1 1 0 1 1 0.8910065241883677 0.4539904997395472" fill="transparent" stroke-linecap="round"></path>
+                    <path id="animated-path" style="stroke:#ec2c22" stroke-width="0.09px" d="M -0.8910065241883681 0.45399049973954625 A 1 1 0 1 1 0.8910065241883677 0.4539904997395472" fill="transparent" stroke-linecap="round" stroke-dasharray="0.8168140899333463 10"></path>
                 </svg>
               </div>
-              <div class="maxnum">다음 목표까지 서포터 단 ${5 - likeCount}명만 더!</div>
+              <div class="maxnum">다음 목표까지 서포터 단 ${(Math.ceil(likeUserCount / 5) * 5) - likeUserCount}명만 더!</div>
               <div class="graph-text">
                 <div>1 보기</div>
                 <div>0 주</div>
@@ -234,6 +237,10 @@
     </div>
   </main>
   <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+  <script>
+    const likeUserCount = ${likeUserCount};
+  </script>
 
   <script src="/resources/js/myPetitions/myPetitionsDashboard.js"></script>
 </body>

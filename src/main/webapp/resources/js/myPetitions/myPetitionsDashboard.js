@@ -6,16 +6,24 @@
 /* graph */
 const animatedPath = document.getElementById('animated-path');
 const length = animatedPath.getTotalLength();
-animatedPath.style.strokeDashoffset = -length;
 animatedPath.style.strokeDasharray = length;
+animatedPath.style.strokeDashoffset = length;
 
-function animatePath(num) {
-    const targetOffset = -length + length * num / 5;
-    animatedPath.style.transition = 'stroke-dashoffset 1s ease-in-out';
-    animatedPath.style.strokeDashoffset = targetOffset;
+function animatePath(max) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const targetOffset = length - (length * max / (Math.ceil(max / 5) * 5));
+        animatedPath.style.transition = 'none';
+
+        requestAnimationFrame(() => {
+            animatedPath.style.transition = 'stroke-dashoffset 1s ease-in-out';
+            animatedPath.style.strokeDashoffset = targetOffset;
+        });
+    });
 }
 
-animatePath(4);
+
+animatePath(likeUserCount);
+
 
 /* 팁보기 */
 function tipHover(input){

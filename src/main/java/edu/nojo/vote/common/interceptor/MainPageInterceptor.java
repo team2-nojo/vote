@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.main.model.service.MainPageService;
 
 public class MainPageInterceptor implements HandlerInterceptor{
@@ -32,23 +33,14 @@ public class MainPageInterceptor implements HandlerInterceptor{
 		
 		// 서버시작 후 누구도 요청이 한적이 없을 경우
 		if(application.getAttribute("mainPtList") == null) {
-			
 			// 조회 서비스 호출
-			System.out.println("메인페이지 조회 서비스 호출");
 			
-			List<Map<String, Object>> mainPtList = service.selectMainPtList();
-			List<Map<String, Object>> mainUserList = service.selectMainUserList();
-			
-			
-			System.out.println(mainPtList);
-			System.out.println(mainUserList);
-			
-			
-			// application scope에 세팅
+			List<Petition> mainPtList = service.selectMainPtList();
 			application.setAttribute("mainPtList", mainPtList);
-			application.setAttribute("mainUserList", mainUserList);
-			
 		}
+		
+		
+		
 		
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}

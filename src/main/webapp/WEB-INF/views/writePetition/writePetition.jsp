@@ -65,26 +65,6 @@
                                 직접 입력한 샘플데이터
                                 <span>X</span>
                             </label>
-                            <label class="direct-input-item category-item">
-                                <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
-                                직접 입력한 샘플데이터
-                                <span>X</span>
-                            </label>
-                            <label class="direct-input-item category-item">
-                                <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
-                                직접 입력한 샘플데이터
-                                <span>X</span>
-                            </label>
-                            <label class="direct-input-item category-item">
-                                <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
-                                직접 입력한 샘플데이터
-                                <span>X</span>
-                            </label>
-                            <label class="direct-input-item category-item">
-                                <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
-                                직접 입력한 샘플데이터
-                                <span>X</span>
-                            </label>
                         </div>
                     </div>
                 </div>

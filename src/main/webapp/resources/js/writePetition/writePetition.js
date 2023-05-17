@@ -6,6 +6,8 @@ const pages = document.getElementsByClassName('page'); // 페이지 배열
 const progressBar = document.querySelector('.wp-progress'); // 프로그레스 바
 const btnContainer = document.getElementById('btnContainer');
 
+// console.log('1');
+
 const updatePage = () => {
   progressBar.style.width = ((currentPage+1) / pages.length) * 100 + '%';
   for(let i=0;i<pages.length;i++)
@@ -109,6 +111,22 @@ directInputCheckBox.addEventListener('change', () =>{
   if(currentPage==1) categorySelectCheck();
 });
 // 직접 입력하는 창 또는 버튼에 이벤트 리스너 추가(해야함)
+
+const categoryInput = document.getElementById('categoryInput');
+const directInputItemContainer = document.getElementById('directInputItemContainer');
+const categoryInputBtn = document.getElementById('categoryInputBtn');
+categoryInputBtn.addEventListener('click', () => {
+  if(categoryInput.value.trim().length > 0){
+    const item = document.createElement('label');
+    item.classList.add("direct-input-item","category-item");
+    item.innerHTML = `
+      <input type="hidden" name="directInputCategory" value="${categoryInput.value}">
+      ${categoryInput.value}
+      <span>X</span>
+    `
+    directInputItemContainer.append(item);
+  }
+})
 
 
 

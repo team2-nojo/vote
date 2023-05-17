@@ -195,7 +195,7 @@
                     </label>
                 </div>
                 <div>
-                    <button id="signButton" onclick="document.getElementById('progress').value += 1;">Sign this petition</button>
+                    <button id="signButton" onclick="document.getElementById('progress').value += 1;">좋아요!</button>
                 </div>
             </div>
         </section>

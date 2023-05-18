@@ -57,9 +57,14 @@ content.addEventListener("input", e => {
 
 // 체크박스 클릭 시 댓글창 열림
 const agree = document.getElementById("agree");
+const commentPlace = document.getElementById("commentPlace");
+
 agree.addEventListener("change", ()=>{
-    // alert("이벤트 확인");
-
-
-
+    
+    if(agree.checked){
+        // alert("이벤트 확인");
+        commentPlace.style.display = 'block';
+    }else{
+        commentPlace.style.display = 'none';
+    }
 });

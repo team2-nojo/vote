@@ -197,9 +197,9 @@
                             <textarea name="" id="commentContent" cols="10" rows="100" placeholder=" -띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
                         </div>
                     </form>
-                </div>
-                <div id="countComment">
-                    <span id="count">0</span>자 / 1000자
+                    <div id="countComment">
+                        <span id="count">0</span>자 / 1000자
+                    </div>
                 </div>
                 <%-- 좋아요 버튼 --%>
                 <div>

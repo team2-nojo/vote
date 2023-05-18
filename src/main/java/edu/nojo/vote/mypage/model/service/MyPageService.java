@@ -1,4 +1,4 @@
-package edu.nojo.vote.myPage.model.service;
+package edu.nojo.vote.mypage.model.service;
 
 public interface MyPageService {
 

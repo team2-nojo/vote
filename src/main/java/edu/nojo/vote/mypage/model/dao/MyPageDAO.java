@@ -1,4 +1,4 @@
-package edu.nojo.vote.myPage.model.dao;
+package edu.nojo.vote.mypage.model.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

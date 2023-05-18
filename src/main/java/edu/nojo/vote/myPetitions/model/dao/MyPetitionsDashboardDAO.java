@@ -20,15 +20,15 @@ public class MyPetitionsDashboardDAO {
 	 * @param map
 	 * @return
 	 */
-	public List<Petition> selectMyPetition(Map<String, Object> map) {
-		return sqlSession.selectList("myPetitionsMapper.selectMyPetition", map);
+	public Petition selectMyPetition(Map<String, Object> map) {
+		return sqlSession.selectOne("myPetitionsMapper.selectMyPetition", map);
 	}
 
 	/** 청원 좋아요 누른 회원 리스트 조회
 	 * @param petitionNo
 	 * @return
 	 */
-	public List<Map> selectlikeUserList(int petitionNo) {
+	public List<User> selectlikeUserList(int petitionNo) {
 		return sqlSession.selectList("myPetitionsMapper.selectlikeUserList", petitionNo);
 	}
 	

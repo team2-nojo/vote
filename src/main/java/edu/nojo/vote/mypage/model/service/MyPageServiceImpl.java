@@ -1,4 +1,4 @@
-package edu.nojo.vote.myPage.model.service;
+package edu.nojo.vote.mypage.model.service;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,8 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import edu.nojo.vote.myPage.model.dao.MyPageDAO;
+
+import edu.nojo.vote.mypage.model.dao.MyPageDAO;
 import edu.nojo.vote.user.model.dto.User;
+
+
+
 
 @Service
 public class MyPageServiceImpl implements MyPageService {

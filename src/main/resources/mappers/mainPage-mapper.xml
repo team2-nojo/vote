@@ -5,22 +5,41 @@
 
 <resultMap type="edu.nojo.vote.main.model.dto.Petition" id="petition_rm">
 		<result property="petitionContent" column="PT_CONTENT" jdbcType="CLOB" javaType="String" />
-		
 		 <result property="petitionNo" column="PT_NO" />
       	<result property="petitionTitle" column="PT_TITLE" />
       	<result property="petitionContent" column="PT_CONTENT" />
       	<result property="petitionDate" column="PT_DATE" />
       	<result property="petitionViewCount" column="PT_VIEW_COUNT" />
-      	<result property="petitionVictory" column="PT_VICT" />
       	<result property="petitionImage" column="PT_IMG" />
+      	<result property="petitionVictory" column="PT_VICT" />
+      	
       	<result property="userNo" column="USER_NO" />
+      	<result property="userImage" column="USER_IMG" />
+      	<result property="userNickname" column="USER_NICKNAME" />
+      	<result property="userAddress" column="USER_ADD" />
+      	
       	<result property="categoryNo" column="CAT_NO" />
+      	<result property="categoryName" column="CAT_NAME" />
+      	
+      	<result property="petitionLikeCount" column="LIKE_COUNT" />
+</resultMap>
+
+<resultMap type="edu.nojo.vote.writePetition.model.dto.PetitionCategory" id="category_rm">
+      	<result property="categoryNo" column="CAT_NO" />
+      	<result property="categoryName" column="CAT_NAME" />
+      	<result property="categoryMainFl" column="CAT_MAIN_FL" />
+
 </resultMap>
 	
 		
 	<!-- 메인페이지 박스에 청원 보이기 -->
 	<select id="selectMainPtList" resultMap="petition_rm">
-		SELECT * FROM PETITION
+		SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD,
+		(SELECT COUNT(*) FROM PETITION_LIKE PL WHERE PL.PT_NO = PT.PT_NO) "LIKE_COUNT"
+		FROM PETITION PT
+		JOIN "USER" USING(USER_NO)
+		JOIN MAIN_PETITION MP ON(PT.PT_NO=MP.PT_NO)
+		ORDER BY "ORDER"
 	</select>
 	
 	
@@ -30,6 +49,24 @@
 		SELECT * FROM "USER"
 	</select>
 	
-
+	
+	<select id="selectMainPtNoList" resultType="int">
+		SELECT * FROM "MAIN_PETITION"
+	</select>
+	
+	<select id="selectPetition" resultMap="petition_rm">
+		SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD,
+		(SELECT COUNT(*) FROM PETITION_LIKE WHERE PT_NO=#{mainPtNo}) "LIKE_COUNT"
+		FROM PETITION
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_NO=#{mainPtNo}
+	</select>
+	
+	<select id="selectCategoryList" resultMap="category_rm">
+		SELECT CAT_NO, CAT_NAME FROM PETITION_CATEGORY PC 
+		JOIN PETITION_CATEGORY_LIST PCL USING (CAT_NO)
+		WHERE PT_NO=#{mainPtNo}
+	</select>
+	
 	
 </mapper>

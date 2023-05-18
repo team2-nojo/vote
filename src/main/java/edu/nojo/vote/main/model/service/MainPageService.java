@@ -3,10 +3,13 @@ package edu.nojo.vote.main.model.service;
 import java.util.List;
 import java.util.Map;
 
+import edu.nojo.vote.main.model.dto.Petition;
+
+
 public interface MainPageService {
 
-	List<Map<String, Object>> selectMainPtList();
+	List<Petition> selectMainPtList();
+	
 
-	List<Map<String, Object>> selectMainUserList();
 
 }

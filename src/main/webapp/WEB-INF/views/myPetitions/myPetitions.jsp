@@ -48,7 +48,9 @@
                         <c:otherwise>
                             <%-- start한 청원이 있을 경우 petitionList 출력 --%>
                             <c:forEach items="${petitionList}" var="petition">
-                            <div class="defaultbox" onclick="location.href =`/myPetitions/myPetitionsDashboard`">
+
+                            <div class="defaultbox" onclick="location.href =`/myPetitions/myPetitionsDashboard/${petition.petitionNo}`">
+                                <div class="myPetitionTitle">${petition.petitionTitle}</div>
                                 <%-- Title이 30자 초과이면 ...로 출력, 30자 이하면 그대로 출력 --%>
                                 <div class="myPetitionTitle">
                                 <c:choose>
@@ -62,6 +64,7 @@
                                     </c:otherwise>
                                 </c:choose>
                                 </div>
+
                                 <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
                                 <div class="myPetitionText">
                                 <c:choose>
@@ -98,7 +101,9 @@
                         <c:otherwise>
                             <%-- signed한 청원이 있을 경우 petitionList 출력 --%>
                             <c:forEach items="${likeList}" var="petition">
-                                <div class="defaultbox"  onclick="location.href =`/myPetitions/myPetitionsDashboard`">
+
+                                <div class="defaultbox" onclick="location.href =`/myPetitions/myPetitionsDashboard/${petition.petitionNo}`">
+                                    <div class="myPetitionTitle">${petition.petitionTitle}</div>
                                 <%-- Title이 30자 초과이면 ...로 출력, 30자 이하면 그대로 출력 --%>
                                     <div class="myPetitionTitle">
                                     <c:choose>
@@ -112,6 +117,7 @@
                                         </c:otherwise>
                                     </c:choose>
                                     </div>
+
                                     <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
                                     <div class="myPetitionText">
                                     <c:choose>

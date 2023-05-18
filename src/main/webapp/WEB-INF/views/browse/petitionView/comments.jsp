@@ -25,7 +25,7 @@
             <div id="menu">
                 <div><a href="/browse/petitionView/details" id="details">Petition details</a></div>
                 <div id="comments">Comments</div>
-                <div ><a href="#" id="updates">Updates</a></div>
+                <div ><a href="/browse/petitionView/updates" id="updates">Updates</a></div>
             </div>
         </section>
 

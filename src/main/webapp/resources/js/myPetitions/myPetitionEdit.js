@@ -27,32 +27,6 @@ tipHover("topic");
 tipHover("owner");
 tipHover("twitter");
 
-/* 사진 또는 비디오 주소 추가 */
-// document.getElementById("AddBtn").addEventListener("click", () => {
-//     const addurl = document.getElementById("AddUrl").value;
-//     document.querySelector(".content-img").innerHTML = "";
-//     document.querySelector(".content-img").style = "height:300px"
-
-//     if(addurl == null){
-//         document.querySelector(".content-img").innerHTML
-//     }
-
-//     const input = document.createElement("div");
-
-//     const closeBtn = document.createElement("button");
-//     closeBtn.innerText = "버튼";
-
-//     closeBtn.style = "position : absolute, color : blue ";
-
-//     closeBtn.addEventListener("click", () =>{return});
-
-//     const youtube = document.createElement("iframe");
-
-//     input.append(closeBtn, youtube);
-
-//     document.querySelector(".content-img").append(input);
-// });
-
 /* 주제추가 */
 const addTopicBox = document.getElementById("addTopicBox");
 let topicCount = 0;

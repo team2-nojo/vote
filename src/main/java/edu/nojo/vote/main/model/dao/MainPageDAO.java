@@ -3,9 +3,14 @@ package edu.nojo.vote.main.model.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import edu.nojo.vote.administrator.model.dto.Pagination;
+import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 @Repository
 public class MainPageDAO {
@@ -18,8 +23,7 @@ public class MainPageDAO {
 	 * @return mainPagePtList
 	 * */
 	
-	public List<Map<String, Object>> selectMainPtList() {
-		
+	public List<Petition> selectMainPtList() {
 		return sqlSession.selectList("mainPageMapper.selectMainPtList");
 	}
 
@@ -28,4 +32,22 @@ public class MainPageDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("mainPageMapper.selectMainUserList");
 	}
+
+
+	public List<Integer> selectMainPtNoList() {
+		return sqlSession.selectList("mainPageMapper.selectMainPtNoList");
+	}
+
+
+	public Petition selectPetition(int mainPtNo) {
+		return sqlSession.selectOne("mainPageMapper.selectPetition",mainPtNo);
+	}
+
+
+	public List<PetitionCategory> selectCategoryList(int mainPtNo) {
+		return sqlSession.selectList("mainPageMapper.selectCategoryList",mainPtNo);
+	}
+
+	
+	
 }

@@ -1,8 +1,4 @@
 article {
-  color: #fff;
-  height: 950px;
-  width: 100%;
-  display: grid;
   grid-template-areas:
     'header header'
     'nav    main'
@@ -46,7 +42,10 @@ a {
 
 main {
   grid-area: main;
-  height: auto;
+  height: 100%;
+  margin-left: 310px;
+  margin-right: 8%;
+  margin-top: 150px;
 }
 
 footer {

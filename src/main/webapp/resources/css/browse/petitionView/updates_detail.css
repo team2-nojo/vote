@@ -1,0 +1,469 @@
+
+
+
+*{ 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* 임시테두리 */
+/* main, header, section, footer{
+    border: 1px solid black;
+} */
+
+main{
+    width: 960px;
+    /* height: 925px; */
+    margin: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* body */
+
+
+/* top */
+/* 상단메뉴 */
+#top{
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+
+    margin-right: 60%;
+}
+
+
+#menu{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+#menu>*{
+    margin: 5px 10px;
+}
+
+#menu *{
+    color: black;
+    text-decoration: none;
+    
+}
+
+#comments:hover{
+    color: #2DB400;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+
+#details:hover{
+    color: #2DB400;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+
+#updates{
+    color: #2DB400;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+#bigTitle{
+    color: #737273;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 50px 79% 10px 0;
+}
+
+
+
+/* 게시글뷰 */
+
+#post{
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* 게시글 왼쪽 */
+
+#post-L{
+    display: flex;
+    flex-direction: column;
+    
+    width: 85%;
+    
+    /* 임시 */
+    /* border: 1px solid black; */
+}
+
+
+#postTitle{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px 40px 15px 40px;
+}
+
+#nickname{
+    margin: 20px 40px 5px 40px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#place{
+    margin: 5px 40px 15px 40px;
+    color: #737273;
+    font-size: 15px;
+}
+
+#date{
+    margin: 20px 40px 5px 40px;
+    color: #737273;
+    font-size: 17px;
+
+
+
+
+}
+
+
+#postPic{
+    width: 90%;
+    height: 350px;
+
+    margin: 10px 25px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 게시글 오른쪽 */
+.post-R{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    /* 임시 */
+    border: 1px solid black;
+}
+
+
+#gauge{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#row1{
+    width: 300px;
+
+    font-size: 18px;
+    margin: 20px 10px;
+    margin-top: 25%;
+}
+
+
+#row2{
+    font-size: 10px;
+    margin: 10px;
+}
+
+
+#row3{
+    width: 250px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin: 10px;
+}
+
+
+#row3-1{
+    margin-left: 10px;
+}
+
+
+#row3-2{
+    margin-left: 20px;
+}
+
+
+#arrow{
+    width: 40px;
+    height: 40px;
+
+    border-radius: 100%;
+}
+
+
+
+#haveSign{
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+
+
+#LetsGet{
+
+    font-size: 20px;
+}
+
+
+
+
+.prof{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+
+}
+
+
+#More{
+    font-weight: bold;
+}
+
+#sign_User{
+    margin: 5px;
+}
+
+.signUserBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5px;
+}
+
+
+.signNickname{
+    font-weight: bold;
+    margin: 5px;
+}
+
+.signTime{
+    margin: 5px;
+
+}
+
+#postContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0px 30px;
+}
+
+
+.paragraph{
+    font-size: 15px;
+    margin: 20px 20px;
+}
+
+
+
+
+/* progress */
+
+#progress{
+    width: 250px;
+    height: 12px;
+
+    margin: 0px 5%;
+    appearance: none;
+
+}
+
+#progress::-webkit-progress-bar{
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+#progress::-webkit-progress-value {
+    border-radius: 10px;
+    background: #DC143C;
+    background: -webkit-linear-gradient(to right, #FFD700, #DC143C);
+    background: linear-gradient(to right, #FFD700, #DC143C);
+}
+
+/* figure */
+#figure *{
+    display: inline;
+    margin: 0px 5px;
+}
+
+
+/* check */
+#check{
+    margin: 20px 20px;
+}
+
+#check *:hover{cursor: pointer;}
+
+
+/* button */
+
+#signButton{width: 100px;
+    height: 30px;
+    width: 250px;
+    color: white;
+    font-size: 15px;
+    background-color: #2DB400;
+    border: none;
+    border-radius: 5px;
+    
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+
+
+
+/* 추천게시글 */
+
+
+#trandPeti{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.result{
+    border: 3px solid #ccc;
+
+    display: flex;
+    flex-direction: row;
+
+    border-collapse: collapse;
+
+    margin: 20px 0px;
+}
+
+
+
+
+
+
+
+
+/* 추천게시글 - 타이틀&콘텐츠 */
+
+.row{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+
+
+.column{
+    width: 530px;
+    
+}
+
+
+#title{
+    font-weight: bold;
+    margin: 20px;
+}
+
+
+#content{
+    font-size: 13px;
+
+    margin: 20px 5px;
+    margin-left: 3%;
+    padding: 2px;
+}
+
+
+
+/* 추천게시글 - 프로필&서포터 */
+
+.col{
+    margin: 10px 10px;
+}
+
+#column-2{
+    border-top: 3px solid #ccc;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+/* 추천게시글 - 사진 */
+#rowPicture{
+    width: 170px;
+
+    border-left: 3px solid #ccc;
+}
+
+.picture{
+    width: 100%;
+    height: 100%;
+    
+    margin-top: 0.5px;
+    
+}
+
+
+
+
+
+
+
+
+
+/* 더보기버튼 */
+#moreView{
+    width: 700px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    
+    border: 3px solid #2DB400;
+    border-radius: 5px;
+    background-color: white;
+    color: #2DB400;
+    
+    margin-left: 2px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+
+
+
+
+

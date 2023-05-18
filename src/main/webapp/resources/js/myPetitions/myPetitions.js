@@ -71,10 +71,11 @@ signed.addEventListener("click", () => {
     // myStartPetitions에 invisibleMyPetitions클래스 추가
     myStartPetitions.classList.add("invisibleMyPetitions");
 
-   
 });
+
 
 // 각 글을 클릭하면 myPetitonDashboard로 이동
 document.querySelector("[class = 'defaultbox']").addEventListener("click", () => {
     location.href = `/myPetitions/myPetitionsDashboard`; 
 });
+

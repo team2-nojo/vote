@@ -27,7 +27,7 @@
             <div id="menu">
                 <div id="details">Petition details</div>
                 <div><a href="/browse/petitionView/comments" id="comments">Comments</a></div>
-                <div ><a href="#" id="updates">Updates</a></div>
+                <div ><a href="/browse/petitionView/updates" id="updates">Updates</a></div>
             </div>
         </section>
 
@@ -195,7 +195,7 @@
                     </label>
                 </div>
                 <div>
-                    <button id="signButton" onclick="document.getElementById('progress').value += 1;">Sign this petition</button>
+                    <button id="signButton" onclick="document.getElementById('progress').value += 1;">좋아요!</button>
                 </div>
             </div>
         </section>

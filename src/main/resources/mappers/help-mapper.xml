@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="searchMapper">
+<mapper namespace="HelpMapper">
+
+<resultMap type="edu.nojo.vote.help.model.dto.QNA3" id="QNA3_rm">
+	<result property="QNAContent" column="QNA_CONT" jdbcType="CLOB" javaType="String" />
+	<result property="QNANo" column="QNA_NO" />
+	<result property="userNo" column="USER_NO" />
+	<result property="QNACatCode" column="QNA_CAT_CODE" />
+	<result property="QNAStatus" column="QNA_STATUS" />
+	<result property="QNATitle" column="QNA_TITLE" />
+    <result property="QNACreateDt" column="QNA_CREATE_DT" />
+    <result property="QNAanswer" column="QNA_ANSWER" />
+    <result property="QNAcompleteddt" column="QNA_COMPLETED_DT" />
+    <result property="QNADelFL" column="QNA_DEL_FL" />
+</resultMap>
+
+	<!-- 삭제되지 않은 문의 수 조회 -->
+	<select id="QA3" resultType="_int">
+		SELECT COUNT(*) FROM "QNA" 
+		WHERE QNA_DEL_FL = 'N'
+	</select>
 	
+	<!-- 문의글 조회 -->
+	<select id="QNA3" resultMap="QNA3_rm">
+		SELECT QNA_NO, QNA_CAT_CODE, QNA_TITLE, QNA_STATUS, QNA_CREATE_DT,
+			<![CDATA[
+			CASE  
+				WHEN SYSDATE - QNA_CREATE_DT < 1     
+				THEN FLOOR( (SYSDATE - QNA_CREATE_DT) ) || '일 전'
+				WHEN SYSDATE - QNA_CREATE_DT < 30
+				THEN FLOOR( (SYSDATE - QNA_CREATE_DT) / 7 ) || '주 전'
+				WHEN SYSDATE - QNA_CREATE_DT < 365
+				THEN FLOOR( (SYSDATE - QNA_CREATE_DT) / 30 ) || '달 전'
+					ELSE FLOOR( (SYSDATE - QNA_CREATE_DT) / 365 ) || '년 전'
+			END QNA_CREATE_DT
+			]]>
+			FROM "QNA" Q
+			JOIN "USER" USING(USER_NO)
+			WHERE QNA_DEL_FL = 'N'
+			ORDER BY QNA_NO DESC
+	</select>
 </mapper>
+

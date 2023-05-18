@@ -7,15 +7,22 @@
 	
 	
 		<id property="petitionNo" column="PT_NO" />
-
 		<result property="petitionTitle" column="PT_TITLE" />
 		<result property="petitionContent" column="PT_CONTENT" />
+		<result property="petitionDate" column="PT_DATE" />
+		<result property="petitionViewCount" column="PT_VIEW_COUNT" />
+		<result property="petitionVictory" column="PT_VICT" />
+		<result property="petitionImage" column="PT_IMG" />
 		<result property="petitionDelFl" column="PT_DEL_FL" />
 		
 		<result property="userNo" column="USER_NO" />
 
+		<result property="categoryNo" column="CAT_NO" />
+
 		<result property="petitionLikeNo" column="PT_LIKE_NO" />
+
 		<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
+
 	
 	
 	</resultMap>
@@ -35,10 +42,30 @@
 	<select id="selectLikePetition" resultMap="myPetitions_rm">
 	SELECT PT_NO, PT_TITLE, PT_CONTENT, USER_NO 
 	FROM "PETITION"
-	WHERE PT_NO IN (SELECT PT_NO FROM "PETITION_LIKE" WHERE "USER_NO" = #{userNos})
+	WHERE PT_NO IN (SELECT PT_NO FROM "PETITION_LIKE" WHERE "USER_NO" = #{userNo})
 	</select>
 	
 	
+
+	<!-- MyPetitionsDashboard -->
 	
+	<!-- 청원 조회 -->
+	<select id="selectMyPetition" resultMap="myPetitions_rm">
+		SELECT PT_NO , PT_TITLE , PT_CONTENT , PT_DATE , PT_VIEW_COUNT
+		FROM "PETITION"
+		WHERE USER_NO = ${loginUserNo}
+		AND PT_NO = ${petitionNo}
+		AND PT_DEL_FL ='N'
+	</select>
+	
+	<!-- 청원 좋아요 누른 회원 조회 -->
+	<select id="selectlikeUserList" resultMap="myPetitions_rm">
+		SELECT PT_LIKE_NO, USER_IMG, USER_NICKNAME
+		FROM "USER"
+		JOIN PETITION_LIKE USING (USER_NO)
+		WHERE PT_NO = ${petitionNo}
+		AND USER_GRADE = 1
+	</select>
+
 	
 </mapper>

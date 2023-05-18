@@ -1,8 +1,4 @@
-const muni = document.getElementById("select2");
-muni.addEventListener("click", () => {
-    window.open("popup.html", "_blank", "popup", "width=580, height=225, top=500, left=800");
-    document.location.href='FAQ.html';
-});
+
 
 // 로고 클릭시 메인페이지
 document.getElementById("logoimg").addEventListener("click", () => {
@@ -40,6 +36,12 @@ frame.width = width + 100 + "px"
 const boardUpdateFrm = document.querySelector("#boardUpdateFrm");
 const boardTitle = document.querySelector("[name='boardTitle']");
 const boardContent = document.querySelector("[name='boardContent']");
+const muni = document.getElementById("select2");
+
+muni.addEventListener("click", () => {
+    window.open("/clientCenter/popup", "_blank", "width=580, height=225");
+    /* document.location.href='/clientCenter/FAQ'; */
+});
 
 boardUpdateFrm.addEventListener('submit', e => {
 

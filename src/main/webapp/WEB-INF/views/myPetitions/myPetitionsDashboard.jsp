@@ -76,36 +76,39 @@
                     다음 목표까지 서포터 단 
                     <c:choose>
                       <c:when test="${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') == likeUserCount}">
-                        ${fn:substringBefore((Math.ceil((likeUserCount + 1) / 5) * 5), '.') - likeUserCount}
+                        ${fn:substringBefore((Math.ceil((likeUserCount + 1) / 5) * 5), '.') - likeUserCount}명만 더!
                       </c:when>
                       <c:otherwise>
-                        ${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') * 5 - likeUserCount}
+                        ${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') - likeUserCount}명만 더!
                       </c:otherwise>
                     </c:choose>
-                    명만 더!
                   </c:when>
                   <c:otherwise>당신의 청원을 지지해줄 서포터를 찾으세요!</c:otherwise>
                 </c:choose>
               </div>
               <div class="graph-text">
-                <div>조회수 ${MP.petitionViewCount}</div>
+                <div>조회수 ${MP.petitionViewCount}회</div>
                 <div>댓글수 미구현</div>
               </div>
             </div>
           </div>
           <div class="agree">
             <div class="support" id="contentFrame">
-              <div class="agree-top"><h3>최근 후원자</h3></div>
+              <div class="agree-top"><h3>최신 서포터 목록</h3></div>
               <div class="support-list">
                 <ul>
-                  ${UL}
-                  <c:forEach items="${likeUserList}" var="likeUser">
+                  <c:forEach items="${UL}" var="likeUser">
                     <li>
-                      <i class="fa-sharp fa-solid fa-user"></i>
-                      <span>${likeUser.userNickname}</span>
-                      <span>${likeUser.userNickname}</span>
-                      <span>${likeUser.userNickname}</span>
-                      <span>${likeUser.userNickname}</span>
+                      <c:choose>
+                        <c:when test="${not empty likeUser.userImage}">
+                          <span><img ID="profileImg" src="${likeUser.userImage}"></span>
+                        </c:when>
+                        <c:otherwise>
+                          <span><i class="fa-sharp fa-solid fa-user"></i></span>
+                        </c:otherwise>
+                      </c:choose>
+                      <span>${likeUser.userNickname}님</span>
+                      <span>DB 작성일추가필요</span>
                     </li>
                   </c:forEach>
                 </ul>

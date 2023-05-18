@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.user.model.dto.User;
 
 @Repository
@@ -28,7 +29,7 @@ public class MyPetitionsDashboardDAO {
 	 * @param petitionNo
 	 * @return
 	 */
-	public List<User> selectlikeUserList(int petitionNo) {
+	public List<Like> selectlikeUserList(int petitionNo) {
 		return sqlSession.selectList("myPetitionsMapper.selectlikeUserList", petitionNo);
 	}
 	

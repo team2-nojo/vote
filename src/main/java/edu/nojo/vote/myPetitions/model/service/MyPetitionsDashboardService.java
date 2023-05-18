@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.user.model.dto.User;
 
 public interface MyPetitionsDashboardService {
@@ -18,7 +19,7 @@ public interface MyPetitionsDashboardService {
 	 * @param petitionNo
 	 * @return
 	 */
-	List<User> selectlikeUserList(int petitionNo);
+	List<Like> selectlikeUserList(int petitionNo);
 
 
 }

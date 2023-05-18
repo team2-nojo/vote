@@ -34,13 +34,12 @@
             </div>
           </c:otherwise>
         </c:choose>
-
         <div class="nav">
           <ul>
-            <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard">Dashboard</a></li>
-            <li><a href="#">Petition details</a></li>
-            <li><a href="/myPetitions/myPetitionEdit">Edit</a></li>
-            <li><a href="#">Comments</a></li>
+            <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">Dashboard</a></li>
+            <li id="nav"><a href="#">Petition details</a></li>
+            <li id="nav"><a href="/myPetitions/myPetitionEdit/${petitionNo}">Edit</a></li>
+            <li id="nav"><a href="#">Comments</a></li>
           </ul>
         </div>
       </nav>
@@ -101,14 +100,14 @@
                     <li>
                       <c:choose>
                         <c:when test="${not empty likeUser.userImage}">
-                          <span><img ID="profileImg" src="${likeUser.userImage}"></span>
+                          <span><img id="profile" src="${likeUser.userImage}"></span>
                         </c:when>
                         <c:otherwise>
-                          <span><i class="fa-sharp fa-solid fa-user"></i></span>
+                          <span><img id="profile" src="/resources/images/common/user.png"></span>
                         </c:otherwise>
                       </c:choose>
-                      <span>${likeUser.userNickname}님</span>
-                      <span>DB 작성일추가필요</span>
+                      <span id="nickName">${likeUser.userNickname}님</span>
+                      <span id="date"><i class="fa-solid fa-clock"></i> ${likeUser.petitionLikeDate}</span>
                     </li>
                   </c:forEach>
                 </ul>

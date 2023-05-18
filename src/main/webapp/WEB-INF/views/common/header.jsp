@@ -65,7 +65,7 @@
       <%-- 로그인 되었을 때 --%>
       <c:otherwise>
         <div class="header-icon">
-          <a class="header-a" href="#"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+          <a class="header-a" href="/search/searchPetition"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
           <label for="userMenuToggle">
             <i class="fa-sharp fa-solid fa-user"></i>
           </label>

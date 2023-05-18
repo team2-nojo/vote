@@ -32,7 +32,26 @@ nav a:hover{color: red;}
   display: flex;
 }
 
-.nav li{ padding: 15px;}
+.nav li{
+  padding: 15px;
+  position: relative;
+}
+
+#nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: red;
+  transition: width 0.5s ease-in-out;
+}
+
+#nav:hover::after {
+  width: 100%;
+}
 
 #navSelect{border-bottom: 3px solid red;}
 #navSelect>a{color: red;}

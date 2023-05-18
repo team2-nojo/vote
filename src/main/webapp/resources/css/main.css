@@ -79,7 +79,25 @@ header {
 .header-menu li {
   list-style: none;
   padding: 15px;
+  position: relative;
 }
+
+.header-menu li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #2db400;
+  transition: width 0.5s ease-in-out;
+}
+
+.header-menu li:hover::after {
+  width: 100%;
+}
+
 
 /* 아이콘 */
 .header-icon {

@@ -9,16 +9,15 @@ import lombok.ToString;
 @ToString
 public class Like {
 
-	
-	private int petitionLikeNo; 
-	
-	
-	
+	private int petitionLikeNo;		
 	private int petitionNo;			
-	private int userNo;						
+	private String petitionLikeDate;
+	
+	private int userNo;				
+	
 	private String userImage;			
 	private String userEmail;			
 	private String userNickname;		
-	private String userAddress;			
+	private String userAddress;
 	
 }

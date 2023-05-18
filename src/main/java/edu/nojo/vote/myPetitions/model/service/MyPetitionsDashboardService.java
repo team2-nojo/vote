@@ -12,13 +12,13 @@ public interface MyPetitionsDashboardService {
 	 * @param map
 	 * @return
 	 */
-	List<Petition> selectMyPetition(Map<String, Object> map);
+	Petition selectMyPetition(Map<String, Object> map);
 
 	/** 청원 좋아요 누른 회원 리스트 조회 서비스
 	 * @param petitionNo
 	 * @return
 	 */
-	List<Map> selectlikeUserList(int petitionNo);
+	List<User> selectlikeUserList(int petitionNo);
 
 
 }

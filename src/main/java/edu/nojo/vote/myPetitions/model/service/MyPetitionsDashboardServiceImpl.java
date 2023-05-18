@@ -19,13 +19,13 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 	
 	// 청원 조회 서비스
 	@Override
-	public List<Petition> selectMyPetition(Map<String, Object> map) {
+	public Petition selectMyPetition(Map<String, Object> map) {
 		return dao.selectMyPetition(map);
 	}
 
 	// 청원 좋아요 누른 회원 리스트 조회 서비스
 	@Override
-	public List<Map> selectlikeUserList(int petitionNo) {
+	public List<User> selectlikeUserList(int petitionNo) {
 		return dao.selectlikeUserList(petitionNo);
 	}
 	

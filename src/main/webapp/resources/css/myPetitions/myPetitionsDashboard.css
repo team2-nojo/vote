@@ -112,7 +112,6 @@ nav a:hover{color: red;}
 .fa-circle-question:hover:after{
   display: block;
 }
-
 /* ------------------------ */
 .content-frame-img{
   height: 70%;
@@ -150,7 +149,7 @@ nav a:hover{color: red;}
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 16px;
   border-top: 1px solid #ccc;
 }
 

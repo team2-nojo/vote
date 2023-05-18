@@ -72,3 +72,10 @@ signed.addEventListener("click", () => {
     myStartPetitions.classList.add("invisibleMyPetitions");
 
 });
+
+
+// 각 글을 클릭하면 myPetitonDashboard로 이동
+document.querySelector("[class = 'defaultbox']").addEventListener("click", () => {
+    location.href = `/myPetitions/myPetitionsDashboard`; 
+});
+

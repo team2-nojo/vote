@@ -21,16 +21,21 @@
 
 		<result property="petitionLikeNo" column="PT_LIKE_NO" />
 
+		<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
+
 	
 	
 	</resultMap>
 
 	<!-- 작성한 글 목록 조회 -->
 	<select id="selectMyPetitions" resultMap="myPetitions_rm">
-	SELECT PT_NO, PT_TITLE, PT_CONTENT
-	FROM "PETITION"
+	SELECT PT_NO, PT_TITLE, PT_CONTENT,	
+		(SELECT COUNT(*)
+		FROM "PETITION_LIKE" SUB
+		WHERE SUB.PT_NO = MAIN.PT_NO) PT_LIKE_COUNT
+	FROM "PETITION" MAIN
 	WHERE PT_DEL_FL = 'N'
-	AND USER_NO = #{userNo}
+	AND USER_NO = #{UserNo}
 	</select>
 	
 	<!-- 좋아요 한 글 목록 조회 -->
@@ -41,7 +46,7 @@
 	</select>
 	
 	
-	
+
 	<!-- MyPetitionsDashboard -->
 	
 	<!-- 청원 조회 -->
@@ -61,6 +66,6 @@
 		WHERE PT_NO = ${petitionNo}
 		AND USER_GRADE = 1
 	</select>
-	
+
 	
 </mapper>

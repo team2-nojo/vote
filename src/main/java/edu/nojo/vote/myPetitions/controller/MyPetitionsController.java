@@ -14,7 +14,7 @@ import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsService;
 import edu.nojo.vote.user.model.dto.User;
 
-@SessionAttributes({"loginMember"}) 
+@SessionAttributes({"loginUser"}) 
 @RequestMapping("/myPetitions")
 @Controller
 public class MyPetitionsController {

@@ -2,6 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="myPetitionsMapper">
 
+	<resultMap type="User" id="user_rm">
+	
+		<id property="userNo" column="USER_NO" />
+		
+		<result property="userGrade" column="USER_GRADE" />
+		<result property="userImage" column="USER_IMG" />
+		<result property="userEmail" column="USER_EMAIL" />
+		<result property="userNickname" column="USER_NICKNAME" />
+		<result property="userPw" column="USER_PW" />
+		<result property="userAddress" column="USER_ADD" />
+		<result property="userAboutMe" column="USER_ABOUT_ME" />
+		<result property="userSocialLogin" column="USER_SOCIAL_LOGIN" />
+		<result property="userEnrollDate" column="USER_ENDROLL_DT" />
+		<result property="userDelFl" column="USER_DEL_FL" />
+	
+	</resultMap>
+
 
 	<resultMap type="Petition" id="myPetitions_rm">
 	
@@ -22,8 +39,6 @@
 		<result property="petitionLikeNo" column="PT_LIKE_NO" />
 
 		<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
-
-	
 	
 	</resultMap>
 
@@ -59,7 +74,7 @@
 	</select>
 	
 	<!-- 청원 좋아요 누른 회원 조회 -->
-	<select id="selectlikeUserList" resultMap="myPetitions_rm">
+	<select id="selectlikeUserList" resultMap="user_rm">
 		SELECT USER_IMG, USER_NICKNAME, USER_ADD
 		FROM "USER"
 		JOIN PETITION_LIKE USING (USER_NO)

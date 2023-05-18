@@ -487,7 +487,7 @@ main i{
 
 /* check */
 #check{
-    margin: 20px 20px;
+    margin: 20px 20px 0 20px;
 }
 
 #check *:hover{cursor: pointer;}
@@ -496,9 +496,10 @@ main i{
 /* button */
 
 #signButton{width: 100px;
-    height: 30px;
+    height: 40px;
     width: 250px;
     color: white;
+    font-weight: bold;
     font-size: 15px;
     background-color: #2DB400;
     border: none;
@@ -507,6 +508,40 @@ main i{
     margin: 10px 0px;
     cursor: pointer;
 }
+
+
+/* 댓글창 */
+#commentPlace{
+    display : none;
+}
+
+
+#wrtComment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* justify-content: space-around; */
+}
+
+
+#commentContent{
+    width: 300px;
+    height: 70px;
+    resize: none;
+    margin: 20px 0 0 0;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+#countComment{
+    margin: 0 0 20px 65%;
+}
+
 
 
 

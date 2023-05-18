@@ -137,17 +137,18 @@
                 <div id="postContent">
                     <div id="row1">
                         <strong>
-                            <!-- span 태그로 숫자 변경되게 해야 함(js)-->
-                            43,564명이 서명했습니다.
+                            <%-- 좋아요 클릭 한 사람 수 --%>
+                            <span id="likeCount">0</span> 
+                            명이 서명했습니다.
                         </strong>
                         50000명을 향해!!
                     </div>
-                    <progress id="progress" value="35000" min="0" max="50000" ></progress>
+                    <progress id="progress" value="0" min="0" max="50000" ></progress>
                     <div id="row2">
-                        다음목표까지 서포터 단
+                        청원 달성까지 서포터 단
                         <strong>
-                            <!-- span 태그로 숫자 변경되게 해야 함(js)-->
-                            33
+                            <!-- 청원 달성 위해 남은 사람의 수-->
+                            <span id="remainNumber">50000</span>
                             명만 더!
                         </strong> 
                     </div>
@@ -182,14 +183,27 @@
                     </div>
 
                 </div>
+                <%-- 체크박스 --%>
                 <div id="check">
                     <input type="checkbox" id="agree">
                     <label for="agree">
                         이 청원에 이름과 댓글을 표시합니다.
                     </label>
                 </div>
+                <%-- 댓글창 --%>
+                <div id="commentPlace">
+                    <form action="browse/comment" method="POST" id="commentFrm">
+                        <div id="wrtComment">
+                            <textarea name="" id="commentContent" cols="10" rows="100" placeholder=" -띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
+                        </div>
+                    </form>
+                    <div id="countComment">
+                        <span id="count">0</span>자 / 1000자
+                    </div>
+                </div>
+                <%-- 좋아요 버튼 --%>
                 <div>
-                    <button id="signButton" onclick="document.getElementById('progress').value += 1;">좋아요!</button>
+                    <button id="signButton" >좋아요!</button>
                 </div>
             </div>
         </section>

@@ -71,7 +71,7 @@
                         <div class="startCon" id="startCon2">이 청원글을 작성한 사람은 행동으로 옮겼습니다. 당신도 함께 동참하지 않겠습니까?</div>
                     </div>
                     <div>
-                        <button type="button" id="start">청원 시작하기</button>
+                        <button type="button" id="startBtn"><a href="/writePetition" id="start">청원 시작하기</a></button>
                     </div>
                     
                     
@@ -131,11 +131,6 @@
             </div>
         </div>
 
-
-        
-
-
-
         <!-- 게시글 오른쪽 -->
         <div id="post-R">
             <div id="gauge">
@@ -143,10 +138,9 @@
                     <div id="row1">
                         <strong>
                             <!-- span 태그로 숫자 변경되게 해야 함(js)-->
-                            43,564 
-                            have signed, 
+                            43,564명이 서명했습니다.
                         </strong>
-                        Let's get to 50,000!
+                        50000명을 향해!!
                     </div>
                     <progress id="progress" value="35000" min="0" max="50000" ></progress>
                     <div id="row2">
@@ -239,6 +233,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <%-- petitionView.js --%>
-    <script src="/resources/js/browes/petitionView/details.js"></script>
+    <script src="/resources/js/browse/petitionView/details.js"></script>
 </body>
 </html>

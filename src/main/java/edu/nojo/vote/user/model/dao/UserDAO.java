@@ -33,7 +33,21 @@ public class UserDAO {
 	
 	
 	
+	/**이메일 중복 검사
+	 * @param email
+	 * @return count
+	 */
+	public int checkEmail(String email) {
+		return sqlSession.selectOne("userMapper.checkEmail", email);
+	}
+	 
 	
-	
+	/** 닉네임 중복 검사
+	 * @param nickname
+	 * @return count
+	 */
+	public int checkNickname(String nickname) {
+		return sqlSession.selectOne("userMapper.checkNickname", nickname);
+	}
 	
 }

@@ -169,11 +169,11 @@ main i{
 }
 
 
-#start{
+#startBtn{
     width: 180px;
     height: 40px;
 
-    color: #2DB400;
+    
     border: 3px solid #2DB400;
     background-color: white;
     border-radius: 5px;
@@ -182,7 +182,12 @@ main i{
     cursor: pointer;
 }
 
+#start{
+    text-decoration: none;
+    color: #2DB400;
+    font-weight: bold;
 
+}
 
 /* 업데이트  */
 

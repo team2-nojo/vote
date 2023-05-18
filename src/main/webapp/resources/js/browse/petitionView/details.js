@@ -1,10 +1,17 @@
 const signButton = document.getElementById("signButton");
 const progress = document.getElementById("progress");
 const commentMore = document.getElementById("commentMore");
+const startBtn = document.getElementById("startBtn");
+
+
+startBtn.addEventListener("click", ()=>{
+    location.href="writePetition.jsp"; 
+});
+
 
 
 commentMore.addEventListener("click", ()=>{
-    location.href='comments.jsp'; 
+    location.href="comments.jsp"; 
 });
 
 

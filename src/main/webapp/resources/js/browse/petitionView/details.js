@@ -21,7 +21,7 @@ reportClick.addEventListener("click", ()=>{
 });
 
 
-// 좋아요 버튼 누르면 게이지 올라감, 누른 사람 수 남은 사람 수 표시
+// 좋아요 버튼 누르면 게이지 올라감, 좋아요 누른 사람 수 & 남은 사람 수 표시
 const signButton = document.getElementById("signButton");
 const progress = document.getElementById("progress");
 const likeCount = document.getElementById("likeCount");
@@ -38,3 +38,28 @@ signButton.addEventListener("click", ()=> {
 });
 
 
+const content = document.getElementById("content");
+
+// 댓글 작성 시 글자수 세는 이벤트
+content.addEventListener("input", e => {
+
+    count.innerText = e.target.value.length; 
+
+    // 글자수 확인하여 1000자가 넘어가면 붉게 표시
+    if( e.target.value.length > 1000 ){ // 댓글이 1000자 넘어가면
+        count.classList.add("error");
+    }else{ // 댓글이 1000자 이내일 때
+        count.classList.remove("error");
+    }
+
+});
+
+
+// 체크박스 클릭 시 댓글창 열림
+const agree = document.getElementById("agree");
+agree.addEventListener("change", ()=>{
+    // alert("이벤트 확인");
+
+
+
+});

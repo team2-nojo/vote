@@ -183,12 +183,25 @@
                     </div>
 
                 </div>
+                <%-- 체크박스 --%>
                 <div id="check">
                     <input type="checkbox" id="agree">
                     <label for="agree">
                         이 청원에 이름과 댓글을 표시합니다.
                     </label>
                 </div>
+                <%-- 댓글창 --%>
+                <div id="commentPlace">
+                    <form action="browse/comment" method="POST" id="commentFrm">
+                        <div id="wrtComment">
+                            <textarea name="" id="commentContent" cols="10" rows="100" placeholder=" -띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div id="countComment">
+                    <span id="count">0</span>자 / 1000자
+                </div>
+                <%-- 좋아요 버튼 --%>
                 <div>
                     <button id="signButton" >좋아요!</button>
                 </div>

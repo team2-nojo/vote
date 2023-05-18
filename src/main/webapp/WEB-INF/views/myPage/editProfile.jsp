@@ -13,7 +13,7 @@
 <body>
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-        <form action="#" method="get">
+        <form action="#" method="get" id="profileFrm">
             <div class="content" id="editProfile">
                 <div class="contentbox" id="editProfileContainer">
                     <div class="edeit-profile-top-frame">
@@ -41,13 +41,14 @@
                     <div id="editPrifileNameFrame">
                         <label class="edit-profile-text">닉네임</label>
                         <div id="editProfileInputName">
-                            <input type="text" class="edit-profile-input" placeholder="${loginUser.userNickname}">
-                            <button class="edit-profile-btn" type="button">중복확인</button>
+                            <input type="text" class="edit-profile-input" id="userNickname" name="userNickname" placeholder="${loginUser.userNickname}">
+                            <button class="edit-profile-btn" type="button" id="nicknameDupCheck">중복확인</button>
                         </div>
+                            <div id="nickMessage">한국어, 영어, 숫자(특수문자 제외) 2~10자</div>
                     </div>
                     <div>
                         <label class="edit-profile-text">자기소개</label>
-                        <textarea id="editProfileDescription" placeholder="${loginUser.userAboutMe}"
+                        <textarea id="editProfileDescription" name="userAboutMe" placeholder="${loginUser.userAboutMe}"
                         row="6" maxlength="255"></textarea>
                     </div>
                     <div>

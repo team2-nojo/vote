@@ -110,11 +110,68 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우
 
 
 
-/* 아이디 중복 확인 */
 
 
 
-/* 주소찾기 버튼을 누르면 주소 찾는 api 실행 */
+
+/* 닉네임 유효성 검사, 중복 확인 */
+const checkObj = {
+    "userNickname" : false,
+};
+
+const userNickname = document.getElementById("userNickname");
+const nickMessage = document.getElementById("nickMessage");
+const nicknameDupCheck = document.getElementById("nicknameDupCheck");
+
+
+// 중복확인 버튼 클릭 시
+nicknameDupCheck.addEventListener("click", () => {
+
+    // 닉네임에 아무것도 입력이 되지 않은 경우
+    if(userNickname.value.trim() == '') {
+        alert("닉네임을 입력해주시기 바랍니다.");
+        userNickname.value="";
+        userNickname.focus();
+        checkObj.userNickname = false;
+        return;
+    } 
+
+    // 닉네임이 유효하지 않은 경우
+    const regEx = /^[가-힣\w\d]{2,10}$/;
+    if(!regEx.test(userNickname.value)) { 
+        alert("닉네임 형식이 유효하지 않습니다.");
+        userNickname.value="";
+        userNickname.focus();
+        checkObj.userNickname = false;
+        return;
+    }
+        
+    // 중복 확인
+    fetch("dupCheck/nickname?nickname=" + userNickname.value)
+
+    .then( response => response.text() )
+    .then( count => {
+        
+        if(count == '0') { // 중복이 아닌 경우
+            
+            alert("사용 가능한 닉네임 입니다.");
+            document.getElementById("editProfileDescription").focus();
+            checkObj.userNickname = true;
+            
+        } else { // 중복인 경우
+            
+            alert("이미 사용중인 닉네임 입니다.");
+            userNickname.value="";
+            userNickname.focus();
+            checkObj.userNickname = false;
+        }
+    })
+
+    .catch(err => console.log(err));
+
+});
+
+
 
 
 

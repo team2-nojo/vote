@@ -168,7 +168,7 @@
               </div>
               <div>
                 <div>
-                  <a href="#">업데이트 게시</a>
+                  <a href="myPetitionDashboardUpdate/${MP.petitionNo}">업데이트 게시</a>
                 </div>
               </div>
             </div>

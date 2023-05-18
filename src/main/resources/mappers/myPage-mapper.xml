@@ -15,5 +15,14 @@
 		PROFILE_IMG = #{userImage}
 		WHERE MEMBER_NO = #{userNo}	
 	</update>
-	
+<!-- 	
+		회원 정보 수정
+	<update id="updateProfileImage">
+		UPDATE "USER" SET
+		USER_NICKNAME = #{userNickname},
+		USER_ABOUT_ME  = #{userAboutMe},
+		USER_ADD  = #{userAddress}
+		WHERE USER_NO = #{userNo}
+	</update>
+	 -->
 </mapper>

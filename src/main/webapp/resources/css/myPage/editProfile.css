@@ -200,3 +200,16 @@ main div{
     background-color: #ffffff;
     color: #2DB400;
 }
+
+
+/* 입력 관련 메세지 */
+#editPrifileNameFrame > div:last-child {
+    text-align: left;
+    color: #D9D9D9;
+}
+
+
+/* 메세지 색상 지정 */
+.confirm{ color : black; }
+.error{ color : red; }
+

@@ -14,6 +14,33 @@
 		<org.slf4j-version>1.7.25</org.slf4j-version>
 	</properties>
 	<dependencies>
+		
+		<!-- 파일 업로드 관련 라이브러리 -->
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.5</version>
+		</dependency>
+	
+		<!--Java에서 JSON을 쉽게 다룰 수 있게 해주는 구글 라이브러리  -->
+		<!-- GSON 라이브러리 -->
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.9.0</version>
+		</dependency>
+		
+		<!-- 이메일 인증 -->
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		
+			
 		<!-- 롬복 -->
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
@@ -24,7 +51,7 @@
 		</dependency>
 		
 		
-		      <!-- Spring WebSocket -->
+	  <!-- Spring WebSocket -->
       <!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
       <dependency>
          <groupId>org.springframework</groupId>
@@ -82,6 +109,14 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			<version>5.7.1</version>
+		</dependency>
+		
+		<!-- Jackson-databind : JSON을 JAVA에서 처리할 수 있게 만드는 것-->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.14.2</version>
 		</dependency>
 	
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->

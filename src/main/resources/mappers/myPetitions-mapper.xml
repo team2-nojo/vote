@@ -55,11 +55,12 @@
 	
 	<!-- 청원 좋아요 누른 회원 조회 -->
 	<select id="selectlikeUserList" resultMap="myPetitions_rm">
-		SELECT PT_LIKE_NO, USER_IMG, USER_NICKNAME
+		SELECT USER_IMG, USER_NICKNAME, USER_ADD
 		FROM "USER"
 		JOIN PETITION_LIKE USING (USER_NO)
 		WHERE PT_NO = ${petitionNo}
 		AND USER_GRADE = 1
+		ORDER BY PT_LIKE_NO DESC 
 	</select>
 	
 	

@@ -39,10 +39,10 @@ public class MyPetitionsDashboardController {
 		map.put("petitionNo", petitionNo);
 		
 		// 청원 조회 서비스 호출
-		List<Petition> myPetition = service.selectMyPetition(map);
+		Petition myPetition = service.selectMyPetition(map);
 		
 		// 청원 좋아요 누른 회원 리스트 조회 서비스 호출
-		List<Map> likeUserList = service.selectlikeUserList(petitionNo);
+		List<User> likeUserList = service.selectlikeUserList(petitionNo);
 		
 		model.addAttribute("myPetition", myPetition);
 		model.addAttribute("likeUserList", likeUserList);

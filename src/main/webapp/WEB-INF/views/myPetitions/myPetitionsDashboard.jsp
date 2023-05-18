@@ -3,7 +3,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:if test="${not empty myPetition && not empty likeUserList}">
-  <c:set var="PT" value="${myPetition.get(0).getPetitionTitle()}"/>
+  <c:set var="MP" value="${myPetition}"/>
+  <c:set var="UL" value="${likeUserList}"/>
   <c:set var="likeUserCount" value="${likeUserList.size()}"/>
 </c:if>
 
@@ -22,9 +23,9 @@
     <div class="title">
       <nav>
         <c:choose>
-          <c:when test="${not empty PT}">
+          <c:when test="${not empty MP}">
             <div class="nav-title">
-              <h2>${PT}</h2>
+              <h2>${MP.petitionTitle}</h2>
             </div>
           </c:when>
           <c:otherwise>
@@ -87,8 +88,8 @@
                 </c:choose>
               </div>
               <div class="graph-text">
-                <div>1 보기</div>
-                <div>0 주</div>
+                <div>조회수 ${MP.petitionViewCount}</div>
+                <div>댓글수 미구현</div>
               </div>
             </div>
           </div>
@@ -97,12 +98,16 @@
               <div class="agree-top"><h3>최근 후원자</h3></div>
               <div class="support-list">
                 <ul>
-                  <li>
-                    <i class="fa-sharp fa-solid fa-user"></i>
-                    <span>홍길동</span>
-                    <span>서명</span>
-                    <span>3주전</span>
-                  </li>
+                  ${UL}
+                  <c:forEach items="${likeUserList}" var="likeUser">
+                    <li>
+                      <i class="fa-sharp fa-solid fa-user"></i>
+                      <span>${likeUser.userNickname}</span>
+                      <span>${likeUser.userNickname}</span>
+                      <span>${likeUser.userNickname}</span>
+                      <span>${likeUser.userNickname}</span>
+                    </li>
+                  </c:forEach>
                 </ul>
               </div>
               <div class="agreeBt">

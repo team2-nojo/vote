@@ -34,10 +34,7 @@ public class Petition {
 	// 카테고리
 	private List<PetitionCategory> categoryList;
 	
-	// 좋아요
-	private int petitionLikeCount;
-	
-	// 좋아요수
+	// 좋아요 수
 	private int petitionLikeCount;
 	
 

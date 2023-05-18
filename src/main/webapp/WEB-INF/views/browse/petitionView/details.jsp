@@ -71,7 +71,7 @@
                         <div class="startCon" id="startCon2">이 청원글을 작성한 사람은 행동으로 옮겼습니다. 당신도 함께 동참하지 않겠습니까?</div>
                     </div>
                     <div>
-                        <button type="button" id="start">청원 시작하기</button>
+                        <button type="button" id="startBtn"><a href="/writePetition" id="start">청원 시작하기</a></button>
                     </div>
                     
                     
@@ -239,6 +239,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <%-- petitionView.js --%>
-    <script src="/resources/js/browes/petitionView/details.js"></script>
+    <script src="/resources/js/browse/petitionView/details.js"></script>
 </body>
 </html>

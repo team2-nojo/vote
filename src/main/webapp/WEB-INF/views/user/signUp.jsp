@@ -69,7 +69,11 @@
     </main>
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <%-- signUp.js --%>
     <script src="/resources/js/user/signUp.js"></script>
+    <%-- agreeService.js --%>
+    <script src="/resources/js/user/agreeService.js"></script>
 
 
 

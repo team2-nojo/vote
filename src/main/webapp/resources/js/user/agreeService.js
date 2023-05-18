@@ -60,33 +60,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-
-
-
-
-
-
-// 다음 버튼 클릭하면 닫히면서 회원가입창의 체크박스 체크표시되도록 값 전달하기
-
-next.addEventListener("click", () => {
-    
-
-    // 창닫기
+// 서비스_이용약관_동의 제출되면 체크박스 표시, 미제출 시 체크 안됨.
+next.addEventListener("click", ()=>{
     window.close("서비스_이용약관_동의.html");
-
-
-    // 값전달 예정
+    window.opener.document.getElementById("agree").checked = true;
     
-
 });
-
-
-
-
-
-
-
 
 
 
@@ -94,9 +73,9 @@ next.addEventListener("click", () => {
 cancel.addEventListener("click", () => {
 
     window.close("서비스_이용약관_동의.html");
-
+    window.opener.document.getElementById("agree").checked = false;
+    
 });
-
 
 
 

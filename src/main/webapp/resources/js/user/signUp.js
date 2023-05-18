@@ -21,7 +21,6 @@ const checkObj = {
 
 const doubleCheck = document.getElementById("doubleCheck");
 const userEmail = document.getElementById("email");
-const inputEmail = document.getElementById("inputEmail");
 
 // 이메일 중복확인 버튼 클릭될 시
 doubleCheck.addEventListener("click", () => {
@@ -38,17 +37,18 @@ doubleCheck.addEventListener("click", () => {
 
     // 정규식 객체 생성
     const regEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
-    
+
     // 입력받은 이메일과 정규식 일치 여부 판별
     if( regEx.test(userEmail.value) ){ // 유효한 경우
-        /**/
+
         // GET방식 ajax요청(파라미터는 쿼리스트링)
         fetch('/dupCheck/email?email=' + userEmail.value)
-        .then(Response => Response.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
+        .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
         .then(count => {
             // count : 중복되면 1, 중복 아니면 0
 
-            /* 계속 중복으로 나옴
+            
+            // 계속 중복으로 나옴
             if(count == 0){ // 중복이 아니면
                 alert("사용 가능한 이메일 입니다.");
                 checkObj.userEmail = true; // 유효 O
@@ -57,18 +57,17 @@ doubleCheck.addEventListener("click", () => {
                 checkObj.userEmail = false; // 유효 X
                 userEmail.focus(); // 이메일 input태그에 초점을 맞춤
             }
-            */
+            
 
         }) //파싱한 데이터를 이용해서 수행할 코드 작성
-        // .catch(err => console.log(err)); // 예외처리
-        
+        .catch(err => console.log(err)); // 예외처리
+    
     }else{ // 유효하지 않은 경우(무효인 경우)
         alert("이메일 형식이 유효하지 않습니다.");
         checkObj.userEmail = false; // 유효 X
         userEmail.focus(); // 이메일 input태그에 초점을 맞춤
     }
-    
-    
+
 });
 
 
@@ -94,7 +93,7 @@ NicknameCheck.addEventListener("click", () => {
     const regEx = /^[가-힣\w\d]{2,10}$/;
     
     if(regEx.test(userNickname.value)){ //유효할 때
-        /*
+        
         fetch("/dupCheck/nickname?nickname=" + userNickname.value)
         .then(resp => resp.text()) // 응답 객체를 text로 파싱(변환)
         .then(count => {
@@ -107,20 +106,21 @@ NicknameCheck.addEventListener("click", () => {
                 checkObj.userNickname = false;
             }
         })
-        // .catch(err => console.error(err));
-         */
+        .catch(err => console.error(err));
+        
 
     }else{ //무효
     }
 
 });
 
-
+/*
 // 비밀번호는 확인 버튼이 없으므로 submit버튼 안에 합쳐야 할 것 같음..
 
 // 비밀번호/비밀번호 확인 유효성 검사
 const userPw = document.getElementById("password1");
 const userPwConfirm = document.getElementById("password2");
+const SignUpBtn = document.getElementById("SignUpSubmit");
 
 
 // 비밀번호  검사
@@ -134,12 +134,12 @@ userPw.addEventListener("keyup", () => {
         return;
     }
     
-    
-    /*
+
 
     // 정규표현식을 이용한 비밀번호 유효성 검사
     // 영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이
     const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,20}$/;
+    
 
     // 입력한 비밀번호가 유효한 경우
     if(regEx.test(userPw.value)){
@@ -161,13 +161,13 @@ userPw.addEventListener("keyup", () => {
         alert("비밀번호 형식이 유효하지 않습니다.");
         checkObj.userPw = false;
     }
-    */
+
 });
 
 
 // 비밀번호 확인 유효성 검사
-userPwConfirm.addEventListener('input', ()=>{
-
+userPwConfirm.addEventListener('keyup', ()=>{
+    
     if(checkObj.userPw){ // 비밀번호가 유효하게 작성된 경우에
 
         // 비밀번호 == 비밀번호 확인 (같을 겅우)
@@ -182,10 +182,11 @@ userPwConfirm.addEventListener('input', ()=>{
     }else{ // 비밀번호가 유효하지 않은 경우
         checkObj.userPwConfirm = false;
     }
+    
 });
 
 
-
+*/
 
 
 
@@ -219,24 +220,18 @@ document.getElementById("signUpFrm").addEventListener("submit", () => {
 
 
 
+const agreeServiceFrm = document.getElementById("agreeService"); // 제출 
+
+
+
 // 서비스_이용약관_동의 체크박스 클릭 시 새 창으로 이동
 openPopup.addEventListener("click", () => {
     
     // 열기 이벤트
     window.open("/user/agreeService", "서비스_이용약관_동의", "width=500, hight=500px");
-    
-    
+
 });  
 
 
-// 서비스_이용약관_동의 새창에서 제출되면 체크박스 표시되게(미완성)
-// openWd.addEventListener("onveforeunload", ()=>{
-    
-    //const openWd = window.open("agreeService.html", "서비스_이용약관_동의", "width=500, hight=500px"); 
-//     if(openWd.submit){
-//         openPopup.checked = true;
-//     }else{
-//         openPopup.checked = false;
-//     }
-// });
+
 

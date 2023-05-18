@@ -3,7 +3,7 @@
 
 <%-- map에 저장된 값들을 각각 변수에 저장 --%>
 <c:set var="pagination" value="${map.pagination}"/>
-<c:set var="Q&A3List" value="${map.Q&A3List}"/>
+<c:set var="QNA3List" value="${map.QNA3List}"/> 
 
 
 <%-- <c:forEach items="${boardTypeList}" var="boardType">
@@ -20,11 +20,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${boardName}</title>
 
-    <link rel="stylesheet" href="../css/Q&A3.css">
+    <link rel="stylesheet" href="/resources/css/clientCenter/QNA3.css">
 
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
+        <c:if test="${not empty param.key}" >
+            <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
+        </c:if>
+
     <main>
     <div class="content">
         <section class="board-list">
@@ -33,7 +38,7 @@
                 <table class="list-table">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>글번호</th>
                             <th>분류</th>
                             <th>제목</th>
                             <th>답변여부</th>
@@ -42,8 +47,8 @@
                     </thead>
                     <tbody>
                         <c:choose>
-                            <c:when test="${empty Q&AList}">
-                              
+                            <c:when test="${empty QNA3List}">
+                            
                                 <tr>
                                     <th colspan="6">게시글이 존재하지 않습니다.</th>
                                 </tr>
@@ -51,20 +56,20 @@
                                 
                             <c:otherwise>
                                 
-                                <c:forEach items="${Q&AList}" var="QNA">
+                                <c:forEach items="${QNA3List}" var="qna">
                                     <tr>
-                                        <td>${Q&A3.Q&A3No}</td>
-                                        <td> 
+                                        <td>${qna.qnaNo}</td>
+                                        <%--<td> 
                                         
-                                            <img class="list-thumbnail" src="${Q&A3.userImage}">
+                                            <img class="list-thumbnail" src="${QNA3.userImage}">
                                             
-                                            <%-- ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 --%>
-                                            <a href="/Q&A/${Q&A3No}/${Q&A.categoryNo}">${Q&A3.Q&ATitle}</a>                   
-                                        </td>
-                                        <td>${Q&A3.userNickname}</td>
-                                        <td>${Q&A3.Q&A3Date}</td>
-                                        <td>${Q&A3.Q&A3ViewCount}</td>
-                                        <td>${Q&A3.categoryNo}</td>
+                                             ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 
+                                            <a href="/Q&A/${qnaNo}/${QNA3.qnaCatCode}">${QNA3.qnaTitle}</a>                   
+                                        </td> --%>
+                                        <td>${qna.qnaCatCode}</td>
+                                        <td>${qna.qnaTitle}</td>
+                                        <td>${qna.qnaStatus}</td>
+                                        <td>${qna.qnaCreateDt}</td>
                                     </tr>
                                 </c:forEach>
 
@@ -95,6 +100,7 @@
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
                     <li><a href="/Q&A3?cp=${pagination.prevPage}">&lt;</a></li>
+                    
 
 					
                     <!-- 특정 페이지로 이동 -->
@@ -108,7 +114,7 @@
 
                             <c:otherwise>
                             <!-- 현재 페이지를 제외한 나머지 -->
-                                 <li><a href="/Q&A3?cp=${i}">${i}</a></li>
+                                 <li><a href="/Q$A3?cp=${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
 
@@ -118,10 +124,10 @@
     
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/Q&A3?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="/Q$A3?cp=${pagination.nextPage}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/Q&A3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                    <li><a href="/Q$A3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                 </ul>
             </div>
@@ -153,7 +159,7 @@
     </div>
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-<script src="../js/Q&A3.js"></script>
+<script src="/resources/js/clientCenter/QNA3.js"></script>
 <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
 </body>
 </html>

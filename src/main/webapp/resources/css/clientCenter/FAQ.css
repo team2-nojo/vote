@@ -84,7 +84,7 @@ left: -5px;
   cursor: pointer;
   font-size: 14px;
   border-bottom: 1px solid #dddddd;
-
+  
 }
 
 .question::before {
@@ -96,6 +96,7 @@ left: -5px;
 }
 
 .question.on>span {
+  margin-top: 20px;
   font-weight: bold;
   color: #006633;
 }

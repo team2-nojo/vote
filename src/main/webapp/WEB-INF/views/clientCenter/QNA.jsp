@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Q&A</title>
 
-  <link rel="stylesheet" href="/resources/css/clientCenter/Q&A.css">
+  <link rel="stylesheet" href="/resources/css/clientCenter/QNA.css">
 </head>
 
 <body>
@@ -19,30 +19,24 @@
 
 <main>
   <div class="content">
-    <form action="/clientCenter/Q&A" method="POST" 
-    class="board-write" id="boardUpdateFrm" enctype="multipart/form-data">  
+    <form action="QNA" method="POST"
+    class="board-write" id="boardUpdateFrm">  
 
   <h1 id="title">1:1 문의</h1>
 
-    <h1 class="board-title"> 제목   
-      <input type="text" name="boardTitle" value="${board.boardTitle}" id="boardTitle">   
+    <h1 class="board-title">제목   
+      <input type="text" name="qnaTitle" value="" id="boardTitle">   
     </h1>
 
   <br>
 
     <div class="board-content">내용
-      <textarea name="boardContent" id="boardContent">${board.boardContent}</textarea>
+      <textarea name="qnaCont" id="boardContent"></textarea>
     </div>
 
   <br><br>
 
-  <div class="profile-btn-area">
-    <label for="imageInput">파일 첨부</label><br><br>
 
-    <input type="file" name="profileImage" id="imageInput" accept="image/*">
-  </div>
-
-  
 
   <div class="filename">
     <h3>파일명은 -,_를 제외한 특수문자 허용되지 않습니다. </h3>
@@ -65,14 +59,13 @@
   </div>
 
 
-  
 
-  <button type="submit" , id="select2">문의하기</button>
+  <button type="submit", id="select2">문의하기</button>
 </div>
 </main>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-  <script src="/resources/js/clientCenter/Q&A.js"></script>
+  <script src="/resources/js/clientCenter/QNA.js"></script>
   <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
 
 </body>

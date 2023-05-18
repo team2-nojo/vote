@@ -1,5 +1,3 @@
-
-
 // 로고 클릭시 메인페이지
 document.getElementById("logoimg").addEventListener("click", () => {
 window.location.href = '/vote/mainFrame.html';

@@ -9,9 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenAI를 이용한 챗봇</title>
 
-    <link rel="stylesheet" href="../CSS/chatbot.css">
+    <link rel="stylesheet" href="/resources/css/clientCenter/chatbot.css">
 </head>
 
+ <div class="content">
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <div id="chat-container">
@@ -23,8 +24,9 @@
     </div>
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    <script src="../JS/chatbot.js"></script>
+    <script src="/resources/js/clientCenter/chatbot.js"></script>
 </body>
+</div>
 
 
 </html>

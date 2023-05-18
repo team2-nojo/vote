@@ -131,11 +131,6 @@
             </div>
         </div>
 
-
-        
-
-
-
         <!-- 게시글 오른쪽 -->
         <div id="post-R">
             <div id="gauge">
@@ -143,10 +138,9 @@
                     <div id="row1">
                         <strong>
                             <!-- span 태그로 숫자 변경되게 해야 함(js)-->
-                            43,564 
-                            have signed, 
+                            43,564명이 서명했습니다.
                         </strong>
-                        Let's get to 50,000!
+                        50000명을 향해!!
                     </div>
                     <progress id="progress" value="35000" min="0" max="50000" ></progress>
                     <div id="row2">

@@ -233,6 +233,7 @@
     </main>
 
     <%-- agreeService.js --%>
-    <script src="/resources/js/user/agreeService.js"></script>
+    <%-- <script src="/resources/js/user/agreeService.js"></script> --%>
+
 </body>
 </html>

@@ -44,6 +44,11 @@ doubleCheck.addEventListener("click", () => {
         // GET방식 ajax요청(파라미터는 쿼리스트링)
         fetch('/dupCheck/email?email=' + userEmail.value)
         .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
+        .then(count => console.log(count));
+        /*  
+        // GET방식 ajax요청(파라미터는 쿼리스트링)
+        fetch('/dupCheck/email?email=' + userEmail.value)
+        .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
         .then(count => {
             // count : 중복되면 1, 중복 아니면 0
 
@@ -61,7 +66,7 @@ doubleCheck.addEventListener("click", () => {
 
         }) //파싱한 데이터를 이용해서 수행할 코드 작성
         .catch(err => console.log(err)); // 예외처리
-    
+        */
     }else{ // 유효하지 않은 경우(무효인 경우)
         alert("이메일 형식이 유효하지 않습니다.");
         checkObj.userEmail = false; // 유효 X
@@ -94,7 +99,7 @@ NicknameCheck.addEventListener("click", () => {
     
     if(regEx.test(userNickname.value)){ //유효할 때
         
-        fetch("/dupCheck/nickname?nickname=" + userNickname.value)
+        fetch("/myPage/dupCheck/nickname?nickname=" + userNickname.value)
         .then(resp => resp.text()) // 응답 객체를 text로 파싱(변환)
         .then(count => {
             if(count == 0){ //중복이 아닌 경우
@@ -124,7 +129,7 @@ const SignUpBtn = document.getElementById("SignUpSubmit");
 
 
 // 비밀번호  검사
-userPw.addEventListener("keyup", () => {
+userPw.addEventListener("input", () => {
     
     // 비밀번호가 입력되지 않은 경우
     if(userPw.value.trim().length == 0){

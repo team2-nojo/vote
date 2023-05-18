@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -147,8 +148,25 @@ public class UserController {
 	}
 	
 	
+	// 이메일 중복 검사
+	@GetMapping("/dupCheck/email")
+	@ResponseBody // HttpMessageConverter를 이용해 
+				  // JS에서 인식할 수 있는 형태(TEXT/JSON)변환
+				  // + 비동기 요청한 곳으로 돌아감
+	
+	public int checkEmail(String email) {
+		return  service.checkEmail(email);
+	}
 	
 	
+	// 닉네임 중복 검사
+		@GetMapping("/dupCheck/nickname")
+		@ResponseBody
+		public int checkNickname(@RequestParam String nickname) {
+			
+			System.out.println(service.checkNickname(nickname));
+			return service.checkNickname(nickname);
+		}
 	
 	
 	

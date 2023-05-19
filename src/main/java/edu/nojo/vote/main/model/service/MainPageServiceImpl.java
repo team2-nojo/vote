@@ -31,4 +31,12 @@ public class MainPageServiceImpl implements MainPageService {
 //		}
 		return dao.selectMainPtList();
 	}
+
+
+	@Override
+	public List<Petition> selectPetition() {
+		return dao.selectPetition();
+	}
+	
+	
 }

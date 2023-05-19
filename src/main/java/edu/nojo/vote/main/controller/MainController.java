@@ -1,13 +1,37 @@
 package edu.nojo.vote.main.controller;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.main.model.service.MainPageService;
 
 @Controller
 public class MainController {
-	@RequestMapping("/")
-	public String mainForward() {
+	
+	
+	@Autowired
+	private MainPageService service;
+	
+	
+	@GetMapping("/")
+	public String mainForward(
+			Model model) {
+		
+		List<Petition> mainPetitionList = service.selectPetition();
+		
+		model.addAttribute("mainPetitionList", mainPetitionList);
+		
 		return "common/main";
 	}
+	
+
+	
+	
+	
 	
 }

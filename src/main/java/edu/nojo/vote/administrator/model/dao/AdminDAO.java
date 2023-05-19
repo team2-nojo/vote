@@ -1,6 +1,8 @@
 package edu.nojo.vote.administrator.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -46,6 +48,16 @@ public class AdminDAO {
 		// 3) selectList("namespace.id", 파라미터, RowBounds)
 		return sqlSession.selectList("adminMapper.selectPetitionList", null, rowBounds);
 	}
+
+	public int updateMainPetition(int selectedNumber, int petitionNo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("selectedNumber", selectedNumber);
+		map.put("petitionNo", petitionNo);
+		return sqlSession.update("adminMapper.updateMainPetition", map);
+			
+	}
+
+
 
 
 }

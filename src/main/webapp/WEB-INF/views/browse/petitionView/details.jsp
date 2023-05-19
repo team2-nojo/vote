@@ -36,14 +36,14 @@
             <!-- 게시글 왼쪽 -->
             <div id="post-L">
                 <div id="postTitle">
-                    서울시 종로구 순덕이 출현
+                    ${mainPtList[0].petitionTitle}
                 </div>
                 <div id="postPicture">
-                    <img src="/resources/images/순덕이.png" id="postPic">
+                    <img src="${mainPtList[0].userImage}" id="postPic">
                 </div>
                 <div id="postContent">
                     <div class="paragraph">
-
+                        ${mainPtList[0].petitionContent}
                         내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내
                     </div>
                     <div class="paragraph">
@@ -59,7 +59,8 @@
                 <!-- 신고하기 -->
                 <div id="report1">
                     <i class="fa-regular fa-flag"></i>
-                    <a href="/browse/petitionView/report_popUp" id="reportClick">정책 위반 신고하기</a>
+                    <%-- # 수정하면 안됨! --%>
+                    <a href="#" id="reportClick">정책 위반 신고하기</a>
                 </div>
 
 
@@ -71,7 +72,7 @@
                         <div class="startCon" id="startCon2">이 청원글을 작성한 사람은 행동으로 옮겼습니다. 당신도 함께 동참하지 않겠습니까?</div>
                     </div>
                     <div>
-                        <button type="button" id="start">청원 시작하기</button>
+                        <button type="button" id="startBtn"><a href="/writePetition" id="start">청원 시작하기</a></button>
                     </div>
                     
                     
@@ -131,42 +132,42 @@
             </div>
         </div>
 
-
-        
-
-
-
         <!-- 게시글 오른쪽 -->
         <div id="post-R">
             <div id="gauge">
                 <div id="postContent">
                     <div id="row1">
                         <strong>
-                            <!-- span 태그로 숫자 변경되게 해야 함(js)-->
-                            43,564 
-                            have signed, 
+                            <%-- 좋아요 클릭 한 사람 수 --%>
+                            <span id="likeCount">0</span> 
+                            명이 서명했습니다.
                         </strong>
-                        Let's get to 50,000!
+                        50000명을 향해!!
                     </div>
-                    <progress id="progress" value="35000" min="0" max="50000" ></progress>
+                    <progress id="progress" value="0" min="0" max="50000" ></progress>
                     <div id="row2">
-                        다음목표까지 서포터 단
+                        청원 달성까지 서포터 단
                         <strong>
-                            <!-- span 태그로 숫자 변경되게 해야 함(js)-->
-                            33
+                            <!-- 청원 달성 위해 남은 사람의 수-->
+                            <span id="remainNumber">50000</span>
                             명만 더!
                         </strong> 
                     </div>
                     <div id="row3">
                         <div id="row3-1">
                             <!-- 임시이미지 -->
-                            <img src="/resources/images/순덕이.png" id="arrow">
+                            <%-- <i class="fa-solid fa-arrow-trend-up fa-xl" id="arrow"></i> --%>
+                            <i class="fa-solid fa-arrow-trend-up fa-sm" id="arrow"></i>
                         </div>
                         <div id="row3-2">
                             이 청원은 서명된 청원 중에서 
                             <strong>
                                 순위권이 높은 청원이 됩니다!
                             </strong>
+                            <%-- 달성목표와 달성된 %에 따라 문구가 달라짐 --%>
+                            <%-- 5,000명의 서명이 있는 이 청원은 지역 뉴스에 의해 채택될 가능성이 더 높습니다! --%>
+                            <%-- 25개의 서명에서, 이 청원은 추천서에 실릴 가능성이 더 높습니다! --%>
+                            <%-- 1,000명의 서명이 있는 이 청원은 추천에 포함될 가능성이 더 높습니다! --%>
                         </div>
                     </div>
                 </div>
@@ -188,14 +189,27 @@
                     </div>
 
                 </div>
+                <%-- 체크박스 --%>
                 <div id="check">
                     <input type="checkbox" id="agree">
                     <label for="agree">
                         이 청원에 이름과 댓글을 표시합니다.
                     </label>
                 </div>
+                <%-- 댓글창 --%>
+                <div id="commentPlace">
+                    <form action="browse/comment" method="POST" id="commentFrm">
+                        <div id="wrtComment">
+                            <textarea name="" id="commentContent" cols="10" rows="100" placeholder=" -띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
+                        </div>
+                    </form>
+                    <div id="countComment">
+                        <span id="count">0</span>자 / 1000자
+                    </div>
+                </div>
+                <%-- 좋아요 버튼 --%>
                 <div>
-                    <button id="signButton" onclick="document.getElementById('progress').value += 1;">좋아요!</button>
+                    <button id="signButton" >좋아요!</button>
                 </div>
             </div>
         </section>
@@ -239,6 +253,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <%-- petitionView.js --%>
-    <script src="/resources/js/browes/petitionView/details.js"></script>
+    <script src="/resources/js/browse/petitionView/details.js"></script>
 </body>
 </html>

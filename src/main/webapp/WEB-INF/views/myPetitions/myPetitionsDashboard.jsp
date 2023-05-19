@@ -3,7 +3,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:if test="${not empty myPetition && not empty likeUserList}">
-  <c:set var="PT" value="${myPetition.get(0).getPetitionTitle()}"/>
+  <c:set var="MP" value="${myPetition}"/>
+  <c:set var="UL" value="${likeUserList}"/>
   <c:set var="likeUserCount" value="${likeUserList.size()}"/>
 </c:if>
 
@@ -22,9 +23,9 @@
     <div class="title">
       <nav>
         <c:choose>
-          <c:when test="${not empty PT}">
+          <c:when test="${not empty MP}">
             <div class="nav-title">
-              <h2>${PT}</h2>
+              <h2>${MP.petitionTitle}</h2>
             </div>
           </c:when>
           <c:otherwise>
@@ -33,13 +34,12 @@
             </div>
           </c:otherwise>
         </c:choose>
-
         <div class="nav">
           <ul>
-            <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard">Dashboard</a></li>
-            <li><a href="#">Petition details</a></li>
-            <li><a href="/myPetitions/myPetitionEdit">Edit</a></li>
-            <li><a href="#">Comments</a></li>
+            <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">대시보드</a></li>
+            <li id="nav"><a href="#">청원상세조회</a></li>
+            <li id="nav"><a href="/myPetitions/myPetitionEdit/${petitionNo}">편집</a></li>
+            <li id="nav"><a href="#">댓글</a></li>
           </ul>
         </div>
       </nav>
@@ -75,48 +75,53 @@
                     다음 목표까지 서포터 단 
                     <c:choose>
                       <c:when test="${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') == likeUserCount}">
-                        ${fn:substringBefore((Math.ceil((likeUserCount + 1) / 5) * 5), '.') - likeUserCount}
+                        ${fn:substringBefore((Math.ceil((likeUserCount + 1) / 5) * 5), '.') - likeUserCount}명만 더!
                       </c:when>
                       <c:otherwise>
-                        ${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') * 5 - likeUserCount}
+                        ${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') - likeUserCount}명만 더!
                       </c:otherwise>
                     </c:choose>
-                    명만 더!
                   </c:when>
                   <c:otherwise>당신의 청원을 지지해줄 서포터를 찾으세요!</c:otherwise>
                 </c:choose>
               </div>
               <div class="graph-text">
-                <div>1 보기</div>
-                <div>0 주</div>
+                <div>조회수 ${MP.petitionViewCount}회</div>
+                <div>댓글수 미구현</div>
               </div>
             </div>
           </div>
           <div class="agree">
             <div class="support" id="contentFrame">
-              <div class="agree-top"><h3>최근 후원자</h3></div>
+              <div class="agree-top"><h3>최신 서포터 목록</h3></div>
               <div class="support-list">
                 <ul>
-                  <li>
-                    <i class="fa-sharp fa-solid fa-user"></i>
-                    <span>홍길동</span>
-                    <span>서명</span>
-                    <span>3주전</span>
-                  </li>
+                  <c:forEach items="${UL}" var="likeUser">
+                    <li>
+                      <c:choose>
+                        <c:when test="${not empty likeUser.userImage}">
+                          <span><img id="profile" src="${likeUser.userImage}"></span>
+                        </c:when>
+                        <c:otherwise>
+                          <span><img id="profile" src="/resources/images/common/user.png"></span>
+                        </c:otherwise>
+                      </c:choose>
+                      <span id="nickName">${likeUser.userNickname}님</span>
+                      <span id="date"><i class="fa-solid fa-clock"></i> ${likeUser.petitionLikeDate} 전</span>
+                    </li>
+                  </c:forEach>
                 </ul>
               </div>
-              <div class="agreeBt">
-                <div>
-                  <h3>전체 후원자 목록</h3>
-                  <p>지지자들의 서명과 의견이 담긴 전체 목록을 이메일로 받으십시오.</p>
-                </div>
-                <div>
+              <div class="agree-L">
+                <div><h3>전체 서포터 목록</h3></div>
+                <div><p>서포터들의 좋아요와 댓글이 담긴 전체 목록을 이메일로 받으십시오.</p></div>
+                <div class="agree-B">
                   <select id="exportOpt">
-                    <option value="">서명(스프레드시트)</option>
+                    <option value="">좋아요(스프레드시트)</option>
                     <option value="">댓글(스프레드시트)</option>
                   </select>
+                  <a href="#" class="export">목록 가져오기</a>
                 </div>
-                <div><a href="#" class="export">목록 가져오기</a></div>
               </div>
             </div>
           </div>
@@ -154,7 +159,7 @@
           <div class="reflesh">
             <div id="contentFrame">
               <div>
-                <div><h3>지지자 업데이트</h3></div>
+                <div><h3>청원 업데이트</h3></div>
                 <div>
                   <p>
                     귀하의 청원, 언론 보도에 대한 뉴스 및 발전 사항을 공유하고 감사의 말을 전하거나 승리하는 데 필요한 도움을 요청하기 위해 업데이트를 보내십시오! 게시한 업데이트는 청원서에 표시되고 후원자에게 이메일로 전송됩니다.
@@ -163,27 +168,14 @@
               </div>
               <div>
                 <div>
-                  <a href="#">업데이트 게시</a>
+                  <a href="myPetitionDashboardUpdate/${petitionNo}">업데이트 게시</a>
                 </div>
               </div>
             </div>
           </div>
           <div class="marketing">
             <div id="contentFrame">
-              <div>
-                <div><h3>당신의 청원을 공유하세요</h3></div>
-                <div>
-                  <p>
-                    귀하 또는 귀하의 서명자는 귀하의 청원을 홍보하기 위해 참여할 수 있습니다. 귀하의 청원이 홍보되면 우리는 그것을 지지할 가능성이 있는 다른 Change.org 사용자들에게 보여주기 시작합니다.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div class="mkt">
-                  <a id="mkt" href="#">홍보하다</a>
-                  <a href="#">더 알아보기</a>
-                </div>
-              </div>
+              <div><h3>댓글 목록</h3></div>
             </div>
           </div>
         </div>

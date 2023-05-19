@@ -48,6 +48,8 @@ public class MainPageDAO {
 		return sqlSession.selectList("mainPageMapper.selectCategoryList",mainPtNo);
 	}
 
-	
+	public List<Petition> selectPetition() {
+		return sqlSession.selectList("mainPageMapper.selectPetition");
+	}
 	
 }

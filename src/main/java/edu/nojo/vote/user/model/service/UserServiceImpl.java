@@ -64,4 +64,19 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	
+	
+	// 이메일 중복 확인
+	@Override
+	public int checkEmail(String email) {
+		return dao.checkEmail(email);
+	}
+	
+	// 닉네임 중복 검사
+	@Override
+	public int checkNickname(String nickname) {
+		System.out.println(dao.checkNickname(nickname));
+		return dao.checkNickname(nickname);
+	}
+
+	
 }

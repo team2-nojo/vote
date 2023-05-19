@@ -10,10 +10,9 @@ main *{
 
 main {
     font-size: 12px;
-    font-family: '나눔고딕';
 }
 
-div{
+main div{
     display: block;
 }
 

@@ -1,0 +1,281 @@
+main *{  
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* div, main, section, header, footer, article, nav, aside, form
+{border: 1px solid black;}
+ */
+
+main {
+    font-size: 12px;
+    font-family: '나눔고딕';
+}
+
+div{
+    display: block;
+}
+
+/* 기본 박스 */
+.defaultbox {
+    padding: 20px !important;
+    border: 1px solid #D9D9D9;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* 본문 */
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 반응형으로 할 시에 움직이는 한 뭉치 */
+.contentBox{
+    width: 80%;
+    max-width: 960px;
+}
+
+.row{
+    display: table;
+}
+
+
+/* 전체 화면 출력 부분 */
+.userProfileframe {
+    margin-bottom: 100px;
+}
+
+/* EditProfileText 상단 */
+.EditProfileText{
+    text-align: center !important;
+    display: block;
+}
+
+/* user profile이 적힌 row를 가운데로 */
+.userProfileframe > .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : 50px 0px;
+}
+
+/* 이미지 미리보기 화면 */           
+#imageContainer {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #ccc;
+}
+
+/* 불러온 이미지 */
+#imageContainer > img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #ccc;
+}
+
+/* login_myPetitions 아이디 */
+.userProfileID{
+    font-size: 36px;
+    font-weight: bold;
+    margin-top : 25px;
+    margin-bottom : 5px;
+}
+
+/* login_myPetitions 지역 */
+.userProfileLocation{
+    margin:0px 0px 15px;
+}
+
+/* edit profile 버튼 */
+.EditProfileText div >a{
+    width: 101.52px;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 15px 0px;
+    padding: 8px 16px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 12px !important;
+    display: inline-block;
+}
+
+/* edit profile 버튼 hover시 하단에 빨간 줄이 나오는 설정(start/signed nav바에 적용되는) 제거 */
+.EditProfileText>a:hover{
+    border: 1px solid lightgray !important;
+}
+
+/* tabs */
+.userProfileframe>ul{
+    display: flex;
+    justify-content: left;
+    list-style: none;
+    height: 34px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 50px;
+}
+
+/* tabs 속 list */
+.userProfileframe>ul>li{
+    flex: 0 1 150px; /* flex : grow, shrink, basis를 순서대로 지정 */
+}
+
+/* tabs 속 list 속 (Start, Signed) */
+.userProfileframe a {
+    font-weight: bold;
+    padding: 11px 0; /* a태그는 기본적으로 inline */
+    display: block;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    margin: 0px 0px -1px;
+    padding: 6px 0px;
+    text-align:center;
+    transition-duration: 0.2s;
+}
+
+/* started, signed 탭 메뉴 mouseover */
+.myPetitions-mouseover{
+    color: #e01a2b !important;
+    border-bottom: 2px solid red;
+}
+
+/* started, signed 탭 메뉴 mouseover */
+.myPetitions-click {
+    color: #e01a2b !important;
+    border-bottom: 2px solid red;
+}
+
+
+
+.userProfileframe  .defaultbox {
+    margin: 25px 0px;
+    border: 1px solid #737273;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+
+/* myPetitionstatus 청원 진행 상태 */
+.defaultbox > .myPetitionstatus{
+    margin-bottom: 3px !important;
+    line-height: 1.5;
+}
+
+
+.defaultbox > .myPetitionstatus > div{
+    margin-bottom: 20px !important;
+    background-color: #f6f4f6;
+    border-right: 10px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .15em;
+    line-height: 1.5;
+    padding: 0.3em 0.9em;
+    cursor: pointer;
+}
+
+
+/* 빈 청원 박스 */
+.empty-default-box {
+    font-size: 12px;
+    box-sizing: border-box;
+    display: block;
+    padding: 20px !important;
+    flex-direction: row;
+    justify-content: center;
+    margin: 25px 0px;
+    border: 1px solid #737273;
+    border-radius: 5px;
+}
+
+
+/* 작성한 청원이 없을 시 나타나는 empty-default-box 속 emptyDefaultBoxArea */
+.emptyDefaultBoxArea {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 작성한 청원이 없을 시 나타나는 empty-default-box 속 emptyDefaultBoxArea 속 문구*/
+.emptyDefaultBoxArea:first-child {
+    display: flex;
+    align-items: center;
+}
+
+
+/* 작성한 청원이 없을 시 나타나는 defaultbox-none 속 버튼 */
+.toStartAPetition {
+    display: inline-block;
+    padding : 8px 16px;
+    
+    color : #2DB400;
+    font-weight: bold;
+    text-align: center;
+
+    border-radius: 5px;
+    border: 2px solid #2DB400;
+
+    cursor : pointer;
+}
+
+
+
+/* myPetitionTitle 청원 타이틀 양식 */
+.myPetitionTitle {
+    font-size: 24px !important;
+    font-weight: bold;
+}
+
+/* myPetitionText 청원 본문 양식 */
+.myPetitionText{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 1em;
+    margin-inline-end: 1em;
+    line-height: 1.5;
+}
+
+/* myPetitionsupporter, myPetitionWriter를 담고 있는 div */
+.defaultbox > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+/* myPetitionsupporter 서포터 수 양식 */
+.myPetitionsupporter, .myPetitionWriter {
+    text-align: right !important;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.myPetitionWriter{
+    text-align: left !important;
+}
+
+
+
+.defaultbox > .myPetitionBottom {
+    display: flex;
+    width: 100%;
+}
+
+
+.invisibleMyPetitions {
+    display: none;
+}
+

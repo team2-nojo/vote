@@ -32,8 +32,11 @@ public class BrowseController {
 		return "/browse/browse_search/victories";
 	}
 	
-	
-	
+	// browsePetition 조회
+//	@GetMapping("")
+//	public String browsePetition() {
+//		return null;
+//	}
 	
 	
 	
@@ -43,7 +46,10 @@ public class BrowseController {
 	public String details() {
 		return "/browse/petitionView/details";
 	}
-
+	
+	
+	
+	
 	
 	// petitionView 페이지 이동(comments)
 	@GetMapping("/petitionView/comments")

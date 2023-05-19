@@ -1,11 +1,6 @@
-*{
-  font-family: 'NanumGothic';
-}
-  
 body{
   margin: 0;
 }
-  
 header *,
 footer * {
   margin: 0;
@@ -35,6 +30,7 @@ header {
   width: 160px;
 }
 .header-menu {
+  margin-left: 15px;
   width: 90%;
   display: flex;
   align-items: center;
@@ -74,15 +70,79 @@ header {
   text-align: center; /* 수평 중앙 정렬 */
   text-decoration: none;
   color: black;
+  font-weight:bold;
+}
+.header-a:hover,
+.header-a:active{
+  color : #2db400;
+  box-shadow: 0;
+  position: relative;
+  top: 2px;
+  color : #2db400;
+}
+.fa-user:active{
+  color : #2db400;
+  box-shadow: 0;
+  position: relative;
+  top: 2px;
+  color : #2db400;
+}
+
+
+
+.header-a i:hover{
+  color : #2db400;
+}
+
+
+.header-a:hover, .header-a:active {
+  position: relative;
+  top: 2px;
+  color: #2db400;
+}
+
+.fa-user:active {
+  color: #2db400;
+  box-shadow: 0;
+  position: relative;
+  top: 2px;
+  color: #2db400;
+}
+
+.header-a i:hover {
+  color: #2db400;
 }
 
 .header-menu a:hover {
-  color: #2db400;
+  color: #2db400; 
 }
+
 
 .header-menu li {
   list-style: none;
   padding: 15px;
+  position: relative;
+}
+
+.header-menu li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #2db400;
+  transition: width 0.5s ease-in-out;
+}
+
+.header-menu li:hover::after {
+  width: 100%;
+}
+
+.user-menu a:hover {
+  background-color: #2db400;
+  color: white;
 }
 
 /* 아이콘 */
@@ -91,6 +151,7 @@ header {
   text-align: center;
   font-size: 24px;
 }
+
 
 /* 로그인했을때 유저옵션 */
 #userMenuToggle{display: none;}
@@ -153,6 +214,16 @@ label[for='userMenuToggle']:hover{ text-decoration: underline; }
   /* border: 2px solid #515151; */
 }
 
+.user-Image{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+
 /* main */
 main {
   height: 100%;
@@ -172,7 +243,7 @@ footer{
   justify-content: center;
   align-items: center;
 
-  font-size: 10px;
+  font-size: 12px;
   color: white;
 }
 
@@ -193,4 +264,17 @@ footer{
 .footer-header a{
   color: white;
   text-decoration: none;
+}
+
+.selected {
+  color: #2db400;
+}
+
+#userIcon:hover{
+  #2db400;
+}
+
+.user-menu a:hover{
+  background-color : #2db400;
+  color : white;
 }

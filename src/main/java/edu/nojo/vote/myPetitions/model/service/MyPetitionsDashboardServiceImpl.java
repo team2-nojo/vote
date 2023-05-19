@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dao.MyPetitionsDashboardDAO;
+import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.user.model.dao.UserDAO;
 import edu.nojo.vote.user.model.dto.User;
 
@@ -19,13 +20,13 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 	
 	// 청원 조회 서비스
 	@Override
-	public List<Petition> selectMyPetition(Map<String, Object> map) {
+	public Petition selectMyPetition(Map<String, Object> map) {
 		return dao.selectMyPetition(map);
 	}
 
 	// 청원 좋아요 누른 회원 리스트 조회 서비스
 	@Override
-	public List<Map> selectlikeUserList(int petitionNo) {
+	public List<Like> selectlikeUserList(int petitionNo) {
 		return dao.selectlikeUserList(petitionNo);
 	}
 	

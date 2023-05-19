@@ -23,6 +23,19 @@
             <div class="userProfileframe contentBox startbox"> <!-- 화면 크기와 상관없이 가운데에 위치하는 -->
                 <div class="row"> <!-- 사용자 프로필 영역 -->
                     <div class="EditProfileText">
+                        <div>
+                            <div id="imageContainer">
+                                <%-- 프로필 이미지가 없으면 기본 이미지 --%>
+                                <c:if test="${empty loginUser.userImage}" >
+                                    <img src="/resources/images/common/user.png" id="profileUserImage">
+                                </c:if>
+
+                                <%-- 프로필 이미지가 있으면 있는 이미지 --%>
+                                <c:if test="${not empty loginUser.userImage}">
+                                    <img src="${loginUser.userImage}" id="profileUserImage">
+                                </c:if>
+                            </div>
+                        </div>
                         <div class="userProfileID">${loginUser.userNickname}</div>
                         <div class="userProfileLocation">${loginUser.userAddress.split(" ")[0]}</div>
                         <div>
@@ -48,7 +61,6 @@
                         <c:otherwise>
                             <%-- start한 청원이 있을 경우 petitionList 출력 --%>
                             <c:forEach items="${petitionList}" var="petition">
-
                             <div class="defaultbox" onclick="location.href =`/myPetitions/myPetitionsDashboard/${petition.petitionNo}`">
                                 <%-- Title이 30자 초과이면 ...로 출력, 30자 이하면 그대로 출력 --%>
                                 <div class="myPetitionTitle">
@@ -63,7 +75,6 @@
                                     </c:otherwise>
                                 </c:choose>
                                 </div>
-
                                 <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
                                 <div class="myPetitionText">
                                 <c:choose>
@@ -93,14 +104,14 @@
                             <div class="empty-default-box">
                                 <div class="emptyDefaultBoxArea">
                                     <div>관심이 있는 문제에 선한 영향력을 주는 청원을 찾아 지지를 표시하세요.</div>
-                                    <div><a href="/writePetition" class="toStartAPetition">청원 둘러보기</a></div>
+                                    <div><a href="/browse/browse_search/featured" class="toStartAPetition">청원 둘러보기</a></div>
                                 </div>
                             </div>
                         </c:when>
                         <c:otherwise>
                             <%-- signed한 청원이 있을 경우 petitionList 출력 --%>
                             <c:forEach items="${likeList}" var="petition">
-                                <div class="defaultbox" onclick="location.href =`/myPetitions/myPetitionsDashboard/${petition.petitionNo}`">
+                                <div class="defaultbox" onclick="location.href =`/myPetitions/myPetitionsDashboard/${likePetition.petitionNo}`">
                                 <%-- Title이 30자 초과이면 ...로 출력, 30자 이하면 그대로 출력 --%>
                                     <div class="myPetitionTitle">
                                     <c:choose>
@@ -114,7 +125,6 @@
                                         </c:otherwise>
                                     </c:choose>
                                     </div>
-
                                     <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
                                     <div class="myPetitionText">
                                     <c:choose>

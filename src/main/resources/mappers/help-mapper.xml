@@ -3,16 +3,17 @@
 <mapper namespace="HelpMapper">
 
 <resultMap type="edu.nojo.vote.help.model.dto.QNA3" id="QNA3_rm">
-	<result property="QNAContent" column="QNA_CONT" jdbcType="CLOB" javaType="String" />
-	<result property="QNANo" column="QNA_NO" />
-	<result property="userNo" column="USER_NO" />
-	<result property="QNACatCode" column="QNA_CAT_CODE" />
-	<result property="QNAStatus" column="QNA_STATUS" />
-	<result property="QNATitle" column="QNA_TITLE" />
-    <result property="QNACreateDt" column="QNA_CREATE_DT" />
-    <result property="QNAanswer" column="QNA_ANSWER" />
-    <result property="QNAcompleteddt" column="QNA_COMPLETED_DT" />
-    <result property="QNADelFL" column="QNA_DEL_FL" />
+	<result property="qnaContent" column="QNA_CONT" jdbcType="CLOB" javaType="String" />
+	<result property="qnaNo" column="QNA_NO" />	
+	<result property="qnaCatCode" column="QNA_CAT_CODE" />
+	<result property="qnaStatus" column="QNA_STATUS" />
+	<result property="qnaTitle" column="QNA_TITLE" />
+    <result property="qnaCreateDt" column="QNA_CREATE_DT" />
+    <result property="qnaAnswer" column="QNA_ANSWER" />
+    <result property="qnacompletedt" column="QNA_COMPLETED_DT" />
+    <result property="qnaDelFl" column="QNA_DEL_FL" />
+    <result property="userNo" column="USER_NO" />
+    
 </resultMap>
 
 	<!-- 삭제되지 않은 문의 수 조회 -->
@@ -23,22 +24,52 @@
 	
 	<!-- 문의글 조회 -->
 	<select id="QNA3" resultMap="QNA3_rm">
-		SELECT QNA_NO, QNA_CAT_CODE, QNA_TITLE, QNA_STATUS, QNA_CREATE_DT,
-			<![CDATA[
-			CASE  
-				WHEN SYSDATE - QNA_CREATE_DT < 1     
-				THEN FLOOR( (SYSDATE - QNA_CREATE_DT) ) || '일 전'
-				WHEN SYSDATE - QNA_CREATE_DT < 30
-				THEN FLOOR( (SYSDATE - QNA_CREATE_DT) / 7 ) || '주 전'
-				WHEN SYSDATE - QNA_CREATE_DT < 365
-				THEN FLOOR( (SYSDATE - QNA_CREATE_DT) / 30 ) || '달 전'
-					ELSE FLOOR( (SYSDATE - QNA_CREATE_DT) / 365 ) || '년 전'
-			END QNA_CREATE_DT
-			]]>
-			FROM "QNA" Q
-			JOIN "USER" USING(USER_NO)
-			WHERE QNA_DEL_FL = 'N'
-			ORDER BY QNA_NO DESC
+		SELECT QNA_NO, QNA_CAT_CODE, QNA_TITLE, QNA_STATUS,
+		<![CDATA[ 
+		CASE
+		WHEN SYSDATE - QNA_CREATE_DT < 1 / 24 / 60
+		THEN FLOOR( (SYSDATE -
+		QNA_CREATE_DT) * 24 * 60 * 60 ) || '초 전'
+		WHEN SYSDATE - QNA_CREATE_DT < 1 / 24
+		THEN FLOOR( (SYSDATE - QNA_CREATE_DT)
+		* 24 * 60) || '분 전'
+		WHEN SYSDATE - QNA_CREATE_DT < 1
+		THEN FLOOR( (SYSDATE - QNA_CREATE_DT) *
+		24) || '시간 전'
+		ELSE TO_CHAR(QNA_CREATE_DT, 'YYYY-MM-DD')
+		END QNA_CREATE_DT
+		]]>
+		FROM "QNA" Q
+		JOIN "USER" USING(USER_NO)
+		WHERE QNA_DEL_FL = 'N'
+		ORDER BY QNA_NO DESC
 	</select>
+	
+	<!-- 문의 글 삽입 -->
+	<insert id="helpInsert" parameterType="User" useGeneratedKeys="true">
+	
+	    <selectKey order="BEFORE" resultType="_int" keyProperty="qnaNo">
+	        SELECT SEQ_QNA_NO.NEXTVAL FROM DUAL
+	    </selectKey>
+	
+		INSERT INTO QNA
+		VALUES( #{qnaNo}, #{userNo}, #{qnaCatCode}, DEFAULT, #{qnaTitle}, #{qnaCont}, 
+		DEFAULT, DEFAULT, DEFAULT, DEFAULT)
+		
+	</insert>
+
+    <select id="selectqna" resultMap="QNA3_rm">
+		SELECT QNA_NO, QNA_TITLE, QNA_CONT, QNA_CAT_CODE,
+		USER_NICKNAME, USER_NO
+		TO_CHAR(QNA_CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') QNA_CREATE_DT,
+		TO_CHAR(QNA_UPDATE_DATE, 'YYYY"년" MM"월" DD"일" HH24:MI:SS')
+		QNA_CREATE_DT
+		FROM "QNA" Q
+		JOIN "USER" USING(USER_NO)
+		WHERE QNA_DEL_FL = 'N'
+		AND QNA_CODE = #{qnaCode}
+		AND QNA_NO = #{qnaNo}
+	</select>
+	
 </mapper>
 

@@ -20,7 +20,7 @@
         <section>
             <div class="agreeTitle">
                 <div id="titleImg">
-                    <img src="../resources/images/user/logo.jpg" id="vote">
+                    <img src="/resources/images/user/logo.jpg" id="vote">
                 </div>
                 <div id="bTitle">
                     약관 및 개인정보 수집·이용 동의
@@ -233,6 +233,7 @@
     </main>
 
     <%-- agreeService.js --%>
-    <script src="/resources/js/user/agreeService.js"></script>
+    <%-- <script src="/resources/js/user/agreeService.js"></script> --%>
+
 </body>
 </html>

@@ -17,12 +17,32 @@
     margin : 50px 0px;
 }
 
+/* 이미지 미리보기 화면 */           
+#imageContainer {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #ccc;
+}
+
+/* 불러온 이미지 */
+#imageContainer > img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #ccc;
+}
+
 /* login_myPetitions 아이디 */
 .userProfileID{
     font-size: 36px;
     font-weight: bold;
-    margin-top : 50px;
-    margin-bottom : 12px;
+    margin-top : 25px;
+    margin-bottom : 5px;
 }
 
 /* login_myPetitions 지역 */

@@ -19,5 +19,20 @@ public interface UserService {
 	 * @return result
 	 */
 	int signUp(User inputUser);
+	
+	
+	/** 이메일 중복 확인
+	 * @param email
+	 * @return count
+	 */
+	int checkEmail(String email);
+	
+	
+	/** nickname 중복 검사
+	 * @param nickname
+	 * @return count
+	 */
+	int checkNickname(String nickname);
+	
 
 }

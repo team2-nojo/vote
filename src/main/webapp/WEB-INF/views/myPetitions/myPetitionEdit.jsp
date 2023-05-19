@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<c:if test="${not empty myPetition}">
+  <c:set var="MP" value="${myPetition}"/>
+</c:if>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -20,15 +24,24 @@
   <jsp:include page="/WEB-INF/views/common/header.jsp"/>
   <main>
     <nav >
-      <div class="nav-title">
-        <h2>청원 글제목</h2>
-      </div>
+      <c:choose>
+        <c:when test="${not empty MP}">
+          <div class="nav-title">
+            <h2>${MP.petitionTitle}</h2>
+          </div>
+        </c:when>
+        <c:otherwise>
+          <div class="nav-title">
+            <h2>청원 글제목</h2>
+          </div>
+        </c:otherwise>
+      </c:choose>
       <div class="nav">
         <ul>
-          <li><a href="/myPetitions/myPetitionsDashboard">Dashboard</a></li>
-          <li><a href="#">Petition details</a></li>
-          <li id="navSelect"><a href="/myPetitions/myPetitionEdit">Edit</a></li>
-          <li><a href="#">Comments</a></li>
+          <li id="nav"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">대시보드</a></li>
+          <li id="nav"><a href="#">청원상세조회</a></li>
+          <li id="navSelect"><a href="/myPetitions/myPetitionEdit/${petitionNo}">편집</a></li>
+          <li id="nav"><a href="#">댓글</a></li>
         </ul>
       </div>
     </nav>
@@ -68,7 +81,7 @@
                 </div>
               </dialog>
             </div>
-            <textarea name="conTitle" id="" rows="3" placeholder="달성하려는 청원 목표를 입력해주세요."></textarea>
+            <textarea name="conTitle" id="" rows="3" placeholder="달성하려는 청원 목표를 입력해주세요.">${MP.petitionTitle}</textarea>
           </div>
           <div class="description">
             <div class="content-side-title">
@@ -99,7 +112,7 @@
                 </div>
               </dialog>
             </div>
-            <div id="summernote"></div>
+            <div id="summernote">${MP.petitionContent}</div>
           </div>
           <div class="img-link"><a href="#">이제 동영상과 이미지로 청원을 돋보이게 만들 수 있습니다. 여기에서 시도하십시오!</a></div>
           <div>

@@ -74,6 +74,29 @@ left: -5px;
   position: relative; top: -30px;
 }
 
+#button3 {
+  padding: 120px 0 0 70px;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 120px;
+  position: relative; top: -30px;
+}
+
+#button4 {
+  padding: 120px 0 0 70px;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 120px;
+  position: relative; top: -30px;
+}
 
 .question:first-child {
   border-top: 1px solid black;

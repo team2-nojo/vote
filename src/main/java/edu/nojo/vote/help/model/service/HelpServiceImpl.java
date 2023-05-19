@@ -1,16 +1,13 @@
 package edu.nojo.vote.help.model.service;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
 import edu.nojo.vote.administrator.model.dto.Pagination;
+import edu.nojo.vote.common.utility.Util;
 import edu.nojo.vote.help.model.dao.HelpDAO;
 import edu.nojo.vote.help.model.dto.QNA3;
 
@@ -44,9 +41,11 @@ public class HelpServiceImpl implements HelpService{
 	@Override
 	public int helpInsert(QNA3 qna3) {
 	
+		qna3.setQnaCont( Util.XSSHandling( qna3.getQnaCont() ) );
+		qna3.setQnaTitle( Util.XSSHandling( qna3.getQnaTitle() ) );
+		
 		int qnaNo = dao.helpInsert(qna3);
 		
-
 
 		return qnaNo;
 	}

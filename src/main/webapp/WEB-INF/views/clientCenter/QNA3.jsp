@@ -32,6 +32,7 @@
 
     <main>
     <div class="content">
+
         <section class="board-list">
             <h1 class="board-name">문의 조회</h1>
             <div class="list-wrapper">
@@ -39,7 +40,6 @@
                     <thead>
                         <tr>
                             <th>글번호</th>
-                            <th>분류</th>
                             <th>제목</th>
                             <th>답변여부</th>
                             <th>작성일</th>
@@ -63,10 +63,9 @@
                                         
                                             <img class="list-thumbnail" src="${QNA3.userImage}">
                                             
-                                             ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 
+                                            ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 
                                             <a href="/Q&A/${qnaNo}/${QNA3.qnaCatCode}">${QNA3.qnaTitle}</a>                   
                                         </td> --%>
-                                        <td>${qna.qnaCatCode}</td>
                                         <td>${qna.qnaTitle}</td>
                                         <td>${qna.qnaStatus}</td>
                                         <td>${qna.qnaCreateDt}</td>
@@ -75,18 +74,10 @@
 
                             </c:otherwise>
                         </c:choose>
-                   	
+                
 
                     </tbody>
                 </table>
-            </div>
-
-
-            <div class="btn-area">
-
-				<!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
-                <button id="insertBtn">메인 등록</button>                     
-
             </div>
 
 
@@ -96,10 +87,10 @@
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/Q&A3?cp=1">&lt;&lt;</a></li>
+                    <li><a href="/QNA3?cp=1">&lt;&lt;</a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/Q&A3?cp=${pagination.prevPage}">&lt;</a></li>
+                    <li><a href="/QNA3?cp=${pagination.prevPage}">&lt;</a></li>
                     
 
 					
@@ -114,7 +105,7 @@
 
                             <c:otherwise>
                             <!-- 현재 페이지를 제외한 나머지 -->
-                                 <li><a href="/Q$A3?cp=${i}">${i}</a></li>
+                                 <li><a href="/QNA3?cp=${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
 
@@ -124,17 +115,17 @@
     
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/Q$A3?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="/QNA3?cp=${pagination.nextPage}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/Q$A3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                    <li><a href="/QNA3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                 </ul>
             </div>
 
 
 			<!-- 검색창 -->
-            <form action="#" method="get" id="boardSearch">
+            <form action="${qnaCatCode}" method="get" id="boardSearch">
 
                 <select name="key" id="searchKey">
                     <option value="t">제목</option>
@@ -150,13 +141,6 @@
 
         </section>
     </main>
-
-
-    <!-- 썸네일 클릭 시 모달창 출력 -->
-    <div class="modal">
-        <span id="modalClose">&times;</span>
-        <img id="modalImage" src="/resources/images/user.png">
-    </div>
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <script src="/resources/js/clientCenter/QNA3.js"></script>

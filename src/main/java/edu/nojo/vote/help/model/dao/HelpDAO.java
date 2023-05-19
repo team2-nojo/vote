@@ -2,12 +2,10 @@ package edu.nojo.vote.help.model.dao;
 
 import java.util.List;
 import java.util.Map;
-
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.help.model.dto.QNA3;
 

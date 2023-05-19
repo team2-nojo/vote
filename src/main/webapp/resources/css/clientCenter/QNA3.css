@@ -57,17 +57,14 @@ a:hover {
 
 .list-table tr > *{ text-align: center; }
 .list-table tr > *:nth-of-type(1){ width: 10%; }
-.list-table tr > *:nth-of-type(2){ width: 13%; }
-.list-table tr > td:nth-of-type(3){
-    width: 50%; 
+.list-table tr > td:nth-of-type(2){
+    width: 62%; 
     text-align: center;
-    
     text-decoration: none;
 }
 
-.list-table tr > *:nth-of-type(4){ width: 10%; }
-.list-table tr > *:nth-of-type(5){ width: 8%; }
-.list-table tr > *:nth-of-type(6){ width: 8%; }
+.list-table tr > *:nth-of-type(3){ width: 20%; }
+.list-table tr > *:nth-of-type(4){ width: 8%; }
 
 
 .btn-area{

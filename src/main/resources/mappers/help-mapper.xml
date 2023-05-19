@@ -4,15 +4,16 @@
 
 <resultMap type="edu.nojo.vote.help.model.dto.QNA3" id="QNA3_rm">
 	<result property="qnaContent" column="QNA_CONT" jdbcType="CLOB" javaType="String" />
-	<result property="qnaNo" column="QNA_NO" />
-	<result property="userNo" column="USER_NO" />
+	<result property="qnaNo" column="QNA_NO" />	
 	<result property="qnaCatCode" column="QNA_CAT_CODE" />
 	<result property="qnaStatus" column="QNA_STATUS" />
 	<result property="qnaTitle" column="QNA_TITLE" />
     <result property="qnaCreateDt" column="QNA_CREATE_DT" />
-    <result property="qnaanswer" column="QNA_ANSWER" />
-    <result property="qnacompleteddt" column="QNA_COMPLETED_DT" />
-    <result property="qnaDelFL" column="QNA_DEL_FL" />
+    <result property="qnaAnswer" column="QNA_ANSWER" />
+    <result property="qnacompletedt" column="QNA_COMPLETED_DT" />
+    <result property="qnaDelFl" column="QNA_DEL_FL" />
+    <result property="userNo" column="USER_NO" />
+    
 </resultMap>
 
 	<!-- 삭제되지 않은 문의 수 조회 -->
@@ -51,10 +52,9 @@
 	        SELECT SEQ_QNA_NO.NEXTVAL FROM DUAL
 	    </selectKey>
 	
-		INSERT INTO BOARD
-		VALUES( #{qnaNo}, DEFAULT
-        #{qnaCatCode}, #{qnaStatus}, {qnaTitle}, DEFAULT, 
-        #{qnaCreateDt}, DEFAULT, DEFAULT, DEFAULT)
+		INSERT INTO QNA
+		VALUES( #{qnaNo}, #{userNo}, #{qnaCatCode}, DEFAULT, #{qnaTitle}, #{qnaCont}, 
+		DEFAULT, DEFAULT, DEFAULT, DEFAULT)
 		
 	</insert>
 </mapper>

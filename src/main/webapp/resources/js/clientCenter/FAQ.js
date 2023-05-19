@@ -6,8 +6,11 @@ $(".question").click(function() {
   
   
   const buttList = document.getElementById("button1");
-  
-  
+  const button = document.getElementById("button2");
+  const buttons = document.getElementById("button3");
+  const buttonsa = document.getElementById("button4");
+
+
   buttList.addEventListener("click", e => {
     if(e.target.classList.contains("confirm")){
         buttList.classList.toggle("confirm")
@@ -16,11 +19,42 @@ $(".question").click(function() {
     }
   });
 
+  button.addEventListener("click", e => {
+    if(loginUserNo == ""){
+      alert("로그인 후 이용해주세요")
+      e.preventDefault();
+      location.href = `/user/login`
+  } else {
+    location.href = `/clientCnter/Q&A`
+  }
+  });
+
+  buttons.addEventListener("click", e => {
+    if(loginUserNo == ""){
+      alert("로그인 후 이용해주세요")
+      e.preventDefault();
+      location.href = `/user/login`
+  } else {
+    location.href = `/clientCnter/Q&A3`
+  }
+  });
+
+  buttonsa.addEventListener("click", e => {
+    if(loginUserNo == ""){
+      alert("로그인 후 이용해주세요")
+      e.preventDefault();
+      location.href = `/user/login`
+  } else {
+    location.href = `/clientCnter/chatbot`
+  }
+  });
+
+
   // 로고 클릭시 메인페이지
 document.getElementById("logoimg").addEventListener("click", () => {
     window.location.href = '/vote/mainFrame.html';
   });
-  
+
   
   // 프레임 불러오기
   document.getElementById("startPetitions").addEventListener("click",function () {

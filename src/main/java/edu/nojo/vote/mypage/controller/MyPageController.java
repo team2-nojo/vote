@@ -17,10 +17,14 @@ public class MyPageController {
 	@Autowired
 	private MyPageService service;
 	
+    @GetMapping
+    public String myPage() {
+        return "myPage/myPage";
+    }
+	
 	// myPetitionDetails 상세페이지로 이동
 	@GetMapping("/editProfile")
 	public String myPetitionDetails() {
 		return "/myPage/editProfile";
 	}
-
 }

@@ -3,11 +3,13 @@
   margin: 0 auto;
 }
 
-
-
 main *{
   box-sizing: border-box;
   /* border: 1px solid black; */
+}
+
+#page1Tip{
+  margin-top: 20px;
 }
 
 .wp-progress-bar {
@@ -30,9 +32,6 @@ main *{
   width: 600px;
   margin: 30px auto;
   flex-direction: column;
-}
-.container>*{
-  margin-bottom:20px
 }
 
 .medium{
@@ -207,17 +206,12 @@ button:disabled{
 button:disabled:hover{
   cursor: not-allowed;
 }
-
-
-.input-img-container{
-  width: 560px;
-  height: 350px;
-  border: 1px dashed #aaa;
-  border-radius: 8px;
-}
 .input-img-btn{
   background-color: white;
   color: #2DB400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #page6{
@@ -231,6 +225,11 @@ button:disabled:hover{
 #previewTitle{
   font-weight: bold;
   align-self: center;
+}
+
+#previewContent{
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 #previewImgAndSignContainer{
@@ -352,4 +351,51 @@ input[name="categoryItem"]:checked + label,#directInputCheckbox:checked + label,
 
 .scope-item i{
   font-size: 20px;
+}
+
+#previewImage{
+  width: 100%;
+  height: 100%;
+}
+
+.no-img-container{
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #aaa;
+  border-radius: 8px;
+}
+
+.input-img-container{
+  width: 560px;
+  height: 350px;
+  position: relative;
+}
+
+.img-container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.img-container:hover>.delete-image{
+  display: flex;
+}
+.delete-image:hover{
+  color:red;
+  border: 2px solid red;
+  cursor: pointer;
+}
+
+.delete-image{
+  display: none;
+}
+
+.delete-image{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
 }

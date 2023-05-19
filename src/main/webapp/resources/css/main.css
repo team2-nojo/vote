@@ -72,6 +72,28 @@ header {
   color: black;
   font-weight:bold;
 }
+.header-a:hover,
+.header-a:active{
+  color : #2db400;
+  box-shadow: 0;
+  position: relative;
+  top: 2px;
+  color : #2db400;
+}
+.fa-user:active{
+  color : #2db400;
+  box-shadow: 0;
+  position: relative;
+  top: 2px;
+  color : #2db400;
+}
+
+
+
+.header-a i:hover{
+  color : #2db400;
+}
+
 
 .header-menu a:hover {
   color: #2db400; 
@@ -214,4 +236,17 @@ footer{
 .footer-header a{
   color: white;
   text-decoration: none;
+}
+
+.selected {
+  color: #2db400;
+}
+
+#userIcon:hover{
+  #2db400;
+}
+
+.user-menu a:hover{
+  background-color : #2db400;
+  color : white;
 }

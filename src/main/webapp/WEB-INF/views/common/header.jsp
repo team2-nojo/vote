@@ -13,10 +13,10 @@
     <div class="header-logo"><a href="/"><img id="logoimg" src="/resources/images/common/Logo.png" /></a></div>
     <div class="header-menu">
       <ul>
-        <li><a class="header-a" id="startPetitions" href="/writePetition">Start a petition</a></li>
-        <li><a class="header-a" id="myPetitions" href="/myPetitions/myPetitions">My petitions</a></li>
-        <li><a class="header-a" id="browse" href="/browse/browse_search/featured">Browse</a></li>
-        <li><a class="header-a" id="Help" href="/clientCenter/FAQ">Help</a></li>
+        <li><a class="header-a" id="startPetitions" href="/writePetition" style="margin-left : 5px;">청원시작</a></li>
+        <li><a class="header-a" id="myPetitions" href="/myPetitions/myPetitions" style="margin-left : 5px;">나의 청원</a></li>
+        <li><a class="header-a" id="browse" href="/browse/browse_search/featured" style="margin-left : 5px;">검색</a></li>
+        <li><a class="header-a" id="Help" href="/clientCenter/FAQ" style="margin-left : 5px;">1:1문의</a></li>
         <%-- 임시 --%>
         <div style="width: 150px; display:flex; flex-wrap: wrap; ">
           <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
@@ -67,7 +67,7 @@
         <div class="header-icon">
           <a class="header-a" href="#"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
           <label for="userMenuToggle">
-            <i class="fa-sharp fa-solid fa-user"></i>
+            <i id="userIcon" class="fa-sharp fa-solid fa-user"></i>
           </label>
           <input type="checkbox" id="userMenuToggle">
           <div class="user-menu">

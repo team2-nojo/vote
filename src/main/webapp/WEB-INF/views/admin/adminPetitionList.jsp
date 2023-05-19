@@ -64,50 +64,32 @@
                                     <td>${petition.petitionViewCount}</td>
                                     <td>${petition.petitionVictory}</td>
                                     <td>
-                                            
-                                                <label for="mainUpdateNumber"></label>
-                                                <select id="mainUpdateNumber" name="mainUpdateNumber" onchange="confirmChange(this)">
+                                            <label for="mainUpdateNumber"></label>
+                                            <select id="mainUpdateNumber" name="mainUpdateNumber" onchange="confirmChange(this)">
 
-                                                    <option selected disabled>메인 번호 선택</option>
-                                                    <c:forEach var="number" begin="1" end="6">
-                                                    <option value="${number}">${number}</option>
-                                                    </c:forEach>
-                                                </select>
-                                                
-                                    
+                                                <option selected disabled>메인 번호 선택</option>
+                                                <c:forEach var="number" begin="1" end="6">
+                                                <option value="${number}">${number}</option>
+                                                </c:forEach>
+                                            </select>
                                     </td>
                                 </tr>
                                 </c:forEach>
                                 </form>
-
                             </c:otherwise>
                         </c:choose>
-                   	
-
                     </tbody>
                 </table>
             </div>
-
-
             <div class="btn-area">
-
                 <button id="insertBtn">메인 등록</button>                     
-
             </div>
-
-
             <div class="pagination-area">
-
-
                 <ul class="pagination">
-                
                     <!-- 첫 페이지로 이동 -->
                     <li><a href="/adminPetitionList?cp=1">&lt;&lt;</a></li>
-
                     <!-- 이전 목록 마지막 번호로 이동 -->
                     <li><a href="/adminPetitionList?cp=${pagination.prevPage}">&lt;</a></li>
-
-					
                     <!-- 특정 페이지로 이동 -->
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
 
@@ -122,18 +104,11 @@
                                  <li><a href="/adminPetitionList?cp=${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
-
                     </c:forEach>
-                   
-                    
-    
-                    
                     <!-- 다음 목록 시작 번호로 이동 -->
                     <li><a href="/adminPetitionList?cp=${pagination.nextPage}">&gt;</a></li>
-
                     <!-- 끝 페이지로 이동 -->
                     <li><a href="/adminPetitionList?cp=${pagination.maxPage}">&gt;&gt;</a></li>
-
                 </ul>
             </div>
 

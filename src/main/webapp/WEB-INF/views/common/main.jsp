@@ -20,7 +20,7 @@
       <div class="container id="mf">
         <div style="margin-top: 100px;">
           <h1 class="title">당신의 투표를 기다립니다.</h1>
-          <h3 class="subTitle">508,140,283명이 행동에 나섰습니다. 매일 승리하십시오.</h3>
+          <h3 class="subTitle"><span style="color: red;">508,140,283</span>명이 행동에 나섰습니다. 매일 승리하십시오.</h3>
 
           <a href="/adminLogin"><button class="titleBtn">청원시작</button></a>
         </div>
@@ -68,7 +68,7 @@
       <div class="box6">
         <img src="${mainPt.petitionImage}" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2">
       </div>
-          <div class="box13 small-news"><a href="#">${mainPt.petitionTitle}</a></div>
+          <div class="box13 small-news"><a href="/adminPetitionList">${mainPt.petitionTitle}</a></div>
             <input type="hidden" name="petitionContent" value="${mainPt.petitionContent}">
             <input type="hidden" name="userImage" value="${mainPt.userImage}">
             <input type="hidden" name="userAddress" value="${mainPt.userAddress}">

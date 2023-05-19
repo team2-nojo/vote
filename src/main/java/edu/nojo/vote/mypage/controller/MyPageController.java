@@ -24,9 +24,14 @@ import edu.nojo.vote.user.model.dto.User;
 @RequestMapping("/myPage")
 @Controller
 public class MyPageController {
-   
    @Autowired
    private MyPageService service;
+  
+  
+    @GetMapping
+    public String myPage() {
+        return "myPage/myPage";
+    }
    
    
    
@@ -119,8 +124,5 @@ public class MyPageController {
 //         
          return "redirect:/myPetitions";
    }
-   
-   
-   
 
 }

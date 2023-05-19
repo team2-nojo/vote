@@ -16,7 +16,8 @@ const hiddenUserAddress = document.querySelectorAll('input[type="hidden"][name="
 const hiddenUserNickname = document.querySelectorAll('input[type="hidden"][name="userNickname"]');
 const hiddenPetitionViewCount = document.querySelectorAll('input[type="hidden"][name="petitionViewCount"]');
 
-
+smallNews[0].style.borderBottom = '6px solid #2DB400';
+newsTitles[0].lastChild.style.color= 'rgba(40, 144, 5, 1)';
 smallNews.forEach((newBox, index) => {
   newBox.addEventListener('click', () => {
     // 모든 요소의 스타일 초기화

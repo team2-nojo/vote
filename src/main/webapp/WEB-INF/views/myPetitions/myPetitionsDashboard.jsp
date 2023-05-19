@@ -3,7 +3,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:if test="${not empty myPetition && not empty likeUserList}">
-  <c:set var="PT" value="${myPetition.get(0).getPetitionTitle()}"/>
+  <c:set var="MP" value="${myPetition}"/>
+  <c:set var="UL" value="${likeUserList}"/>
   <c:set var="likeUserCount" value="${likeUserList.size()}"/>
 </c:if>
 
@@ -22,9 +23,9 @@
     <div class="title">
       <nav>
         <c:choose>
-          <c:when test="${not empty PT}">
+          <c:when test="${not empty MP}">
             <div class="nav-title">
-              <h2>${PT}</h2>
+              <h2>${MP.petitionTitle}</h2>
             </div>
           </c:when>
           <c:otherwise>
@@ -33,13 +34,12 @@
             </div>
           </c:otherwise>
         </c:choose>
-
         <div class="nav">
           <ul>
-            <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard">Dashboard</a></li>
-            <li><a href="#">Petition details</a></li>
-            <li><a href="/myPetitions/myPetitionEdit">Edit</a></li>
-            <li><a href="#">Comments</a></li>
+            <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">Dashboard</a></li>
+            <li id="nav"><a href="#">Petition details</a></li>
+            <li id="nav"><a href="/myPetitions/myPetitionEdit/${petitionNo}">Edit</a></li>
+            <li id="nav"><a href="#">Comments</a></li>
           </ul>
         </div>
       </nav>
@@ -75,34 +75,41 @@
                     다음 목표까지 서포터 단 
                     <c:choose>
                       <c:when test="${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') == likeUserCount}">
-                        ${fn:substringBefore((Math.ceil((likeUserCount + 1) / 5) * 5), '.') - likeUserCount}
+                        ${fn:substringBefore((Math.ceil((likeUserCount + 1) / 5) * 5), '.') - likeUserCount}명만 더!
                       </c:when>
                       <c:otherwise>
-                        ${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') * 5 - likeUserCount}
+                        ${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') - likeUserCount}명만 더!
                       </c:otherwise>
                     </c:choose>
-                    명만 더!
                   </c:when>
                   <c:otherwise>당신의 청원을 지지해줄 서포터를 찾으세요!</c:otherwise>
                 </c:choose>
               </div>
               <div class="graph-text">
-                <div>1 보기</div>
-                <div>0 주</div>
+                <div>조회수 ${MP.petitionViewCount}회</div>
+                <div>댓글수 미구현</div>
               </div>
             </div>
           </div>
           <div class="agree">
             <div class="support" id="contentFrame">
-              <div class="agree-top"><h3>최근 후원자</h3></div>
+              <div class="agree-top"><h3>최신 서포터 목록</h3></div>
               <div class="support-list">
                 <ul>
-                  <li>
-                    <i class="fa-sharp fa-solid fa-user"></i>
-                    <span>홍길동</span>
-                    <span>서명</span>
-                    <span>3주전</span>
-                  </li>
+                  <c:forEach items="${UL}" var="likeUser">
+                    <li>
+                      <c:choose>
+                        <c:when test="${not empty likeUser.userImage}">
+                          <span><img id="profile" src="${likeUser.userImage}"></span>
+                        </c:when>
+                        <c:otherwise>
+                          <span><img id="profile" src="/resources/images/common/user.png"></span>
+                        </c:otherwise>
+                      </c:choose>
+                      <span id="nickName">${likeUser.userNickname}님</span>
+                      <span id="date"><i class="fa-solid fa-clock"></i> ${likeUser.petitionLikeDate}</span>
+                    </li>
+                  </c:forEach>
                 </ul>
               </div>
               <div class="agreeBt">
@@ -163,7 +170,7 @@
               </div>
               <div>
                 <div>
-                  <a href="#">업데이트 게시</a>
+                  <a href="myPetitionDashboardUpdate/${MP.petitionNo}">업데이트 게시</a>
                 </div>
               </div>
             </div>

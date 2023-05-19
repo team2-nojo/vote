@@ -93,7 +93,7 @@
                             <div class="empty-default-box">
                                 <div class="emptyDefaultBoxArea">
                                     <div>관심이 있는 문제에 선한 영향력을 주는 청원을 찾아 지지를 표시하세요.</div>
-                                    <div><a href="/writePetition" class="toStartAPetition">청원 둘러보기</a></div>
+                                    <div><a href="/browse/browse_search/featured" class="toStartAPetition">청원 둘러보기</a></div>
                                 </div>
                             </div>
                         </c:when>

@@ -43,7 +43,11 @@ public class BrowseController {
 	public String details() {
 		return "/browse/petitionView/details";
 	}
-
+	
+	
+		
+	
+	
 	
 	// petitionView 페이지 이동(comments)
 	@GetMapping("/petitionView/comments")

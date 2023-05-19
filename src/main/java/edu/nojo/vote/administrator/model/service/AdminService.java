@@ -10,4 +10,7 @@ public interface AdminService {
 	 * */
 
 	Map<String, Object> selectPetitionList(int cp);
+
+
+	int updateMainPetition(int selectedNumber, int petitionNo);
 }

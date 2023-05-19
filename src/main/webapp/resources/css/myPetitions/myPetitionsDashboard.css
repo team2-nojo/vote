@@ -30,7 +30,26 @@ nav a:hover{color: red;}
   display: flex;
 }
 
-.nav li{ padding: 15px;}
+.nav li{
+  padding: 15px;
+  position: relative;
+}
+
+#nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: red;
+  transition: width 0.5s ease-in-out;
+}
+
+#nav:hover::after {
+  width: 100%;
+}
 
 #navSelect{border-bottom: 3px solid red;}
 #navSelect>a{color: red;}
@@ -112,10 +131,9 @@ nav a:hover{color: red;}
 .fa-circle-question:hover:after{
   display: block;
 }
-
 /* ------------------------ */
 .content-frame-img{
-  height: 70%;
+  height: 67%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -131,42 +149,44 @@ nav a:hover{color: red;}
 }
 
 .content-frame-img>svg{
-  top: 50px;
+  top: 30px;
   background-color:transparent;
   display:block;
   height:100%;
   margin-left:auto;
   margin-right:auto;
-  left:0;
-  right:0;
   position:absolute;
   width:90%
 }
 .maxnum{
-  height: 10%;
+  height: 13%;
 }
 .graph-text{
   height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 16px;
   border-top: 1px solid #ccc;
 }
 
 .graph-text>div{
   width: 50%;
-  height: 100%;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.graph-text>div:first-child{
+  border-right: 1px solid #ccc;
 }
 
 .agree{
   height: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 
 .support{
@@ -181,18 +201,42 @@ nav a:hover{color: red;}
 }
 
 .agree-top{ border-bottom: 1px solid #828282;}
+.agree-top>*{ margin-left: 10px;}
 .agreeBt{ border-top: 1px solid #828282;}
 .agreeBt>*{padding: 5px;}
 
 .support-list{
   height: 200px;
-  overflow: hidden;
+  overflow-y: scroll;
+}
+/* 스크롤바 숨기기 */
+.support-list::-webkit-scrollbar{
+  display: none;
 }
 
-.support-list>*{
-  padding-left: 10px;
-  font-size: 20px;
+.support-list li{
+  font-size: 16px;
+  margin: 8px;
+
+  display: flex;
+  align-items: center;
 }
+
+.support-list span{
+  margin-right: 10px;
+}
+
+#profile{
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+#nickName{
+  width: 100px;
+}
+
+#date{font-size: 14px;}
 
 #exportOpt{
   font-size: 16px;

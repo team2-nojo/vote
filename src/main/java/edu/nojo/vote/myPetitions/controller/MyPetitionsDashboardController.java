@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 import edu.nojo.vote.user.model.dto.User;
 
@@ -39,10 +40,10 @@ public class MyPetitionsDashboardController {
 		map.put("petitionNo", petitionNo);
 		
 		// 청원 조회 서비스 호출
-		List<Petition> myPetition = service.selectMyPetition(map);
+		Petition myPetition = service.selectMyPetition(map);
 		
 		// 청원 좋아요 누른 회원 리스트 조회 서비스 호출
-		List<Map> likeUserList = service.selectlikeUserList(petitionNo);
+		List<Like> likeUserList = service.selectlikeUserList(petitionNo);
 		
 		model.addAttribute("myPetition", myPetition);
 		model.addAttribute("likeUserList", likeUserList);
@@ -52,19 +53,27 @@ public class MyPetitionsDashboardController {
 	
 	
 	// myPetitionEdit 페이지로 이동
-	@GetMapping("/myPetitionEdit")
-	public String myPetitionEdit() {
+	@GetMapping("/myPetitionEdit/{petitionNo}")
+	public String myPetitionEdit(
+							@SessionAttribute User loginUser
+							, Model model
+							, @PathVariable("petitionNo") int petitionNo
+								) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("loginUserNo", loginUser.getUserNo());
+		map.put("petitionNo", petitionNo);
+		
+		// 청원 조회 서비스 호출
+		Petition myPetition = service.selectMyPetition(map);
+		
+		model.addAttribute("myPetition", myPetition);
+		
 		return "/myPetitions/myPetitionEdit";
 	}
 	
 	
-
-	
 	// 내가 작성한 청원글 대시보드 화면 구성 컨트롤
-	
-	// 전체 후원자 목록 조회
-	
-	// 최근 후원자 목록 조회해서 표시
 	
 	// 작성된 글 상태 확인후 추가가능한 부분 체크리스트
 	

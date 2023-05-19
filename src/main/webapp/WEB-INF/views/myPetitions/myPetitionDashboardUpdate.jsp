@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,21 +14,21 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <!-- css -->
-    <link rel="stylesheet" href="/resources/css/myPetitions/myPetitions.css">
-    <link rel="stylesheet" href="/resources/css/myPetitions/myPetitionsDashboardUpdate.css">
+    <link rel="stylesheet" href="/resources/css/myPetitions/myPetitionsCommon.css">
+    <link rel="stylesheet" href="/resources/css/myPetitions/myPetitionDashboardUpdate.css">
 </head>
 <body>
     <%-- header --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <form action="#" method="get">
+        <form action="insert" method="POST" id="dashboardUpdateFrm" enctype="multipart/form-data">
             <div class="content" id="dashboardUpdate">
                 <div class="contentbox" id="dashboardUpdateContainer">
                     <div class="dashboard-update-top-frame">
                         <div id="dashboardUpdateTitle">청원 지지자 업데이트</div>
                     </div>
                     <div class="dashboard-update-top-frame">
-                        <div id="dashboardUpdateSubtitle">청원글 본문</div>
+                        <div id="dashboardUpdateSubtitle">${myPetition.petitionTitle}</div>
                     </div>
                     <div>
                         <div class="dashboard-update-text">표제</div>
@@ -39,7 +40,9 @@
                         <div class="dashboard-update-text">사진추가</div>
                         <div id="dashboardUpdateAddImage">
                             <div>
-                                <img src="/resources/images/user.png" alt="">
+                                <c:if test="${Mypetition.petitionImage == null}" >
+                                    <img src="/resources/images/user.png" alt="">
+                                </c:if>
                             </div>
                             <div>
                                 <input type="file" id="DashboardUpdatefileInput">

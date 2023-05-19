@@ -8,9 +8,10 @@ import lombok.ToString;
 @Setter
 @ToString
 public class QNA3 {
-	private int QNACATCODE;
-	private String QNATITLE;
-	private String QNASTATUS;
-	private String QNACREATEDT;
-	
+	private int qnaNo;
+	private int qnaCatCode;
+	private String qnaTitle;
+	private String qnaCont;
+	private String qnaStatus;
+	private String qnaCreateDt;
 }

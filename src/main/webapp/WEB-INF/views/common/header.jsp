@@ -67,7 +67,7 @@
         <div class="header-icon">
           <a class="header-a" href="#"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
           <label for="userMenuToggle">
-            <i class="fa-sharp fa-solid fa-user"></i>
+            <i id="userIcon" class="fa-sharp fa-solid fa-user"></i>
           </label>
           <input type="checkbox" id="userMenuToggle">
           <div class="user-menu">

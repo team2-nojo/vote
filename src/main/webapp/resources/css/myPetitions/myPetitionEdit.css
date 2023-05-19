@@ -28,6 +28,10 @@ nav{
 
 nav a:hover{color: red;}
 
+.nav-title{
+  margin-top: 20px;
+}
+
 .nav>ul{
   display: flex;
 }
@@ -44,16 +48,16 @@ nav a:hover{color: red;}
   left: 50%;
   transform: translateX(-50%);
   width: 0;
-  height: 3px;
+  height: 2px;
   background-color: red;
-  transition: width 0.5s ease-in-out;
+  /* transition: width 0.5s ease-in-out; */
 }
 
 #nav:hover::after {
   width: 100%;
 }
 
-#navSelect{border-bottom: 3px solid red;}
+#navSelect{border-bottom: 2px solid red;}
 #navSelect>a{color: red;}
 
 /* content */

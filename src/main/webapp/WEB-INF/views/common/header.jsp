@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%-- 나눔고딕 --%>
-<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
 <!-- font awesome 라이브러리 추가 + key 등록 -->
 <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 
@@ -13,12 +11,12 @@
     <div class="header-logo"><a href="/"><img id="logoimg" src="/resources/images/common/Logo.png" /></a></div>
     <div class="header-menu">
       <ul>
-        <li><a class="header-a" id="startPetitions" href="/writePetition" style="margin-left : 5px;">청원시작</a></li>
-        <li><a class="header-a" id="myPetitions" href="/myPetitions/myPetitions" style="margin-left : 5px;">나의 청원</a></li>
-        <li><a class="header-a" id="browse" href="/browse/browse_search/featured" style="margin-left : 5px;">검색</a></li>
-        <li><a class="header-a" id="Help" href="/clientCenter/FAQ" style="margin-left : 5px;">1:1문의</a></li>
+        <li><a class="header-a" id="startPetitions" href="/writePetition">청원시작</a></li>
+        <li><a class="header-a" id="myPetitions" href="/myPetitions/myPetitions">나의 청원</a></li>
+        <li><a class="header-a" id="browse" href="/browse/browse_search/featured">검색</a></li>
+        <li><a class="header-a" id="Help" href="/clientCenter/FAQ">고객센터</a></li>
         <%-- 임시 --%>
-        <div style="width: 150px; display:flex; flex-wrap: wrap; ">
+        <div style="width: 150px; height: 57px; display:flex; flex-wrap: wrap; ">
           <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
             <input type="hidden" name="userEmail" value="user02@kh.or.kr">
             <input type="hidden" name="userPw" value="pass02!">
@@ -67,7 +65,16 @@
         <div class="header-icon">
           <a class="header-a" href="/search/searchPetition"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
           <label for="userMenuToggle">
-            <i id="userIcon" class="fa-sharp fa-solid fa-user"></i>
+
+            <c:choose>
+              <c:when test="${not empty loginUser.userImage}">
+                <img class="user-Image" src="${loginUser.userImage}" />
+              </c:when>
+              <c:otherwise>
+                <i class="fa-sharp fa-solid fa-user header-a"></i>
+              </c:otherwise>
+            </c:choose>
+
           </label>
           <input type="checkbox" id="userMenuToggle">
           <div class="user-menu">

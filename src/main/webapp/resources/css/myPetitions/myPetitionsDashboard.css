@@ -3,6 +3,7 @@ main *{
   margin: 0;
   padding: 0;
   /* border: 1px solid black; */
+  font-family: 'NanumGothic';
 }
 
 main a{
@@ -13,7 +14,10 @@ main a{
 main li{list-style: none;}
 
 /* title */
-.title{ width: 960px; margin: auto;}
+.title{
+  width: 960px;
+  margin: auto;
+}
 
 
 /* nav */
@@ -26,6 +30,11 @@ nav{
 
 nav a:hover{color: red;}
 
+.nav-title{
+  margin-top: 20px;
+}
+
+
 .nav>ul{
   display: flex;
 }
@@ -33,6 +42,8 @@ nav a:hover{color: red;}
 .nav li{
   padding: 15px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 #nav::after {
@@ -42,16 +53,16 @@ nav a:hover{color: red;}
   left: 50%;
   transform: translateX(-50%);
   width: 0;
-  height: 3px;
+  height: 2px;
   background-color: red;
-  transition: width 0.5s ease-in-out;
+  /* transition: width 0.5s ease-in-out; */
 }
 
 #nav:hover::after {
   width: 100%;
 }
 
-#navSelect{border-bottom: 3px solid red;}
+#navSelect{border-bottom: 2px solid red;}
 #navSelect>a{color: red;}
 
 /* content */
@@ -192,7 +203,7 @@ nav a:hover{color: red;}
 .support{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   text-align: left;
 }
 
@@ -200,10 +211,15 @@ nav a:hover{color: red;}
   padding: 4px;
 }
 
-.agree-top{ border-bottom: 1px solid #828282;}
-.agree-top>*{ margin-left: 10px;}
-.agreeBt{ border-top: 1px solid #828282;}
-.agreeBt>*{padding: 5px;}
+.agree-top{
+  height: 50px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
+.agree-top>*{
+  margin-left: 10px;
+}
 
 .support-list{
   height: 200px;
@@ -236,25 +252,35 @@ nav a:hover{color: red;}
   width: 100px;
 }
 
-#date{font-size: 14px;}
+#date{
+  font-size: 14px;
+}
+
+.agree-L{border-top: 1px solid #ccc;}
+.agree-L>*{padding: 5px 10px;}
+
+.agree-B{
+  display: flex;
+}
 
 #exportOpt{
-  font-size: 16px;
-  width: 200px;
+  font-size: 12px;
+  /* width: 200px; */
   height: 40px;
   padding: 10px;
   border-radius: 10px;
+  margin-right: 10px;
 }
 
 .export{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
+  width: 120px;
   height: 40px;
   border: 2px solid #828282;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 10px;
+  font-size: 12px;
 }
 
 /* 우 */

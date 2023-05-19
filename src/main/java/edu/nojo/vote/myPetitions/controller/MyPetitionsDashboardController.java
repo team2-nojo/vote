@@ -1,5 +1,8 @@
 package edu.nojo.vote.myPetitions.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +36,7 @@ public class MyPetitionsDashboardController {
 							  @SessionAttribute User loginUser
 							, Model model
 							, @PathVariable("petitionNo") int petitionNo
-									) {
+									) throws ParseException {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("loginUserNo", loginUser.getUserNo());
@@ -44,6 +47,28 @@ public class MyPetitionsDashboardController {
 
 		// 청원 좋아요 누른 회원 리스트 조회 서비스 호출
 		List<Like> likeUserList = service.selectlikeUserList(petitionNo);
+		
+		// 형변환할 날짜형식 선언
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		// 현재시간
+		Date now = new Date();
+		
+		for(Like like : likeUserList) {
+			
+			Date date = dateFormat.parse(like.getPetitionLikeDate());
+			
+			// 시간 차이 계산
+	        long timeDif = now.getTime() - date.getTime();
+
+	        long daysDif = timeDif / (24 * 60 * 60 * 1000); // 일
+	        long hoursDif = (timeDif % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000); // 시간
+	        long minutesDif = (timeDif % (60 * 60 * 1000)) / (60 * 1000); // 분
+
+	        like.setPetitionLikeDate(daysDif+"일 "+hoursDif+"시 "+minutesDif+"분");
+			
+		}
+		
+		
 		
 		model.addAttribute("myPetition", myPetition);
 		model.addAttribute("likeUserList", likeUserList);

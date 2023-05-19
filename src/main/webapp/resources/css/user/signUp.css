@@ -148,6 +148,33 @@ main button{
     border-radius: 5px;
 }
 
+.ready{
+    width: 300px;
+    height: 45px;
+    color: white;
+    font-size: 16px;
+    background-color: gray;
+    border: none;
+    margin: 8px;
+    border-radius: 5px;
+}
+
+
+
+/* 유효성 검사 */
+
+
+#emailMessage{
+    display: none;
+    font-size: 9px;
+    margin: 0 0 10px 0;
+}
+
+#nameMessage{
+    display: none;
+    font-size: 9px;
+    margin: 0 0 10px 0;
+}
 
 
 #pwMessage{
@@ -167,3 +194,8 @@ main button{
 /* 메세지 색상 지정 */
 .confirm{ color : green; }
 .error{ color : red; }
+
+/* 체크박스 */
+.Chk{
+    display: none;
+}

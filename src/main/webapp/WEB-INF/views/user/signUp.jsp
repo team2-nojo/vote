@@ -38,11 +38,21 @@
 
                 <div>
                     <input type="text" name="userEmail" id="email" placeholder=" Email">
-                    <button type="button" id="doubleCheck">중복확인</button> 
+                    <button type="button" class="ChkBtn" id="doubleCheck">중복확인</button> 
+                </div>
+                <div id="emailMessage">
+
+                    메일을 받을 수 있는 이메일을 입력해주세요.
+
                 </div>
                 <div>
                     <input type="text" name="userNickname" id="name" placeholder=" Nickname">
-                    <button type="button" id="NicknameCheck">중복확인</button>    
+                    <button type="button" class="ChkBtn" id="NicknameCheck">중복확인</button> 
+                </div>
+                <div id="nameMessage">
+
+                    한글,영어,숫자로만 2~10글자 입력해주세요.
+
                 </div>
                 <div>
                     <input type="text" name="userPw" id="password1" placeholder=" Password">
@@ -69,7 +79,7 @@
                 </div>
 
                 <div>
-                    <button id="SignUpSubmit">Sign up</button>
+                    <button id="SignUpSubmit" disabled>Sign up</button>
                 </div>
             </form>
         </section>

@@ -59,7 +59,8 @@
                 <!-- 신고하기 -->
                 <div id="report1">
                     <i class="fa-regular fa-flag"></i>
-                    <a href="/browse/petitionView/report_popUp" id="reportClick">정책 위반 신고하기</a>
+                    <%-- # 수정하면 안됨! --%>
+                    <a href="#" id="reportClick">정책 위반 신고하기</a>
                 </div>
 
 
@@ -155,13 +156,18 @@
                     <div id="row3">
                         <div id="row3-1">
                             <!-- 임시이미지 -->
-                            <img src="/resources/images/순덕이.png" id="arrow">
+                            <%-- <i class="fa-solid fa-arrow-trend-up fa-xl" id="arrow"></i> --%>
+                            <i class="fa-solid fa-arrow-trend-up fa-sm" id="arrow"></i>
                         </div>
                         <div id="row3-2">
                             이 청원은 서명된 청원 중에서 
                             <strong>
                                 순위권이 높은 청원이 됩니다!
                             </strong>
+                            <%-- 달성목표와 달성된 %에 따라 문구가 달라짐 --%>
+                            <%-- 5,000명의 서명이 있는 이 청원은 지역 뉴스에 의해 채택될 가능성이 더 높습니다! --%>
+                            <%-- 25개의 서명에서, 이 청원은 추천서에 실릴 가능성이 더 높습니다! --%>
+                            <%-- 1,000명의 서명이 있는 이 청원은 추천에 포함될 가능성이 더 높습니다! --%>
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,8 @@ function animatePath(input) {
         });
     });
 }
-
 animatePath(likeUserCount);
+
+
 
 

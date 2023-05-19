@@ -66,11 +66,14 @@
 	</select>
 	
 	<!-- 좋아요 한 글 목록 조회 -->
-	<select id="selectLikePetition" resultMap="myPetitions_rm">
-	SELECT PT_NO, PT_TITLE, PT_CONTENT, USER_NO 
-	FROM "PETITION"
-	WHERE PT_NO IN (SELECT PT_NO FROM "PETITION_LIKE" WHERE "USER_NO" = #{userNo})
+	<select id="selectLikePetitions" resultMap="myPetitions_rm">
+	SELECT PT_NO, PT_TITLE, PT_CONTENT, USER_NO, (SELECT COUNT(*) FROM "PETITION_LIKE" WHERE P.PT_NO = PT_NO) PT_LIKE_COUNT
+	FROM "PETITION" P
+	WHERE PT_NO IN (SELECT PT_NO FROM "PETITION_LIKE" L WHERE "USER_NO" = #{UserNo})
+	AND PT_DEL_FL = 'N'
 	</select>
+	
+	
 	
 	
 

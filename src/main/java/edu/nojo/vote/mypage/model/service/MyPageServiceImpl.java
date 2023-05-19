@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -31,7 +32,7 @@ public class MyPageServiceImpl implements MyPageService {
 
    // 프로필 이미지 수정 서비스
    @Override
-   public int updateProfile(MultipartFile userImage, String path, User loginUser) throws IllegalStateException, IOException {
+   public int updateProfileImage(MultipartFile userImage, String path, User loginUser) throws IllegalStateException, IOException {
       // 프로필 이미지 변경 실패 대비
             String temp = loginUser.getUserImage(); // 이전 이미지 저장
                         
@@ -58,5 +59,22 @@ public class MyPageServiceImpl implements MyPageService {
 
             return result;
    }
+   
+   
+   // DB 회원 정보 수정(UPDATE) 서비스 호출
+   @Transactional(rollbackFor = {Exception.class})
+   @Override
+   public int updateProfile(User updateUser) {
+	   return dao.updateProfile(updateUser);
+	}
+
+	// 해당 유저 조회 서비스
+	@Override
+	public User selectUser(int userNo) {
+		return dao.selectUser(userNo);
+	}
+	   
+   
+   
    
 }

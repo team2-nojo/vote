@@ -13,7 +13,7 @@
 <body>
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-        <form action="#" method="get" id="profileFrm">
+        <form action="editProfile" method="POST" name="editProfileFrm" id="profileFrm"  enctype="multipart/form-data">
             <div class="content" id="editProfile">
                 <div class="contentbox" id="editProfileContainer">
                     <div class="edeit-profile-top-frame">
@@ -34,6 +34,8 @@
                             </c:if>
                         </div>
                     </div>
+                    <div class="userProfileID">${loginUser.userNickname}</div>
+                    <div class="userProfileLocation">${loginUser.userAddress.split(" ")[0]}</div>
                     <div>
                         <label class="upload-photo" for="inputUserImage">Upload photo</label>
                         <input type="file" name="userImage" id="inputUserImage" accept="image/*">
@@ -54,14 +56,14 @@
                     <div>
                         <label class="edit-profile-text">지역</label>
                         <div id="editProfileInputName">
-                            <input type="text" id="sample6_address" class="edit-profile-input">
+                            <input type="text" id="sample6_address" class="edit-profile-input" name="userAddress">
                             <button class="edit-profile-btn" type="button" onclick="sample6_execDaumPostcode()">주소찾기</button>
                         </div>
                     </div>
                     <div>
                         <label class="edit-profile-text">상세주소</label>
                         <div id="editProfileInputName">
-                            <input type="text" class="edit-profile-input-long" id="sample6_detailAddress">
+                            <input type="text" class="edit-profile-input-long" id="sample6_detailAddress" name="userAddress">
                         </div>
                     </div>
                     <div id="goRight">

@@ -29,7 +29,7 @@ public class MyPetitionsDAO {
 	 * @return likeList
 	 */
 	public List<Petition> selectLikePetition(int userNo) {
-		return sqlSession.selectList("myPetitionsMapper.selectLikePetition", userNo);
+		return sqlSession.selectList("myPetitionsMapper.selectLikePetitions", userNo);
 	}
 	
 

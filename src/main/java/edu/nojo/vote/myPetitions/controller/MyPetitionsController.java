@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsService;
 import edu.nojo.vote.user.model.dto.User;
@@ -43,15 +44,15 @@ public class MyPetitionsController {
 		// 로그인 한 유저의 회원 번호를 이용해 작성한 글 목록 조회
 		List<Petition> petitionList = service.selectMyPetitions(loginUser.getUserNo());
 
+		// 로그인 한 유저의 좋아요 한 글 목록 조회 
+		List<Petition> likeList = service.selectLikePetition(loginUser.getUserNo());
+			
 		// 조회한 내가 작성한 글 목록을 화면으로 전달
 		model.addAttribute("petitionList", petitionList);
-
-//		 로그인 한 유저의 좋아요 한 글을 조회 
-		List<Petition> likeList = service.selectLikePetition(loginUser.getUserNo());
-
 		// 조회한 좋아요 한 글 목록을 화면으로 전달
-		model.addAttribute("likeList", likeList);
+		model.addAttribute("likeList", likeList);		
 
+		
 		return "/myPetitions/myPetitions";
 	}
 
@@ -67,8 +68,10 @@ public class MyPetitionsController {
 
 		// 청원 조회 서비스 호출
 		Petition myPetition = dashboardService.selectMyPetition(map);
-
+		
 		model.addAttribute("myPetition", myPetition);
+		
+		
 
 		return "/myPetitions/myPetitionDashboardUpdate";
 	}

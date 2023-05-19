@@ -77,7 +77,7 @@ directInputCheckBox.addEventListener('change',()=>{
 })
 /* 선택 또는 직접 입력한 카테고리가 1개 이상, 5개 이하 일때만 다음 버튼 활성화 */
 // 함수 정의
-const categoryItems = document.querySelectorAll('[name="categoryItem"]');
+const categoryItems = document.querySelectorAll('[name="categoryItems"]');
 const categorySelectCheck = () =>{
   let count = 0;
   // 기본 카테고리 확인
@@ -159,40 +159,40 @@ inputTitle.addEventListener('input', titleCharCheck);
 
 /*********************************** page4 ********************************/
 let content = '';
-$(document).ready(function() {
+$(document).ready(() => {
 	//에디터 설정
 	$('#summernote').summernote({
-        height: 500,                 // 에디터 높이
-        minHeight: null,             // 최소 높이
-        maxHeight: null,             // 최대 높이
-        focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-        lang: "ko-KR",					// 한글 설정
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['insert', ['link', 'picture']],
-        ],
-        callbacks: {
-            onChange:function(contents, $editable){ //텍스트 글자수
-                content = contents;
-                checkContentsLength();
-            },
-            onImageUpload : function(files) {
-              for(let i=0 ; i<files.length ; i++)
-                uploadSummernoteImageFile(files[i],this);
-            },
-            onPaste: function (e) {
-              var clipboardData = e.originalEvent.clipboardData;
-              if (clipboardData && clipboardData.items && clipboardData.items.length) {
-                var item = clipboardData.items[0];
-                if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
-                  e.preventDefault();
-                }
-              }
+      height: 500,                 // 에디터 높이
+      minHeight: null,             // 최소 높이
+      maxHeight: null,             // 최대 높이
+      focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+      lang: "ko-KR",					// 한글 설정
+      toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture']],
+      ],
+      callbacks: {
+        onChange:function(contents, $editable){ //텍스트 글자수
+            content = contents;
+            checkContentsLength();
+        },
+        onImageUpload : function(files) {
+          for(let i=0 ; i<files.length ; i++)
+            uploadSummernoteImageFile(files[i],this);
+        },
+        onPaste: function (e) {
+          var clipboardData = e.originalEvent.clipboardData;
+          if (clipboardData && clipboardData.items && clipboardData.items.length) {
+            var item = clipboardData.items[0];
+            if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
+              e.preventDefault();
             }
+          }
         }
+      }
 	});
 });
 // 내용이 있는 지 체크
@@ -214,14 +214,14 @@ const uploadSummernoteImageFile = (file, editor) => {
     url : "/uploadSummernoteImageFile",
     contentType : false,
     processData : false,
-    success : function(data) {
+    success : data => {
       $(editor).summernote('insertImage', data.url);
     }
   });
 }
 
 //에디터 내용 텍스트 제거
-function f_SkipTags_html(input, allowed) {
+const f_SkipTags_html = (input, allowed) => {
 	// 허용할 태그는 다음과 같이 소문자로 넘겨받습니다. (<a><b><c>)
     allowed = (((allowed || "") + "").toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join('');
     var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
@@ -230,14 +230,12 @@ function f_SkipTags_html(input, allowed) {
         return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
     });
 }
-
 /**************************************************************************/
 
 /*********************************** page4 ********************************/
 
 const noImgContainers = document.querySelectorAll('.no-img-container');
 const imgContainers = document.querySelectorAll('.img-container');
-const inputImgBtns = document.querySelectorAll('.input-img-btn');
 const deleteImages = document.querySelectorAll('.delete-image');
 const previewImages = document.querySelectorAll('.preview-image');
 const inputImage = document.getElementById('inputImage');
@@ -249,12 +247,11 @@ const imgContainerHiddenToggle = ()=>{
     imgContainer.classList.toggle('hidden');
   })
 }
-inputImgBtns.forEach(inputImgBtn=>{
-  inputImgBtn.addEventListener('click',()=>{
-  })
-})
 deleteImages.forEach(deleteImage=>{
-  deleteImage.addEventListener('click',imgContainerHiddenToggle)
+  deleteImage.addEventListener('click',()=>{
+    inputImage.value='';
+    imgContainerHiddenToggle();
+  })
 })
 inputImage.addEventListener('change', e=>{
   const file = e.target.files[0]; // 선택된 파일의 데이터

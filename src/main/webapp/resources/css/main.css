@@ -1,7 +1,11 @@
+*{
+  font-family: 'NanumGothic';
+}
+  
 body{
   margin: 0;
 }
-
+  
 header *,
 footer * {
   margin: 0;

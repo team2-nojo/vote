@@ -9,4 +9,6 @@ public class PetitionCategory {
 	int categoryNo;
 	String categoryName;
 	String categoryMainFl;
+	
+	int boardNo;
 }

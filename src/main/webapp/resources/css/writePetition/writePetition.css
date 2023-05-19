@@ -288,7 +288,7 @@ button:disabled:hover{
 }
 
 /* 체크박스 선택되었을 때, 검색된 아이템의 색상 변경 */
-input[name="categoryItem"]:checked + label,#directInputCheckbox:checked + label, .direct-input-item {
+input[name="categoryItems"]:checked + label,#directInputCheckbox:checked + label, .direct-input-item {
   border: 2px solid #2DB400;
   background-color: #2DB400;
   color: white;

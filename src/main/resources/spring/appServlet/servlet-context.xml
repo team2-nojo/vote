@@ -37,5 +37,10 @@
 						class="edu.nojo.vote.common.interceptor.MainPageInterceptor"/>
 		</interceptor>
 		
+		<interceptor>
+			<mapping path="/myPetitions/**"/>
+			<beans:bean id="DashboardInterceptor"
+						class="edu.nojo.vote.common.interceptor.DashboardInterceptor"/>
+		</interceptor>
 	</interceptors>
 </beans:beans>

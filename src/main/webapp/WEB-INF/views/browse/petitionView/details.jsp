@@ -36,14 +36,14 @@
             <!-- 게시글 왼쪽 -->
             <div id="post-L">
                 <div id="postTitle">
-                    서울시 종로구 순덕이 출현
+                    ${mainPtList[0].petitionTitle}
                 </div>
                 <div id="postPicture">
-                    <img src="/resources/images/순덕이.png" id="postPic">
+                    <img src="${mainPtList[0].userImage}" id="postPic">
                 </div>
                 <div id="postContent">
                     <div class="paragraph">
-
+                        ${mainPtList[0].petitionContent}
                         내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내
                     </div>
                     <div class="paragraph">

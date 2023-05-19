@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.nojo.vote.mypage.model.service.MyPageService;
 import edu.nojo.vote.user.model.dto.User;
 import edu.nojo.vote.user.model.service.UserService;
 
@@ -27,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
+	
+	@Autowired
+	private MyPageService myPageService;
 	
 	// 로그인 페이지로 이동
 	@GetMapping("/login")
@@ -160,12 +164,11 @@ public class UserController {
 	
 	
 	// 닉네임 중복 검사
-		@GetMapping("/dupCheck/nickname")
+		@GetMapping("/signUp/dupCheck/nickname")
 		@ResponseBody
-		public int checkNickname(@RequestParam String nickname) {
-			
-			System.out.println(service.checkNickname(nickname));
-			return service.checkNickname(nickname);
+		public int checkNickname(@RequestParam String name) {
+			System.out.println(myPageService.checkNickname(name));
+			return myPageService.checkNickname(name);
 		}
 	
 	

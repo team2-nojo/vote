@@ -87,7 +87,7 @@
 	
 	<!-- 청원 좋아요 누른 회원 조회 -->
 	<select id="selectlikeUserList" resultMap="like_rm">
-		SELECT USER_IMG, USER_NICKNAME, USER_ADD, PT_LIKE_DATE
+		SELECT USER_IMG, USER_NICKNAME, USER_ADD, PT_LIKE_DATE, USER_NO
 		FROM "USER"
 		JOIN PETITION_LIKE USING (USER_NO)
 		WHERE PT_NO = ${petitionNo}

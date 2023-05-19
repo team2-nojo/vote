@@ -3,9 +3,9 @@
 <footer>
     <div class="footer-content">
         <div class="footer-header">
-            <div><img id="footlogo" src="/resources/images/common/Logo.png" /></div>
-            <div><a href="#">| 개인정보처리방침</a></div>
-            <div><a href="#">| 이용약관</a></div>
+            <div><img id="footlogo" src="/resources/images/common/Logo.png" /></div>&nbsp;
+            <div><a href="#"> | 개인정보처리방침</a></div>&nbsp;
+            <div><a href="#"> | 이용약관</a></div>
         </div>
         <div class="footer-body">
             <p>KH-nojo.kr | 만든사람 | 경규원 | 권재웅 | 김자민 | 배진현 | 이도현 | 정송이</p>

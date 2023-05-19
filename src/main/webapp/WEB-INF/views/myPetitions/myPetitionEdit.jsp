@@ -24,26 +24,24 @@
   <jsp:include page="/WEB-INF/views/common/header.jsp"/>
   <main>
     <nav >
-      <div class="nav-title">
-        <c:choose>
-          <c:when test="${not empty MP}">
-            <div class="nav-title">
-              <h2>${MP.petitionTitle}</h2>
-            </div>
-          </c:when>
-          <c:otherwise>
-            <div class="nav-title">
-              <h2>청원 글제목</h2>
-            </div>
-          </c:otherwise>
-        </c:choose>
-      </div>
+      <c:choose>
+        <c:when test="${not empty MP}">
+          <div class="nav-title">
+            <h2>${MP.petitionTitle}</h2>
+          </div>
+        </c:when>
+        <c:otherwise>
+          <div class="nav-title">
+            <h2>청원 글제목</h2>
+          </div>
+        </c:otherwise>
+      </c:choose>
       <div class="nav">
         <ul>
-          <li id="nav"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">Dashboard</a></li>
-          <li id="nav"><a href="#">Petition details</a></li>
-          <li id="navSelect"><a href="/myPetitions/myPetitionEdit/${petitionNo}">Edit</a></li>
-          <li id="nav"><a href="#">Comments</a></li>
+          <li id="nav"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">대시보드</a></li>
+          <li id="nav"><a href="#">청원상세조회</a></li>
+          <li id="navSelect"><a href="/myPetitions/myPetitionEdit/${petitionNo}">편집</a></li>
+          <li id="nav"><a href="#">댓글</a></li>
         </ul>
       </div>
     </nav>

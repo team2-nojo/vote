@@ -1,5 +1,6 @@
 package edu.nojo.vote.mypage.model.dao;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,6 +26,22 @@ public class MyPageDAO {
       return sqlSession.update("myPageMapper,updateProfileImage", loginUser);
    }
 
+   
+   /** 회원 정보 수정 DAO
+	 * @param updateUser
+	 * @return result
+	 */
+	public int updateProfile(User updateUser) {
+	      return sqlSession.update("myPageMapper.updateProfile", updateUser);
+	}
+
+	/** 해당 유저 조회 서비스
+	 * @param userNo
+	 * @return selectedUser
+	 */
+	public User selectUser(int userNo) {
+		return sqlSession.selectOne("myPageMapper.selectUser", userNo);
+	}
 
    
 }

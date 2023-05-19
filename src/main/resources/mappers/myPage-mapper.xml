@@ -15,14 +15,22 @@
 		PROFILE_IMG = #{userImage}
 		WHERE MEMBER_NO = #{userNo}	
 	</update>
-<!-- 	
-		회원 정보 수정
-	<update id="updateProfileImage">
+	
+   <!-- 회원 정보 수정(UPDATE) -->
+   <update id="updateProfile">
 		UPDATE "USER" SET
 		USER_NICKNAME = #{userNickname},
 		USER_ABOUT_ME  = #{userAboutMe},
 		USER_ADD  = #{userAddress}
 		WHERE USER_NO = #{userNo}
-	</update>
-	 -->
+   </update>
+   
+   
+   <select id="selectUser" resultType="User">
+   		SELECT USER_NO , USER_IMG , USER_NICKNAME , USER_ADD , USER_ABOUT_ME 
+		FROM "USER"
+		WHERE USER_NO = #{userNo}
+		AND USER_DEL_FL ='N'
+   </select>
+   
 </mapper>

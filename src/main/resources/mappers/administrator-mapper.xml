@@ -31,7 +31,7 @@
 	
 	<!-- 청원 조회 -->
 	<select id="selectPetitionList" resultMap="petition_rm">
-		SELECT PT_NO, PT_TITLE, USER_NICKNAME, PT_VIEW_COUNT, USER_IMG, CAT_NO,
+		SELECT PT_NO, PT_TITLE, USER_NICKNAME, PT_VIEW_COUNT, USER_IMG,
 			<![CDATA[
 			CASE  
 				WHEN SYSDATE - PT_DATE < 1     

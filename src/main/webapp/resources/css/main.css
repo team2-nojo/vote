@@ -70,10 +70,17 @@ header {
   text-align: center; /* 수평 중앙 정렬 */
   text-decoration: none;
   color: black;
+  font-weight:bold;
 }
 
 .header-menu a:hover {
-  color: #2db400;
+  color: #2db400; 
+}
+
+.header-menu a:active {
+  box-shadow: 0;
+  position: relative;
+  top: 2px;
 }
 
 .header-menu li {

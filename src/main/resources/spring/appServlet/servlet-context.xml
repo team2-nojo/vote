@@ -20,6 +20,9 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="100000000"></beans:property>
+	</beans:bean>
 	
 	<context:component-scan base-package="edu.nojo.vote" />
 	
@@ -36,6 +39,5 @@
 			<beans:bean id="mainPageInterceptor"
 						class="edu.nojo.vote.common.interceptor.MainPageInterceptor"/>
 		</interceptor>
-		
 	</interceptors>
 </beans:beans>

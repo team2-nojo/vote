@@ -9,9 +9,11 @@
         <title>청원하기</title>
         
         <!-- include summernote css/js -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link href="resources/common/summer/summernote-lite.css" rel="stylesheet">
+        <script src="resources/common/summer/summernote-lite.js"></script>
+        <script src="resources/common/summer/summernote-ko-KR.js"></script>
+        
         
         <link rel="stylesheet" href="resources/css/writePetition/writePetition.css">
     </head>
@@ -60,11 +62,11 @@
                             <input id="categoryInputBtn" class="my-btn" type="button" value="입력">
                         </div>
                         <div id="directInputItemContainer">
-                            <label class="direct-input-item category-item">
+                            <%-- <div class="direct-input-item category-item">
                                 <input type="hidden" name="directInputCategory" value="직접 입력한 샘플데이터">
                                 직접 입력한 샘플데이터
                                 <span>X</span>
-                            </label>
+                            </div> --%>
                         </div>
                     </div>
                 </div>
@@ -83,8 +85,8 @@
                 <!-- page4 -->
                 <div id="page4" class="page container border">
                     <h1>당신의 이야기를 들려주세요.</h1>
-                    <textarea class="hidden" name="content" id="content"></textarea>
-                    <div id="summernote"></div>
+                    <!-- 에디터 출력영역 -->
+                    <textarea id="summernote" name="editorContent"></textarea>
                 </div>
                 
                 <!-- page5 -->
@@ -92,9 +94,16 @@
                     <h1>이미지를 추가하세요.</h1>
                     <p>(선택 사항)</p>
                     <p>이미지가 있는 청원은 6배 많은 서명을 받습니다.</p>
-                    <div id="inputImgContainer" class="input-img-container container border center">
-                        <img data-testid="drop-target" width="115" alt="Target for dropping an image to upload." src="resources/images/writePetition/uploadimg.svg" class="">
-                        <button type="button" id="inputImgBtn" class="input-img-btn my-btn next-btn">이미지 등록</button>
+                    <div class="input-img-container container border center">
+                        <div class="no-img-container center container">
+                            <img data-testid="drop-target" width="115" src="resources/images/writePetition/uploadimg.svg">
+                            <label for='inputImage' class="input-img-btn my-btn">이미지 등록</label>
+                            <input type="file" name="asdf" id="inputImage" class="hidden">
+                        </div>
+                        <div class="img-container hidden">
+                            <img id="previewImage" class="preview-image">
+                            <span class="delete-image center">X</span>
+                        </div>
                     </div>
                     <p>이미지 크기는 1200 x 675픽셀에 최적화 되어 있습니다.</p>
                 </div>
@@ -114,9 +123,14 @@
                         <h1 id="previewTitle">제목이 작성되는 곳</h1>
                         <div id="previewImgAndSignContainer">
                             <div class="input-img-container container border center">
-                                <img data-testid="drop-target" width="115" alt="Target for dropping an image to upload."
-                                    src="resources/images/writePetition/uploadimg.svg" class="">
-                                <button type="button" class="input-img-btn my-btn next-btn">이미지 등록</button>
+                                <div class="no-img-container center container">
+                                    <img data-testid="drop-target" width="115" src="resources/images/writePetition/uploadimg.svg">
+                                    <label for='inputImage' class="input-img-btn my-btn">이미지 등록</label>
+                                </div>
+                                <div class="img-container hidden">
+                                    <img id="previewImage" class="preview-image">
+                                    <span class="delete-image center">X</span>
+                                </div>
                             </div>
                             <div id="signContainer">
                                 <br><br>
@@ -135,7 +149,7 @@
                             ${loginUser.userNickname}님이 이 청원을 시작하였습니다.
                         </div>
                         <div id="previewContentContainer">
-                            <pre id="previewContent">내용</pre>
+                            <div id="previewContent">내용</div>
                         </div>
                     </div>
                 </div>
@@ -151,21 +165,5 @@
         <jsp:include page="/WEB-INF/views/common/footer.jsp" />
         <script src="resources/js/writePetition/writePetition.js"></script>
         <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
-        <script>
-            $('#summernote').summernote({
-                // placeholder: 'Hello stand alone ui',
-                tabsize: 1,
-                height: 400,
-                toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-                ]
-            });
-        </script>
     </body>
 </html>

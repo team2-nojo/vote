@@ -1,22 +1,39 @@
 package edu.nojo.vote.browse.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.nojo.vote.browse.model.service.BrowseService;
+import edu.nojo.vote.main.model.dto.Petition;
+
 
 @Controller
 @RequestMapping("/browse")
 public class BrowseController {
+
+	@Autowired
+	private BrowseService service;
 	
 	// browse 페이지 이동(featured)
 	@GetMapping("browse_search/featured")
-	public String featured() {
+	public String featured(Model model) {
 		return "/browse/browse_search/featured";
+		
 	}
 	
 	// browse 페이지 이동(popular)
 	@GetMapping("/browse_search/popular")
-	public String popular() {
+	public String popular(Model model) {
+		
+		// popular로 조회
+		List<Petition> popularList = service.popular();
+		model.addAttribute(popularList);
+		
 		return "/browse/browse_search/popular";
 	}
 	

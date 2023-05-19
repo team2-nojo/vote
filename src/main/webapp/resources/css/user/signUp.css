@@ -152,9 +152,18 @@ main button{
 
 #pwMessage{
     display: none;
+    font-size: 9px;
+    margin: 0 0 10px 0;
 }
+
 #pwCfMessage{
     display: none;
+    font-size: 9px;
+    margin: 0 0 10px 0;
+
 }
 
 
+/* 메세지 색상 지정 */
+.confirm{ color : green; }
+.error{ color : red; }

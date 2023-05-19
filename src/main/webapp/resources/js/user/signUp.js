@@ -131,83 +131,102 @@ const pwCfMessage = document.getElementById("pwCfMessage");
 
 
 
-userPw.addEventListener("onfocus", ()=>{
+userPw.addEventListener("focus", ()=>{
     
-    commentPlace.style.display = 'block';
+    pwMessage.style.display = 'block';
+    pwCfMessage.style.display = 'none';
+
+    userPw.addEventListener("input", () => {
+    
+        // 비밀번호가 입력되지 않은 경우
+        if(userPw.value.trim().length == 0){
+            pwMessage.innerText = "영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.";
+            emailMessage.classList.remove("confirm", "error")
+            userPw.value = ""; // 띄어쓰기 못 넣게 하기
+            checkObj.userPw = false; //빈칸 == 유효 X
+            return;
+        }
+        
+    
+    
+        // 정규표현식을 이용한 비밀번호 유효성 검사
+        // 영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이
+        const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,8}$/;
+        
+    
+        // 입력한 비밀번호가 유효한 경우
+        if(regEx.test(userPw.value)){
+            checkObj.userPw = true;
+            
+            if(userPwConfirm.value.trim().length == 0){ // 비밀번호가 유효하게 작성된 상태에서 비밀번호 확인이 입력되지 않았을 때
+                pwMessage.innerText = "유효한 비밀번호 형식입니다.";
+                pwMessage.classList.add("confirm"); // .confirm 스타일 적용
+                pwMessage.classList.remove("error"); // .error 스타일 제거
+            }else{
+                if(userPw.value == userPwConfirm.value){ // 비밀번호가 유효하게 작성된 상태에서 비밀번호 확인이 입력되어 있을 때
+                    pwMessage.innerText = "비밀번호가 일치합니다.";
+                    pwMessage.classList.add("confirm"); // .confirm 스타일 적용
+                    pwMessage.classList.remove("error"); // .error 스타일 제거
+                    // 비밀번호 == 비밀번호 확인 (같을 겅우)
+                    checkObj.userPwConfirm=true;
+                }else{ // 다를 경우
+                    pwMessage.innerText = "비밀번호가 일치하지 않습니다.";
+                    pwMessage.classList.add("error"); // .error 스타일 적용
+                    pwMessage.classList.remove("confirm"); // .confirm 스타일 제거
+                    checkObj.userPwConfirm=false;
+                }
+            }
+        }else{ // 유효하지 않은 경우
+            pwMessage.innerText = "비밀번호 형식이 유효하지 않습니다.";
+            pwMessage.classList.add("error"); // .error 스타일 적용
+            pwMessage.classList.remove("confirm"); // .confirm 스타일 제거
+            checkObj.userPw = false;
+        }
+    
+    });
+    return
 });
+
 userPwConfirm.addEventListener("focus", ()=>{
+    pwMessage.style.display = 'none';
+    pwCfMessage.style.display = 'block';
+
+    userPwConfirm.addEventListener('input', ()=>{
     
-    commentPlace.style.display = 'block';
+        if(checkObj.userPw){ // 비밀번호가 유효하게 작성된 경우에
+    
+            // 비밀번호 == 비밀번호 확인 (같을 겅우)
+            if(userPw.value == userPwConfirm.value){
+                pwCfMessage.innerText = "비밀번호가 일치합니다.";
+                pwCfMessage.classList.add("confirm"); // .confirm 스타일 적용
+                pwCfMessage.classList.remove("error"); // .error 스타일 제거
+                checkObj.userPwConfirm=true;
+            }else{ // 다를 경우
+                pwCfMessage.innerText = "비밀번호가 일치하지 않습니다.";
+                pwCfMessage.classList.add("error"); // .error 스타일 적용
+                pwCfMessage.classList.remove("confirm"); // .confirm 스타일 제거
+                checkObj.userPwConfirm=false;
+            }
+    
+        }else{ // 비밀번호가 유효하지 않은 경우
+            pwCfMessage.classList.add("error"); // .error 스타일 적용
+            pwCfMessage.classList.remove("confirm"); // .confirm 스타일 제거
+            checkObj.userPwConfirm = false;
+        }
+        
+    });
+
+
+
 });
 
 
 /*
-// 비밀번호는 확인 버튼이 없으므로 submit버튼 안에 합쳐야 할 것 같음..
 
-
-
-
-// 비밀번호  검사
-userPw.addEventListener("input", () => {
-    
-    // 비밀번호가 입력되지 않은 경우
-    if(userPw.value.trim().length == 0){
-        alert("영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.");
-        userPw.value = ""; // 띄어쓰기 못 넣게 하기
-        checkObj.userPw = false; //빈칸 == 유효 X
-        return;
-    }
-    
-
-
-    // 정규표현식을 이용한 비밀번호 유효성 검사
-    // 영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이
-    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,20}$/;
-    
-
-    // 입력한 비밀번호가 유효한 경우
-    if(regEx.test(userPw.value)){
-        checkObj.userPw = true;
-        
-        if(userPwConfirm.value.trim().length == 0){ // 비밀번호가 유효하게 작성된 상태에서 비밀번호 확인이 입력되지 않았을 때
-            pwMessage.innerText = "유효한 비밀번호 형식입니다.";
-        }else{
-            if(userPw.value == userPwConfirm.value){ // 비밀번호가 유효하게 작성된 상태에서 비밀번호 확인이 입력되어 있을 때
-                alert("비밀번호가 일치합니다.");
-                // 비밀번호 == 비밀번호 확인 (같을 겅우)
-                checkObj.userPwConfirm=true;
-            }else{ // 다를 경우
-                alert("비밀번호가 일치하지 않습니다.");
-                checkObj.userPwConfirm=false;
-            }
-        }
-    }else{ // 유효하지 않은 경우
-        alert("비밀번호 형식이 유효하지 않습니다.");
-        checkObj.userPw = false;
-    }
-
-});
 
 
 // 비밀번호 확인 유효성 검사
-userPwConfirm.addEventListener('keyup', ()=>{
-    
-    if(checkObj.userPw){ // 비밀번호가 유효하게 작성된 경우에
 
-        // 비밀번호 == 비밀번호 확인 (같을 겅우)
-        if(userPw.value == userPwConfirm.value){
-            alert("비밀번호가 일치합니다.");
-            checkObj.userPwConfirm=true;
-        }else{ // 다를 경우
-            alert("비밀번호가 일치하지 않습니다.");
-            checkObj.userPwConfirm=false;
-        }
-
-    }else{ // 비밀번호가 유효하지 않은 경우
-        checkObj.userPwConfirm = false;
-    }
-    
-});
 
 
 */

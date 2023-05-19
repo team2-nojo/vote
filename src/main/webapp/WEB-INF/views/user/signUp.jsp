@@ -52,7 +52,9 @@
                     영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.
                 </div>
                 <div id="pwCfMessage">
+
                     영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.
+
                 </div>
                 <div>
                     <input type="text" name="userAddress" id="sample6_address" placeholder=" Address">

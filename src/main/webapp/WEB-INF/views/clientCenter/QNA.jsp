@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -58,9 +59,14 @@
   <h3>이용자는 본 동의를 거부할 수 있으나, 미동의 시 문의 접수가 불가능합니다.</h3>
   </div>
 
-
+<div>
 
   <button type="submit", id="select2">문의하기</button>
+
+
+
+</div>
+
 </div>
 </main>
 

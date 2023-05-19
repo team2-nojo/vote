@@ -84,7 +84,6 @@ const userNickname = document.getElementById("name");
 
 // 닉네임이 입력이 되었을 때
 NicknameCheck.addEventListener("click", () => {
-    
     // 닉네임에 입력이 되지 않은 경우
     if(userNickname.value.trim().length == "") {
         alert("한글,영어,숫자로만 2~10글자 입력해주세요.");
@@ -93,22 +92,23 @@ NicknameCheck.addEventListener("click", () => {
         return;
     }
     
-
+    
     // 정규 표현식으로 유효성 검사
     const regEx = /^[가-힣\w\d]{2,10}$/;
-    
+    /*
     if(regEx.test(userNickname.value)){ //유효할 때
         
-        fetch("/myPage/dupCheck/nickname?nickname=" + userNickname.value)
+        fetch("dupCheck/nickname?nickname=" + userNickname.value)
         .then(resp => resp.text()) // 응답 객체를 text로 파싱(변환)
         .then(count => {
             if(count == 0){ //중복이 아닌 경우
                 alert("사용가능한 닉네임 입니다.");
                 checkObj.userNickname = true;
-    
             }else{ // 중복인 경우
                 alert("이미 사용중인 닉네임 입니다.");
                 checkObj.userNickname = false;
+                userNickname.value="";
+                userNickname.focus();
             }
         })
         .catch(err => console.error(err));
@@ -116,16 +116,35 @@ NicknameCheck.addEventListener("click", () => {
 
     }else{ //무효
     }
-
+    */
 });
 
-/*
-// 비밀번호는 확인 버튼이 없으므로 submit버튼 안에 합쳐야 할 것 같음..
+
+
 
 // 비밀번호/비밀번호 확인 유효성 검사
 const userPw = document.getElementById("password1");
 const userPwConfirm = document.getElementById("password2");
 const SignUpBtn = document.getElementById("SignUpSubmit");
+const pwMessage = document.getElementById("pwMessage");
+const pwCfMessage = document.getElementById("pwCfMessage");
+
+
+
+userPw.addEventListener("onfocus", ()=>{
+    
+    commentPlace.style.display = 'block';
+});
+userPwConfirm.addEventListener("focus", ()=>{
+    
+    commentPlace.style.display = 'block';
+});
+
+
+/*
+// 비밀번호는 확인 버튼이 없으므로 submit버튼 안에 합쳐야 할 것 같음..
+
+
 
 
 // 비밀번호  검사

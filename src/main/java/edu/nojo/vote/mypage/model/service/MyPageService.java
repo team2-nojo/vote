@@ -14,14 +14,34 @@ public interface MyPageService {
     */
    int checkNickname(String nickname);
 
-   /** 프로필 이미지 수정 서비스
-    * @param userImage
-    * @param path
-    * @param loginUser
+
+	 /** 프로필 이미지 수정 서비스
+	 * @param userImage
+	 * @param path
+	 * @param loginUser
+	 * @return result
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 */
+	int updateProfileImage(MultipartFile userImage, String path, User loginUser) throws IllegalStateException, IOException;
+
+   /** DB 회원 정보 수정(UPDATE) 서비스
+    * @param updateUser
     * @return result
-    * @throws IOException 
-    * @throws IllegalStateException 
     */
-   int updateProfile(MultipartFile userImage, String path, User loginUser) throws IllegalStateException, IOException;
+   int updateProfile(User updateUser);
+
+	
+	/** 해당 유저 조회 서비스 
+	 * @param userNo
+	 * @return selectedUser
+	 */
+	User selectUser(int userNo);
+
+
+
+   
+   
+   
    
 }

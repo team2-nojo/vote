@@ -1,10 +1,6 @@
 package edu.nojo.vote.help.model.service;
 
-import java.io.IOException;
-import java.util.List;
 import java.util.Map;
-
-import org.springframework.web.multipart.MultipartFile;
 
 import edu.nojo.vote.help.model.dto.QNA3;
 
@@ -22,4 +18,12 @@ public interface HelpService {
 	 * @return qnaNo
 	 */
 	int helpInsert(QNA3 qna3);
+
+	/** 게시글 상세 조회
+	 * @param map
+	 * @return
+	 */
+	QNA3 selectqna(Map<String, Object> map);
+
+   
 }

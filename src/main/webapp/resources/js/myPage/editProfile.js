@@ -2,13 +2,13 @@
 const profileImage = document.getElementById("profileUserImage"); // img 태그
 const imageInput = document.getElementById("inputUserImage"); // input 태그
 
-/* 업로드 후 미리보기로 원 안의 프로필 사진 변경 */
-let initCheck; // 초기 프로필 이미지 상태를 저장하는 변수
-                // false == 기본 이미지,  true == 이전 업로드 이미지
-let deleteCheck = -1; 
-// 프로필 이미지가 새로 업로드 되거나 삭제 되었음을 나타내는 변수
-// -1 == 초기값 ,  0 == 프로필 삭제(x버튼),  1 == 새 이미지 업로드
-let originalImage; // 초기 프로필 이미지 파일 경로 저장
+// /* 업로드 후 미리보기로 원 안의 프로필 사진 변경 */
+// let initCheck; // 초기 프로필 이미지 상태를 저장하는 변수
+//                 // false == 기본 이미지,  true == 이전 업로드 이미지
+// let deleteCheck = -1; 
+// // 프로필 이미지가 새로 업로드 되거나 삭제 되었음을 나타내는 변수
+// // -1 == 초기값 ,  0 == 프로필 삭제(x버튼),  1 == 새 이미지 업로드
+// let originalImage; // 초기 프로필 이미지 파일 경로 저장
 
 
 if(imageInput != null){ // 화면에 imageInput이 있을 경우
@@ -17,14 +17,14 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우
     originalImage = profileImage.getAttribute("src"); 
 
 
-    // 회원 프로필 화면 진입 시 
-    // 현재 회원의 프로필 이미지 상태를 확인
-    if(profileImage.getAttribute("src") == "/resources/images/common/user.png"){
-        // 기본 이미지인 경우
-        initCheck = false;
-    }else{
-        initCheck = true;
-    }
+    // // 회원 프로필 화면 진입 시 
+    // // 현재 회원의 프로필 이미지 상태를 확인
+    // if(profileImage.getAttribute("src") == "/resources/images/common/user.png"){
+    //     // 기본 이미지인 경우
+    //     initCheck = false;
+    // }else{
+    //     initCheck = true;
+    // }
     
     // 이전 값과 다르면 change 이벤트 발생
 
@@ -84,26 +84,26 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우
     });
 
 
-    // #profileFrm이 제출 되었을 때
-    document.getElementById("profileFrm").addEventListener("submit", e => {
+    // // #profileFrm이 제출 되었을 때
+    // document.getElementById("profileFrm").addEventListener("submit", e => {
 
-        let flag = true;
+    //     let flag = true;
 
-        // 프로필 이미지가 없다 -> 있다
-        if(!initCheck && deleteCheck == 1)  flag = false;
+    //     // 프로필 이미지가 없다 -> 있다
+    //     if(!initCheck && deleteCheck == 1)  flag = false;
 
-        // 이전 프로필 이미지가 있다 -> 삭제
-        if(initCheck && deleteCheck == 0)   flag = false;
+    //     // 이전 프로필 이미지가 있다 -> 삭제
+    //     if(initCheck && deleteCheck == 0)   flag = false;
 
-        // 이전 프로필 이미지가 있다 -> 새 이미지
-        if(initCheck && deleteCheck == 1)   flag = false;
+    //     // 이전 프로필 이미지가 있다 -> 새 이미지
+    //     if(initCheck && deleteCheck == 1)   flag = false;
         
-        if(flag){ // flag == true -> 제출하면 안되는 경우
-            e.preventDefault(); // form 기본 이벤트 제거
-            alert("이미지 변경 후 클릭하세요");
-        }
+    //     if(flag){ // flag == true -> 제출하면 안되는 경우
+    //         e.preventDefault(); // form 기본 이벤트 제거
+    //         alert("이미지 변경 후 클릭하세요");
+    //     }
 
-    });
+    // });
 
 
 }
@@ -166,9 +166,7 @@ nicknameDupCheck.addEventListener("click", () => {
             checkObj.userNickname = false;
         }
     })
-
     .catch(err => console.log(err));
-
 });
 
 

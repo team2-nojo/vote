@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.nojo.vote.mypage.model.service.MyPageService;
 import edu.nojo.vote.user.model.dto.User;
 import edu.nojo.vote.user.model.service.UserService;
 
@@ -27,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
+	
+	@Autowired
+	private MyPageService myPageService;
 	
 	// 로그인 페이지로 이동
 	@GetMapping("/login")
@@ -150,22 +154,18 @@ public class UserController {
 	
 	// 이메일 중복 검사
 	@GetMapping("/dupCheck/email")
-	@ResponseBody // HttpMessageConverter를 이용해 
-				  // JS에서 인식할 수 있는 형태(TEXT/JSON)변환
-				  // + 비동기 요청한 곳으로 돌아감
-	
+	@ResponseBody
 	public int checkEmail(String email) {
 		return  service.checkEmail(email);
 	}
 	
 	
 	// 닉네임 중복 검사
-		@GetMapping("/dupCheck/nickname")
+		@GetMapping("/signUp/dupCheck/nickname")
 		@ResponseBody
-		public int checkNickname(@RequestParam String nickname) {
-			
-			System.out.println(service.checkNickname(nickname));
-			return service.checkNickname(nickname);
+		public int checkNickname(@RequestParam String name) {
+			System.out.println(myPageService.checkNickname(name));
+			return myPageService.checkNickname(name);
 		}
 	
 	

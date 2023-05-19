@@ -37,15 +37,15 @@
             <div class="result">
                 <a href="/browse/petitionView/details" class="result1">
                     <div class="row" id="rowPicture">
-                        <img src="/resources/images/순덕이.png" class="picture">
+                        <img src="${mainPtList[0].userImage}" class="picture">
                     </div>
                     <div class="row">
                         <div class="column" id="column-1">
                             <div id="title">
-                                서울시 종로구 순덕이 출현
+                                ${mainPtList[0].petitionTitle}
                             </div>
                             <div id="content">
-                                내용내용내용내용내용내용내용내용내용내용내용내용내
+                                ${mainPtList[0].petitionContent}
                                 <a href="/browse/petitionView/details" id="readMore"> Read more</a>
                             </div>
                         </div>
@@ -71,6 +71,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <%-- browse_search.js --%>
-    <script src="/resources/js/browes/browse_search.js"></script>
+    <script src="/resources/js/browes/browse_search/featured.js"></script>
 </body>
 </html>

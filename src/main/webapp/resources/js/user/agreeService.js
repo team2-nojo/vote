@@ -4,7 +4,7 @@ let check1 = document.getElementById('privacyPolicy');
 let check2 = document.getElementById('serviceUse');
 let check3 = document.getElementById('MarketingInfo');
 
-window.onload = function(){} // 이거로 감싸면 에러는 사라지나 실행이 안됨...
+window.onload = function(){
 
     document.addEventListener('DOMContentLoaded', function () {
         allAgree.addEventListener('change', () => {
@@ -56,8 +56,10 @@ window.onload = function(){} // 이거로 감싸면 에러는 사라지나 실�
         });
         
     });
+} // 이거로 감싸면 에러는 사라지나 실행이 안됨...
+
     
-    
+   /* 
     const next = document.getElementById("next"); // 다음 버튼
     const cancel = document.getElementById("cancel"); // 취소 버튼
     
@@ -78,6 +80,7 @@ window.onload = function(){} // 이거로 감싸면 에러는 사라지나 실�
         window.opener.document.getElementById("agree").checked = false;
         
     });
+    */
 
 
 

@@ -4,6 +4,7 @@
 <%-- map에 저장된 값들을 각각 변수에 저장 --%>
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="QNA3List" value="${map.QNA3List}"/> 
+<c:set var="qnaName" value="${qnaTypeList[qnaCatCode-1].QNA_NAME}"/>
 
 
 <%-- <c:forEach items="${boardTypeList}" var="boardType">
@@ -63,10 +64,10 @@
                                         
                                             <img class="list-thumbnail" src="${QNA3.userImage}">
                                             
-                                            ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 
-                                            <a href="/Q&A/${qnaNo}/${QNA3.qnaCatCode}">${QNA3.qnaTitle}</a>                   
-                                        </td> --%>
-                                        <td>${qna.qnaTitle}</td>
+                                            ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 --%>
+                                        <td>
+                                        <a href="QNADetail/${qnaCatCode}/${qna.qnaNo}?cp=${pagination.currentPage}">${qna.qnaTitle}</a>
+                                        </td>
                                         <td>${qna.qnaStatus}</td>
                                         <td>${qna.qnaCreateDt}</td>
                                     </tr>
@@ -87,15 +88,16 @@
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/QNA3?cp=1">&lt;&lt;</a></li>
+                    <li><a href="/QNA3/${qnaCatCode}?cp=1${sp}">&lt;&lt;</a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/QNA3?cp=${pagination.prevPage}">&lt;</a></li>
+                    <li><a href="/QNA3/${qnaCatCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
                     
 
 					
                     <!-- 특정 페이지로 이동 -->
-                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                    <c:forEach var="i" begin="${pagination.startPage}" 
+                    end="${pagination.endPage}" step="1">
 
                         <c:choose>
                             <c:when test="${i==pagination.currentPage}">
@@ -105,7 +107,7 @@
 
                             <c:otherwise>
                             <!-- 현재 페이지를 제외한 나머지 -->
-                                 <li><a href="/QNA3?cp=${i}">${i}</a></li>
+                                 <li><a href="/QNA3/${qnaCatCode}?cp=${i}${sp}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
 
@@ -115,10 +117,10 @@
     
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/QNA3?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="/QNA3/${qnaCatCode}?cp=${pagination.nextPage}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/QNA3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                    <li><a href="/QNA3/${qnaCatCode}?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                 </ul>
             </div>
@@ -141,6 +143,8 @@
 
         </section>
     </main>
+
+    
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <script src="/resources/js/clientCenter/QNA3.js"></script>

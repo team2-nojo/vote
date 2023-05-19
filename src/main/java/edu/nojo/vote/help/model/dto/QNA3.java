@@ -1,6 +1,6 @@
 package edu.nojo.vote.help.model.dto;
 
-import lombok.Getter;
+import lombok.Getter; 
 import lombok.Setter;
 import lombok.ToString;
 
@@ -18,4 +18,5 @@ public class QNA3 {
 	private String qnacompletedt;
 	private String qnaDelFl;
 	private int userNo;
+	private String memberNickname;
 }

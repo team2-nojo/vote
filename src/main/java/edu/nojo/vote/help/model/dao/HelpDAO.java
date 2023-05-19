@@ -47,8 +47,14 @@ public class HelpDAO {
 		return result;
 	}
 
+	/** 게시글 상세 조회
+	 * @param map
+	 * @return
+	 */
+	public QNA3 selectqna(Map<String, Object> map) {
+		return sqlSession.selectOne("HelpMapper.selectqna", map);
+	}
 
 
-	
 
 }

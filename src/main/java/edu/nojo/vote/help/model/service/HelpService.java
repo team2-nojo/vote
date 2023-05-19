@@ -18,4 +18,12 @@ public interface HelpService {
 	 * @return qnaNo
 	 */
 	int helpInsert(QNA3 qna3);
+
+	/** 게시글 상세 조회
+	 * @param map
+	 * @return
+	 */
+	QNA3 selectqna(Map<String, Object> map);
+
+   
 }

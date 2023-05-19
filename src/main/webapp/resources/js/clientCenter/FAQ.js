@@ -25,7 +25,7 @@ $(".question").click(function() {
       e.preventDefault();
       location.href = `/user/login`
   } else {
-    location.href = `/clientCnter/Q&A`
+    location.href = `/clientCenter/QNA`
   }
   });
 
@@ -35,7 +35,7 @@ $(".question").click(function() {
       e.preventDefault();
       location.href = `/user/login`
   } else {
-    location.href = `/clientCnter/Q&A3`
+    location.href = `/clientCenter/QNA3`
   }
   });
 
@@ -45,7 +45,7 @@ $(".question").click(function() {
       e.preventDefault();
       location.href = `/user/login`
   } else {
-    location.href = `/clientCnter/chatbot`
+    location.href = `/clientCenter/chatbot`
   }
   });
 

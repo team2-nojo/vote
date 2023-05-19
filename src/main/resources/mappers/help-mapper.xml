@@ -57,5 +57,19 @@
 		DEFAULT, DEFAULT, DEFAULT, DEFAULT)
 		
 	</insert>
+
+    <select id="selectqna" resultMap="QNA3_rm">
+		SELECT QNA_NO, QNA_TITLE, QNA_CONT, QNA_CAT_CODE,
+		USER_NICKNAME, USER_NO
+		TO_CHAR(QNA_CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') QNA_CREATE_DT,
+		TO_CHAR(QNA_UPDATE_DATE, 'YYYY"년" MM"월" DD"일" HH24:MI:SS')
+		QNA_CREATE_DT
+		FROM "QNA" Q
+		JOIN "USER" USING(USER_NO)
+		WHERE QNA_DEL_FL = 'N'
+		AND QNA_CODE = #{qnaCode}
+		AND QNA_NO = #{qnaNo}
+	</select>
+	
 </mapper>
 

@@ -49,7 +49,10 @@ public class HelpServiceImpl implements HelpService{
 
 		return qnaNo;
 	}
-	
-	
 
+	// 상세 조회
+	@Override
+	public QNA3 selectqna(Map<String, Object> map) {
+		return dao.selectqna(map);
+	}
 }

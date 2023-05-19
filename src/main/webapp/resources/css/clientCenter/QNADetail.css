@@ -1,0 +1,115 @@
+/* 상세조회 전체 영역 */
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.board-detail{
+    width: 1000px;
+    min-height: 700px;
+    border:  1px solid #ccc;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+
+/* 게시글 제목 */
+.board-title{
+    margin : 0;
+    padding: 20px 0;
+    font-size: 2em;
+    border-bottom : 3px solid #ccc;
+}
+
+.board-title > span{
+    font-size: 16px;
+    color: gray;
+}
+
+
+/* 게시글 헤더 */
+.board-header{
+    padding: 20px 0;
+    border-bottom : 3px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 작성자 영역 */
+.board-writer{
+    display: flex;
+    align-items: center;
+}
+
+
+/* 닉네임 */
+.board-writer > span{
+    font-weight: bold;
+    margin-left : 10px;
+}
+
+/* 게시글 정보 */
+.board-info{
+    width: 320px;
+    font-size: 0.8em;
+}
+
+.board-info > p{
+    margin: 0;
+}
+
+.board-info span{
+    width: 120px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.board-detail h5{
+    clear: both;
+    margin: 10px 0;
+}
+
+
+
+
+/* 내용 */
+.board-content{
+    clear: both;
+    padding: 30px 0;
+    margin: 30px 0;
+    border-top : 3px solid #ccc;
+    border-bottom : 3px solid #ccc;
+
+    font-size: 18px;
+
+    white-space: pre-wrap;
+}
+
+/* 버튼 영역 */
+.board-btn-area{
+    text-align: right;
+}
+
+/* 버튼 */
+.board-btn-area button{
+    width: 80px;
+    height: 30px;
+
+    font-weight: bold;
+    border: 0;
+    background-color: #2DB400;
+    color : white;
+
+    cursor: pointer;
+}
+
+.board-btn-area button:hover{
+    background-color: white;
+    color : #2DB400;
+    border: 2px solid #2DB400;
+}
+
+

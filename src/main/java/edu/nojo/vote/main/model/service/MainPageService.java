@@ -9,7 +9,8 @@ import edu.nojo.vote.main.model.dto.Petition;
 public interface MainPageService {
 
 	List<Petition> selectMainPtList();
-	
 
+	
+	List<Petition> selectPetition();
 
 }

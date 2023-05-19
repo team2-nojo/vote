@@ -37,5 +37,27 @@ public class AdminServiceImpl implements AdminService {
 		return map;
 		
 	}
+
+
+	@Override
+	public int updateMainPetition(int selectedNumber, int petitionNo) {
+		// TODO Auto-generated method stub
+		return dao.updateMainPetition(selectedNumber, petitionNo);
+	}
+
+
+
+
+	
+
+
+
+
+
+
+
+	
+	
+	
 }
 	

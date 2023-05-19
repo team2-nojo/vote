@@ -48,6 +48,12 @@
                     <input type="text" name="userPw" id="password1" placeholder=" Password">
                     <input type="text" name="userPwConfirm" id="password2" placeholder=" Password">
                 </div>
+                <div id="pwMessage">
+                    영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.
+                </div>
+                <div id="pwCfMessage">
+                    영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.
+                </div>
                 <div>
                     <input type="text" name="userAddress" id="sample6_address" placeholder=" Address">
                     <button type="button" id="addressSearch" onclick="sample6_execDaumPostcode()">주소찾기</button> <br>

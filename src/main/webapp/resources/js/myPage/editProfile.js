@@ -166,9 +166,7 @@ nicknameDupCheck.addEventListener("click", () => {
             checkObj.userNickname = false;
         }
     })
-
     .catch(err => console.log(err));
-
 });
 
 

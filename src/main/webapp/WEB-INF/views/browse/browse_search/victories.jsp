@@ -71,6 +71,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <%-- browse_search.js --%>
-    <script src="/resources/js/browes/browse_search.js"></script>
+    <script src="/resources/js/browes/browse_search/victories.js"></script>
 </body>
 </html>

@@ -150,6 +150,11 @@ main button{
 
 
 
-
+#pwMessage{
+    display: none;
+}
+#pwCfMessage{
+    display: none;
+}
 
 

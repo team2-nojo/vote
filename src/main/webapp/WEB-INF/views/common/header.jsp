@@ -68,7 +68,7 @@
 
             <c:choose>
               <c:when test="${not empty loginUser.userImage}">
-                <img class="user-Image" src="${loginUser.userImage}" />
+                <img class="user-image" src="${loginUser.userImage}" />
               </c:when>
               <c:otherwise>
                 <i class="fa-sharp fa-solid fa-user header-a"></i>

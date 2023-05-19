@@ -30,7 +30,6 @@ public class WritePetitionServiceImpl implements WritePetitionService{
 	@Override
 	public void writePetition(Petition petition, List<Integer> categoryItems, String directInput,
 			List<String> directInputCategory, MultipartFile thumbnailImage, String webPath, String filePath) throws IllegalStateException, IOException, Exception{
-//		petition.setPetitionContent(Util.XSSHandling(petition.getPetitionContent()));
 		if(categoryItems == null) categoryItems = new ArrayList<>();
 		petition.setPetitionTitle(Util.XSSHandling(petition.getPetitionTitle()));
 		if(thumbnailImage.getSize()>0) {
@@ -44,7 +43,7 @@ public class WritePetitionServiceImpl implements WritePetitionService{
 		
 		
 		// 직접 입력이 선택된 경우
-		if(directInput.equals("y")) {
+		if(directInput.equals("y") && directInputCategory!=null) {
 			// 직접 입력한 카테고리 목록 순차 접근
 			for(String categoryName : directInputCategory) {
 				// 직접 입력한 카테고리명으로 categoryNo select

@@ -22,7 +22,7 @@
     <main>
         <div class="write-petition-container">
             <div class="wp-progress-bar"><div class="wp-progress"></div></div>
-            <form action="a.html">
+            <form action="/writePetition" method="post" enctype="multipart/form-data">
                 <!-- page1 -->
                 <div id="page1" class="page container border current">
                     <h1>변화를 향한 첫 걸음</h1>
@@ -47,12 +47,10 @@
                     <h1>이 청원에 가장 적합한 주제는 무엇인가요?</h1>
                     <div id="categoryContainer" class="border">
                         <c:forEach items="${defaultCategoryList}" var="defaultCategory">
-                            <input type="checkbox" name="categoryItem" class="hidden" id="defaultCategoryItem${defaultCategory.categoryNo}"
+                            <input type="checkbox" name="categoryItems" class="hidden" id="defaultCategoryItem${defaultCategory.categoryNo}"
                             value="${defaultCategory.categoryNo}">
                             <label class="category-item" for="defaultCategoryItem${defaultCategory.categoryNo}">${defaultCategory.categoryName}</label>
                         </c:forEach>
-                        <%-- <input type="checkbox" name="categoryItem" class="hidden" id="item1" value="1">
-                        <label for="item1" class="category-item">임시데이터1</label> --%>
                         <input type="checkbox" name="directInput" class="hidden" id="directInputCheckbox" value="y">
                         <label for="directInputCheckbox" class="category-item">직접 입력</label>
                     </div>
@@ -98,7 +96,7 @@
                         <div class="no-img-container center container">
                             <img data-testid="drop-target" width="115" src="resources/images/writePetition/uploadimg.svg">
                             <label for='inputImage' class="input-img-btn my-btn">이미지 등록</label>
-                            <input type="file" name="asdf" id="inputImage" class="hidden">
+                            <input type="file" name="thumbnailImage" id="inputImage" class="hidden" accept="image/*">
                         </div>
                         <div class="img-container hidden">
                             <img id="previewImage" class="preview-image">

@@ -22,7 +22,7 @@
       	<result property="categoryName" column="CAT_NAME" />
       	
       	<result property="petitionLikeCount" column="LIKE_COUNT" />
-</resultMap>
+</resultMap> 
 
 <resultMap type="edu.nojo.vote.writePetition.model.dto.PetitionCategory" id="category_rm">
       	<result property="categoryNo" column="CAT_NO" />
@@ -34,7 +34,7 @@
 		
 	<!-- 메인페이지 박스에 청원 보이기 -->
 	<select id="selectMainPtList" resultMap="petition_rm">
-		SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD,
+		SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD, PT_VIEW_COUNT,
 		(SELECT COUNT(*) FROM PETITION_LIKE PL WHERE PL.PT_NO = PT.PT_NO) "LIKE_COUNT"
 		FROM PETITION PT
 		JOIN "USER" USING(USER_NO)
@@ -55,11 +55,10 @@
 	</select>
 	
 	<select id="selectPetition" resultMap="petition_rm">
-		SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD,
-		(SELECT COUNT(*) FROM PETITION_LIKE WHERE PT_NO=#{mainPtNo}) "LIKE_COUNT"
+SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD,
+		(SELECT COUNT(*) FROM PETITION_LIKE) "LIKE_COUNT"
 		FROM PETITION
 		JOIN "USER" USING(USER_NO)
-		WHERE PT_NO=#{mainPtNo}
 	</select>
 	
 	<select id="selectCategoryList" resultMap="category_rm">
@@ -67,6 +66,8 @@
 		JOIN PETITION_CATEGORY_LIST PCL USING (CAT_NO)
 		WHERE PT_NO=#{mainPtNo}
 	</select>
+	
+	
 	
 	
 </mapper>

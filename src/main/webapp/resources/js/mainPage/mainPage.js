@@ -3,15 +3,21 @@ const box1 = document.querySelector('.box1');
 const newsTitle = document.querySelector('#news-title');
 const newsTitles = document.querySelectorAll('.small-news');
 const newsSub = document.querySelector('#news');
-const newsId = document.querySelector('#main-news-id');
-const newsCountry = document.querySelector('#main-news-country');
+const newsId = document.querySelector('#main-news-nickname');
+const newsAddress = document.querySelector('#main-news-address');
 const viewers = document.querySelector('#view');
 const mainPhoto = document.querySelector('#mainPhoto');
 const idImg = document.querySelector('#news-id');
 const newsContent = document.querySelector('#newsContent');
+const mainUserImage = document.querySelector('#main-user-image');
+const hiddenContent = document.querySelectorAll('input[type="hidden"][name="petitionContent"]');
+const hiddenUserImage = document.querySelectorAll('input[type="hidden"][name="userImage"]');
+const hiddenUserAddress = document.querySelectorAll('input[type="hidden"][name="userAddress"]');
+const hiddenUserNickname = document.querySelectorAll('input[type="hidden"][name="userNickname"]');
+const hiddenPetitionViewCount = document.querySelectorAll('input[type="hidden"][name="petitionViewCount"]');
+
+
 smallNews.forEach((newBox, index) => {
-  //smallNews[index].src = pettitions[index].image;
-  //smallNews[index].src.backgroundSize = 'cover';
   newBox.addEventListener('click', () => {
     // 모든 요소의 스타일 초기화
     smallNews.forEach((box) => {
@@ -28,52 +34,21 @@ smallNews.forEach((newBox, index) => {
     if (index === 0) {
       newsTitle.innerText = newsTitles[0].childNodes[0].innerText;
       mainPhoto.src = smallNews[0].src;
+      newsSub.innerText = hiddenContent[0].value;
+      // newsSub.innerText = petitionTitle;
+
+      // mainUserImage.childNodes[0].src = 
       // newsContent.lastChild.innerText = '${mainPt.petitionContent}';
     } else {
       newsTitle.innerText = newsTitles[index].childNodes[0].innerText;
       mainPhoto.src = smallNews[index].src;
+      newsSub.innerText = hiddenContent[index].value;
+      mainUserImage.childNodes[0].src = hiddenUserImage[index].value;
+      newsAddress.innerText = hiddenUserAddress[index].value;
+      newsId.innerText = hiddenUserNickname[index].value;
+      viewers.innerText = hiddenPetitionViewCount[index].value+' 명';
     }
   });
 });
 
-const ul = document.querySelector('.content2');
-const button = document.querySelector('#btn');
-const inc = 3;
-let idx = 4;
-
-function createItem(obj) {
-  const item = document.createElement('li');
-  item.classList.add('content', 'pettition1');
-  item.innerHTML = `
-              <div class="pettition1 pet-title">
-              <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
-              <span>${obj.title}</span>
-              <a href="#" style="text-decoration: underline;">See more</a>
-            </div>
-            <div class="pettition1 article">
-              <div class="article-title"><h3>${obj.title}</h3></div>
-              <div class="text">
-                <div>
-                ${obj.content}
-                <a href="#">더보기</a>
-              </div>
-            </div>
-            <div class="photo"><img src=${obj.image} style="width: 145px; height: 145px; object-fit: cover;"></div> 
-            </div>
-            <div class="pettition1 id">
-              <span class="id-profile"><img src=${obj.profile} style="height: 28px; margin: 5px;" alt=""></span>
-              <span>${obj.name}</span>
-              <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>${obj.viewers} Supporters</a>
-            </div>
-            `;
-
-  ul.append(item);
-}
-
-function loadItems() {
-  const itemsToLoad = newsTitles.slice(idx, idx + inc);
-  itemsToLoad.forEach(createItem);
-  idx += inc;
-}
-
-button.addEventListener('click', loadItems);
+////////////////////////////////////////////////////////////////////////////////////////////////

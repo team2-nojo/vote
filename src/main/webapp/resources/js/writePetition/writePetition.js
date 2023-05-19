@@ -6,8 +6,6 @@ const pages = document.getElementsByClassName('page'); // 페이지 배열
 const progressBar = document.querySelector('.wp-progress'); // 프로그레스 바
 const btnContainer = document.getElementById('btnContainer');
 
-// console.log('1');
-
 const updatePage = () => {
   progressBar.style.width = ((currentPage+1) / pages.length) * 100 + '%';
   for(let i=0;i<pages.length;i++)
@@ -33,7 +31,10 @@ const updatePage = () => {
   } else if(currentPage == 2){
     titleCharCheck();
     inputTitle.focus();
-  } else if(currentPage == 5){
+  } else if(currentPage == 3){
+    checkContentsLength(content);
+  }
+  else if(currentPage == 5){
     previewPageUpdate();
   } else {
     nextBtn.disabled=false;
@@ -74,44 +75,42 @@ directInputCheckBox.addEventListener('change',()=>{
     directInputContainer.classList.add('hidden');
   }
 })
-/* 체크박스 하나라도 체크되어 있을 때에만 다음 버튼 활성화 */
+/* 선택 또는 직접 입력한 카테고리가 1개 이상, 5개 이하 일때만 다음 버튼 활성화 */
 // 함수 정의
 const categoryItems = document.querySelectorAll('[name="categoryItem"]');
 const categorySelectCheck = () =>{
-  let flag = false;
+  let count = 0;
   // 기본 카테고리 확인
   categoryItems.forEach(categoryItem => {
     if(categoryItem.checked) {
-      flag = true;
-      return;
+      count ++;
     }
-  })
+  });
   // 직접 입력 선택된 경우
   if(directInputCheckBox.checked) {
-    // 입력한 카테고리가 있다면
-    if(document.querySelector('.direct-input-item') != null){
-      flag = true;
-    }
+    const directItems = document.querySelectorAll('[name="directInputCategory"]');
+    directItems.forEach(directItem =>{
+      count++;
+    })
   }
-  // 플래그에 따라 다음 버튼 활성화/비활성화
-  if(flag){
-    nextBtn.disabled=false;
-  } else {
+  console.log(count);
+  if(count<1 || count>5){
     nextBtn.disabled=true;
+  } else {
+    nextBtn.disabled=false;
   }
 }
-// 카테고리 아이템에 이벤트리스너 추가
+// 카테고리 아이템에 셀렉트체크 추가
 categoryItems.forEach(categoryItem =>{
   categoryItem.addEventListener('change', () => {
-    if(currentPage==1) categorySelectCheck();
+    categorySelectCheck();
   });
-})
-// 직접 입력에 이벤트리스너 추가
-directInputCheckBox.addEventListener('change', () =>{
-  if(currentPage==1) categorySelectCheck();
 });
-// 직접 입력하는 창 또는 버튼에 이벤트 리스너 추가(해야함)
-
+// 직접 입력에 셀렉트체크 추가
+directInputCheckBox.addEventListener('change', () =>{
+  categorySelectCheck();
+});
+// 직접 입력하는 창 또는 버튼에 이벤트 리스너 추가
 const categoryInput = document.getElementById('categoryInput');
 const directInputItemContainer = document.getElementById('directInputItemContainer');
 const categoryInputBtn = document.getElementById('categoryInputBtn');
@@ -119,12 +118,17 @@ categoryInputBtn.addEventListener('click', () => {
   if(categoryInput.value.trim().length > 0){
     const item = document.createElement('label');
     item.classList.add("direct-input-item","category-item");
+    item.addEventListener("click",e=>{
+      e.target.remove();
+      categorySelectCheck();
+    })
     item.innerHTML = `
       <input type="hidden" name="directInputCategory" value="${categoryInput.value}">
       ${categoryInput.value}
-      <span>X</span>
+      <span class="pointer-events-none">X</span>
     `
     directInputItemContainer.append(item);
+    categorySelectCheck();
   }
 })
 
@@ -151,24 +155,136 @@ const titleCharCheck = () =>{
   }
 }
 inputTitle.addEventListener('input', titleCharCheck);
+/**************************************************************************/
+
+/*********************************** page4 ********************************/
+let content = '';
+$(document).ready(function() {
+	//에디터 설정
+	$('#summernote').summernote({
+        height: 500,                 // 에디터 높이
+        minHeight: null,             // 최소 높이
+        maxHeight: null,             // 최대 높이
+        focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+        lang: "ko-KR",					// 한글 설정
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture']],
+        ],
+        callbacks: {
+            onChange:function(contents, $editable){ //텍스트 글자수
+                content = contents;
+                checkContentsLength();
+            },
+            onImageUpload : function(files) {
+              for(let i=0 ; i<files.length ; i++)
+                uploadSummernoteImageFile(files[i],this);
+            },
+            onPaste: function (e) {
+              var clipboardData = e.originalEvent.clipboardData;
+              if (clipboardData && clipboardData.items && clipboardData.items.length) {
+                var item = clipboardData.items[0];
+                if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
+                  e.preventDefault();
+                }
+              }
+            }
+        }
+	});
+});
+// 내용이 있는 지 체크
+const checkContentsLength = () => {
+  console.log(content);
+    let str = f_SkipTags_html(content).trim();
+    console.log(str);
+    if(str=='') nextBtn.disabled = true;
+    else nextBtn.disabled = false;
+}
+
+// ajax로 이미지 업로드
+const uploadSummernoteImageFile = (file, editor) => {
+  data = new FormData();
+  data.append("file", file);
+  $.ajax({
+    data : data,
+    type : "POST",
+    url : "/uploadSummernoteImageFile",
+    contentType : false,
+    processData : false,
+    success : function(data) {
+      $(editor).summernote('insertImage', data.url);
+    }
+  });
+}
+
+//에디터 내용 텍스트 제거
+function f_SkipTags_html(input, allowed) {
+	// 허용할 태그는 다음과 같이 소문자로 넘겨받습니다. (<a><b><c>)
+    allowed = (((allowed || "") + "").toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join('');
+    var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
+    commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+    return input.replace(commentsAndPhpTags, '').replace(tags, function ($0, $1) {
+        return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
+    });
+}
 
 /**************************************************************************/
 
-/*********************************** page3 ********************************/
+/*********************************** page4 ********************************/
 
-const summernote = $('#summernote');
-const content = document.getElementById('content');
-
+const noImgContainers = document.querySelectorAll('.no-img-container');
+const imgContainers = document.querySelectorAll('.img-container');
+const inputImgBtns = document.querySelectorAll('.input-img-btn');
+const deleteImages = document.querySelectorAll('.delete-image');
+const previewImages = document.querySelectorAll('.preview-image');
+const inputImage = document.getElementById('inputImage');
+const imgContainerHiddenToggle = ()=>{
+  noImgContainers.forEach(noImgContainer =>{
+    noImgContainer.classList.toggle('hidden');
+  })
+  imgContainers.forEach(imgContainer =>{
+    imgContainer.classList.toggle('hidden');
+  })
+}
+inputImgBtns.forEach(inputImgBtn=>{
+  inputImgBtn.addEventListener('click',()=>{
+  })
+})
+deleteImages.forEach(deleteImage=>{
+  deleteImage.addEventListener('click',imgContainerHiddenToggle)
+})
+inputImage.addEventListener('change', e=>{
+  const file = e.target.files[0]; // 선택된 파일의 데이터
+  if(file != undefined){ // 파일이 선택되었을 때
+      const reader = new FileReader(); // 파일을 읽는 객체
+      reader.readAsDataURL(file);
+      reader.onload = e => { // 파일을 다 읽은 후 수행
+        previewImages[0].setAttribute("src",e.target.result);
+        previewImages[1].setAttribute("src",e.target.result);
+      }
+  } else { // 파일 선택 후 취소 되었을 때
+    previewImages[0].removeAttribute("src");
+    previewImages[1].removeAttribute("src");
+  }
+  imgContainerHiddenToggle();
+});
 
 
 
 /**************************************************************************/
+
 
 const previewTitle = document.getElementById('previewTitle');
 const previewContent = document.getElementById('previewContent');
+const summernote = $('#summernote');
+const submitContent = document.getElementById('summernote');
+
 
 const previewPageUpdate = () => {
   previewTitle.innerText = inputTitle.value;
-  content.value = summernote.summernote('code');
-  previewContent.innerHTML = content.value;
+  submitContent.value = summernote.summernote('code');
+  previewContent.innerHTML = submitContent.value;
 };

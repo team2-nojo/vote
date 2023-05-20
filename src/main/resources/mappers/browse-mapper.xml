@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="browseMapper">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 99419c34991d4890d4bab5f54677979ce378efb3
 	<resultMap type="edu.nojo.vote.main.model.dto.Petition" id="petition_rm">
 		<result property="petitionContent" column="PT_CONTENT" jdbcType="CLOB" javaType="String" />
 		 <result property="petitionNo" column="PT_NO" />
@@ -19,6 +23,7 @@
       	<result property="categoryNo" column="CAT_NO" />
       	<result property="categoryName" column="CAT_NAME" />
       	
+<<<<<<< HEAD
       	<result property="petitionLikeCount" column="PT_LIKE_NO" />
       	
       	
@@ -74,5 +79,28 @@
 	
 	
 	
+=======
+      	<result property="petitionLikeCount" column="LIKE_COUNT" />
+	</resultMap> 
+
+	<resultMap type="edu.nojo.vote.writePetition.model.dto.PetitionCategory" id="category_rm">
+      	<result property="categoryNo" column="CAT_NO" />
+      	<result property="categoryName" column="CAT_NAME" />
+      	<result property="categoryMainFl" column="CAT_MAIN_FL" />
+	</resultMap>
+	
+	<!-- 인기 순으로 조회(수정중) -->
+	<select id="selectList" resultMap="petition_rm">
+		SELECT 
+			PT_TITLE , 
+			PT_CONTENT , 
+			PT_IMG, 
+			(SELECT COUNT(*) FROM "PETITION_LIKE" WHERE P.PT_NO = PT_NO) PT_LIKE_COUNT
+		FROM PETITION P
+		JOIN "USER" USING (USER_NO)
+		ORDER BY PT_LIKE_COUNT DESC
+	</select>
+	
+>>>>>>> 99419c34991d4890d4bab5f54677979ce378efb3
 	
 </mapper>

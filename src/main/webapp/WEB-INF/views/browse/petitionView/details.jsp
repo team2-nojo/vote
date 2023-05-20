@@ -83,7 +83,7 @@
                 <br>
                 <!-- 업데이트 -->
                 <div id="notification">
-                    <div id="update">updates</div>
+                    <div id="update">업데이트</div>
                     <div class="box2" id="box2">
                         <div class="updateCon">40,000명의 지지자</div>
                         <div class="time">1일 전</div>
@@ -221,7 +221,7 @@
         
         
         <!-- 추천게시글 -->
-        <section class="middle">
+        <%-- <section class="middle">
             <div id="trandPeti">
                 Trending petitions
             </div>
@@ -247,7 +247,7 @@
             <div>
                 <button type="button" id="moreView">더보기</button>
             </div>
-        </section>
+        </section> --%>
     </main>
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

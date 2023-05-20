@@ -59,7 +59,7 @@ window.onload = function(){
 } // 이거로 감싸면 에러는 사라지나 실행이 안됨...
 
     
-   /* 
+/* 
     const next = document.getElementById("next"); // 다음 버튼
     const cancel = document.getElementById("cancel"); // 취소 버튼
     

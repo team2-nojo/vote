@@ -74,7 +74,6 @@ public class UserServiceImpl implements UserService{
 	// 닉네임 중복 검사
 	@Override
 	public int checkNickname(String nickname) {
-		System.out.println(dao.checkNickname(nickname));
 		return dao.checkNickname(nickname);
 	}
 

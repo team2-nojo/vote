@@ -137,7 +137,7 @@ main button{
 
 
 
-#SignUpSubmit{
+.ready{
     width: 300px;
     height: 45px;
     color: white;
@@ -148,7 +148,7 @@ main button{
     border-radius: 5px;
 }
 
-.ready{
+#SignUpSubmit{
     width: 300px;
     height: 45px;
     color: white;
@@ -196,6 +196,8 @@ main button{
 .error{ color : red; }
 
 /* 체크박스 */
-.Chk{
-    display: none;
+#emailCheck, #nameCheck{
+    /* display: none; */
+    width: 10px;
+    height: 10px;
 }

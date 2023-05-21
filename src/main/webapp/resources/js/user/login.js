@@ -1,5 +1,21 @@
+// SignUp  클릭 시 회원가입 페이지로 이동
+const SignUp = document.getElementById("SignUp");
+
+SignUp.addEventListener("click", () => {
+    location.href="signUp.jsp"; 
+});  
 
 
+
+// Forget Password 클릭 시 비밀번호 찾기 페이지로 이동
+const searchPw = document.getElementById("searchPw");
+
+searchPw.addEventListener("click", () => {
+    location.href="searchPw.jsp"; 
+});  
+
+
+// 헤더에 있는 로그인 버튼 주석처리해야 실행 됨
 // 로그인 시도
 const loginFrm = document.getElementById("loginFrm"); //로그인 폼
 const userEmail = document.querySelector("#loginFrm input[name='userEmail']");

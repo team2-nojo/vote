@@ -38,10 +38,10 @@
                 </div>
                 <div id="nickname">닉네임</div>
                 <div id="place">장소</div>
-                <div id="date">날짜</div>
                 <div id="postPicture">
                     <img src="/resources/images/순덕이.png" id="postPic">
                 </div>
+                <div id="date">날짜</div>
                 <div id="postContent">
                     <div class="paragraph">
 
@@ -63,30 +63,30 @@
                 <div id="postContent">
                     <div id="row1">
                         <strong>
-                            <!-- span 태그로 숫자 변경되게 해야 함(js)-->
-                            43,564 
-                            have signed, 
+                            <%-- 좋아요 클릭 한 사람 수 --%>
+                            <span id="likeCount">0</span> 
+                            명이 서명했습니다.
                         </strong>
-                        Let's get to 50,000!
+                        50000명을 향해!!
                     </div>
-                    <progress id="progress" value="35000" min="0" max="50000" ></progress>
+                    <progress id="progress" value="0" min="0" max="50000" ></progress>
                     <div id="row2">
-                        다음목표까지 서포터 단
+                        청원 달성까지 서포터 단
                         <strong>
-                            <!-- span 태그로 숫자 변경되게 해야 함(js)-->
-                            33
+                            <!-- 청원 달성 위해 남은 사람의 수-->
+                            <span id="remainNumber">50000</span>
                             명만 더!
                         </strong> 
                     </div>
                     <div id="row3">
                         <div id="row3-1">
                             <!-- 임시이미지 -->
-                            <img src="/resources/images/순덕이.png" id="arrow">
+                            <i class="fa-solid fa-arrow-trend-up fa-sm" id="arrow"></i>
                         </div>
                         <div id="row3-2">
-                            this petition becomes one of the 
+                            이 청원은 서명된 청원 중에서 
                             <strong>
-                                top signed on VOTE!
+                                순위권이 높은 청원이 됩니다!
                             </strong>
                         </div>
                     </div>
@@ -112,11 +112,23 @@
                 <div id="check">
                     <input type="checkbox" id="agree">
                     <label for="agree">
-                        Display my name and comment on this petition
+                        이 청원에 이름과 댓글을 표시합니다.
                     </label>
                 </div>
+                <%-- 댓글창 --%>
+                <div id="commentPlace">
+                    <form action="browse/comment" method="POST" id="commentFrm">
+                        <div id="wrtComment">
+                            <textarea name="" id="commentContent" cols="10" rows="100" placeholder=" - 띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
+                        </div>
+                    </form>
+                    <div id="countComment">
+                        <span id="count">0</span>자 / 1000자
+                    </div>
+                </div>
+                <%-- 좋아요 버튼 --%>
                 <div>
-                    <button id="signButton" onclick="document.getElementById('progress').value += 1;">Sign this petition</button>
+                    <button id="signButton" >좋아요!</button>
                 </div>
             </div>
         </section>
@@ -128,7 +140,7 @@
         
         
         <!-- 추천게시글 -->
-        <section class="middle">
+        <%-- <section class="middle">
             <div id="trandPeti">
                 Trending petitions
             </div>
@@ -154,13 +166,13 @@
             <div>
                 <button type="button" id="moreView">더보기</button>
             </div>
-        </section>
+        </section> --%>
         
     </main>
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 
-    <script src="/resources/js/browse/petitionView.js"></script>
+    <script src="/resources/js/browse/petitionView/updates_detail.js"></script>
 </body>
 </html>

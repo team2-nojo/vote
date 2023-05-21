@@ -1,26 +1,3 @@
-const startBtn = document.getElementById("startBtn");
-
-startBtn.addEventListener("click", ()=>{
-    location.href="writePetition.jsp"; 
-});
-
-
-const commentMore = document.getElementById("commentMore");
-
-commentMore.addEventListener("click", ()=>{
-    location.href="comments.jsp"; 
-});
-
-
-
-const reportClick = document.getElementById("reportClick");
-
-reportClick.addEventListener("click", ()=>{
-    window.open("/browse/petitionView/report_popUp", "신고팝업", "width=450, hight=450px");
-    
-});
-
-
 // 좋아요 버튼 누르면 게이지 올라감, 좋아요 누른 사람 수 & 남은 사람 수 표시
 const signButton = document.getElementById("signButton");
 const progress = document.getElementById("progress");

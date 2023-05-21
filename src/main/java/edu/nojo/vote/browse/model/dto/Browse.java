@@ -1,9 +1,7 @@
 package edu.nojo.vote.browse.model.dto;
 
 
-import java.util.List;
 
-import edu.nojo.vote.main.model.dto.Petition;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,9 +9,21 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BrowsePetition {
+public class Browse {
+	
+	private int userNo;						// 회원 번호
+	private String userImage;				// 회원 이미지
+	private String userNickname;			// 회원 닉네임
+	
 	
 
+	
+	
+	// comment
+	private int commentNo;
+	private String commentContent;
+	private String commentDate;
+	private String commentDelFl;
 
 	
 	
@@ -22,12 +32,7 @@ public class BrowsePetition {
 	private int commentRESP;
 	
 
-    // comment
-	private int commentNo;
-	private String commentContent;
-	private String commentDate;
-	private String commentDelFl;
-	
+   
 	
 	// update
 	private int updateNo;

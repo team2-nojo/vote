@@ -117,7 +117,22 @@ body{
     margin: 10px;
 }
 
-#updatesFrame{
+
+
+
+.slide{
+    width: 550px;
+    height: 500px;
+    overflow: hidden;
+}
+
+
+.frame{
+    display: flex;
+    
+}
+
+.updatesFrame{
     width: 480px;
     height: 480px;
     border: 1px solid #ccc;
@@ -126,8 +141,8 @@ body{
     
 }
 
-#updatesImg{
-    width: 100%;
+.updatesImg{
+    width: 480px;
     height: 250px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -135,7 +150,7 @@ body{
 }
 
 
-#updatesTitle{
+.updatesTitle{
     font-weight: bold;
     font-size: 15px;
     color: black;
@@ -144,11 +159,11 @@ body{
     
 }
 
-#updatesC, #updatesT{
+.updatesC, .updatesT{
     margin: 10px;
 }
 
-#updatesContent{
+.updatesContent{
     font-size: 12px;
     color: black;
     text-decoration: none;
@@ -157,7 +172,7 @@ body{
     
 }
 
-#updatesProfile{
+.updatesProfile{
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -166,7 +181,7 @@ body{
 }
 
 
-#profileImg{
+.profileImg{
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -189,6 +204,18 @@ body{
     background-color: white;
     border: 3px solid #ccc;
     border-radius: 5px;
+    margin-left: 10px;
+
+}
+
+#rightBtn:active{
+    background-color: #ccc;
+}
+
+
+#rightBtn:disabled{
+    background: #020202;
+    border: 3px solid #020202;
 }
 
 
@@ -206,4 +233,14 @@ body{
     background-color: white;
     border: 3px solid #ccc;
     border-radius: 5px;
+    margin-right: 10px;
+}
+
+#leftBtn:active{
+    background-color: #ccc;
+}
+
+
+.move{
+    transform: translateX(480px)
 }

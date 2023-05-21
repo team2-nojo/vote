@@ -35,34 +35,92 @@
         <!-- updates -->
         <section id="updatesSection2">
             <button type="button" id="leftBtn"><a href="#" id="left">&lang;</a></button>
-            
-            <div id="updatesFrame">
-                <div id="cImage">
-                    <a href="/browse/petitionView/updates_detail"><img src="/resources/images/순덕이.png" alt="업데이트사진" id="updatesImg"></a>
-                </div>
-                <div id="updatesT">
-                    <a href="/browse/petitionView/updates_detail" id="updatesTitle">
-                        업데이트 제목
-                    </a>
-                </div>
-                <div id="updatesC">
-                    <a href="/browse/petitionView/updates_detail" id="updatesContent">
-                        업데이트 내용 업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용
-                    </a>
-                </div>
-                <div id="updatesProfile">
-                    <div>
-                        <a href="/browse/petitionView/updates_detail" id="updatesProfileImg">
-                            <img src="/resources/images/순덕이.png" alt="프로필사진" id="profileImg">
-                        </a>
+            <div class="slide">
+                <div class="frame">
+
+                    <div class="updatesFrame">
+                        <div class="cImage">
+                            <a href="/browse/petitionView/updates_detail"><img src="/resources/images/순덕이.png" alt="업데이트사진" class="updatesImg"></a>
+                        </div>
+                        <div class="updatesT">
+                            <a href="/browse/petitionView/updates_detail" class="updatesTitle">
+                                업데이트 제목
+                            </a>
+                        </div>
+                        <div class="updatesC">
+                            <a href="/browse/petitionView/updates_detail" class="updatesContent">
+                                업데이트 내용 업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용
+                            </a>
+                        </div>
+                        <div class="updatesProfile">
+                            <div>
+                                <a href="/browse/petitionView/updates_detail" class="updatesProfileImg">
+                                    <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
+                                </a>
+                            </div>
+                            <div>
+                                <div class="uNickname">닉네임</div>
+                                <div class="uDate">등록시간</div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div id="uNickname">닉네임</div>
-                        <div id="uDate">등록시간</div>
+
+                    <div class="updatesFrame">
+                        <div class="cImage">
+                            <a href="/browse/petitionView/updates_detail"><img src="/resources/images/순덕이.png" alt="업데이트사진" class="updatesImg"></a>
+                        </div>
+                        <div class="updatesT">
+                            <a href="/browse/petitionView/updates_detail" class="updatesTitle">
+                                업데이트 제목
+                            </a>
+                        </div>
+                        <div class="updatesC">
+                            <a href="/browse/petitionView/updates_detail" class="updatesContent">
+                                업데이트 내용 업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용
+                            </a>
+                        </div>
+                        <div class="updatesProfile">
+                            <div>
+                                <a href="/browse/petitionView/updates_detail" class="updatesProfileImg">
+                                    <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
+                                </a>
+                            </div>
+                            <div>
+                                <div class="uNickname">닉네임</div>
+                                <div class="uDate">등록시간</div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="updatesFrame">
+                        <div class="cImage">
+                            <a href="/browse/petitionView/updates_detail"><img src="/resources/images/순덕이.png" alt="업데이트사진" class="updatesImg"></a>
+                        </div>
+                        <div class="updatesT">
+                            <a href="/browse/petitionView/updates_detail" class="updatesTitle">
+                                업데이트 제목
+                            </a>
+                        </div>
+                        <div class="updatesC">
+                            <a href="/browse/petitionView/updates_detail" class="updatesContent">
+                                업데이트 내용 업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용
+                            </a>
+                        </div>
+                        <div class="updatesProfile">
+                            <div>
+                                <a href="/browse/petitionView/updates_detail" class="updatesProfileImg">
+                                    <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
+                                </a>
+                            </div>
+                            <div>
+                                <div class="uNickname">닉네임</div>
+                                <div class="uDate">등록시간</div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-
             <button type="button" id="rightBtn"><a href="#" id="right">&rang;</a></button>
         </section>
 

@@ -12,9 +12,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Like;
@@ -36,7 +42,7 @@ public class MyPetitionsDashboardController {
 							  @SessionAttribute User loginUser
 							, Model model
 							, @PathVariable("petitionNo") int petitionNo
-									) throws ParseException {
+									) throws ParseException{
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("loginUserNo", loginUser.getUserNo());
@@ -64,11 +70,9 @@ public class MyPetitionsDashboardController {
 	        long hoursDif = (timeDif % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000); // 시간
 	        long minutesDif = (timeDif % (60 * 60 * 1000)) / (60 * 1000); // 분
 
-	        like.setPetitionLikeDate(daysDif+"일 "+hoursDif+"시 "+minutesDif+"분");
+	        like.setPetitionLikeDate(daysDif+"일 "+hoursDif+"시간 "+minutesDif+"분");
 			
 		}
-		
-		
 		
 		model.addAttribute("myPetition", myPetition);
 		model.addAttribute("likeUserList", likeUserList);
@@ -78,28 +82,23 @@ public class MyPetitionsDashboardController {
 	}
 	
 	
-	// myPetitionEdit 페이지로 이동
-	@GetMapping("/myPetitionEdit/{petitionNo}")
-	public String myPetitionEdit(
-							@SessionAttribute User loginUser
-							, Model model
-							, @PathVariable("petitionNo") int petitionNo
-								) {
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("loginUserNo", loginUser.getUserNo());
-		map.put("petitionNo", petitionNo);
-		
-		// 청원 조회 서비스 호출
-		Petition myPetition = service.selectMyPetition(map);
-		
-		model.addAttribute("myPetition", myPetition);
-		
-		return "/myPetitions/myPetitionEdit";
+	@PostMapping(value="/selectSuppoter", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<Like> selectSuppoter(@RequestBody String petitionNo) {
+		int pno = Integer.parseInt(petitionNo);
+		return service.resetlikeUserList(pno);
+	}
+	
+	@PostMapping(value="/selectComment", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<Like> selectComment(@RequestBody String petitionNo) {
+		int pno = Integer.parseInt(petitionNo);
+		return service.resetcommentList(pno);
 	}
 	
 	
-	// 내가 작성한 청원글 대시보드 화면 구성 컨트롤
+	
+	
 	
 	// 작성된 글 상태 확인후 추가가능한 부분 체크리스트
 	

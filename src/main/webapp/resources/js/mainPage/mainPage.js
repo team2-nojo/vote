@@ -26,13 +26,9 @@ const hiddenPetitionViewCount = document.querySelectorAll(
   'input[type="hidden"][name="petitionViewCount"]'
 );
 
-
-
-
 smallNews[0].style.borderBottom = '6px solid #2DB400';
 
 newsTitles[0].lastChild.style.color = 'rgba(40, 144, 5, 1)';
-
 
 smallNews.forEach((newBox, index) => {
   newBox.addEventListener('click', () => {
@@ -68,38 +64,53 @@ smallNews.forEach((newBox, index) => {
   });
 });
 
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
-const button = document.getElementById('btn2');
-const petitionContainer = document.getElementById('petitionContainer');
-const itemsPerLoad = 3;
-let currentIndex = 0;
 
-button.addEventListener('click', loadMorePetitions);
+var start = 3; // 시작 인덱스
+var limit = 3;
 
-function loadMorePetitions() {
-  // 이벤트 핸들러에서 호출될 함수
-}
-function loadMorePetitions() {
-  for (let i = currentIndex; i < currentIndex + itemsPerLoad; i++) {
-    if (i >= mainPetitionList.length) {
-      // 더 이상 표시할 항목이 없으면 버튼을 비활성화하고 종료
-      button.disabled = true;
-      return;
+document.getElementById('loadButton').addEventListener('click', function () {
+  // AJAX 요청
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // 서버로부터 응답 데이터 받음
+        var response = JSON.parse(xhr.responseText);
+
+        // 받은 데이터로 <li> 요소 생성 및 추가
+        var petitionContainer = document.getElementById('petitionContainer');
+        for (var i = 0; i < response.length; i++) {
+          var mainPetition = response[i];
+          var li = document.createElement('li');
+          li.className = 'content pettition1';
+          li.innerHTML = `
+            <div class="pettition1 pet-title">
+              <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
+              <span>Trending in Environment</span>
+              <a href="#" style="text-decoration: underline;">See more</a>
+            </div>
+            <div class="pettition1 article">
+              <div class="article-title"><h3>${mainPetition.petitionTitle}</h3></div>
+              <div>
+                <div>${mainPetition.petitionContent}<a href="#">더보기</a></div>
+              </div>
+              <div class="photo"><img src="${mainPetition.petitionImage}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
+            </div>
+            <div class="pettition1 id">
+              <span id="id-profile"><img src="${mainPetition.userImage}" style="height: 28px; margin: 5px;" class="profile-image"></span>
+              <span>${mainPetition.userNickname}</span>
+              <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>${mainPetition.petitionLikeCount} Supporters</a>
+            </div>
+          `;
+          petitionContainer.appendChild(li);
+        }
+      } else {
+        // 서버 오류 처리
+        console.error('Error: ' + xhr.status);
+      }
     }
-
-    const mainPetition = mainPetitionList[i];
-
-    // 표시할 항목을 생성하여 petitionContainer에 추가
-    const petitionItem = document.createElement('li');
-    petitionItem.classList.add('content', 'pettition1');
-
-    // petitionItem 내부 요소 생성 및 추가
-
-    petitionContainer.appendChild(petitionItem);
-  }
-
-  // 인덱스 업데이트
-  currentIndex += itemsPerLoad;
-}
+  };
+  xhr.open('GET', '/load-petitions', true);
+  xhr.send();
+});

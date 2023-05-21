@@ -51,5 +51,12 @@ public class MainPageDAO {
 	public List<Petition> selectPetition() {
 		return sqlSession.selectList("mainPageMapper.selectPetition");
 	}
-	
+
+
+
+
+
+
+
+
 }

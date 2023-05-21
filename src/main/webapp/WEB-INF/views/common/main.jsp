@@ -81,8 +81,8 @@
     <section class="main-section">
       <div class="container4">
         <div>
-         <ul class="content2">
-           <c:forEach var="mainPetition" items="${mainPetitionList}">
+         <ul class="content2" id="petitionContainer">
+           <c:forEach var="mainPetition" items="${mainPetitionList}" begin="0" end="3">
             <li class="content pettition1">
             <div class="pettition1 pet-title">
               <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
@@ -105,7 +105,7 @@
           </li>
             </c:forEach>
         </ul>
-        <button class="moreBtn" id="btn2">버튼</button>
+       <button id="loadButton" type="button">클릭</button>
       </div>
 
 
@@ -128,7 +128,7 @@
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     <%-- main.js --%>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/resources/js/mainPage/mainPage.js"></script>
   <script>
     const userImg = $

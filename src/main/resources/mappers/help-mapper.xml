@@ -3,7 +3,7 @@
 <mapper namespace="HelpMapper">
 
 <resultMap type="edu.nojo.vote.help.model.dto.QNA3" id="QNA3_rm">
-	<result property="qnaContent" column="QNA_CONT" jdbcType="CLOB" javaType="String" />
+	<!-- <result property="qnaContent" column="QNA_CONT" jdbcType="CLOB" javaType="String" /> -->
 	<result property="qnaNo" column="QNA_NO" />	
 	<result property="qnaCatCode" column="QNA_CAT_CODE" />
 	<result property="qnaStatus" column="QNA_STATUS" />
@@ -13,6 +13,7 @@
     <result property="qnacompletedt" column="QNA_COMPLETED_DT" />
     <result property="qnaDelFl" column="QNA_DEL_FL" />
     <result property="userNo" column="USER_NO" />
+    <result property="qnaCont" column="QNA_CONT" />
     
 </resultMap>
 
@@ -58,17 +59,14 @@
 		
 	</insert>
 
-    <select id="selectqna" resultMap="QNA3_rm">
-		SELECT QNA_NO, QNA_TITLE, QNA_CONT, QNA_CAT_CODE,
-		USER_NICKNAME, USER_NO
-		TO_CHAR(QNA_CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') QNA_CREATE_DT,
-		TO_CHAR(QNA_UPDATE_DATE, 'YYYY"년" MM"월" DD"일" HH24:MI:SS')
-		QNA_CREATE_DT
-		FROM "QNA" Q
-		JOIN "USER" USING(USER_NO)
-		WHERE QNA_DEL_FL = 'N'
-		AND QNA_CODE = #{qnaCode}
-		AND QNA_NO = #{qnaNo}
+	<select id="selectqna" resultMap="QNA3_rm">
+		SELECT Q.QNA_NO, Q.QNA_TITLE, Q.QNA_CONT, U.USER_NICKNAME,
+		TO_CHAR(Q.QNA_CREATE_DT, 'YYYY"년" MM"월" DD"일') AS QNA_CREATE_DT
+		FROM QNA Q
+		JOIN "USER" U ON Q.USER_NO = U.USER_NO
+		WHERE Q.QNA_DEL_FL = 'N'
+		AND Q.QNA_NO = #{qnaNo}
+
 	</select>
 	
 </mapper>

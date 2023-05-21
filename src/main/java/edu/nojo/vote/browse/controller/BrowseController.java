@@ -28,7 +28,7 @@ public class BrowseController {
 	private BrowseService service;
 
 	@Autowired
-	private CommentService service;
+	private CommentService service2; // 똑같은 변수로 선언하면 오류뜹니다.
 	
 	
 	// browse 페이지 이동(featured)
@@ -87,7 +87,7 @@ public class BrowseController {
 	public String comments(Model model, @PathVariable("petitionNo") int petitionNo) {
 		
 		// 해당 청원에 대한 댓글 조회
-		List<Browse> commentList = service.selectComments(petitionNo);
+		List<Browse> commentList = service2.selectComments(petitionNo);
 //		System.out.println(commentList);
 		
 		model.addAttribute("commentList", commentList);

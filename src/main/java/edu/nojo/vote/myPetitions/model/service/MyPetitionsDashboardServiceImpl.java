@@ -30,5 +30,18 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 		return dao.selectlikeUserList(petitionNo);
 	}
 	
+	// 청원 좋아요 누른 회원 리스트 최신화
+	@Override
+	public List<Like> resetlikeUserList(int pno) {
+		return dao.resetlikeUserList(pno);
+	}
+	
+	// 댓글 목록 조회
+	@Override
+	public List<Like> resetcommentList(int pno) {
+		return dao.resetcommentList(pno);
+	}
+	
+	
 	
 }

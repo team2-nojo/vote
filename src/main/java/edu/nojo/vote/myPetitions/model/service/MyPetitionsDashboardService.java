@@ -21,5 +21,17 @@ public interface MyPetitionsDashboardService {
 	 */
 	List<Like> selectlikeUserList(int petitionNo);
 
+	/** 청원 좋아요 누른 회원 리스트 최신화
+	 * @param pno
+	 * @return
+	 */
+	List<Like> resetlikeUserList(int pno);
+
+	/** 댓글 목록 조회
+	 * @param pno
+	 * @return
+	 */
+	List<Like> resetcommentList(int pno);
+
 
 }

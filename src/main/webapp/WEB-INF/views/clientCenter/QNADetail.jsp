@@ -3,7 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
 <c:forEach items="${qnaTypeList}" var="qnaType">
-    <c:if test="${qnaType.QNA_CAT_CODE == qnaCatCode}" >
+    <c:if test="${qnaType.QNA_CAT_CODE eq qnaCatCode}">
         <c:set var="qnaName" value="${qnaType.QNA_NAME}"/>
     </c:if>
 </c:forEach>
@@ -24,15 +24,15 @@
     
 <div class="content">
 <section class="board-detail">  
-<h1 class="board-title">${qna.qnaTitle}  <span> - ${qnaTitle}</span>    </h1>
+<h1 class="board-title">${qna.qnaTitle}  <span> - ${qnaName}</span>    </h1>
 
             <div class="board-header">
                 <div class="board-writer">
 
-                    <span>${User.userNickname}</span>
+                    <span>${qna.userNickname}</span>
 
                 <div class="board-info">
-                    <p> <span>작성일</span> ${qna3.qnaCreateDt} </p>     
+                    <p> <span>작성일</span> ${qna.qnaCreateDt} </p>     
 
                     <!-- 수정한 게시글인 경우 -->
                     <c:if test="${not empty qna.qnaUpdateDate}" >
@@ -45,7 +45,7 @@
 
  <div class="board-content">${qna.qnaCont}</div>
 <div class="board-btn-area">
-                <c:if test="${loginUser.userNo == qna.qnaNo}" >
+                <c:if test="${loginUser.userNo qna.qnaNo}" >
                 <button id="updateBtn">수정</button>
                 <button id="deleteBtn">삭제</button>
                 </c:if>

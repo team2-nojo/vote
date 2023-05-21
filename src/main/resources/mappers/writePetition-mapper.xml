@@ -6,9 +6,52 @@
 		<id property="categoryNo" column="CAT_NO" />
 		<result property="categoryName" column="CAT_NAME" />
 		<result property="categoryMainFl" column="CAT_MAIN_FL" />
+		<result property="boardNo" column="BOARD_NO" />
 	</resultMap>
 
 	<select id="selectPetitionCategoryList" resultMap="petition_category_rm">
 		SELECT CAT_NO, CAT_NAME FROM PETITION_CATEGORY_LIST WHERE CAT_MAIN_FL = 'Y'
 	</select>
+	
+	<select id="selectCategoryList" resultType="string">
+		SELECT CAT_NO FROM PETITION_CATEGORY_LIST WHERE CAT_NAME=#{categoryName}
+	</select>
+	
+	<insert id="insertCategoryList">
+		INSERT INTO "PETITION_CATEGORY_LIST"
+		VALUES (
+			SEQ_CAT_NO.NEXTVAL,
+			#{categoryName},
+			DEFAULT
+		)
+	</insert>
+	
+	<insert id="insertPetition" parameterType="petition" useGeneratedKeys="true">
+		<selectKey order="BEFORE" resultType="_int" keyProperty="petitionNo">
+			SELECT SEQ_PT_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO "PETITION"
+		VALUES (
+			#{petitionNo},
+			#{petitionTitle},
+			#{petitionContent},
+			DEFAULT,
+			DEFAULT,
+			DEFAULT,
+			<if test="petitionImage == null">
+			NULL,
+			</if>
+			<if test="petitionImage != null">
+			#{petitionImage},
+			</if>
+			DEFAULT,
+			#{userNo}
+		)
+	</insert>
+	
+	<insert id="insertCategory">
+		INSERT INTO PETITION_CATEGORY VALUES(
+			#{categoryNo}, #{boardNo}
+		)
+	</insert>
 </mapper>

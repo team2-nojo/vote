@@ -18,6 +18,9 @@
 		<typeAlias type="edu.nojo.vote.main.model.dto.Petition" alias="Petition" />
 		<typeAlias type="edu.nojo.vote.myPetitions.model.dto.Like" alias="Like" />
 		<typeAlias type="edu.nojo.vote.browse.model.dto.Browse" alias="Browse" />
+		<typeAlias type="edu.nojo.vote.myPetitions.model.dto.Comment" alias="Comment" />
+		<typeAlias type="edu.nojo.vote.browse.model.dto.BrowsePetition" alias="BrowsePetition" />
+
 		
 	</typeAliases>
 	

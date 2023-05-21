@@ -13,7 +13,7 @@
       <ul>
         <li><a class="header-a" id="startPetitions" href="/writePetition">청원시작</a></li>
         <li><a class="header-a" id="myPetitions" href="/myPetitions/myPetitions">나의 청원</a></li>
-        <li><a class="header-a" id="browse" href="/browse/browse_search/featured">검색</a></li>
+        <li><a class="header-a" id="browse" href="/browse/browse_search/popular">검색</a></li>
         <li><a class="header-a" id="Help" href="/clientCenter/FAQ">고객센터</a></li>
         <%-- 임시 --%>
         <div style="width: 150px; height: 57px; display:flex; flex-wrap: wrap; ">
@@ -68,7 +68,7 @@
 
             <c:choose>
               <c:when test="${not empty loginUser.userImage}">
-                <img class="user-Image" src="${loginUser.userImage}" />
+                <img class="user-image" src="${loginUser.userImage}" />
               </c:when>
               <c:otherwise>
                 <i class="fa-sharp fa-solid fa-user header-a"></i>

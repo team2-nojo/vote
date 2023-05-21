@@ -10,7 +10,7 @@
     <title>브라우저 게시글 조회(popular)</title>
 
     <%-- popular.css --%>
-    <link rel="stylesheet" href="/resources/css/browse/browse_search/popular.css">
+    <link rel="stylesheet" href="/resources/css/browse/browse_search/browse_search.css">
     
 </head>
 <body>
@@ -25,41 +25,40 @@
                 서명할 청원을 검색해주세요.
             </div>
             <div class="menu" id="menu">
-                <div><a href="/browse/browse_search/featured" id="featured">Featured</a></div>
-                <div id="popular">Popular</div>
+                <div id="now">Popular</div>
                 <div><a href="/browse/browse_search/recent" id="recent">Recent</a></div>
                 <div><a href="/browse/browse_search/victories" id="victories">Victories</a></div>
             </div>
         </section>
 
         <section class="middle">
-            인기청원 내림차순(좋아요 많은 순)
-            <div class="result">
-                <a href="/browse/petitionView/details" class="result1">
-                    <div class="row" id="rowPicture">
-                        <img src="/resources/images/순덕이.png" class="picture">
-                    </div>
-                    <div class="row">
-                        <div class="column" id="column-1">
-                            <div id="title">
-                                서울시 종로구 순덕이 출현
+            <c:forEach items="${popularList}" var="petition">
+                <div class="result">
+                    <a href="/browse/petitionView/details" class="result1">
+                        <div class="row" id="rowPicture">
+                            <img src="/${petition.petitionImage}" class="picture">
+                        </div>
+                        <div class="row">
+                            <div class="column" id="column-1">
+                                <div id="title">
+                                    ${petition.petitionTitle}
+                                </div>
+                                <div id="content">
+                                    ${petition.petitionContent}
+                                    <a href="/browse/petitionView/details" id="readMore"> Read more</a>
+                                </div>
                             </div>
-                            <div id="content">
-                                내용내용내용내용내용내용내용내용내용내용내용내용내
-                                <a href="/browse/petitionView/details" id="readMore"> Read more</a>
+                            <div class="column" id="column-2">
+                                <progress id="progress" value="35000" min="0" max="50000" ></progress>
+                                <div id="value"></div>
+                                <div id="goal">
+                                    <span id="count">${petition.petitionLikeCount}</span>of 50,000 goal
+                                </div>
                             </div>
                         </div>
-                        <div class="column" id="column-2">
-                            <progress id="progress" value="35000" min="0" max="50000" ></progress>
-                            <div id="value"></div>
-                            <div id="goal">
-                                <span id="count">0</span>of 50,000 goal
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
+                    </a>
+                </div>
+            </c:forEach>
         </section>
         <section>
             <div>

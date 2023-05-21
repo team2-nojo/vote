@@ -22,6 +22,7 @@
   <main>
     <div class="title">
       <nav>
+        <input id="petitionNo" type="hidden" value="${petitionNo}">
         <c:choose>
           <c:when test="${not empty MP}">
             <div class="nav-title">
@@ -93,23 +94,15 @@
           </div>
           <div class="agree">
             <div class="support" id="contentFrame">
-              <div class="agree-top"><h3>최신 서포터 목록</h3></div>
+              <div class="agree-top">
+                <h3>최신 서포터 목록</h3>
+                <span>4분전 </span>
+                <button id="supportBtn" type = "button">
+                  <i class="fa-solid fa-arrows-rotate"></i>최신화
+                </button>
+              </div>
               <div class="support-list">
-                <ul>
-                  <c:forEach items="${UL}" var="likeUser">
-                    <li>
-                      <c:choose>
-                        <c:when test="${not empty likeUser.userImage}">
-                          <span><img id="profile" src="${likeUser.userImage}"></span>
-                        </c:when>
-                        <c:otherwise>
-                          <span><img id="profile" src="/resources/images/common/user.png"></span>
-                        </c:otherwise>
-                      </c:choose>
-                      <span id="nickName">${likeUser.userNickname}님</span>
-                      <span id="date"><i class="fa-solid fa-clock"></i> ${likeUser.petitionLikeDate} 전</span>
-                    </li>
-                  </c:forEach>
+                <ul id="supportList">
                 </ul>
               </div>
               <div class="agree-L">
@@ -127,33 +120,17 @@
           </div>
         </div>
         <div class="content-right">
-          <div class="share">
-            <div class="share-content" id="contentFrame">
+          <div class="comment">
+            <div id="contentFrame">
               <div>
-                <div><h3>당신의 청원을 공유하세요</h3></div>
-                <div>
-                  <p>
-                    성공적인 청원 시작자들은 약 12번의 청원을 공유합니다. 가능한 한 다양한 플랫폼에서 공유하고 추진력을 높이기 위해 다른 사람들에게 청원서에 서명하고 공유하도록 요청하세요!
-                  </p>
-                </div>
+                <h3>댓글 목록</h3>
+                <span> 4분전 </span>
+                <button id="commentReset" type = "button">
+                  <i class="fa-solid fa-arrows-rotate"></i>최신화
+                </button>
               </div>
-              <div>
-                <div class="input-url">
-                  <input type="url" value="https://chng.it/Sz2tMGgB">
-                  <button><i class="fa-solid fa-link"></i>   복사</button>
-                </div>
-              </div>
-              <div class="share-link">
-                <div> <a id="linkBtn">링크 수정</a> 더 쉽게 공유할수 있도록 수정하세요!</div>
-              </div>
-              <div>
-                <div class="out-link">
-                  <div><button><i class="fa-brands fa-facebook"></i> 페이스북</button></div>
-                  <div><button><i class="fa-brands fa-square-twitter"></i> 트위터</button></div>
-                  <div><button><i class="fa-regular fa-envelope"></i> 이메일</button></div>
-                  <div><button><i class="fa-sharp fa-solid fa-phone"></i> 카카오톡</button></div>
-                </div>
-              </div>
+              <ul id="commentList">
+              </ul>
             </div>
           </div>
           <div class="reflesh">
@@ -173,9 +150,28 @@
               </div>
             </div>
           </div>
-          <div class="marketing">
-            <div id="contentFrame">
-              <div><h3>댓글 목록</h3></div>
+          <div class="share">
+            <div class="share-content" id="contentFrame">
+              <div>
+                <h3 id="shareTitle">
+                  <span>당신의 청원을 공유하세요</span>
+                  <span>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-square-twitter"></i>
+                    <i class="fa-regular fa-envelope"></i>
+                    <i class="fa-sharp fa-solid fa-phone"></i>
+                  </span>
+                </h3>
+              </div>
+              <div>
+                <p>
+                  성공적인 청원 시작자들은 약 12번의 청원을 공유합니다. 가능한 한 다양한 플랫폼에서 공유하고 추진력을 높이기 위해 다른 사람들에게 청원서에 서명하고 공유하도록 요청하세요!
+                </p>
+              </div>
+              <div class="input-url">
+                <input type="url" value="https://chng.it/Sz2tMGgB">
+                <button><i class="fa-solid fa-link"></i>   복사</button>
+              </div>
             </div>
           </div>
         </div>

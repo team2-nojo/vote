@@ -32,6 +32,22 @@ public class MyPetitionsDashboardDAO {
 	public List<Like> selectlikeUserList(int petitionNo) {
 		return sqlSession.selectList("myPetitionsMapper.selectlikeUserList", petitionNo);
 	}
+
+	/** 청원 좋아요 누른 회원 리스트 최신화
+	 * @param pno
+	 * @return
+	 */
+	public List<Like> resetlikeUserList(int petitionNo) {
+		return sqlSession.selectList("myPetitionsMapper.resetlikeUserList", petitionNo);
+	}
+
+	/** 댓글 목록 조회
+	 * @param pno
+	 * @return
+	 */
+	public List<Like> resetcommentList(int petitionNo) {
+		return sqlSession.selectList("myPetitionsMapper.resetcommentList", petitionNo);
+	}
 	
 	
 	

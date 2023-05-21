@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="browseMapper">
-	<resultMap type="edu.nojo.vote.main.model.dto.Petition" id="petition_rm">
+
+
+
+	<resultMap type="Petition" id="petition_rm">
 		<result property="petitionContent" column="PT_CONTENT" jdbcType="CLOB" javaType="String" />
 		 <result property="petitionNo" column="PT_NO" />
       	<result property="petitionTitle" column="PT_TITLE" />
@@ -19,7 +22,8 @@
       	<result property="categoryNo" column="CAT_NO" />
       	<result property="categoryName" column="CAT_NAME" />
       	
-      	<result property="petitionLikeCount" column="PT_LIKE_NO" />
+
+      	<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
       	
       	
       	
@@ -74,6 +78,9 @@
       	<result property="categoryMainFl" column="CAT_MAIN_FL" />
 
 </resultMap>
+
+
+	
 	
 	
 
@@ -86,7 +93,70 @@
 	</select>
 	
 
+	<!-- 인기 순으로 조회 -->
+	<select id="popular" resultMap="petition_rm">
+		SELECT PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, PT_LIKE_COUNT, USER_NO, USER_IMG, USER_NICKNAME
+		FROM		(SELECT 
+					PT_NO,
+					PT_TITLE , 
+					PT_CONTENT , 
+					PT_IMG, 
+					(SELECT COUNT(*) FROM "PETITION_LIKE" WHERE P.PT_NO = PT_NO) PT_LIKE_COUNT,
+					USER_NO,
+					USER_IMG,
+					USER_NICKNAME,
+					RANK() OVER (ORDER BY (SELECT COUNT(*) FROM "PETITION_LIKE" WHERE P.PT_NO = PT_NO) DESC) PT_RANK
+					FROM PETITION P
+					JOIN "USER" USING (USER_NO)
+					WHERE PT_DEL_FL = 'N')
+		WHERE PT_RANK <![CDATA[<]]>= 5
+	</select>
+
+	
+	<!-- 최신 순으로 조회 -->
+	<select id="recent" resultMap="petition_rm">
+		SELECT PT_NO, PT_DATE, PT_TITLE, PT_CONTENT, PT_IMG, PT_LIKE_COUNT, USER_NO, USER_IMG, USER_NICKNAME
+		FROM		(SELECT 
+					PT_NO,
+					PT_DATE,
+					PT_TITLE , 
+					PT_CONTENT , 
+					PT_IMG, 
+					(SELECT COUNT(*) FROM "PETITION_LIKE" WHERE P.PT_NO = PT_NO) PT_LIKE_COUNT,
+					USER_NO,
+					USER_IMG,
+					USER_NICKNAME,
+					RANK() OVER (ORDER BY PT_DATE DESC) PT_RANK
+					FROM PETITION P
+					JOIN "USER" USING (USER_NO)
+					WHERE PT_DEL_FL = 'N')
+		WHERE PT_RANK <![CDATA[<]]>= 5
+	</select>
 	
 	
+	<!-- 승리한 청원 최신 순으로 조회 -->
+	<select id="victories" resultMap="petition_rm">
+		SELECT PT_NO, PT_DATE, PT_TITLE, PT_CONTENT, PT_IMG, PT_LIKE_COUNT, USER_NO, USER_IMG, USER_NICKNAME
+		FROM		(SELECT 
+					PT_NO,
+					PT_DATE,
+					PT_TITLE , 
+					PT_CONTENT , 
+					PT_IMG, 
+					(SELECT COUNT(*) FROM "PETITION_LIKE" WHERE P.PT_NO = PT_NO) PT_LIKE_COUNT,
+					USER_NO,
+					USER_IMG,
+					USER_NICKNAME,
+					RANK() OVER (ORDER BY PT_DATE DESC) PT_RANK
+					FROM PETITION P
+					JOIN "USER" USING (USER_NO)
+					WHERE PT_DEL_FL = 'N'
+					AND PT_VICT = 'Y')
+		WHERE PT_RANK <![CDATA[<]]>= 5
+	</select>
+	
+	
+	
+
 	
 </mapper>

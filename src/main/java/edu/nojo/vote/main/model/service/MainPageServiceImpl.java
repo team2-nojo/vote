@@ -37,6 +37,9 @@ public class MainPageServiceImpl implements MainPageService {
 	public List<Petition> selectPetition() {
 		return dao.selectPetition();
 	}
+
+
+	
 	
 	
 }

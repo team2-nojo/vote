@@ -38,19 +38,19 @@
         <div id="menu-wrap1">
           <ul>
             <li class="head-menu" id="menu1">회원관리</li>
-            <li>
+            <li><a href="">
               <img
                 src="resources/images/mainPage/member_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />회원정보
+              />회원정보</a>
             </li>
-            <li>
+            <li><a href="/adminQnA">
               <img
                 src="resources/images/mainPage/ask_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />1:1 문의 내역
+              />1:1 문의 내역</a>
             </li>
           </ul>
         </div>
@@ -59,39 +59,39 @@
             <!-- 메뉴 아이템 1 -->
             <li id="menu2">청원 관리</li>
             <!-- 메뉴 아이템 2 -->
-            <li>
+            <li><a href="/adminPetitionList">
               <img
                 src="resources/images/mainPage/search_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />청원 글 조회
+              />청원 글 조회</a>
             </li>
             <!-- 메뉴 아이템 3 -->
-            <li>
+            <li><a href="">
               <img
                 src="resources/images/mainPage/content_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />컨텐츠 관리
+              />컨텐츠 관리</a>
             </li>
           </ul>
           <ul>
             <!-- 메뉴 아이템 1 -->
             <li id="menu3">인사이트</li>
-            <li>
+            <li><a href="">
               <img
                 src="resources/images/mainPage/dash_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />대시보드
+              />대시보드</a>
             </li>
             
-            <li>
+            <li><a href="">
               <img
                 src="resources/images/mainPage/donation_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />도네이션
+              />도네이션</a>
             </li>
             <ul>
               <li id="remove1"></li>

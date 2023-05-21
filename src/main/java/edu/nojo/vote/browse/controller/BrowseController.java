@@ -1,34 +1,56 @@
 package edu.nojo.vote.browse.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.nojo.vote.browse.model.service.BrowseService;
+import edu.nojo.vote.main.model.dto.Petition;
+
 
 @Controller
 @RequestMapping("/browse")
 public class BrowseController {
+
+	@Autowired
+	private BrowseService service;
 	
-	// browse 페이지 이동(featured)
-	@GetMapping("browse_search/featured")
-	public String featured() {
-		return "/browse/browse_search/featured";
-	}
 	
 	// browse 페이지 이동(popular)
 	@GetMapping("/browse_search/popular")
-	public String popular() {
+	public String popular(Model model) {
+		
+		// popular로 조회
+		List<Petition> popularList = service.popular();
+		model.addAttribute("popularList", popularList);
+		
 		return "/browse/browse_search/popular";
 	}
 	
 	// browse 페이지 이동(recent)
 	@GetMapping("/browse_search/recent")
-	public String recent() {
+	public String recent(Model model) {
+		
+		// recent로 조회
+		List<Petition> recentList = service.recent();
+		model.addAttribute("recentList", recentList);
+		
 		return "/browse/browse_search/recent";
 	}
 	
+	
 	// browse 페이지 이동(victories)
 	@GetMapping("/browse_search/victories")
-	public String victories() {
+	public String victories(Model model) {
+		
+		// victories 최신순으로 조회
+		List<Petition> victoriesList = service.victories();
+		model.addAttribute("victoriesList", victoriesList);
+		
 		return "/browse/browse_search/victories";
 	}
 	

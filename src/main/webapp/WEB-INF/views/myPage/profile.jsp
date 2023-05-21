@@ -37,6 +37,7 @@
                         </div>
                         <div class="userProfileID">${selectedUser.userNickname}</div>
                         <div class="userProfileLocation">${selectedUser.userAddress.split(" ")[0]}</div>
+                        <div class="userProfileLocation">${selectedUser.userAboutMe}</div>
                     </div>
                 </div>
                 <ul class="tabs"> <!-- 내가 시작한, 사인한 청원 목록 보는 탭 -->

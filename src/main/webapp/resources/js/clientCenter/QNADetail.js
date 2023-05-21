@@ -1,7 +1,7 @@
     // 로그인 여부 검사
-    if(loginYserNo == ""){
+    if(loginUserNo == ""){
         alert("로그인 후 이용해주세요")
-        return;
+        return; 
     }
 
     let check; // 기존에  좋아요 X(빈하트) : 0 
@@ -16,7 +16,7 @@
 
     // ajax로 서버로 제출할 파라미터를 모아둔 JS 객체
     const data = {"qnaNo" : qnaNo, 
-                    "UserNo" : loginUserNo,
+                    "userNo" : loginUserNo,
                     "check" : check};
 
     // 게시글 수정 버튼 클릭 시

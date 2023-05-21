@@ -26,7 +26,27 @@
       	
 	</resultMap>
 
-	<resultMap type="edu.nojo.vote.main.model.dto.Petition" id="bw_petition">
+	<resultMap type="User" id="user_rm">
+	
+		<id property="userNo" column="USER_NO" />
+		
+		<result property="userGrade" column="USER_GRADE" />
+		<result property="userImage" column="USER_IMG" />
+		<result property="userEmail" column="USER_EMAIL" />
+		<result property="userNickname" column="USER_NICKNAME" />
+		<result property="userPw" column="USER_PW" />
+		<result property="userAddress" column="USER_ADD" />
+		<result property="userAboutMe" column="USER_ABOUT_ME" />
+		<result property="userSocialLogin" column="USER_SOCIAL_LOGIN" />
+		<result property="userEnrollDate" column="USER_ENDROLL_DT" />
+		<result property="userDelFl" column="USER_DEL_FL" />
+	
+	</resultMap>
+
+
+	<resultMap type="edu.nojo.vote.browse.model.dto.Browse" id="browse">
+   
+
       	<result property="commentRESPNo" column="CM_RESP_NO" />
       	<result property="commentRESP" column="COMMENT_RESP" />
 
@@ -43,7 +63,7 @@
       	<result property="updateDelFl" column="UP_DEL_FL" />
       	
       	
-
+		<collection property="commentList" select="selectComments" column="PT_NO" javaType="java.util.ArrayList" ofType="Comment"/>
 	</resultMap>
 
 
@@ -56,22 +76,16 @@
 </resultMap>
 	
 	
-	<select id="selectBrowsePtList" resultMap="petition_rm" >
-		SELECT PT_TITLE, PT_CONTENT, PT_IMG, PT_LIKE_NO
-		FROM PETITION
-		JOIN "PETITION_LIKE"" USING(PT_NO)
-	</select>
-	
-	
-	<select id="selectBrowseCmList" resultMap="bw_petition" >
-		SELECT CM_CONTENT, CM_DATE, USER_NICKNAME, CM_RESP_NO 
+
+	<select id="selectComments" resultMap="browse" >
+		SELECT CM_CONTENT, CM_DATE, USER_NICKNAME, USER_IMG 
 		FROM "COMMENT"
 		JOIN "USER" USING(USER_NO)
-		JOIN "COMMENT_RESP" USING(CM_NO)
 		WHERE PT_NO = #{petitionNo}
+		ORDER BY CM_NO DESC
 	</select>
 	
-	
+
 	
 	
 	

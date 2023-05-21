@@ -30,37 +30,53 @@
         </section>
 
         <!-- comment -->
-        <section id="comment">
-            <div id="comment1">서명한 사유를 적어주세요.</div>
-            <div id="comment2">다른 지지자들이 서명하는 이유, 이 청원이 그들에게 중요한 이유를 확인하고 서명 이유를 공유합니다(이는 청원 시작자에게 큰 의미가 있을 것입니다).</div>
-            <div id="comment3">
-                <div id="commentFrame">
-                    <div id="cImage">
-                        <a href="#"><img src="/resources/images/순덕이.png" alt="프로필사진" id="profileImg"></a>
-                    </div>
-                    <div>
-                        <div id="cNickname">닉네임</div>
-                        <div id="cDate">등록시간</div>
-                    </div>
-                </div>
-                <div id="cContent">
-                    <div>
-                        내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                        내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                        내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                        내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                    </div>
-                </div>
-                <div id="commentLike">
-                    <div id="cHeart">하트</div>
-                    <div id="count">하트갯수</div>
-                </div>
-                <div>
-                    <a href="/browse/petitionView/report_popUp" id="report">신고하기</a>
-                </div>
-            </div>
-        </section>
+            <section id="comment">
+                <ul id="commentList">
+                    <li class="comment-row" >
+                        <div id="comment1">서명한 사유를 적어주세요.</div>
+                        <div id="comment2">다른 지지자들이 서명하는 이유, 이 청원이 그들에게 중요한 이유를 확인하고 서명 이유를 공유합니다.(이는 청원 시작자에게 큰 의미가 있을 것입니다.)</div>
+                        <div id="comment3">
+                            <div id="commentFrame">
+                                <div id="cImage">
+                                    ${User.userImage}
+                                    <a href="#"><img src="/resources/images/순덕이.png" alt="프로필사진" id="profileImg"></a>
+                                </div>
+                                <div>
+                                    <div id="cNickname">
+                                        ${User.userNickname}
+                                        대장
+                                    </div>
+                                    <div id="cDate">
+                                        ${commentList.commentDate}
+                                        오늘
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="cContent">
+                                <div>
+                                    ${commentList.Content}
+                                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                                </div>
+                            </div>
+                            <div id="commentLike">
+                                <div id="push">
+                                    <i class="fa-solid fa-thumbs-up fa-xl" style="color: #29c81e;"></i> <span>0</span>
+                                    <i class="fa-regular fa-thumbs-up fa-xl" style="color: #29c81e;"></i> <span>0</span>
+                                </div>
+                                <div id="push2">
+                                    <i class="fa-solid fa-thumbs-down fa-xl" style="color: #29c81e;"></i> <span>0</span>
+                                    <i class="fa-regular fa-thumbs-down fa-xl" style="color: #29c81e;"></i> <span>0</span>
+                                </div>
 
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
 
 
@@ -75,7 +91,7 @@
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-    <%-- comment.js --%>
-    <script src="/resources/js/browse/petitionView/comments.js"></script>
+    <%-- comments.js --%>
+    <%-- <script src="/resources/js/browse/petitionView/comments.js"></script> --%>
 </body>
 </html>

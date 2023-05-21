@@ -19,7 +19,7 @@ const checkObj = {
 };
 
 
-const doubleCheck = document.getElementById("doubleCheck");
+
 const userEmail = document.getElementById("email");
 const emailMessage = document.getElementById("emailMessage");
 
@@ -52,7 +52,7 @@ userEmail.addEventListener("focus", () => {
 
             /**/
             // GET방식 ajax요청(파라미터는 쿼리스트링)
-            fetch('/dupCheck/email?email=' + userEmail.value)
+            fetch('dupCheck/checkEmail?email=' + userEmail.value)
             .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
             .then(count => {
                 // count : 중복되면 1, 중복 아니면 0
@@ -93,7 +93,7 @@ userEmail.addEventListener("focus", () => {
 
 // 닉네임 유효성 검사
 
-const NicknameCheck = document.getElementById("NicknameCheck");
+
 const userNickname = document.getElementById("name");
 const nameMessage = document.getElementById("nameMessage");
 
@@ -103,13 +103,12 @@ userNickname.addEventListener("focus", () => {
     emailMessage.style.display= "none";
     pwCfMessage.style.display = "none";
     pwMessage.style.display = "none";
-
     
     // 닉네임이 입력이 되었을 때
     userNickname.addEventListener("input", () => {
         // 닉네임에 입력이 되지 않은 경우
         if(userNickname.value.trim().length == "") {
-            nameMessage.innerTitle ="한글,영어,숫자로만 2~10글자 입력해주세요.";
+            nameMessage.innerText ="한글,영어,숫자로만 2~10글자 입력해주세요.";
             nameMessage.classList.remove("confirm", "errror")
             checkObj.userNickname = false;
             userNickname.value=""; 
@@ -121,16 +120,16 @@ userNickname.addEventListener("focus", () => {
         
         if(regEx.test(userNickname.value)){ //유효할 때
             
-            fetch("/nickname?nickname=" + userNickname.value)
+            fetch("dupCheck/nickname?nickname=" + userNickname.value)
             .then(resp => resp.text()) // 응답 객체를 text로 파싱(변환)
             .then(count => {
                 if(count == 0){ //중복이 아닌 경우
-                    nameMessage.innerTitle ="사용가능한 닉네임 입니다.";
+                    nameMessage.innerText ="사용가능한 닉네임 입니다.";
                     nameMessage.classList.add("confirm")
                     nameMessage.classList.remove("error")
                     checkObj.userNickname = true;
                 }else{ // 중복인 경우
-                    nameMessage.innerTitle ="이미 사용중인 닉네임 입니다.";
+                    nameMessage.innerText ="이미 사용중인 닉네임 입니다.";
                     nameMessage.classList.add("error")
                     nameMessage.classList.remove("confirm")
                     checkObj.userNickname = false;
@@ -253,17 +252,69 @@ userPwConfirm.addEventListener("focus", ()=>{
 });
 
 
+// sign up버튼 활성화
 
-const SignUpBtn = document.getElementById("SignUpSubmit");
-
-
-
-
-
+const doubleCheck = document.getElementById("doubleCheck");
+const emailCheck = document.getElementById("emailCheck");
+doubleCheck.addEventListener("click", ()=>{
 
 
+    fetch('dupCheck/checkEmail?email=' + userEmail.value)
+    .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
+    .then(count => {
+        // count : 중복되면 1, 중복 아니면 0
+
+        if(count == 0){ // 중복이 아니면
+            alert("사용 가능한 이메일 입니다.");
+            checkObj.userEmail = true; // 유효 O
+            emailCheck.checked = "ture";
+        }else{ // 중복일 때
+            alert("이미 사용중인 이메일 입니다.");
+            checkObj.userEmail = false; // 유효 X
+            emailCheck.checked = "false";
+            userEmail.focus(); // 이메일 input태그에 초점을 맞춤
+        }
+        
+
+    }) //파싱한 데이터를 이용해서 수행할 코드 작성
+    .catch(err => console.log(err)); // 예외처리
 
 
+
+});
+
+
+const NicknameCheck = document.getElementById("NicknameCheck");
+const nameCheck = document.getElementById("nameCheck");
+NicknameCheck.addEventListener("click", ()=>{
+    nameCheck.checked = "ture";
+});
+
+
+let SignUpSubmit = document.getElementById("SignUpSubmit");
+const agree = document.getElementById("agree");
+let checkList = document.querySelectorAll(".check1");
+function ready() {
+    checkList.addEventListener('change', () => {
+        alert("확인") 
+        if (nameCheck.checked && emailCheck.checked && agree.checked) {
+            // 확인 안됨
+            SignUpSubmit.disabled = false;
+            SignUpSubmit.classList.add("ready");
+        }
+
+    });
+
+};
+
+
+
+
+
+
+
+/*
+*/
 
 // 회원가입 폼 제출 시
 document.getElementById("signUpFrm").addEventListener("submit", () => {
@@ -284,7 +335,6 @@ document.getElementById("signUpFrm").addEventListener("submit", () => {
         }
     }
 });
-
 
 
 

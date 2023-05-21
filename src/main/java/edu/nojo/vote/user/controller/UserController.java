@@ -119,7 +119,6 @@ public class UserController {
 	// 회원가입 
 	@PostMapping("/signUp")
 	public String signUp(User inputUser
-						, String[] userAddress
 						, RedirectAttributes ra
 						) {
 		
@@ -153,20 +152,19 @@ public class UserController {
 	
 	
 	// 이메일 중복 검사
-	@GetMapping("/dupCheck/email")
+	@GetMapping("dupCheck/checkEmail")
 	@ResponseBody
 	public int checkEmail(String email) {
-		return  service.checkEmail(email);
+		return service.checkEmail(email);
 	}
 	
 	
 	// 닉네임 중복 검사
-		@GetMapping("/signUp/dupCheck/nickname")
-		@ResponseBody
-		public int checkNickname(@RequestParam String name) {
-			System.out.println(myPageService.checkNickname(name));
-			return myPageService.checkNickname(name);
-		}
+	@GetMapping("dupCheck/nickname")
+	@ResponseBody
+	public int checkNickname(String name) {
+		return service.checkNickname(name);
+	}
 	
 	
 	

@@ -39,12 +39,12 @@
                     ${mainPtList[0].petitionTitle}
                 </div>
                 <div id="postPicture">
+                
                     <img src="${mainPtList[0].userImage}" id="postPic">
                 </div>
                 <div id="postContent">
                     <div class="paragraph">
                         ${mainPtList[0].petitionContent}
-                        내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내
                     </div>
                     <div class="paragraph">
 
@@ -115,9 +115,15 @@
                             내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용
                         </div>
                     </div>    
-                    <div id="push">
-                        <div>하트</div>
-                        <div><a href="#" id="comReport">신고하기</a></div>
+                    <div id="commentP">
+                        <div id="push">
+                            <i class="fa-solid fa-thumbs-up fa-xl" style="color: #29c81e;"></i><span>0</span>
+                            <i class="fa-regular fa-thumbs-up fa-xl" style="color: #29c81e;"></i><span>0</span>
+                        </div>
+                        <div id="push2">
+                            <i class="fa-solid fa-thumbs-down fa-xl" style="color: #29c81e;"></i><span>0</span>
+                            <i class="fa-regular fa-thumbs-down fa-xl" style="color: #29c81e;"></i><span>0</span>
+                        </div>
                     </div>
                     <!-- 댓글 사이 마다 수평선 추가 -->
                     <!-- <hr> -->
@@ -200,7 +206,7 @@
                 <div id="commentPlace">
                     <form action="browse/comment" method="POST" id="commentFrm">
                         <div id="wrtComment">
-                            <textarea name="" id="commentContent" cols="10" rows="100" placeholder=" -띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
+                            <textarea name="" id="commentContent" cols="10" rows="100" placeholder=" - 띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
                         </div>
                     </form>
                     <div id="countComment">

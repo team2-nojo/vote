@@ -1,12 +1,29 @@
 package edu.nojo.vote.browse.controller;
 
+import java.security.Provider.Service;
+import java.util.List;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import edu.nojo.vote.browse.model.dto.Browse;
+import edu.nojo.vote.browse.model.service.CommentService;
 
 @Controller
 @RequestMapping("/browse")
 public class BrowseController {
+	
+	
+	@Autowired
+	private CommentService service;
+	
 	
 	// browse 페이지 이동(featured)
 	@GetMapping("browse_search/featured")
@@ -32,11 +49,11 @@ public class BrowseController {
 		return "/browse/browse_search/victories";
 	}
 	
-	// browsePetition 조회
-//	@GetMapping("")
-//	public String browsePetition() {
-//		return null;
-//	}
+	
+
+	
+
+	
 	
 	
 	
@@ -48,16 +65,28 @@ public class BrowseController {
 	}
 	
 	
-	
+
 	
 	
 	// petitionView 페이지 이동(comments)
-	@GetMapping("/petitionView/comments")
-	public String comments() {
+	@GetMapping("/petitionView/comments/{petitionNo}")
+	public String comments(Model model, @PathVariable("petitionNo") int petitionNo) {
+		
+		// 해당 청원에 대한 댓글 조회
+		List<Browse> commentList = service.selectComments(petitionNo);
+//		System.out.println(commentList);
+		
+		model.addAttribute("commentList", commentList);
+		
+		
+		
 		return "/browse/petitionView/comments";
 	}
 
 		
+
+
+	
 		
 	// petitionView 페이지 이동(updates)
 	@GetMapping("/petitionView/updates")

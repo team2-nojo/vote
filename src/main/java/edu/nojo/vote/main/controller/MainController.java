@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.main.model.service.MainPageService;
@@ -29,9 +29,13 @@ public class MainController {
 		return "common/main";
 	}
 	
+	@GetMapping("/load-petitions")
+	@ResponseBody
+	public List<Petition> loadPetitions() {
+		List<Petition> mainPetitionList = service.selectPetition();
+		return mainPetitionList;
+	}
 
-	
-	
 	
 	
 }

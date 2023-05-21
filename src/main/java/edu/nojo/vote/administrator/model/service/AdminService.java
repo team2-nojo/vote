@@ -2,6 +2,8 @@ package edu.nojo.vote.administrator.model.service;
 
 import java.util.Map;
 
+import edu.nojo.vote.user.model.dto.User;
+
 public interface AdminService {
 
 	
@@ -13,4 +15,10 @@ public interface AdminService {
 
 
 	int updateMainPetition(int selectedNumber, int petitionNo);
+
+
+	Map<String, Object> selectQnAList(Map<String, Object> paramMap, int cp);
+
+
+
 }

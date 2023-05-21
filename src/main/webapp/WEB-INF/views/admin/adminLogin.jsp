@@ -21,22 +21,22 @@
       </div>
       <div id="container">
         <div id="contents">
-          <form action="#" id="login" action="" method="POST">
+          <form action="/adminPetitionList" id="loginFrm" method="POST">
             <div id="id_area">
               <input
                 type="text"
-                name="id"
-                id="id"
-                placeholder="아이디"
+                name="userEmail"
+                id="email"
+                placeholder="Email"
                 class="idpw"
               />
             </div>
             <div id="pw_area">
               <input
                 type="password"
-                name="pw"
-                id="pw"
-                placeholder="비밀번호"
+                name="userPw"
+                id="password"
+                placeholder="Password"
                 class="idpw"
               />
               <div class="saveId-area">
@@ -47,12 +47,12 @@
                 </label>
               </div>
             </div>
-            <button id="loginBtn" type="submit" class="btn_login">
+            <button id="loginSubmit" class="btn_login">
               로그인
             </button>
             <div id="check">
               <div id="login_check">
-                <input type="checkbox" name="login_chk" id="login_chk" />
+                <input type="checkbox" name="saveId" id="saveId" />
                 <!-- <label for="login_chk"><span></span>로그인 상태 유지</label> -->
                 <a href="/adminPetitionList"><button type="button" class="adminSignUp">
                   관리자 회원가입

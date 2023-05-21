@@ -1,4 +1,4 @@
-body{
+body {
   margin: 0;
 }
 header *,
@@ -65,37 +65,35 @@ header {
   font-size: 16px;
 }
 
-.header-a{
+.header-a {
   display: inline-block; /* 인라인 블록 요소로 설정하여 가로 정렬 */
   text-align: center; /* 수평 중앙 정렬 */
   text-decoration: none;
   color: black;
-  font-weight:bold;
+  font-weight: bold;
 }
 .header-a:hover,
-.header-a:active{
-  color : #2db400;
+.header-a:active {
+  color: #2db400;
   box-shadow: 0;
   position: relative;
   top: 2px;
-  color : #2db400;
+  color: #2db400;
 }
-.fa-user:active{
-  color : #2db400;
+.fa-user:active {
+  color: #2db400;
   box-shadow: 0;
   position: relative;
   top: 2px;
-  color : #2db400;
+  color: #2db400;
 }
 
-
-
-.header-a i:hover{
-  color : #2db400;
+.header-a i:hover {
+  color: #2db400;
 }
 
-
-.header-a:hover, .header-a:active {
+.header-a:hover,
+.header-a:active {
   position: relative;
   top: 2px;
   color: #2db400;
@@ -114,9 +112,8 @@ header {
 }
 
 .header-menu a:hover {
-  color: #2db400; 
+  color: #2db400;
 }
-
 
 .header-menu li {
   list-style: none;
@@ -152,18 +149,27 @@ header {
   font-size: 24px;
 }
 
-
 /* 로그인했을때 유저옵션 */
-#userMenuToggle{display: none;}
+#userMenuToggle {
+  display: none;
+}
 
-label[for='userMenuToggle']{cursor: pointer;}
-label[for='userMenuToggle']:hover{ text-decoration: underline; }
+label[for='userMenuToggle'] {
+  cursor: pointer;
+}
+label[for='userMenuToggle']:hover {
+  text-decoration: underline;
+}
 
-#userMenuToggle + div{display: none;}
+#userMenuToggle + div {
+  display: none;
+}
 
-#userMenuToggle:checked + div{display: block;}
+#userMenuToggle:checked + div {
+  display: block;
+}
 
-.user-menu{
+.user-menu {
   position: absolute;
   top: 58px;
 
@@ -173,7 +179,7 @@ label[for='userMenuToggle']:hover{ text-decoration: underline; }
   border: 2px solid #ccc;
 }
 
-.user-menu>a{
+.user-menu > a {
   width: 120px;
   height: 40px;
 
@@ -184,7 +190,7 @@ label[for='userMenuToggle']:hover{ text-decoration: underline; }
   font-size: 16px;
 }
 
-.user-menu>span{
+.user-menu > span {
   display: flex;
   justify-self: start;
 
@@ -193,28 +199,28 @@ label[for='userMenuToggle']:hover{ text-decoration: underline; }
   justify-content: start;
 }
 
-.user-menu>span:first-child{
+.user-menu > span:first-child {
   padding-top: 10px;
   font-weight: bold;
   font-size: 16px;
 }
 
-.user-menu>span:nth-child(2){
+.user-menu > span:nth-child(2) {
   padding-bottom: 10px;
   border-bottom: 2px solid #ccc;
 }
 
-.user-menu > a:first-child{
+.user-menu > a:first-child {
   border-bottom: 2px solid #ccc;
 }
 
-.user-menu > a:hover{
+.user-menu > a:hover {
   background-color: #2db400;
   color: white;
   /* border: 2px solid #515151; */
 }
 
-.user-image{
+.user-image {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -222,7 +228,6 @@ label[for='userMenuToggle']:hover{ text-decoration: underline; }
   justify-content: center;
   align-self: center;
 }
-
 
 /* main */
 main {
@@ -232,9 +237,9 @@ main {
 }
 
 /* footer */
-footer{
+footer {
   position: relative;
-  
+
   height: 150px;
   background-color: #30312f;
 
@@ -247,21 +252,20 @@ footer{
   color: white;
 }
 
-.footer-content{
+.footer-content {
   width: 960px;
 }
 
-.footer-header{
+.footer-header {
   display: flex;
   align-items: center;
-  
 }
 
-#footlogo{
+#footlogo {
   height: 20px;
 }
 
-.footer-header a{
+.footer-header a {
   color: white;
   text-decoration: none;
 }
@@ -274,7 +278,7 @@ footer{
   #2db400;
 } */
 
-.user-menu a:hover{
-  background-color : #2db400;
-  color : white;
+.user-menu a:hover {
+  background-color: #2db400;
+  color: white;
 }

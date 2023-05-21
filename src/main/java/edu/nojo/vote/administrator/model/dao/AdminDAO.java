@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.nojo.vote.administrator.model.dto.Pagination;
+import edu.nojo.vote.help.model.dto.QNA3;
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.user.model.dto.User;
 
 @Repository
 public class AdminDAO {
@@ -56,6 +58,18 @@ public class AdminDAO {
 		return sqlSession.update("adminMapper.updateMainPetition", map);
 			
 	}
+
+	public List<QNA3> QNA3(Pagination pagination, Map<String, Object> paramMap) {
+		
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("HelpMapper.QNA3", paramMap, rowBounds);
+	}
+
+
+	
 
 
 

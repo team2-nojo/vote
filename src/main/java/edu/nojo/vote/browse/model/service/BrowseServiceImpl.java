@@ -19,5 +19,17 @@ public class BrowseServiceImpl implements BrowseService {
 	public List<Petition> popular() {
 		return dao.popular();
 	}
+	
+	// 최신순으로 조회
+	@Override
+	public List<Petition> recent() {
+		return dao.recent();
+	}
+	
+	// 승리한 청원 조회(최신순)
+	@Override
+	public List<Petition> victories() {
+		return dao.victories();
+	}
 
 }

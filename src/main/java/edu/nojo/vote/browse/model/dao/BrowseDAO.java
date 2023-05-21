@@ -16,7 +16,19 @@ public class BrowseDAO {
 	
 	// 인기순으로 조회
 	public List<Petition> popular() {
-		return sqlSession.selectList("browseMapper.selectList");
+		return sqlSession.selectList("browseMapper.popular");
+	}
+
+	// 최신순으로 조
+	public List<Petition> recent() {
+		return sqlSession.selectList("browseMapper.recent");
+	}
+
+	/** 승리한 청원 조회(최신순)
+	 * @return victoriesList
+	 */
+	public List<Petition> victories() {
+		return sqlSession.selectList("browseMapper.victories");
 	}
 	
 }

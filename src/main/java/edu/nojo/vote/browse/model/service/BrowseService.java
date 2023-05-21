@@ -11,5 +11,15 @@ public interface BrowseService {
 	 */
 	List<Petition> popular();
 
+	/** 최신순으로 조회
+	 * @return recentList
+	 */
+	List<Petition> recent();
+
+	/** 승리한 청원 조회(최신순)
+	 * @return victoriesList
+	 */
+	List<Petition> victories();
+
 
 }

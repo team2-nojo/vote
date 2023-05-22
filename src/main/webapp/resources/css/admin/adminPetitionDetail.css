@@ -122,7 +122,7 @@
 
   font-weight: bold;
   border: 0;
-  background-color: #455ba8;
+  background-color: #333;
   color: white;
 
   cursor: pointer;
@@ -130,8 +130,8 @@
 
 .board-btn-area button:hover {
   background-color: white;
-  color: #455ba8;
-  border: 2px solid #455ba8;
+  color: #333;
+  border: 2px solid #333;
 }
 
 /* 좋아요 */

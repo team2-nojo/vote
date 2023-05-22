@@ -53,4 +53,19 @@
 	<update id="updateMainPetition" parameterType="map">
 		UPDATE MAIN_PETITION SET PT_NO = ${petitionNo} WHERE "ORDER" = ${selectedNumber}
 	</update>
+	
+	
+	<!-- 청원 상세 조회 -->
+	<select id="selectPetition" resultMap="petition_rm">
+		SELECT PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, PT_VIEW_COUNT, USER_NO,
+        (SELECT COUNT(*) FROM PETITION_LIKE) AS "LIKE_COUNT",
+        TO_CHAR(PT_DATE, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') AS PT_DATE
+		FROM PETITION
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_DEL_FL = 'N'
+		AND PT_NO = ${petitionNo}
+	</select>
+	
+	
+	
 </mapper>

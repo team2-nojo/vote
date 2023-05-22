@@ -68,6 +68,17 @@ public class AdminDAO {
 		return sqlSession.selectList("HelpMapper.QNA3", paramMap, rowBounds);
 	}
 
+	
+	
+	/** 청원 상세 조회
+	 * @paramp petitionNo
+	 * @return petition
+	 * */
+	public Petition selectPetition(int petitionNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("adminMapper.selectPetition", petitionNo);
+	}
+
 
 	
 

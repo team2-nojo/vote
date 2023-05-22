@@ -90,6 +90,39 @@ public class AdministratorController {
 		
 		return "admin/adminQnA";
 	}
+	
+	
+	// 청원 상세 조회
+	@GetMapping("/adminPetitionList/{petitionNo}")
+	public String petitionDetail(
+	
+		@PathVariable("petitionNo") int petitionNo
+			,Model model
+			,RedirectAttributes ra ){//리다이렉트 시 데이터 전달용 객체 
+		
+		// 만들어서 보내기
+		
+		
+		//청원 상세 조회 서비스 호출
+		Petition petition = service.selectPetition(petitionNo); // DAO에서는 매개변수를 1개밖에 못 보내니까..Map으로 -> Map을 만들어서 보내자~
+		
+		String path = null;
+		if(petition != null) {// 조회 결과가 있을 경우
+			path = "admin/adminPetitionDetail"; // forward할 jsp 경로
+			
+			model.addAttribute("petition", petition);
+			
+			
+		}else {// 조회 결과 없을 경우
+			path = "redirect:/adminPetitionList";
+			// 청원 조회 페이지로 리다이렉트
+			
+			ra.addFlashAttribute("message", "해당 청원이 존재하지 않습니다.");
+		}
+		
+		return path;
+		
+	}
 }
 
 

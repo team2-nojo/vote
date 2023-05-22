@@ -12,9 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>청원 조회</title>
-    <link rel="stylesheet" href="resources/css/admin/layout.css" />
-    <link rel="stylesheet" href="resources/css/admin/basic.css">
-    <link rel="stylesheet" href="resources/css/admin/adminDashBoard.css">
+
+    <link rel="stylesheet" href="resources/css/admin/adminPetitionList.css">
   </head>
   <body>
  <%-- header --%>
@@ -48,7 +47,7 @@
                             </c:when>
                                 
                             <c:otherwise>
-                                <form action="/adminPetitionList" method="POST" id="mainForm">
+                                <form action="/admin/petition/${petition.petitionNo}" method="POST" id="mainForm">
                                 <c:forEach items="${petitionList}" var="petition">
 
                                 <tr>
@@ -56,7 +55,7 @@
                                     <td>
                                         <img class="list-thumbnail" src="${petition.userImage}">
                                         <%-- ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 --%>
-                                        <a href="/petition${petition.petitionNo}">${petition.petitionTitle}</a>
+                                        <a href="/adminPetitionList/${petition.petitionNo}?cp=${pagination.currentPage}">${petition.petitionTitle}</a>
 
                                     </td>
                                     <td class='userNickname'>${petition.userNickname}</td>

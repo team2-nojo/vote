@@ -55,7 +55,6 @@ public class MyPageController {
 	   model.addAttribute("selectedUser", selectedUser);
 	   
 	   return "/myPage/profile";
-	   
    }
    
    
@@ -132,5 +131,41 @@ public class MyPageController {
          
          return "redirect:/myPetitions/myPetitions";
    }
-
+   
+   
+   @GetMapping("/changePassword")
+   public String changePassword() {
+	   return "myPage/changePassword";
+   }
+   
+   @PostMapping("/changePassword")
+   public String changePassword(User loginUser
+		   , String currentPassword
+		   , String newPassword) {
+	   int result = service.changePassword(loginUser.getUserNo(), currentPassword, newPassword);
+	   
+	   
+	   
+	   return null;
+   }
+   @GetMapping("/emailSettings")
+   public String emailSettings() {
+	   return "myPage/emailSettings";
+   }
+   
+   @PostMapping("/emailSettings")
+   public String emailSettings(User loginUser) {
+	   
+	   return null;
+   }
+   @GetMapping("/secession")
+   public String secession() {
+	   return "myPage/secession";
+   }
+   
+   @PostMapping("/secession")
+   public String secession(User loginUser) {
+	   
+	   return null;
+   }
 }

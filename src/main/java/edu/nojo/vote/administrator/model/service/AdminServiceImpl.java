@@ -43,8 +43,8 @@ public class AdminServiceImpl implements AdminService {
 		return map;
 		
 	}
-
-
+	
+	
 	@Override
 	public int updateMainPetition(int selectedNumber, int petitionNo) {
 		// TODO Auto-generated method stub
@@ -68,11 +68,37 @@ public class AdminServiceImpl implements AdminService {
 		return map;
 	}
 
-
+	
+	//청원 상세 조회
+	@Override
+	public Petition selectPetition(int petitionNo) {
+		return dao.selectPetition(petitionNo);
+	}
 
 
 	
+	//청원 검색
+	@Override
+	public Map<String, Object> selectPetitionList(Map<String, Object> paramMap, int cp) {
 
+		//1. 청원 조회에 삭제되지 않고 검색 조건이 일치하는 청원 수 조회
+		int listCount = dao.getListCount(paramMap);
+		
+		//2. 
+		
+		Pagination pagination = new Pagination(listCount, cp);
+		
+		List<Petition> petitionList = dao.selectPetitionList(pagination, paramMap);
+		
+		// pagination, boardList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("petitionList", petitionList);
+		
+		return map;
+	}
+
+	
 
 	
 

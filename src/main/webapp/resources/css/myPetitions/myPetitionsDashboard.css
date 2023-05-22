@@ -303,7 +303,7 @@ nav a:hover{color: red;}
   width: 480px;
   border-radius: 5px;
   border: 1px solid black;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 #commentList{
@@ -315,6 +315,37 @@ nav a:hover{color: red;}
   display: none;
 }
 
+#commentT{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#commentT > span {
+  margin-right: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+#commentT > span:nth-child(1) > span{
+  margin-left: 10px;
+}
+
+#commentResp{
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-title{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.fa-thumbs-up{ color: blue;}
+.fa-thumbs-down{ color: red;}
 
 
 .share{

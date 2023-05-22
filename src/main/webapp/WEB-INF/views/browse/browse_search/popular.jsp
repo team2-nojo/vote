@@ -10,6 +10,7 @@
     <title>브라우저 게시글 조회(popular)</title>
 
     <%-- popular.css --%>
+    <link rel="stylesheet" href="/resources/css/browse/browse_search/popular_top.css">
     <link rel="stylesheet" href="/resources/css/browse/browse_search/browse_search.css">
     
 </head>
@@ -35,20 +36,18 @@
             <c:forEach items="${popularList}" var="petition">
                 <div class="result">
                     <a href="/browse/petitionView/details" class="result1">
-                        <div class="row" id="rowPicture">
+                        <div class="row-left" id="rowPicture">
                             <img src="/${petition.petitionImage}" class="picture">
                         </div>
-                        <div class="row">
-                            <div class="column" id="column-1">
-                                <div id="title">
-                                    ${petition.petitionTitle}
-                                </div>
-                                <div id="content">
-                                    ${petition.petitionContent}
-                                    <a href="/browse/petitionView/details" id="readMore"> Read more</a>
-                                </div>
+                        <div class="row-right">
+                            <div id="title">
+                                ${petition.petitionTitle}
                             </div>
-                            <div class="column" id="column-2">
+                            <div id="content">
+                                ${petition.petitionContent}
+                                <a href="/browse/petitionView/details" id="readMore"> Read more</a>
+                            </div>
+                            <div class="progress">
                                 <progress id="progress" value="35000" min="0" max="50000" ></progress>
                                 <div id="value"></div>
                                 <div id="goal">

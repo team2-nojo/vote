@@ -66,8 +66,7 @@ smallNews.forEach((newBox, index) => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-var start = 3; // 시작 인덱스
-var limit = 3;
+let page = 1;
 
 document.getElementById('loadButton').addEventListener('click', function () {
   // AJAX 요청
@@ -77,7 +76,6 @@ document.getElementById('loadButton').addEventListener('click', function () {
       if (xhr.status === 200) {
         // 서버로부터 응답 데이터 받음
         var response = JSON.parse(xhr.responseText);
-
         // 받은 데이터로 <li> 요소 생성 및 추가
         var petitionContainer = document.getElementById('petitionContainer');
         for (var i = 0; i < response.length; i++) {
@@ -104,6 +102,10 @@ document.getElementById('loadButton').addEventListener('click', function () {
             </div>
           `;
           petitionContainer.appendChild(li);
+
+          if(response.length<3){
+            // 여기에서 더보기 버튼 삭제하고 더이상 불러올 데이터가 없음을 표시해줄 것
+          }
         }
       } else {
         // 서버 오류 처리
@@ -111,6 +113,6 @@ document.getElementById('loadButton').addEventListener('click', function () {
       }
     }
   };
-  xhr.open('GET', '/load-petitions', true);
+  xhr.open('GET', `/load-petitions?page=${page++}`, true);
   xhr.send();
 });

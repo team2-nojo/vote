@@ -125,7 +125,7 @@ a:hover {
   letter-spacing: 0 !important;
 }
 
-#boardSearch {
+#petitionSearch {
   text-align: center;
   width: 500px;
   height: 30px;
@@ -135,23 +135,23 @@ a:hover {
   justify-content: space-between;
 }
 
-#boardSearch * {
+#petitionSearch * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-#boardSearch select {
+#petitionSearch select {
   width: 100px;
 }
 
-#boardSearch input {
+#petitionSearch input {
   flex-grow: 1;
   margin: 0 10px;
   padding-left: 10px;
 }
 
-#boardSearch button {
+#petitionSearch button {
   width: 100px;
 
   font-weight: bold;

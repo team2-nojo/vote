@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 @Repository
@@ -39,18 +40,22 @@ public class MainPageDAO {
 	}
 
 
-	public Petition selectPetition(int mainPtNo) {
-		return sqlSession.selectOne("mainPageMapper.selectPetition",mainPtNo);
-	}
+//	public Petition selectPetition(int mainPtNo) {
+//		return sqlSession.selectOne("mainPageMapper.selectPetition",mainPtNo);
+//	}
 
 
 	public List<PetitionCategory> selectCategoryList(int mainPtNo) {
 		return sqlSession.selectList("mainPageMapper.selectCategoryList",mainPtNo);
 	}
 
-	public List<Petition> selectPetition() {
-		return sqlSession.selectList("mainPageMapper.selectPetition");
+	public List<Petition> selectPetition(int page) {
+		RowBounds rowBounds = new RowBounds(page*3,3);
+		return sqlSession.selectList("mainPageMapper.selectPetition",null,rowBounds);
 	}
+
+
+
 
 
 

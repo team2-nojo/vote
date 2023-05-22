@@ -197,7 +197,7 @@ main button{
 
 /* 체크박스 */
 #emailCheck, #nameCheck{
-    /* display: none; */
+    display: none;
     width: 10px;
     height: 10px;
 }

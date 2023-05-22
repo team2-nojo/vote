@@ -68,6 +68,41 @@ public class AdminDAO {
 		return sqlSession.selectList("HelpMapper.QNA3", paramMap, rowBounds);
 	}
 
+	
+	
+	/** 청원 상세 조회
+	 * @paramp petitionNo
+	 * @return petition
+	 * */
+	public Petition selectPetition(int petitionNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("adminMapper.selectPetition", petitionNo);
+	}
+
+	/**청원 수 조회(검색 햇을 때)
+	 * @param paramMap
+	 * @return listCount
+	 **/
+	public int getListCount(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("adminMapper.getListCount_search", paramMap);
+	}
+
+	/**청원 목록 조회(검색)
+	 * @param pagination
+	 * @param paramMap
+	 * @return petitionList
+	 * 
+	 * */
+	public List<Petition> selectPetitionList(Pagination pagination, Map<String, Object> paramMap) {
+		
+		int offset = (pagination.getCurrentPage() - 1 ) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("adminMapper.selectPetitionList_search", paramMap, rowBounds);
+	}
+
+
 
 	
 

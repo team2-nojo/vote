@@ -53,4 +53,85 @@
 	<update id="updateMainPetition" parameterType="map">
 		UPDATE MAIN_PETITION SET PT_NO = ${petitionNo} WHERE "ORDER" = ${selectedNumber}
 	</update>
+	
+	
+	<!-- 청원 상세 조회 -->
+	<select id="selectPetition" resultMap="petition_rm">
+		SELECT PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, PT_VIEW_COUNT, USER_NO,
+        (SELECT COUNT(*) FROM PETITION_LIKE) AS "LIKE_COUNT",
+        TO_CHAR(PT_DATE, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') AS PT_DATE
+		FROM PETITION
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_DEL_FL = 'N'
+		AND PT_NO = ${petitionNo}
+	</select>
+	
+	<!-- 청원 검색했을 떄 삭제되지 않고 검색 조건이 일치하는  청원 수 조회 -->
+		<select id="getListCount_search" resultType="_int">
+		SELECT COUNT(*) 
+		FROM "PETITION" 
+		<if test='key == "w"'>
+			JOIN "USER" USING(USER_NO)
+		</if>
+		WHERE PT_DEL_FL = 'N'
+			<choose>
+				<when test='key == "t"'>
+				<!-- 제목 검색 -->
+				AND PT_TITLE LIKE '%${query}%'
+				</when>
+				<when test='key == "c"'>
+				<!-- 내용 검색 -->
+				AND PT_CONTENT LIKE '%${query}%'
+				</when>
+				<when test='key == "tc"'>
+				<!-- 제목 + 내용 검색 -->
+				AND (PT_TITLE LIKE '%${query}%' OR PT_CONTENT LIKE '%${query}%')
+				</when>
+				<when test='key == "w"'>
+			<!-- 작성자(닉네임) -->
+				AND USER_NICKNAME LIKE '%${query}%'
+				</when>
+			</choose>
+		</select>
+		
+		
+		<!--  -->
+		<select id="selectPetitionList_search" resultMap="petition_rm">
+		SELECT PT_NO, PT_TITLE, USER_NICKNAME, PT_VIEW_COUNT, USER_IMG,
+			<![CDATA[
+			CASE  
+				WHEN SYSDATE - PT_DATE < 1     
+				THEN FLOOR( (PT_DATE - SYSDATE) ) || '일 전'
+				WHEN SYSDATE - PT_DATE < 30
+				THEN FLOOR( (SYSDATE - PT_DATE) / 7 ) || '주 전'
+				WHEN SYSDATE - PT_DATE < 365
+				THEN FLOOR( (SYSDATE - PT_DATE) / 30 ) || '달 전'
+					ELSE FLOOR( (SYSDATE - PT_DATE) / 365 ) || '년 전'
+			END PT_DATE
+			]]>
+			FROM "PETITION" P
+			JOIN "USER" USING(USER_NO)
+			WHERE PT_DEL_FL = 'N'
+			<choose>
+				<when test='key == "t"'>
+				<!-- 제목 검색 -->
+				AND PT_TITLE LIKE '%${query}%'
+				</when>
+				<when test='key == "c"'>
+				<!-- 내용 검색 -->
+				AND PT_CONTENT LIKE '%${query}%'
+				</when>
+				<when test='key == "tc"'>
+				<!-- 제목 + 내용 검색 -->
+				AND (PT_TITLE LIKE '%${query}%' OR PT_CONTENT LIKE '%${query}%')
+				</when>
+				<when test='key == "w"'>
+			<!-- 작성자(닉네임) -->
+				AND USER_NICKNAME LIKE '%${query}%'
+				</when>
+			</choose>
+			ORDER BY PT_NO DESC
+	</select>
+	
+	
 </mapper>

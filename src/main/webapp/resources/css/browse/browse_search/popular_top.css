@@ -1,0 +1,50 @@
+
+#now{
+    color: #2DB400;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+#featured{
+    color: black;
+    text-decoration: none;
+    
+}
+
+#recent{
+    color: black;
+    text-decoration: none;
+    
+}
+
+#victories{
+    color: black;
+    text-decoration: none;
+    
+}
+
+#featured:hover{
+    color: #2DB400;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+#recent:hover{
+    color: #2DB400;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+#victories:hover{
+    color: #2DB400;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+
+
+

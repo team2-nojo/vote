@@ -5,8 +5,9 @@
 
 
 	<resultMap type="Petition" id="petition_rm">
-		<result property="petitionContent" column="PT_CONTENT" jdbcType="CLOB" javaType="String" />
-		 <result property="petitionNo" column="PT_NO" />
+		
+		<id property="petitionNo" column="PT_NO" />
+		
       	<result property="petitionTitle" column="PT_TITLE" />
       	<result property="petitionContent" column="PT_CONTENT" />
       	<result property="petitionDate" column="PT_DATE" />
@@ -19,8 +20,7 @@
       	<result property="userNickname" column="USER_NICKNAME" />
       	<result property="userAddress" column="USER_ADD" />
       	
-      	<result property="categoryNo" column="CAT_NO" />
-      	<result property="categoryName" column="CAT_NAME" />
+  
       	
 
       	<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
@@ -83,8 +83,9 @@
 	
 	
 	
-
+	<!-- 댓글 -->
 	<select id="selectComments" resultMap="browse" >
+		
 		SELECT CM_CONTENT, CM_DATE, USER_NICKNAME, USER_IMG 
 		FROM "COMMENT"
 		JOIN "USER" USING(USER_NO)
@@ -155,8 +156,16 @@
 		WHERE PT_RANK <![CDATA[<]]>= 5
 	</select>
 	
-	
+	<!-- 청원 상세조회 -->
+	<select id="selectPetitionList" resultMap="petition_rm">
+		SELECT PT_TITLE, PT_CONTENT, PT_DATE, PT_VIEW_COUNT, PT_VICT, PT_IMG, USER_NICKNAME, USER_IMG
+		FROM "PETITION"
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_NO = ${petitionNo}
+	</select>
+
 	
 
+	
 	
 </mapper>

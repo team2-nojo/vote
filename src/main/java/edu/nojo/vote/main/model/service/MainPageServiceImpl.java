@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.main.model.dao.MainPageDAO;
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Like;
 
 @Service
 public class MainPageServiceImpl implements MainPageService {
@@ -37,6 +38,7 @@ public class MainPageServiceImpl implements MainPageService {
 	public List<Petition> selectPetition() {
 		return dao.selectPetition();
 	}
+
 
 
 	

@@ -84,7 +84,10 @@
             <a class="header-a" href="/myPage">마이페이지</a>
             <a class="header-a" href="/user/logout">로그아웃</a>
           </div>
-          <a class="header-a" href="#"><i class="fa-sharp fa-solid fa-bell"></i></a>
+          <label for="alamToggle">
+                <i class="fa-sharp fa-solid fa-bell"></i>
+          </label>
+          
         </div>
       </c:otherwise>
     </c:choose>

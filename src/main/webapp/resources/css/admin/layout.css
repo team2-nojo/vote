@@ -22,7 +22,6 @@ article {
 }
 a {
   text-decoration: none;
-  color: white;
 }
 .navbar_logo {
   width: 20%;
@@ -38,7 +37,7 @@ a {
 #admin {
   margin-top: 10px;
   margin-left: 10px;
-  color : white;
+  color: white;
 }
 
 main {
@@ -200,5 +199,5 @@ footer {
 }
 #admin-id {
   margin-top: -8px;
-  color : white;
+  color: white;
 }

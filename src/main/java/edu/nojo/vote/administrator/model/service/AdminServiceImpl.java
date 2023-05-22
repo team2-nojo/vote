@@ -43,8 +43,8 @@ public class AdminServiceImpl implements AdminService {
 		return map;
 		
 	}
-
-
+	
+	
 	@Override
 	public int updateMainPetition(int selectedNumber, int petitionNo) {
 		// TODO Auto-generated method stub
@@ -68,11 +68,14 @@ public class AdminServiceImpl implements AdminService {
 		return map;
 	}
 
-
-
+	
+	//청원 상세 조회
+	@Override
+	public Petition selectPetition(int petitionNo) {
+		return dao.selectPetition(petitionNo);
+	}
 
 	
-
 
 	
 

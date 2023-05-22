@@ -10,7 +10,7 @@
     <title>Petition List</title>
     <link rel="stylesheet" href="resources/css/admin/layout.css" />
     <link rel="stylesheet" href="resources/css/admin/basic.css">
-    <link rel="stylesheet" href="resources/css/admin/adminDashBoard.css">
+    <%-- <link rel="stylesheet" href="resources/css/admin/adminPetitionList.css"> --%>
   </head>
   <body>
   <article>

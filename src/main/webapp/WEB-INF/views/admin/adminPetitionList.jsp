@@ -113,7 +113,7 @@
 
 
 			<!-- 검색창 -->
-            <form action="#" method="get" id="boardSearch">
+            <form action="/adminPetitionList" method="get" id="petitionSearch">
 
                 <select name="key" id="searchKey">
                     <option value="t">제목</option>

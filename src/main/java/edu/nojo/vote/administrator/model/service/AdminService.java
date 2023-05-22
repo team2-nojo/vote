@@ -24,5 +24,14 @@ public interface AdminService {
 	Petition selectPetition(int petitionNo);
 
 
+	/**청원 검색
+	 * @param paramMap
+	 * @param cp
+	 * @return petitionList
+	 * 
+	 * */
+	Map<String, Object> selectPetitionList(Map<String, Object> paramMap, int cp);
+
+
 
 }

@@ -49,11 +49,20 @@ public class AdministratorController {
 	public String selectPetitionList(
 //		  @PathVariable("petitionNo") int petitionNo
 		  @RequestParam(value="cp", required=false, defaultValue="1") int cp
-		  ,Model model) {
-		Map<String, Object> map = service.selectPetitionList(cp);
+		  ,Model model
+		  ,@RequestParam Map<String, Object> paramMap) {
 		
-		// 조회 결과를 request scope에 세팅 후 forward
-		model.addAttribute("map", map);
+		if(paramMap.get("key") == null) { // 검색어가 없을 때 (검색 x)
+			Map<String, Object> map = service.selectPetitionList(cp);
+			
+			// 조회 결과를 request scope에 세팅 후 forward
+			model.addAttribute("map", map);
+			
+		}else { // 검색어가 있을 떄 (검색 햇을 때)
+			Map<String, Object> map = service.selectPetitionList(paramMap,cp);
+			
+			model.addAttribute("map", map);
+		}
 		
 		
 		return "admin/adminPetitionList";

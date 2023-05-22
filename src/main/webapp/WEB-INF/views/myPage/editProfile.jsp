@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,9 +21,10 @@
                             <div id="editProfileTitle">프로필 편집</div>
                         </div>
                     </div>
-                    <div>
+                    <div class="x-parent">
                         <div id="imageContainer">
                             <%-- 프로필 이미지가 없으면 기본 이미지 --%>
+                            <span id="deleteImage">x</span> 
                             <c:if test="${empty loginUser.userImage}" >
                                 <img src="/resources/images/common/user.png" id="profileUserImage">
                             </c:if>
@@ -38,32 +39,36 @@
                     <div class="userProfileLocation">${loginUser.userAddress.split(" ")[0]}</div>
                     <div>
                         <label class="upload-photo" for="inputUserImage">Upload photo</label>
-                        <input type="file" name="userImage" id="inputUserImage" accept="image/*">
+                        <input type="file" name="profileImage" id="inputUserImage" accept="image/*">
                     </div>
                     <div id="editPrifileNameFrame">
                         <label class="edit-profile-text">닉네임</label>
                         <div id="editProfileInputName">
-                            <input type="text" class="edit-profile-input" id="userNickname" name="userNickname" placeholder="${loginUser.userNickname}">
+                            <input type="text" class="edit-profile-input" id="userNickname" name="userNickname" value="${loginUser.userNickname}">
                             <button class="edit-profile-btn" type="button" id="nicknameDupCheck">중복확인</button>
                         </div>
                             <div id="nickMessage">한국어, 영어, 숫자(특수문자 제외) 2~10자</div>
                     </div>
                     <div>
                         <label class="edit-profile-text">자기소개</label>
-                        <textarea id="editProfileDescription" name="userAboutMe" placeholder="${loginUser.userAboutMe}"
-                        row="6" maxlength="255"></textarea>
+                        <textarea id="editProfileDescription" name="userAboutMe" row="6" maxlength="255">${loginUser.userAboutMe}</textarea>
                     </div>
+
+
+                    <c:set var="addr" value="${fn:split(loginUser.userAddress, '^^^')}"/>
+                    
+                    
                     <div>
                         <label class="edit-profile-text">지역</label>
                         <div id="editProfileInputName">
-                            <input type="text" id="sample6_address" class="edit-profile-input" name="userAddress">
+                            <input type="text" id="sample6_address" class="edit-profile-input" name="userAddress" value="${addr[0]}">
                             <button class="edit-profile-btn" type="button" onclick="sample6_execDaumPostcode()">주소찾기</button>
                         </div>
                     </div>
                     <div>
                         <label class="edit-profile-text">상세주소</label>
                         <div id="editProfileInputName">
-                            <input type="text" class="edit-profile-input-long" id="sample6_detailAddress" name="userAddress">
+                            <input type="text" class="edit-profile-input-long" id="sample6_detailAddress" name="userAddress" value="${addr[1]}">
                         </div>
                     </div>
                     <div id="goRight">

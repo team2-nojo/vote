@@ -23,7 +23,7 @@ public class MyPageDAO {
     * @return result
     */
    public int updateProfileImage(User loginUser) {
-      return sqlSession.update("myPageMapper,updateProfileImage", loginUser);
+      return sqlSession.update("myPageMapper.updateProfileImage", loginUser);
    }
 
    

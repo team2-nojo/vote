@@ -206,11 +206,10 @@ div a {
 
 #loadButton:hover {
   box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.25) inset;
-  border: 2px solid rgb(124, 123, 123);
+  border: 3px solid rgb(124, 123, 123);
 }
 #loadButton:hover {
-  box-shadow: 300px 0 0 rgba(0, 0, 0, 0.25) inset,
-    -300px 0 0 0 rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 716px 0 0 rgba(0, 0, 0, 0.25) inset;
 }
 
 .petCategory:hover {

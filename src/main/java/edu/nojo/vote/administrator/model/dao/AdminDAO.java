@@ -119,7 +119,7 @@ public class AdminDAO {
 
 		int offset = (pagination.getCurrentPage() - 1 ) * pagination.getLimit();
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-		return sqlSession.selectList("adminMapper.selectPetitionList", null, rowBounds);
+		return sqlSession.selectList("adminMapper.selectUserList", null, rowBounds);
 	}
 
 	

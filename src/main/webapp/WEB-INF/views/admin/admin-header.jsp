@@ -38,7 +38,7 @@
         <div id="menu-wrap1">
           <ul>
             <li class="head-menu" id="menu1">회원관리</li>
-            <li><a href="">
+            <li><a href="/adminUser">
               <img
                 src="resources/images/mainPage/member_menu_logo.png"
                 alt="이미지_설명"

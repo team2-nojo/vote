@@ -3,6 +3,7 @@ package edu.nojo.vote.myPetitions.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import edu.nojo.vote.user.model.dto.User;
 @Controller
 public class MyPetitionsEditController {
 
+	@Autowired
 	private MyPetitionsDashboardService service;
 	
 	// myPetitionEdit 페이지로 이동

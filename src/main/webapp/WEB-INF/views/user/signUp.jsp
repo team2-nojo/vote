@@ -38,16 +38,12 @@
 
                 <div>
                     <input type="text" name="userEmail" id="email" placeholder=" Email">
-                    <input type="checkbox" class= "check1" id="emailCheck">
-                    <button type="button" class="ChkBtn" id="doubleCheck">중복확인</button> 
                 </div>
                 <div id="emailMessage">
                     메일을 받을 수 있는 이메일을 입력해주세요.
                 </div>
                 <div>
                     <input type="text" name="userNickname" id="name" placeholder=" Nickname" maxlength='10'>
-                    <input type="checkbox" class= "check1" id="nameCheck">
-                    <button type="button" class="ChkBtn" id="NicknameCheck">중복확인</button> 
                 </div>
                 <div id="nameMessage">
                     한글,영어,숫자로만 2~10글자 입력해주세요.
@@ -75,7 +71,7 @@
                 </div>
 
                 <div>
-                    <button id="SignUpSubmit" disabled>Sign up</button>
+                    <button id="SignUpSubmit" >Sign up</button>
                 </div>
             </form>
         </section>

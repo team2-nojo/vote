@@ -67,3 +67,50 @@ content.addEventListener("input", () => {
 
 });
 
+
+// 댓글등록(중)
+const like = document.getElementById("signButton");
+
+like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되었을 때
+
+    // 1) 로그인이 되어있나? -> 전역변수 memberNo 이용
+    if(loginUser.userNo == ""){ // 로그인 X
+        alert("로그인 후 이용해주세요.");
+        return;
+    }
+
+    // 2) 댓글 내용이 작성되어있나?
+    if(commentContent.value.trim().length == 0){ // 미작성인 경우
+        alert("댓글을 작성한 후 버튼을 클릭해주세요.");
+
+        commentContent.value = ""; // 띄어쓰기, 개행문자 제거
+        commentContent.focus();
+        return;
+    }
+
+    // 3) AJAX를 이용해서 댓글 내용 DB에 저장(INSERT)
+
+    const data = {"commentContent" : commentContent.value, 
+                    "userNo" : loginUser.userNo, "petitionNo" : petitionNo}; // JS객체
+
+    fetch("/comments", {
+        method: "POST",
+        headers: {"Content-Type" : "application/json"},
+        body: JSON.stringify(data) // JS객체 -> JSON파싱
+    })
+    .then(resp =>resp.text())
+    .then(result => {
+        if(result > 0){ // 등록 성공
+            alert("댓글이 등록되었습니다.");
+
+            commentContent.value = ""; // 작성했던 댓글 삭제
+
+            selectCommentList(); // 비동기 댓글 목록 조회 함수 호출
+            // -> 새로운 댓글이 추가되어짐
+
+        } else { // 실패
+            alert("댓글 등록에 실패했습니다.");
+        }
+    })
+    .catch(err => console.log(err));
+});

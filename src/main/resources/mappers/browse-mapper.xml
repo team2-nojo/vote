@@ -85,11 +85,13 @@
 	
 	<!-- 댓글 -->
 	<select id="selectComments" resultMap="browse" >
-		
-		SELECT CM_CONTENT, CM_DATE, USER_NICKNAME, USER_IMG 
-		FROM "COMMENT"
-		JOIN "USER" USING(USER_NO)
-		WHERE PT_NO = #{petitionNo}
+		SELECT CM_NO, USER_NICKNAME, USER_IMG, CM_CONTENT, TO_CHAR(CM_DATE, 'YYYY-MM-DD') CM_DATE,
+		(SELECT COUNT(*) FROM COMMENT_RESP R WHERE R.CM_NO = C.CM_NO AND CM_FL = 'Y') CM_FLY, 
+		(SELECT COUNT(*) FROM COMMENT_RESP R WHERE R.CM_NO = C.CM_NO AND CM_FL = 'N') CM_FLN
+		FROM "COMMENT" C
+		JOIN "USER" USING (USER_NO)
+		WHERE PT_NO = ${petitionNo}
+		AND CM_DEL_FL = 'N'
 		ORDER BY CM_NO DESC
 	</select>
 	
@@ -164,6 +166,11 @@
 		WHERE PT_NO = ${petitionNo}
 	</select>
 
+		<!-- 댓글 삽입 -->
+	<insert id="insert">
+		INSERT INTO "COMMENT"										
+		VALUES(SEQ_CM_NO.NEXTVAL, #{petitionNo}, #{userNo}, #{commentContent}, DEFAULT, DEFAULT
+	</insert>
 	
 
 	

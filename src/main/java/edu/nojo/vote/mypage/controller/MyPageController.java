@@ -108,6 +108,7 @@ public class MyPageController {
          
       // 주소 하나로 합치기 (a^^^b^^^c)
  		String addr = String.join("^^^", userAddress);
+ 		updateUser.setUserAddress(addr);
  		
  		// 로그인한 회원의 번호를 updateMember에 추가
  		updateUser.setUserNo( loginUser.getUserNo() );

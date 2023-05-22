@@ -76,6 +76,21 @@ public class MyPetitionsController {
 		return "/myPetitions/myPetitionDashboardUpdate";
 	}
 
+	
+	@PostMapping("/myPetitionsDashboard/myPetitionDashboardUpdate/{petitionNo}/insert")
+	public String updateInsert() {
+		
+		// 업데이트를 위해 필요한 것
+		// 입력값 : 업데이트할 표제, 사진, 업데이트 정보(내용)
+		// 필요한 정보 : 페티션 번호, 타이틀, 작성자 이름
+		// 청원 업데이트 value값 : 업데이트 글번호, 업데이트 제목, 업데이트 작성일, 업데이트 이미지, 업데이트 삭제 여부, 글 번호
+		
+		// loginUser : 작성자 이름
+		// pathVariable : 페티션 번호
+		
+		return null;
+	}
+	
 	// 게시글 장석
 	/*
 	 * @PostMapping(

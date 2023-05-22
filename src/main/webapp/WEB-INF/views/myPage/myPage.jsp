@@ -31,19 +31,19 @@
                     <div class="gray">계정 엑세스를 제어하고, 사용자 환경을 개인화하는 데 사용하는 데이터를 관리합니다.</div>
                 </div>
                 <div class="menu-container">
-                    <a href="#">
+                    <a href="myPage/editProfile">
                         <sapn>개인정보 변경</sapn><i class="fa-solid fa-angle-up fa-rotate-90"></i>
                     </a>
                     <hr>
-                    <a href="#">
+                    <a href="myPage/changePassword">
                         <sapn>비밀번호 변경</sapn><i class="fa-solid fa-angle-up fa-rotate-90"></i>
                     </a>
                     <hr>
-                    <a href="#">
+                    <a href="myPage/emailSettings">
                         <sapn>이메일 수신 설정</sapn><i class="fa-solid fa-angle-up fa-rotate-90"></i>
                     </a>
                     <hr>
-                    <a href="#">
+                    <a href="myPage/secession">
                         <sapn>계정 비활성화</sapn><i class="fa-solid fa-angle-up fa-rotate-90"></i>
                     </a>
                     <hr>

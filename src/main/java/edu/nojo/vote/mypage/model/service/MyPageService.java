@@ -39,6 +39,15 @@ public interface MyPageService {
 	User selectUser(int userNo);
 
 
+	/** 비밀번호 변경 서비스
+	 * @param userNo
+	 * @param currentPassword
+	 * @param newPassword
+	 * @return result
+	 */
+	int changePassword(int userNo, String currentPassword, String newPassword);
+
+
 
    
    

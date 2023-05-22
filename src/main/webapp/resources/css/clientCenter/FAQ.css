@@ -41,9 +41,6 @@ left: -5px;
   background-color: #2DB400;
 }
 
-* {
-  box-sizing: border-box;
-}
 
 #searchBtn {
   width: 100px;

@@ -88,7 +88,7 @@
             <div class="pettition1 pet-title">
               <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
               <span>Trending in 
-                <c:forEach items="${mainPetition.categoryList}" var="category" varStatus="status"><c:if test="${status.index > 0}">, </c:if><a href="#">${category.categoryName}</a></c:forEach>
+                <c:forEach items="${mainPetition.categoryList}" var="category" varStatus="status"><c:if test="${status.index > 0}">, </c:if><a href="#" class="petCategory">${category.categoryName}</a></c:forEach>
               </span>
               <a href="#" style="text-decoration: underline;">See more</a>
             </div>

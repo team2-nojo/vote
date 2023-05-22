@@ -3,8 +3,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
 <c:forEach items="${qnaTypeList}" var="qnaType">
-    <c:if test="${qnaType.QNA_CAT_CODE eq qnaCatCode}">
-        <c:set var="qnaName" value="${qnaType.QNA_NAME}"/>
+    <c:if test="${qnaType.QNA_CAT_CODE == qnaCatCode}">
+        <c:set var="qnaName" value="${qna.QNA_NAME}"/>
     </c:if>
 </c:forEach>
 
@@ -24,32 +24,34 @@
     
 <div class="content">
 <section class="board-detail">  
-<h1 class="board-title">${qna.qnaTitle}  <span> - ${qnaName}</span>    </h1>
+<h1 class="board-title">${qna.qnaTitle}  <span> ${qnaName}</span>    </h1>
 
             <div class="board-header">
                 <div class="board-writer">
 
-                    <span>${qna.userNickname}</span>
+                    <span>${qna.memberNickname}</span>
 
                 <div class="board-info">
                     <p> <span>작성일</span> ${qna.qnaCreateDt} </p>     
 
                     <!-- 수정한 게시글인 경우 -->
-                    <c:if test="${not empty qna.qnaUpdateDate}" >
+                    <%-- <c:if test="${not empty qna.qnaUpdateDate}" >
                     <p> <span>마지막 수정일</span>   ${qna.qnaUpdateDate} </p>   
-                    </c:if>
+                    </c:if> --%>
+                    <p> <span>마지막 수정일</span>  2023.05.22 </p>   
                     
-                    <p> <span>조회수</span> ${qna.readCount} </p>                    
+                    <%-- <p> <span>조회수</span> ${qna.readCount} </p> --%>                    
+                    <p> <span>조회수</span> 3 </p>                    
                 </div>
             </div>
 
  <div class="board-content">${qna.qnaCont}</div>
 <div class="board-btn-area">
-                <c:if test="${loginUser.userNo qna.qnaNo}" >
+                <c:if test="${loginUser.userNo == qna.userNo}" >
                 <button id="updateBtn">수정</button>
                 <button id="deleteBtn">삭제</button>
                 </c:if>
-                <button id="goToListBtn">목록으로</button>
+                <a href="/clientCenter/QNA3"><button id="goToListBtn">목록으로</button></a>
             </div>
 </div>
 </main>

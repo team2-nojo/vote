@@ -18,26 +18,18 @@ public class MainPageServiceImpl implements MainPageService {
 	// 메인페이지 박스에 청원 보이기
 	@Override
 	public List<Petition> selectMainPtList() {
-//		List<Integer> mainPtNoList = dao.selectMainPtNoList();
-//		List<Petition> result = new ArrayList<>();
-//		for(int mainPtNo : mainPtNoList) {
-//			Petition petition = dao.selectPetition(mainPtNo);
-//			petition.setCategoryList(dao.selectCategoryList(mainPtNo));
-//			
-//			result.add(petition);
-//		}
 		return dao.selectMainPtList();
 	}
 
 
 	@Override
 	public List<Petition> selectPetition(int page) {
-		return dao.selectPetition(page);
+		List<Petition> petitionList = dao.selectPetition(page);
+		System.out.println(petitionList);
+		for(Petition p: petitionList) {
+			p.setCategoryList(dao.selectCategoryList(p.getPetitionNo()));
+			System.out.println(p.getCategoryList());
+		}
+		return petitionList;
 	}
-
-
-
-	
-	
-	
 }

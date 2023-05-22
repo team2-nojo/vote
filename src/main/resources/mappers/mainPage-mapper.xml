@@ -55,7 +55,7 @@
 	</select>
 	
 	<select id="selectPetition" resultMap="petition_rm">
-	SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD,
+	SELECT PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD,
 		(SELECT COUNT(*) FROM PETITION_LIKE) "LIKE_COUNT"
 	FROM PETITION
 	JOIN "USER" USING(USER_NO)
@@ -63,9 +63,10 @@
 	</select>
 	
 	<select id="selectCategoryList" resultMap="category_rm">
-		SELECT CAT_NO, CAT_NAME FROM PETITION_CATEGORY PC 
+		SELECT CAT_NO, CAT_NAME
+		FROM PETITION_CATEGORY PC
 		JOIN PETITION_CATEGORY_LIST PCL USING (CAT_NO)
-		WHERE PT_NO=#{mainPtNo}
+		WHERE PT_NO=#{petitionNo}
 	</select>
 	
 	

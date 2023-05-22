@@ -20,7 +20,6 @@ public class Petition {
 	private String petitionVictory;
 	private String petitionImage;
 	private String petitionDelFl;
-	private String categoryNo;
 	private int orderNo;
 	
 	// 회원 join

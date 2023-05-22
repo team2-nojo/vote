@@ -76,12 +76,10 @@ public class MyPageServiceImpl implements MyPageService {
 		return dao.selectUser(userNo);
 	}
 	
+	@Transactional(rollbackFor = { Exception.class })
 	@Override
 	public int changePassword(int userNo, String currentPassword, String newPassword) {
-		
-		
-		
-		return 0;
+		return bcrypt.matches(currentPassword, dao.selectEncryptedPassword(userNo))?dao.changePassword(userNo,bcrypt.encode(newPassword)):0; 
 	}
 
 }

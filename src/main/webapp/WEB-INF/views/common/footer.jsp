@@ -17,3 +17,9 @@
         </div>
     </div>
 </footer>
+
+<c:if test="${not empty serverMessage}">
+    <script>
+        alert('${serverMessage}');
+    </script>
+</c:if>

@@ -23,7 +23,13 @@ public interface HelpService {
 	 * @param map
 	 * @return
 	 */
-	QNA3 selectqna(Map<String, Object> map);
+	QNA3 selectqna(Map<String, Object> map) ;
 
-   
+	/** 게시글 수정
+	 * @param qna3
+	 * @return
+	 */
+	int qnaUpdate(QNA3 qna3);
+
+
 }

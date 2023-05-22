@@ -20,3 +20,5 @@ public class QNA3 {
 	private int userNo;
 	private String memberNickname;
 }
+
+

@@ -66,7 +66,8 @@
                                             
                                             ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 --%>
                                         <td>
-                                        <a href="QNADetail/${qnaCatCode}/${qna.qnaNo}?cp=${pagination.currentPage}">${qna.qnaTitle}</a>
+
+                                        <a href="QNADetail/${qna.qnaNo}?cp=${pagination.currentPage}">${qna.qnaTitle}</a>
                                         </td>
                                         <td>${qna.qnaStatus}</td>
                                         <td>${qna.qnaCreateDt}</td>

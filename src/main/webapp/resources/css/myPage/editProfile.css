@@ -225,3 +225,14 @@ main div{
 .confirm{ color : black; }
 .error{ color : red; }
 
+/* 삭제버튼 */
+#imageContainer {
+    position: relative;
+}
+
+#deleteImage{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}

@@ -45,8 +45,8 @@ public class MainPageDAO {
 //	}
 
 
-	public List<PetitionCategory> selectCategoryList(int mainPtNo) {
-		return sqlSession.selectList("mainPageMapper.selectCategoryList",mainPtNo);
+	public List<PetitionCategory> selectCategoryList(int petitionNo) {
+		return sqlSession.selectList("mainPageMapper.selectCategoryList",petitionNo);
 	}
 
 	public List<Petition> selectPetition(int page) {

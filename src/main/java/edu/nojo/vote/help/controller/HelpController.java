@@ -94,17 +94,16 @@ public class HelpController {
     	return "/clientCenter/QNA3";
     } 
     
-    @GetMapping("/{qnaCatCode}/{qnaNo}")
+    
+    @GetMapping("/QNADetail/{qnaNo:[0-9]+}")
     public String qnaDetail(
     		@SessionAttribute(value="loginUser", required=false) User loginUser
       	  , Model model
       	  , RedirectAttributes ra
-		, @PathVariable("qnaCatCode") String qnaCatCode
-		, @PathVariable("qnaNo") String qnaNo
+		, @PathVariable("qnaNo") int qnaNo
       	)  {
     	
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("qnaCatCode",qnaCatCode);
 		map.put("qnaNo", qnaNo);
 		
 		QNA3 Qna3 = service.selectqna(map);
@@ -112,11 +111,70 @@ public class HelpController {
 		String path = null;
 
 		path = "clientCenter/QNADetail";
-		model.addAttribute("QNA3", Qna3);
+		model.addAttribute("qna", Qna3);
 		
         return path;
      }
+    
+	// 게시글 수정 화면 전환
+	@GetMapping("/QNAupdate/{qnaNo}")
+	public String qnaUpdate(
+		 @PathVariable("qnaNo") int qnaNo
+		,Model model) {
+		// Model : 데이터 전달용 객체(기본 scope : request)
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("qnaNo", qnaNo);
+		
+		QNA3 qna3 = service.selectqna(map);
+		
+		/* if(로그인회원번호 != 작성자 번호) 리다이렉트 */
+		model.addAttribute("qna", qna3);
+
+		// forward(요청 위임) -> request scope 유지
+		return "clientCenter/QNAupdate";
+	}
+	
+    
+    
+    
+    
+    @PostMapping("/QNAupdate/{qnaNo}")
+    public String qnaUpdate(
+    	QNA3 qna3
+      , @PathVariable("qnaNo") int qnaNo 
+      , RedirectAttributes ra
+   )  {
+    	
+	qna3.setQnaNo(qnaNo);
+    
+    int rowCount = service.qnaUpdate(qna3);
+    
+	String message = null;
+	String path = "redirect:";
+	
+	if(rowCount > 0) {
+		message = "게시글이 수정되었습니다.";
+		path += "/clientCenter/QNADetail/"+qnaNo;
+	}else {
+		message = "게시글 수정 실패";
+		path += "/clientCenter/QNAupdate/"+qnaNo;
+	}
+	
+	ra.addFlashAttribute("message", message);
+	
+	return path;
 }
+    
+    
+    
+    
+    
+    
+    
+}
+    
+
    
     
 

@@ -81,7 +81,7 @@ public class MyPetitionsDashboardController {
 
 	}
 	
-	
+	// suppoter list
 	@PostMapping(value="/selectSuppoter", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public List<Like> selectSuppoter(@RequestBody String petitionNo) {
@@ -89,6 +89,7 @@ public class MyPetitionsDashboardController {
 		return service.resetlikeUserList(pno);
 	}
 	
+	// comment list
 	@PostMapping(value="/selectComment", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public List<Like> selectComment(@RequestBody String petitionNo) {

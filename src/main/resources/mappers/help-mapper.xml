@@ -60,7 +60,7 @@
 	</insert>
 
 	<select id="selectqna" resultMap="QNA3_rm">
-		SELECT Q.QNA_NO, Q.QNA_TITLE, Q.QNA_CONT, U.USER_NICKNAME,
+		SELECT Q.QNA_NO, Q.QNA_TITLE, Q.QNA_CONT, U.USER_NO,
 		TO_CHAR(Q.QNA_CREATE_DT, 'YYYY"년" MM"월" DD"일') AS QNA_CREATE_DT
 		FROM QNA Q
 		JOIN "USER" U ON Q.USER_NO = U.USER_NO
@@ -68,6 +68,15 @@
 		AND Q.QNA_NO = #{qnaNo}
 
 	</select>
+
+	<update id="helpUpdate">
+		UPDATE "QNA" SET
+		QNA_TITLE = #{qnaTitle},
+		QNA_CONT =
+		#{qnaCont},
+		QNA_CREATE_DT = SYSDATE
+		WHERE QNA_NO = #{qnaNo}
+	</update>
 	
 </mapper>
 

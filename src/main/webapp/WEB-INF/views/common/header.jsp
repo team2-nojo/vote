@@ -3,7 +3,6 @@
 
 <!-- font awesome 라이브러리 추가 + key 등록 -->
 <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
-
 <link rel="stylesheet" href="/resources/css/main.css">
 
 <header>

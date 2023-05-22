@@ -55,6 +55,7 @@
 .board-info{
     width: 320px;
     font-size: 0.8em;
+    position: relative; left: 750px;
 }
 
 .board-info > p{
@@ -73,36 +74,30 @@
 }
 
 
-
-
 /* 내용 */
 .board-content{
     clear: both;
     padding: 30px 0;
     margin: 30px 0;
-    border-top : 3px solid #ccc;
-    border-bottom : 3px solid #ccc;
-
     font-size: 18px;
-
     white-space: pre-wrap;
+    
 }
 
 /* 버튼 영역 */
 .board-btn-area{
     text-align: right;
+    position: relative; top: 200px;
 }
 
 /* 버튼 */
 .board-btn-area button{
     width: 80px;
     height: 30px;
-
     font-weight: bold;
     border: 0;
     background-color: #2DB400;
     color : white;
-
     cursor: pointer;
 }
 

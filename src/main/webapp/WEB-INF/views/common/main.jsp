@@ -14,6 +14,7 @@
     <%-- header --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <main>
+    <c:set var="abc" value="mainPetitionList"/>
 
       <section class="section1">
 
@@ -86,14 +87,19 @@
             <li class="content pettition1">
             <div class="pettition1 pet-title">
               <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
-              <span>Trending in Environment</span>
+              <span>Trending in 
+                <c:forEach items="${mainPetition.categoryList}" var="category" varStatus="status">
+                  <c:if test="${status.index > 0}">, </c:if>
+                  <a href="#">${category.categoryName}</a>
+                  <%-- <c:if test="${status.index < mainPetition.categoryList.length}">, </c:if> --%>
+                </c:forEach>
+              </span>
               <a href="#" style="text-decoration: underline;">See more</a>
             </div>
             <div class="pettition1 article">
               <div class="article-title"><h3>${mainPetition.petitionTitle}</h3></div>
               <div>
                 <div>${mainPetition.petitionContent}<a href="#">더보기</a></div>
-           
               </div>
               <div class="photo"><img src="${mainPetition.petitionImage}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>
@@ -131,7 +137,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/resources/js/mainPage/mainPage.js"></script>
   <script>
-    const userImg = $
+    const userImg = $;
   </script>
 </body>
 </html>

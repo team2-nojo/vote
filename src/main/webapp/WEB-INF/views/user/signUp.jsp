@@ -53,14 +53,14 @@
                     한글,영어,숫자로만 2~10글자 입력해주세요.
                 </div>
                 <div>
-                    <input type="text" name="userPw" id="password1" placeholder=" Password" maxlength='8'>
-                    <input type="text" name="userPwConfirm" id="password2" placeholder=" Password" maxlength='8'>
+                    <input type="password" name="userPw" id="password1" placeholder=" Password" maxlength='8'>
+                    <input type="password" name="userPwConfirm" id="password2" placeholder=" Password" maxlength='8'>
                 </div>
                 <div id="pwMessage">
-                    영어,숫자,특수문자(!,@,#,-,_) 6~8글자 사이로 입력해주세요.
+                    영어,숫자,특수문자(!,@,#,-,_) 8~20글자 사이로 입력해주세요.
                 </div>
                 <div id="pwCfMessage">
-                    영어,숫자,특수문자(!,@,#,-,_) 6~8글자 사이로 입력해주세요.
+                    영어,숫자,특수문자(!,@,#,-,_) 8~20글자 사이로 입력해주세요.
                 </div>
                 <div>
                     <input type="text" name="userAddress" id="sample6_address" placeholder=" Address">
@@ -70,7 +70,7 @@
 
                 <div>
                     <a href="/user/agreeService" id="agreeServiceGo">
-                        <input type="checkbox"  id="agree"><label for="agree"> vote 서비스약관에 동의합니다.</label> 
+                        <input type="checkbox" class= "check1" id="agree"><label for="agree"> vote 서비스약관에 동의합니다.</label> 
                     </a>
                 </div>
 

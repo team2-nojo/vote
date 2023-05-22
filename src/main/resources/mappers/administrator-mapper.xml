@@ -11,15 +11,12 @@
       	<result property="petitionViewCount" column="PT_VIEW_COUNT" />
       	<result property="petitionImage" column="PT_IMG" />
       	<result property="petitionVictory" column="PT_VICT" />
-      	
       	<result property="userNo" column="USER_NO" />
       	<result property="userImage" column="USER_IMG" />
       	<result property="userNickname" column="USER_NICKNAME" />
       	<result property="userAddress" column="USER_ADD" />
-      	
       	<result property="categoryNo" column="CAT_NO" />
       	<result property="categoryName" column="CAT_NAME" />
-      	
       	<result property="petitionLikeCount" column="LIKE_COUNT" />
 </resultMap>
 
@@ -29,17 +26,10 @@
       	<result property="userImage" column="USER_IMG" />
       	<result property="userNickname" column="USER_NICKNAME" />
       	<result property="userEnrollDate" column="USER_ENDROLL_DT" />
-      	<result property="userAddress" column="USER_EMAIL" />
-      	
-      	<result property="userNo" column="USER_NO" />
-      	<result property="userImage" column="USER_IMG" />
+      	<result property="userEmail" column="USER_EMAIL" />
       	<result property="userNickname" column="USER_NICKNAME" />
       	<result property="userAddress" column="USER_ADD" />
-      	
-      	<result property="categoryNo" column="CAT_NO" />
-      	<result property="categoryName" column="CAT_NAME" />
-      	
-      	<result property="petitionLikeCount" column="LIKE_COUNT" />
+      	<result property="userWriteCount" column="USER_WRITE_COUNT" />
 </resultMap>
 	
 	<!-- 삭제되지 않은 청원 수 조회 -->
@@ -50,18 +40,7 @@
 	
 	<!-- 청원 조회 -->
 	<select id="selectPetitionList" resultMap="petition_rm">
-		SELECT PT_NO, PT_TITLE, USER_NICKNAME, PT_VIEW_COUNT, USER_IMG,
-			<![CDATA[
-			CASE  
-				WHEN SYSDATE - PT_DATE < 1     
-				THEN FLOOR( (PT_DATE - SYSDATE) ) || '일 전'
-				WHEN SYSDATE - PT_DATE < 30
-				THEN FLOOR( (SYSDATE - PT_DATE) / 7 ) || '주 전'
-				WHEN SYSDATE - PT_DATE < 365
-				THEN FLOOR( (SYSDATE - PT_DATE) / 30 ) || '달 전'
-					ELSE FLOOR( (SYSDATE - PT_DATE) / 365 ) || '년 전'
-			END PT_DATE
-			]]>
+		SELECT PT_NO, PT_TITLE, USER_NICKNAME, PT_VIEW_COUNT, USER_IMG, PT_DATE
 			FROM "PETITION" P
 			JOIN "USER" USING(USER_NO)
 			WHERE PT_DEL_FL = 'N'
@@ -157,6 +136,30 @@
 	<select id="getUserListCount" resultType="_int">
 		SELECT COUNT(*) FROM "USER" 
 		WHERE USER_DEL_FL = 'N'
+	</select>
+	
+	
+	<!-- 유저 조회 -->
+	<select id="selectUserList" resultMap="user_rm">
+<!-- 	SELECT USER_NO, USER_NICKNAME, USER_EMAIL, USER_ADD, USER_ENDROLL_DT, USER_IMG,
+    (
+        SELECT COUNT(*)
+        FROM "PETITION"
+        WHERE "USER_NO" = (
+            SELECT "USER_NO"
+            FROM "USER"
+            WHERE USER_NO = #{userNo}
+        )
+    ) AS USER_WRITE_COUNT
+	FROM "USER" WHERE USER_NO = #{userNo} AND USER_DEL_FL = 'N'
+	ORDER BY USER_NO DESC -->
+SELECT USER_NO, USER_NICKNAME, USER_EMAIL, USER_ADD, USER_ENDROLL_DT, USER_IMG, 
+	(SELECT COUNT(*) AS USER_WRITE_COUNT
+	FROM "PETITION"
+	WHERE "USER_NO" = (SELECT "USER_NO" FROM "USER" WHERE USER_NO = U.USER_NO)) AS USER_WRITE_COUNT
+	FROM "USER" U
+	WHERE USER_DEL_FL = 'N'
+	ORDER BY USER_NO DESC
 	</select>
 	
 	

@@ -133,7 +133,7 @@ public class AdministratorController {
 		
 	}
 	
-	
+	// 유저 목록 조회
 	@GetMapping("/adminUser")
 	private String selectUserList(
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp

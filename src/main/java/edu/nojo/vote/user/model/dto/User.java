@@ -22,6 +22,7 @@ public class User {
 	private String userSocialLogin;			// 회원 소셜로그인
 	private String userEnrollDate;			// 회원 가입일
 	private String userDelFl;
+	private int userWriteCount;
 
 	public User() {
 	}			

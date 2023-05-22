@@ -3,7 +3,7 @@
 <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 <%-- map에 저장된 값들을 각각 변수에 저장 --%>
 <c:set var="pagination" value="${map.pagination}"/>
-<c:set var="petitionList" value="${map.petitionList}"/>
+<c:set var="userList" value="${map.userList}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -11,9 +11,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>청원 조회</title>
+    <title>유저 조회</title>
 
-    <link rel="stylesheet" href="resources/css/admin/adminPetitionList.css">
+    <link rel="stylesheet" href="resources/css/admin/adminUserList.css">
   </head>
   <body>
  <%-- header --%>
@@ -21,56 +21,57 @@
       <article>
     <main>
         <section class="board-list">
-            <h1 class="board-name">청원 조회</h1>
+            <h1 class="board-name">유저 조회</h1>
             <div class="list-wrapper">
                 <table class="list-table">
                     
                     <thead>
                         <tr>
-                            <th>글번호<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
-                            <th>제목</th>
-                            <th>작성자</th>
-                           <th>작성일<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
-                            <th>조회수<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
-                            <th>좋아요<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
-                            <th>메인등록</th>
+                            <th>회원번호<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
+                            <th>닉네임</th>
+                            <th>이메일<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
+                            <th>주소<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
+                            <th>가입일<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
+                            <th>작성 글</th>
+                            <th>회원 삭제</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <c:choose>
-                            <c:when test="${empty petitionList}">
+                            <c:when test="${empty userList}">
                               
                                 <tr>
-                                    <th colspan="6">게시글이 존재하지 않습니다.</th>
+                                    <th colspan="6">회원이 존재하지 않습니다.</th>
                                 </tr>
                             </c:when>
                                 
                             <c:otherwise>
-                                <form action="/admin/petition/${petition.petitionNo}" method="POST" id="mainForm">
-                                <c:forEach items="${petitionList}" var="petition">
+                                <form action="/adminUser" method="POST" id="mainForm">
+                                <c:forEach items="${userList}" var="user">
 
                                 <tr>
-                                    <td class='petitionNo'>${petition.petitionNo}</td>
-                                    <td>
-                                        <img class="list-thumbnail" src="${petition.userImage}">
-                                        <%-- ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 --%>
-                                        <a href="/${petition.petitionNo}?cp=${pagination.currentPage}">${petition.petitionTitle}</a>
-                                    </td>
-                                    <td class='userNickname'>${petition.userNickname}</td>
-                                    <td>${petition.petitionDate}</td>
-                                    <td>${petition.petitionViewCount}</td>
-                                    <td>${petition.petitionVictory}</td>
-                                    <td>
-                                            <label for="mainUpdateNumber"></label>
-                                            <select id="mainUpdateNumber" name="mainUpdateNumber" onchange="confirmChange(this)">
+                                    <td class='petitionNo'>${user.userNo}</td>
+                                    
+                                    <c:choose>
+                                      <c:when test="${empty user.userImage}">
+                                        <td>
+                                          <img class="list-thumbnail" src="resources/images/common/user.png">${user.userNickname}
+                                        </td>
+                                      </c:when>
+                                      <c:otherwise>
+                                        <td>
+                                          <img class="list-thumbnail" src="${user.userImage}">${user.userNickname}
+                                        </td>
+                                      </c:otherwise>
+                                    </c:choose>
 
-                                                <option selected disabled>메인 번호 선택</option>
-                                                <c:forEach var="number" begin="1" end="6">
-                                                <option value="${number}">${number}</option>
-                                                </c:forEach>
-                                            </select>
-                                    </td>
+                                    <td>${user.userEmail}</td>
+                                    <td>${user.userAddress}</td>
+                                    <td>${user.userEnrollDate}</td>
+                                    <td>${user.userWriteCount}</td>
+                                    <td></td>
+
                                 </tr>
                                 </c:forEach>
                                 </form>
@@ -80,14 +81,14 @@
                 </table>
             </div>
             <div class="btn-area">
-                <button id="insertBtn">메인 등록</button>                     
+                <button id="insertBtn">회원 삭제</button>                     
             </div>
             <div class="pagination-area">
                 <ul class="pagination">
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/adminPetitionList?cp=1">&lt;&lt;</a></li>
+                    <li><a href="/adminUser?cp=1">&lt;&lt;</a></li>
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/adminPetitionList?cp=${pagination.prevPage}">&lt;</a></li>
+                    <li><a href="/adminUser?cp=${pagination.prevPage}">&lt;</a></li>
                     <!-- 특정 페이지로 이동 -->
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
 
@@ -99,20 +100,20 @@
 
                             <c:otherwise>
                             <!-- 현재 페이지를 제외한 나머지 -->
-                                 <li><a href="/adminPetitionList?cp=${i}">${i}</a></li>
+                                 <li><a href="/adminUser?cp=${i}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/adminPetitionList?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="/adminUser?cp=${pagination.nextPage}">&gt;</a></li>
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/adminPetitionList?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                    <li><a href="/adminUser?cp=${pagination.maxPage}">&gt;&gt;</a></li>
                 </ul>
             </div>
 
 
 			<!-- 검색창 -->
-            <form action="/adminPetitionList" method="get" id="petitionSearch">
+            <form action="/adminUser" method="get" id="petitionSearch">
 
                 <select name="key" id="searchKey">
                     <option value="t">제목</option>

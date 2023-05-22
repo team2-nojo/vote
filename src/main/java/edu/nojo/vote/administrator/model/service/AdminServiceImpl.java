@@ -111,16 +111,16 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Map<String, Object> selectUserList(int cp) {
 		
-		int listCount = dao.getListCount();
+		int listCount = dao.getUserListCount();
 		
 		Pagination pagination = new Pagination(listCount, cp);
 		
-		List<Petition> petitionList = dao.selectPetitionList(pagination);
+		List<Petition> userList = dao.selectUserList(pagination);
 		
 		// pagination, boardList를 Map에 담아서 반환
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);
-		map.put("userList", petitionList);
+		map.put("userList", userList);
 		
 		
 		return map;

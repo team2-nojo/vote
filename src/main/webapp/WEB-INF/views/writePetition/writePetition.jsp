@@ -10,9 +10,8 @@
         
         <!-- include summernote css/js -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link href="resources/common/summer/summernote-lite.css" rel="stylesheet">
-        <script src="resources/common/summer/summernote-lite.js"></script>
-        <script src="resources/common/summer/summernote-ko-KR.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
         
         
         <link rel="stylesheet" href="resources/css/writePetition/writePetition.css">

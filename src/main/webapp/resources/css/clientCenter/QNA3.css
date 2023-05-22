@@ -5,11 +5,12 @@
     width: 100%;
     height: 100%;
     align-items: center;
-  }
+}
 
 .board-name{
 	font-size : 2em;
-	margin : 20px 0;
+	margin : 20px auto;
+    position: relative; left: 450px;
 }
 
 a{
@@ -65,13 +66,13 @@ a:hover {
 .list-table tr > *{ text-align: center; }
 .list-table tr > *:nth-of-type(1){ width: 10%; }
 .list-table tr > td:nth-of-type(2){
-    width: 62%; 
+    width: 50%; 
     text-align: center;
     text-decoration: none;
 }
 
-.list-table tr > *:nth-of-type(3){ width: 20%; }
-.list-table tr > *:nth-of-type(4){ width: 8%; }
+.list-table tr > *:nth-of-type(3){ width: 15%; }
+.list-table tr > *:nth-of-type(4){ width: 25%; }
 
 
 .btn-area{

@@ -55,4 +55,21 @@ public class HelpServiceImpl implements HelpService{
 	public QNA3 selectqna(Map<String, Object> map) {
 		return dao.selectqna(map);
 	}
-}
+
+	// 게시글 수정
+    @Transactional(rollbackFor = Exception.class)
+	@Override
+	public int qnaUpdate(QNA3 qna3) {
+		
+		qna3.setQnaTitle( Util.XSSHandling( qna3.getQnaTitle() ) );
+		qna3.setQnaCont( Util.XSSHandling( qna3.getQnaCont() ) );
+		
+		int rowCount = dao.qnaUpdate(qna3);
+    	
+		return rowCount;
+	}
+
+
+
+	}
+	

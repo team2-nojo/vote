@@ -55,6 +55,14 @@ public class HelpDAO {
 		return sqlSession.selectOne("HelpMapper.selectqna", map);
 	}
 
+	/** 게시글 수정
+	 * @param qna3
+	 * @return
+	 */
+	public int qnaUpdate(QNA3 qna3) {
+		return sqlSession.update("HelpMapper.helpUpdate", qna3);
+	}
+
 
 
 }

@@ -23,6 +23,8 @@ const checkObj = {
 const userEmail = document.getElementById("email");
 const emailMessage = document.getElementById("emailMessage");
 
+
+
 // 이메일 포커스
 userEmail.addEventListener("focus", () => {
 
@@ -84,6 +86,7 @@ userEmail.addEventListener("focus", () => {
             userEmail.focus(); // 이메일 input태그에 초점을 맞춤
         }
     });
+    
     
     
 });
@@ -169,7 +172,7 @@ userPw.addEventListener("focus", ()=>{
         
         // 비밀번호가 입력되지 않은 경우
         if(userPw.value.trim().length == 0){
-            pwMessage.innerText = "영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요.";
+            pwMessage.innerText = "영어,숫자,특수문자(!,@,#,-,_) 8~20글자 사이로 입력해주세요.";
             emailMessage.classList.remove("confirm", "error")
             userPw.value = ""; // 띄어쓰기 못 넣게 하기
             checkObj.userPw = false; //빈칸 == 유효 X
@@ -180,12 +183,11 @@ userPw.addEventListener("focus", ()=>{
         
         // 정규표현식을 이용한 비밀번호 유효성 검사
         // 영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이
-        const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,8}$/;
+        const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{8,20}$/;
         
         
         // 입력한 비밀번호가 유효한 경우
         if(regEx.test(userPw.value)){
-            checkObj.userPw = true;
             
             if(userPwConfirm.value.trim().length == 0){ // 비밀번호가 유효하게 작성된 상태에서 비밀번호 확인이 입력되지 않았을 때
                 pwMessage.innerText = "유효한 비밀번호 형식입니다.";
@@ -254,68 +256,111 @@ userPwConfirm.addEventListener("focus", ()=>{
 
 // sign up버튼 활성화
 
-const doubleCheck = document.getElementById("doubleCheck");
-const emailCheck = document.getElementById("emailCheck");
-doubleCheck.addEventListener("click", ()=>{
-
-
-    fetch('dupCheck/checkEmail?email=' + userEmail.value)
-    .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
-    .then(count => {
-        // count : 중복되면 1, 중복 아니면 0
-
-        if(count == 0){ // 중복이 아니면
-            alert("사용 가능한 이메일 입니다.");
-            checkObj.userEmail = true; // 유효 O
-            emailCheck.checked = "ture";
-        }else{ // 중복일 때
-            alert("이미 사용중인 이메일 입니다.");
-            checkObj.userEmail = false; // 유효 X
-            emailCheck.checked = "false";
-            userEmail.focus(); // 이메일 input태그에 초점을 맞춤
-        }
-        
-
-    }) //파싱한 데이터를 이용해서 수행할 코드 작성
-    .catch(err => console.log(err)); // 예외처리
-
-
-
-});
-
-
+//닉네임
 const NicknameCheck = document.getElementById("NicknameCheck");
 const nameCheck = document.getElementById("nameCheck");
 NicknameCheck.addEventListener("click", ()=>{
-    nameCheck.checked = "ture";
+    if(userNickname.value.trim().length == 0) {
+        nameCheck.checked = false;
+        alert("사용할 닉네임을 입력해주세요.");
+        return;
+    }
+    
+    // 정규식 객체 생성
+    const regEx = /^[가-힣\w\d]{2,10}$/;
+    
+    // 입력받은 이메일과 정규식 일치 여부 판별
+    if( regEx.test(userNickname.value) ){ // 유효한 경우
+        
+        // GET방식 ajax요청(파라미터는 쿼리스트링)
+        fetch('dupCheck/nickname?nickname=' + userNickname.value)
+        .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
+        .then(count => {
+            // count : 중복되면 1, 중복 아니면 0
+            
+            if(count == 0){ // 중복이 아니면
+                nameCheck.checked = true;
+                alert("사용 가능한 닉네임 입니다.");
+            }else{ // 중복일 때
+                nameCheck.checked = false;
+                alert("이미 사용중인 닉네임 입니다.");
+            }
+            
+        }) //파싱한 데이터를 이용해서 수행할 코드 작성
+        .catch(err => console.log(err)); // 예외처리
+        
+    }else{ // 유효하지 않은 경우(무효인 경우)
+        nameCheck.checked = false;
+        alert("닉네임 형식이 유효하지 않습니다.");
+    }
+    
 });
 
 
+// 이메일
+const doubleCheck = document.getElementById("doubleCheck");
+const emailCheck = document.getElementById("emailCheck");
+doubleCheck.addEventListener("click", ()=>{
+    // 입력이 되지 않은 경우(공란일 때)
+    if(userEmail.value.trim().length == 0) {
+        emailCheck.checked = false;
+        alert("메일을 받을 수 있는 이메일을 입력해주세요.");
+        return;
+    }
+    
+    // 정규식 객체 생성
+    const regEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
+    
+    // 입력받은 이메일과 정규식 일치 여부 판별
+    if( regEx.test(userEmail.value) ){ // 유효한 경우
+        
+        // GET방식 ajax요청(파라미터는 쿼리스트링)
+        fetch('dupCheck/checkEmail?email=' + userEmail.value)
+        .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
+        .then(count => {
+            // count : 중복되면 1, 중복 아니면 0
+            
+            if(count == 0){ // 중복이 아니면
+                emailCheck.checked = true;
+                alert("사용 가능한 이메일 입니다.");
+            }else{ // 중복일 때
+                emailCheck.checked = false;
+                alert("이미 사용중인 이메일 입니다.");
+            }
+            
+        }) //파싱한 데이터를 이용해서 수행할 코드 작성
+        .catch(err => console.log(err)); // 예외처리
+        
+    }else{ // 유효하지 않은 경우(무효인 경우)
+        emailCheck.checked = false;
+        alert("이메일 형식이 유효하지 않습니다.");
+    }
+    
+});
+
+
+
+
+// sign up 활성화
 let SignUpSubmit = document.getElementById("SignUpSubmit");
 const agree = document.getElementById("agree");
 let checkList = document.querySelectorAll(".check1");
-function ready() {
-    checkList.addEventListener('change', () => {
-        alert("확인") 
+checkList.forEach(function (e) {
+    e.addEventListener('change', () => {
+        
         if (nameCheck.checked && emailCheck.checked && agree.checked) {
-            // 확인 안됨
+            SignUpSubmit.style.backgroundColor = "#2DB400";
             SignUpSubmit.disabled = false;
-            SignUpSubmit.classList.add("ready");
+
+            
         }
-
     });
-
-};
-
-
+    
+});
 
 
 
-
-
-/*
-*/
-
+// 버튼 활성화 후 비밀번호 작성 되지 않아도 제출 됨....(수정예정)
 // 회원가입 폼 제출 시
 document.getElementById("signUpFrm").addEventListener("submit", () => {
     for(let key in checkObj){
@@ -341,9 +386,6 @@ document.getElementById("signUpFrm").addEventListener("submit", () => {
 
 
 const agreeServiceFrm = document.getElementById("agreeService"); // 제출 
-
-
-
 // 서비스_이용약관_동의 체크박스 클릭 시 새 창으로 이동
 openPopup.addEventListener("click", () => {
     

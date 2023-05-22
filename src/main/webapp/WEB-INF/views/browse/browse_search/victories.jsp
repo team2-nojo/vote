@@ -9,8 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>브라우저 게시글 조회(victories)</title>
 
-    <%-- popular.css --%>
+    <%-- css --%>
     <link rel="stylesheet" href="/resources/css/browse/browse_search/browse_search.css">
+    <link rel="stylesheet" href="/resources/css/browse/browse_search/victories_top.css">
     
 </head>
 <body>

@@ -103,6 +103,24 @@ public class AdminDAO {
 	}
 
 
+	/** 삭제되지 않은 유저 조회
+	 * @return listCount
+	 * */
+	public int getUserListCount() {
+		return sqlSession.selectOne("adminMapper.getUserListCount");
+	}
+
+	/**유저 조회에서 현재 페이지에 해당하는 부분에 대한 유저 목록 조회
+	 * @param pagination
+	 * @return
+	 * 
+	 * */
+	public List<Petition> selectUserList(Pagination pagination) {
+
+		int offset = (pagination.getCurrentPage() - 1 ) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		return sqlSession.selectList("adminMapper.selectPetitionList", null, rowBounds);
+	}
 
 	
 

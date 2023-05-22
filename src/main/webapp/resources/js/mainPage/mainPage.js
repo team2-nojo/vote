@@ -110,8 +110,8 @@ document.getElementById('loadButton').addEventListener('click', function () {
           `;
           petitionContainer.appendChild(li);
 
-          if(response.length<3){
-            // 여기에서 더보기 버튼 삭제하고 더이상 불러올 데이터가 없음을 표시해줄 것
+          if (response.length < 3) {
+            document.getElementById('loadButton').style.display = 'none';
           }
         }
       } else {

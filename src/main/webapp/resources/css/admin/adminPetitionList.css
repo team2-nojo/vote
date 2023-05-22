@@ -165,10 +165,11 @@ a:hover {
 /* 썸네일 */
 .list-table .list-thumbnail {
   position: absolute;
-  max-height: 30px;
-  max-width: 50px;
-  left: -15px;
+  width: 25px;
+  height: 25px;
+  left: -5px;
   top: 17px;
+  border-radius: 50%;
 }
 
 .list-table tr > td:nth-of-type(2) {

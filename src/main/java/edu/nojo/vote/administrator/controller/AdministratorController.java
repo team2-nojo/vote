@@ -132,7 +132,20 @@ public class AdministratorController {
 		return path;
 		
 	}
+	
+	
+	@GetMapping("/adminUser")
+	private String selectUserList(
+			@RequestParam(value="cp", required=false, defaultValue="1") int cp
+			,Model model) {
+		
+		Map<String, Object> map = service.selectUserList(cp);
+		
+		// 조회 결과를 request scope에 세팅 후 forward
+		model.addAttribute("map", map);
+		return "admin/adminUserList";
+		
+	}
+
 }
-
-
 

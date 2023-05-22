@@ -22,6 +22,25 @@
       	
       	<result property="petitionLikeCount" column="LIKE_COUNT" />
 </resultMap>
+
+<resultMap type="edu.nojo.vote.user.model.dto.User" id="user_rm">
+		<result property="userAboutMe" column="USER_ABOUT_ME" jdbcType="CLOB" javaType="String" />
+		 <result property="userNo" column="USER_NO" />
+      	<result property="userImage" column="USER_IMG" />
+      	<result property="userNickname" column="USER_NICKNAME" />
+      	<result property="userEnrollDate" column="USER_ENDROLL_DT" />
+      	<result property="userAddress" column="USER_EMAIL" />
+      	
+      	<result property="userNo" column="USER_NO" />
+      	<result property="userImage" column="USER_IMG" />
+      	<result property="userNickname" column="USER_NICKNAME" />
+      	<result property="userAddress" column="USER_ADD" />
+      	
+      	<result property="categoryNo" column="CAT_NO" />
+      	<result property="categoryName" column="CAT_NAME" />
+      	
+      	<result property="petitionLikeCount" column="LIKE_COUNT" />
+</resultMap>
 	
 	<!-- 삭제되지 않은 청원 수 조회 -->
 	<select id="getListCount" resultType="_int">
@@ -132,6 +151,14 @@
 			</choose>
 			ORDER BY PT_NO DESC
 	</select>
+	
+	
+	<!-- 삭제되지 않은 청원 수 조회 -->
+	<select id="getUserListCount" resultType="_int">
+		SELECT COUNT(*) FROM "USER" 
+		WHERE USER_DEL_FL = 'N'
+	</select>
+	
 	
 	
 </mapper>

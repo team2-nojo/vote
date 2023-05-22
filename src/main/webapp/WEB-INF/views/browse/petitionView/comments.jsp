@@ -30,6 +30,11 @@
             </div>
         </section>
 
+
+
+
+
+
         <!-- comment -->
             <section id="comment">
                 <ul id="commentList">
@@ -39,11 +44,11 @@
                         <div id="comment3">
                             <div id="commentFrame">
                                 <div id="cImage">
-                                    <a href="#"><img src="/${loginUser.userImage}" alt="프로필사진" id="profileImg"></a>
+                                    <a href="#"><img src="/${commentList[0].userImage}" alt="프로필사진" id="profileImg"></a>
                                 </div>
                                 <div>
                                     <div id="cNickname">
-                                        ${loginUser.userNickname}
+                                        ${commentList[0].userNickname}
                                     </div>
                                     <div id="cDate">
                                         ${commentList[0].commentDate}

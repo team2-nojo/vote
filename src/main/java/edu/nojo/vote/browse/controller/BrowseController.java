@@ -13,7 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -23,6 +26,9 @@ import edu.nojo.vote.browse.model.service.CommentService;
 
 import edu.nojo.vote.browse.model.service.BrowseService;
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Comment;
+import edu.nojo.vote.myPetitions.model.dto.Like;
+import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 import edu.nojo.vote.user.model.dto.User;
 
 
@@ -34,7 +40,10 @@ public class BrowseController {
 	private BrowseService service;
 
 	@Autowired
-	private CommentService service2; // 똑같은 변수로 선언하면 오류뜹니다.
+	private CommentService service2; 
+	
+	@Autowired 
+	private MyPetitionsDashboardService service3;
 	
 
 	// browse 페이지 이동(popular)
@@ -99,6 +108,24 @@ public class BrowseController {
 	
 	
 	
+
+	// details페이지 내부 comment list
+	@PostMapping(value="/selectComment", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<Like> selectComment(@RequestBody String petitionNo) {
+		int pno = Integer.parseInt(petitionNo);
+		return service2.resetcommentList(pno);
+	}
+	
+	
+
+	// 댓글 삽입
+	@PostMapping("/comment")
+	public int insert(@RequestBody Comment comment) {
+		// 요청 데이터 (JSON)을 HttpMessageConverter가 해석해서 Java객체(comment)에 대입
+		return service2.insert(comment);
+	}
+	
 	
 	// petitionView 페이지 이동(comments)
 	@GetMapping("/petitionView/comments/{petitionNo}")
@@ -117,7 +144,7 @@ public class BrowseController {
 
 
 	
-	
+
 	
 	
 	

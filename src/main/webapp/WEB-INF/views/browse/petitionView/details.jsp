@@ -102,31 +102,36 @@
                 <hr>
                 <br>
 
-                <!-- 댓글보기 -->
+
                 <div id="commentBox">
                     <div id="reason">댓글 보기</div>
-                    <div id="noti">
+                    <p id="noti">
+                        
                         <!-- 유저아이콘 추가해야 함-->
-                        <div id="comUser">유저</div>
+                        <c:if test="${empty commentList[0].userImg}" >
+
+                            <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
+                            <img src="/resources/images/user.png">
+                        </c:if>
+                        <c:if test="${not empty commentList[0].userImg}" >
+                            <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
+                            <img src="${commentList[0].userImg}">
+                        </c:if>
+                        <span id="comUser">닉네임${commentList[0].userNickname}</span>
                         <div>
                             · <!-- 점 추가 -->
                         </div>
-                        <div> </div>
-                    </div>
-                    <div id="commentCon">
-                        <div>
-                            
+                        <p>${commentList[0].commentDate}</p>
+                    </p>
+                    <p id="commentCon"> ${commentList[0].commentContent}
                             내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용
-                        </div>
-                    </div>    
+                    </p>    
                     <div id="commentP">
                         <div id="push">
-                            <i class="fa-solid fa-thumbs-up fa-xl" style="color: #29c81e;"></i><span>0</span>
-                            <i class="fa-regular fa-thumbs-up fa-xl" style="color: #29c81e;"></i><span>0</span>
+                            <i class="fa-regular fa-thumbs-up fa-xl" style="color: red;"></i><span>0</span>
                         </div>
                         <div id="push2">
-                            <i class="fa-solid fa-thumbs-down fa-xl" style="color: #29c81e;"></i><span>0</span>
-                            <i class="fa-regular fa-thumbs-down fa-xl" style="color: #29c81e;"></i><span>0</span>
+                            <i class="fa-regular fa-thumbs-down fa-xl" style="color: blue;"></i><span>0</span>
                         </div>
                     </div>
                     <!-- 댓글 사이 마다 수평선 추가 -->

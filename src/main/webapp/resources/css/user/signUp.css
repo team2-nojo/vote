@@ -90,7 +90,7 @@ main a{
 }
 
 
-main input{
+#sample6_address{
     width: 200px;
     height: 40px;
     margin: 5px;
@@ -100,19 +100,22 @@ main input{
 #password1{
     height: 40px;
     width: 145px;
+    margin-right: 3px;
 }
 
 #password2{
     height: 40px;
     width: 142px;
+    margin-left: 3px;
 }
 
 
 
-#sample6_detailAddress{
+#sample6_detailAddress, #email, #name{
+
     height: 40px;
     width: 300px;
-    
+    margin: 5px;
 }
 
 #agree{
@@ -137,7 +140,7 @@ main button{
 
 
 
-.ready{
+#SignUpSubmit{
     width: 300px;
     height: 45px;
     color: white;
@@ -148,16 +151,7 @@ main button{
     border-radius: 5px;
 }
 
-#SignUpSubmit{
-    width: 300px;
-    height: 45px;
-    color: white;
-    font-size: 16px;
-    background-color: gray;
-    border: none;
-    margin: 8px;
-    border-radius: 5px;
-}
+
 
 
 
@@ -194,10 +188,3 @@ main button{
 /* 메세지 색상 지정 */
 .confirm{ color : green; }
 .error{ color : red; }
-
-/* 체크박스 */
-#emailCheck, #nameCheck{
-    display: none;
-    width: 10px;
-    height: 10px;
-}

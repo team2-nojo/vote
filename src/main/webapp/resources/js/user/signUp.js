@@ -226,19 +226,19 @@ userPwConfirm.addEventListener("focus", ()=>{
     
     userPwConfirm.addEventListener('input', ()=>{
         
-        if(checkObj.userPw){ // 비밀번호가 유효하게 작성된 경우에
+        if(checkObj.userPwConfirm){ // 비밀번호가 유효하게 작성된 경우에
             
             // 비밀번호 == 비밀번호 확인 (같을 겅우)
-            if(userPw.value == userPwConfirm.value){
+            if(userPwConfirm.value == userPw.value){
                 pwCfMessage.innerText = "비밀번호가 일치합니다.";
                 pwCfMessage.classList.add("confirm"); // .confirm 스타일 적용
                 pwCfMessage.classList.remove("error"); // .error 스타일 제거
-                checkObj.userPwConfirm=true;
+                checkObj.userPwConfirm = true;
             }else{ // 다를 경우
                 pwCfMessage.innerText = "비밀번호가 일치하지 않습니다.";
                 pwCfMessage.classList.add("error"); // .error 스타일 적용
                 pwCfMessage.classList.remove("confirm"); // .confirm 스타일 제거
-                checkObj.userPwConfirm=false;
+                checkObj.userPwConfirm = false;
             }
             
         }else{ // 비밀번호가 유효하지 않은 경우
@@ -341,26 +341,6 @@ doubleCheck.addEventListener("click", ()=>{
 
 
 
-// sign up 활성화
-let SignUpSubmit = document.getElementById("SignUpSubmit");
-const agree = document.getElementById("agree");
-let checkList = document.querySelectorAll(".check1");
-checkList.forEach(function (e) {
-    e.addEventListener('change', () => {
-        
-        if (nameCheck.checked && emailCheck.checked && agree.checked) {
-            SignUpSubmit.style.backgroundColor = "#2DB400";
-            SignUpSubmit.disabled = false;
-
-            
-        }
-    });
-    
-});
-
-
-
-// 버튼 활성화 후 비밀번호 작성 되지 않아도 제출 됨....(수정예정)
 // 회원가입 폼 제출 시
 document.getElementById("signUpFrm").addEventListener("submit", () => {
     for(let key in checkObj){

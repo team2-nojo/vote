@@ -162,8 +162,8 @@ public class UserController {
 	// 닉네임 중복 검사
 	@GetMapping("dupCheck/nickname")
 	@ResponseBody
-	public int checkNickname(String name) {
-		return service.checkNickname(name);
+	public int checkNickname(String nickname) {
+		return service.checkNickname(nickname);
 	}
 	
 	

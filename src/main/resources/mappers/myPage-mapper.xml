@@ -12,8 +12,8 @@
 	<!-- 프로필 이미지 수정 -->
 	<update id="updateProfileImage">
 		UPDATE "USER" SET
-		PROFILE_IMG = #{userImage}
-		WHERE MEMBER_NO = #{userNo}	
+		USER_IMG = #{userImage}
+		WHERE USER_NO = #{userNo}	
 	</update>
 	
    <!-- 회원 정보 수정(UPDATE) -->

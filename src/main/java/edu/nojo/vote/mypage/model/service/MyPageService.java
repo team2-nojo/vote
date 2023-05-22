@@ -23,7 +23,7 @@ public interface MyPageService {
 	 * @throws IllegalStateException
 	 * @throws IOException
 	 */
-	int updateProfileImage(MultipartFile userImage, String path, User loginUser) throws IllegalStateException, IOException;
+	int updateProfileImage(MultipartFile profileImage, String path, String filePath, User loginUser) throws IllegalStateException, IOException;
 
    /** DB 회원 정보 수정(UPDATE) 서비스
     * @param updateUser

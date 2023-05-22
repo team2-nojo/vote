@@ -35,7 +35,7 @@
         <section class="middle">
             <c:forEach items="${victoriesList}" var="petition">
                 <div class="result">
-                    <a href="/browse/petitionView/details" class="result1">
+                    <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1">
                         <div class="row" id="rowPicture">
                             <img src="/${petition.petitionImage}" class="picture">
                         </div>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div id="content">
                                     ${petition.petitionContent}
-                                    <a href="/browse/petitionView/details" id="readMore"> Read more</a>
+                                    <a href="/browse/petitionView/details/${petition.petitionNo}" id="readMore"> Read more</a>
                                 </div>
                             </div>
                             <div class="column" id="column-2">

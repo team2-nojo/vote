@@ -81,11 +81,18 @@ document.getElementById('loadButton').addEventListener('click', function () {
         for (var i = 0; i < response.length; i++) {
           var mainPetition = response[i];
           var li = document.createElement('li');
+          let categories = '';
+          mainPetition.categoryList.forEach((category, index) => {
+            categories += `<a href="#">${category.categoryName}</a>`;
+            if (index < mainPetition.categoryList.length - 1) {
+              categories += ', ';
+            }
+          });
           li.className = 'content pettition1';
           li.innerHTML = `
             <div class="pettition1 pet-title">
               <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
-              <span>Trending in Environment</span>
+              <span>Trending in ${categories}</span>
               <a href="#" style="text-decoration: underline;">See more</a>
             </div>
             <div class="pettition1 article">

@@ -22,7 +22,8 @@ public class Comment {
 	private String commentDelFL;
 	
 	// 댓글 반응
-	private String commentFL;
+	private String commentFLY;
+	private String commentFLN;
 	
 	
 }

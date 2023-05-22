@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<c:set var="petition" value="${petition}"/>
+<c:set var="commentList" value="${commentList}"/>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,12 +25,11 @@
     <%-- header --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        
         <!-- 상단메뉴 -->
         <section class="top">
             <div id="menu">
                 <div id="details">Petition details</div>
-                <div><a href="/browse/petitionView/comments" id="comments">Comments</a></div>
+                <div><a href="/browse/petitionView/comments/${petitionNo}" id="comments">Comments</a></div>
                 <div ><a href="/browse/petitionView/updates" id="updates">Updates</a></div>
             </div>
         </section>
@@ -36,15 +39,15 @@
             <!-- 게시글 왼쪽 -->
             <div id="post-L">
                 <div id="postTitle">
-                    ${mainPtList[0].petitionTitle}
+                    ${petition.petitionTitle}
                 </div>
                 <div id="postPicture">
                 
-                    <img src="${mainPtList[0].userImage}" id="postPic">
+                    <img src="/${petition.petitionImage}" id="postPic">
                 </div>
                 <div id="postContent">
                     <div class="paragraph">
-                        ${mainPtList[0].petitionContent}
+                        ${petition.petitionContent}
                     </div>
                     <div class="paragraph">
 
@@ -108,10 +111,11 @@
                         <div>
                             · <!-- 점 추가 -->
                         </div>
-                        <div> 댓글등록 ??시간 전</div>
+                        <div> </div>
                     </div>
                     <div id="commentCon">
                         <div>
+                            
                             내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용
                         </div>
                     </div>    

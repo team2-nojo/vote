@@ -122,9 +122,8 @@
         <div class="content-right">
           <div class="comment">
             <div id="contentFrame">
-              <div>
+              <div class="content-title">
                 <h3>댓글 목록</h3>
-                <span> 4분전 </span>
                 <button id="commentReset" type = "button">
                   <i class="fa-solid fa-arrows-rotate"></i>최신화
                 </button>
@@ -221,14 +220,6 @@
       </div>
     </div>
     <div class="guide">
-      <div class="guide-left">
-        <div>
-          <div><h3>청원안내</h3></div>
-          <div>
-            <p>청원 가이드에는 청원을 시작하고, 캠페인을 구축하고, 목표를 달성하는 데 도움이 되는 리소스가 있습니다.</p>
-          </div>
-        </div>
-      </div>
       <div class="guide-right">
           <div>
             <div><h3>청원관리</h3></div>
@@ -239,10 +230,8 @@
             </div>
           </div>
           <div>
-            <div>
-              <a id="mkt" href="#">홍보하다</a>
-              <a href="#">더 알아보기</a>
-            </div>
+            <a id="mkt" href="#">홍보하다</a>
+            <a href="#">더 알아보기</a>
           </div>
         </div>
       </div>

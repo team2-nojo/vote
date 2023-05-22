@@ -119,10 +119,24 @@ public class UserController {
 	// 회원가입 
 	@PostMapping("/signUp")
 	public String signUp(User inputUser
+						, String[] userAddress
 						, RedirectAttributes ra
 						) {
 		
-
+		
+		// 만약 주소를 입력하지 않은 경우(,,) null로 변경
+				if(inputUser.getUserAddress().equals(",,")) {
+					inputUser.setUserAddress(null);
+				
+				}else {
+					//String.join("구분자", String[])
+					// 배열의 요소를 하나의 문자열로 변경
+					// 단, 요소 사이에 "구분자" 추가
+					String addr = String.join("^^^", userAddress);
+					inputUser.setUserAddress(addr);
+				}
+		
+		
 
 		// 회원가입 서비스 호출
 		int result = service.signUp(inputUser);

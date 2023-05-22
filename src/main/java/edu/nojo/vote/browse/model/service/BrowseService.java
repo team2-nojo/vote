@@ -21,5 +21,11 @@ public interface BrowseService {
 	 */
 	List<Petition> victories();
 
+	/** 청원 상세조회
+	 * @param petitionNo
+	 * @return list
+	 */
+	Petition selectPetitionList(int petitionNo);
+
 
 }

@@ -49,7 +49,7 @@
   text-decoration: underline;
 }
 
-.pet-title a:last-child {
+.pet-title>a:last-child {
   margin-left: auto;
   padding-right: 15px;
   font-size: 13px;

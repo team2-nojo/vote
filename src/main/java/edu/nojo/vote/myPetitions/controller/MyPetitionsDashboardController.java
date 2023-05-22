@@ -74,8 +74,12 @@ public class MyPetitionsDashboardController {
 			
 		}
 		
+		// 댓글 목록 조회
+		List<Like> commentList = service.resetcommentList(petitionNo);
+		
 		model.addAttribute("myPetition", myPetition);
 		model.addAttribute("likeUserList", likeUserList);
+		model.addAttribute("commentList", commentList);
 		
 		return "/myPetitions/myPetitionsDashboard";
 

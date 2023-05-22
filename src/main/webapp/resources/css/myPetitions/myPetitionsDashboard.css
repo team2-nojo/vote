@@ -61,7 +61,7 @@ nav a:hover{color: red;}
   width: 100%;
 }
 
-#navSelect{border-bottom: 2px solid red;}
+#navSelect{border-bottom: 3px solid red;}
 #navSelect>a{color: red;}
 
 /* content */
@@ -215,9 +215,23 @@ nav a:hover{color: red;}
   border-bottom: 1px solid #ccc;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .agree-top>*{
-  margin-left: 10px;
+  margin: 0 10px;
+}
+
+#supportBtn, #commentBtn{
+  border: 2px solid #ccc;
+  background-color: #eeeeee;
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#supportBtn:active, #commentBtn:active{
+  transform: scale(0.9);
 }
 
 .support-list{
@@ -302,7 +316,8 @@ nav a:hover{color: red;}
   margin: 10px;
   width: 480px;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 2px solid #ccc;
+  background-color: #eeeeee;
   font-size: 12px;
 }
 
@@ -343,10 +358,8 @@ nav a:hover{color: red;}
   justify-content: space-between;
 }
 
-
 .fa-thumbs-up{ color: blue;}
 .fa-thumbs-down{ color: red;}
-
 
 .share{
   width: 576px;
@@ -363,6 +376,10 @@ nav a:hover{color: red;}
 }
 
 .share-content div{padding: 10px;}
+
+#shareTitle > span:nth-child(2)>*{
+  margin-right: 5px;
+}
 
 .input-url input{
   width: 75%;
@@ -390,21 +407,35 @@ nav a:hover{color: red;}
 }
 
 .reflesh div{
-  padding: 4px;
+  padding: 4px 6px;
+}
+
+.refleshBtn{
+  display: flex;
+  justify-content: end;
+  margin-bottom: 8px;
 }
 
 .reflesh a{
-  margin-left: 10px;
+  margin-right: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 30px;
-  border: 2px solid red;
+  width: 120px;
+  height: 38px;
+  border: 3px solid red;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 16px;
   color: red;
-  font-weight: 600;
+  font-weight: bold;
+}
+.reflesh a:hover{
+  background-color: red;
+  color: white;
+}
+
+.reflesh a:active{
+  transform: scale(0.9);
 }
 
 #shareTitle{
@@ -454,18 +485,46 @@ nav a:hover{color: red;}
   padding: 15px;
 }
 
-.guide-left{width: 60%;}
-.guide-right{width: 40%;}
+.guide-select{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.guide-left{
+  width: 60%;
+}
+
+.guide-left>*{
+  padding: 5px;
+}
+
+.guide-right{
+  width: 30%;
+  display: flex;
+}
 
 
-
-.guide-right a{
-  margin-left: 10px;
+.guide-select button{
+  margin-left: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  width: 120px;
+  height: 50px;
+  background-color: white;
+  border: 3px solid red;
+  border-radius: 5px;
+  font-size: 16px;
   color: red;
-  font-weight: 600;
-  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.guide-select button:hover{
+  background-color: red;
+  color: white;
+}
+
+.guide-select button:active{
+  transform: scale(0.9);
 }

@@ -4,6 +4,7 @@
 
   <c:set var="MP" value="${myPetition}"/>
   <c:set var="UL" value="${likeUserList}"/>
+  <c:set var="commentListCount" value="${commentList.size()}"/>
   <c:set var="likeUserCount" value="${likeUserList.size()}"/>
 
 <!DOCTYPE html>
@@ -86,7 +87,7 @@
               </div>
               <div class="graph-text">
                 <div>조회수 ${MP.petitionViewCount}회</div>
-                <div>댓글수 미구현</div>
+                <div>댓글수 ${commentListCount}개</div>
               </div>
             </div>
           </div>
@@ -94,9 +95,8 @@
             <div class="support" id="contentFrame">
               <div class="agree-top">
                 <h3>최신 서포터 목록</h3>
-                <span>4분전 </span>
                 <button id="supportBtn" type = "button">
-                  <i class="fa-solid fa-arrows-rotate"></i>최신화
+                  <i class="fa-solid fa-arrows-rotate"></i>&nbsp&nbsp최신화
                 </button>
               </div>
               <div class="support-list">
@@ -122,8 +122,8 @@
             <div id="contentFrame">
               <div class="content-title">
                 <h3>댓글 목록</h3>
-                <button id="commentReset" type = "button">
-                  <i class="fa-solid fa-arrows-rotate"></i>최신화
+                <button id="commentBtn" type = "button">
+                  <i class="fa-solid fa-arrows-rotate"></i>&nbsp&nbsp최신화
                 </button>
               </div>
               <ul id="commentList">
@@ -132,18 +132,14 @@
           </div>
           <div class="reflesh">
             <div id="contentFrame">
+              <div><h3>청원 업데이트</h3></div>
               <div>
-                <div><h3>청원 업데이트</h3></div>
-                <div>
-                  <p>
-                    귀하의 청원, 언론 보도에 대한 뉴스 및 발전 사항을 공유하고 감사의 말을 전하거나 승리하는 데 필요한 도움을 요청하기 위해 업데이트를 보내십시오! 게시한 업데이트는 청원서에 표시되고 후원자에게 이메일로 전송됩니다.
-                  </p>
-                </div>
+                <p>
+                  귀하의 청원, 언론 보도에 대한 뉴스 및 발전 사항을 공유하고 감사의 말을 전하거나 승리하는 데 필요한 도움을 요청하기 위해 업데이트를 보내십시오! 게시한 업데이트는 청원서에 표시되고 후원자에게 이메일로 전송됩니다.
+                </p>
               </div>
-              <div>
-                <div>
-                  <a href="myPetitionDashboardUpdate/${petitionNo}">업데이트 게시</a>
-                </div>
+              <div class="refleshBtn">
+                <a href="myPetitionDashboardUpdate/${petitionNo}">업데이트 게시</a>
               </div>
             </div>
           </div>
@@ -153,10 +149,9 @@
                 <h3 id="shareTitle">
                   <span>당신의 청원을 공유하세요</span>
                   <span>
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-square-twitter"></i>
-                    <i class="fa-regular fa-envelope"></i>
-                    <i class="fa-sharp fa-solid fa-phone"></i>
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://twitter.com/i/flow/login"><i class="fa-brands fa-square-twitter"></i></a>
+                    <a href="https://url.kr/d6zaob"><i class="fa-regular fa-envelope"></i></a>
                   </span>
                 </h3>
               </div>
@@ -167,7 +162,7 @@
               </div>
               <div class="input-url">
                 <input type="url" value="https://chng.it/Sz2tMGgB">
-                <button><i class="fa-solid fa-link"></i>   복사</button>
+                <button><i class="fa-solid fa-link"></i>&nbsp;복사</button>
               </div>
             </div>
           </div>
@@ -218,8 +213,8 @@
       </div>
     </div>
     <div class="guide">
-      <div class="guide-right">
-          <div>
+      <div class="guide-select">
+          <div class="guide-left">
             <div><h3>청원관리</h3></div>
             <div>
               <p>
@@ -227,9 +222,9 @@
               </p>
             </div>
           </div>
-          <div>
-            <a id="mkt" href="#">홍보하다</a>
-            <a href="#">더 알아보기</a>
+          <div class="guide-right">
+            <button type="button">청원 끝내기</button>
+            <button type="button">청원 승리선언</button>
           </div>
         </div>
       </div>

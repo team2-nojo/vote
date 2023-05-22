@@ -240,20 +240,6 @@
   <%-- footer --%>
   <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
   <script src="/resources/js/myPetitions/myPetitionEdit.js"></script>
-  <script>
-    $('#summernote').summernote({
-      placeholder: 'Hello stand alone ui',
-      tabsize: 2,
-      width : 600,
-      height: 400,
-      toolbar: [
-        ['style', ['style']],
-        ['font', ['bold', 'underline', 'clear']],
-        ['para', ['ul', 'ol', 'paragraph']],
-        ['table', ['table']],
-        ['insert', ['link', 'picture']],
-      ]
-    });
-  </script>
+
 </body>
 </html>

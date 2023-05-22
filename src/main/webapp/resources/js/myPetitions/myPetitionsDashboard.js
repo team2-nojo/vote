@@ -83,9 +83,8 @@ function suppoterListSet(){
 
 
 /* commentListSet ajax */
-
-const commentBtn = document.getElementById("commentBtn");
 const commentList = document.getElementById("commentList");
+const commentBtn = document.getElementById("commentBtn");
 
 function commentListSet(){
 
@@ -152,6 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /* 버튼 클릭시 suppoterListSet 실행 */
-supportBtn.addEventListener('click', function() {
-    suppoterListSet();
-});
+supportBtn.addEventListener('click', suppoterListSet );
+
+commentBtn.addEventListener('click', commentListSet );

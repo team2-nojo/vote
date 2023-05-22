@@ -101,7 +101,6 @@ header {
 
 .fa-user:active {
   color: #2db400;
-  box-shadow: 0;
   position: relative;
   top: 2px;
   color: #2db400;
@@ -228,24 +227,7 @@ label[for='userMenuToggle']:hover {
   justify-content: center;
   align-self: center;
 }
-/* 알람메시지 */
-#alamToggle {
-  display: none;
-}
-label[for='alamToggle'] {
-  cursor: pointer;
-}
-label[for='alamToggle']:hover {
-  text-decoration: underline;
-}
 
-#alamToggle + div {
-  display: none;
-}
-
-#alamToggle:checked + div {
-  display: block;
-}
 .user-menu {
   position: absolute;
   top: 58px;

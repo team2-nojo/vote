@@ -4,7 +4,6 @@
 <!-- font awesome 라이브러리 추가 + key 등록 -->
 <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/resources/css/main.css">
-
 <header>
   <section class="logo-menu-icon">
     <div class="header-logo"><a href="/"><img id="logoimg" src="/resources/images/common/Logo.png" /></a></div>
@@ -83,9 +82,7 @@
             <a class="header-a" href="/myPage">마이페이지</a>
             <a class="header-a" href="/user/logout">로그아웃</a>
           </div>
-          <label for="alamToggle">
-                <i class="fa-sharp fa-solid fa-bell"></i>
-          </label>
+          <i class="fa-sharp fa-solid fa-bell header-a"></i>
           
         </div>
       </c:otherwise>

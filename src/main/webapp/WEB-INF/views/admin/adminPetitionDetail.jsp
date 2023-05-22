@@ -14,6 +14,7 @@
     <title>청원 조회</title>
 
     <link rel="stylesheet" href="resources/css/admin/adminPetitionList.css">
+    <link rel="stylesheet" href="resources/css/admin/adminPetitionDetail.css">
   </head>
 <body>
   <jsp:include page="/WEB-INF/views/admin/admin-header.jsp" />

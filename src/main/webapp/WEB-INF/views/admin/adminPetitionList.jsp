@@ -55,7 +55,7 @@
                                     <td>
                                         <img class="list-thumbnail" src="${petition.userImage}">
                                         <%-- ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 --%>
-                                        <a href="/adminPetitionList/${petition.petitionNo}?cp=${pagination.currentPage}">${petition.petitionTitle}</a>
+                                        <a href="/${petition.petitionNo}?cp=${pagination.currentPage}">${petition.petitionTitle}</a>
 
                                     </td>
                                     <td class='userNickname'>${petition.userNickname}</td>

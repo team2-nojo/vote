@@ -93,7 +93,7 @@ public class AdministratorController {
 	
 	
 	// 청원 상세 조회
-	@GetMapping("/adminPetitionList/{petitionNo}")
+	@GetMapping("/{petitionNo}")
 	public String petitionDetail(
 	
 		@PathVariable("petitionNo") int petitionNo

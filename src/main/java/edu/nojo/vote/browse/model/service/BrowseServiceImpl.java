@@ -31,5 +31,12 @@ public class BrowseServiceImpl implements BrowseService {
 	public List<Petition> victories() {
 		return dao.victories();
 	}
+	
+	
+	// 청원 상세조회
+	@Override
+	public Petition selectPetitionList(int petitionNo) {
+		return dao.selectPetitionList(petitionNo);
+	}
 
 }

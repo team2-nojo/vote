@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
+<c:set var="commentList" value="${commentList}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -38,27 +39,21 @@
                         <div id="comment3">
                             <div id="commentFrame">
                                 <div id="cImage">
-                                    ${User.userImage}
-                                    <a href="#"><img src="/resources/images/순덕이.png" alt="프로필사진" id="profileImg"></a>
+                                    <a href="#"><img src="/${loginUser.userImage}" alt="프로필사진" id="profileImg"></a>
                                 </div>
                                 <div>
                                     <div id="cNickname">
-                                        ${User.userNickname}
-                                        대장
+                                        ${loginUser.userNickname}
                                     </div>
                                     <div id="cDate">
-                                        ${commentList.commentDate}
-                                        오늘
+                                        ${commentList[0].commentDate}
                                     </div>
                                 </div>
                             </div>
                             <div id="cContent">
                                 <div>
-                                    ${commentList.Content}
-                                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-                                    내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                                    ${commentList[0].commentContent}
+                                    
                                 </div>
                             </div>
                             <div id="commentLike">

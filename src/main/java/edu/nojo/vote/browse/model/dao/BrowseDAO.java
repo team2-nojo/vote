@@ -30,5 +30,19 @@ public class BrowseDAO {
 	public List<Petition> victories() {
 		return sqlSession.selectList("browseMapper.victories");
 	}
+
+	
+	
+	/** 청원 상세조회
+	 * @param petitionNo
+	 * @return list
+	 */
+	public Petition selectPetitionList(int petitionNo) {
+		
+		return sqlSession.selectOne("browseMapper.selectPetitionList", petitionNo);
+	}
+	
+	
+	
 	
 }

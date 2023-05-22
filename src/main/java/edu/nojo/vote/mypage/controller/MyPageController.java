@@ -96,7 +96,7 @@ public class MyPageController {
          // 프로필 update문 실패시
          if(result <= 0) 
             {
-        	 System.out.println("이미지변이실패했나");
+//        	 System.out.println("이미지변이실패했나");
             message = "프로필 이미지 변경 실패";
             ra.addFlashAttribute("message", message);
             return "redirect:/myPage/editProfile";
@@ -144,7 +144,7 @@ public class MyPageController {
 		   , String currentPassword
 		   , String newPassword
 		   , RedirectAttributes ra) {
-	   System.out.println(loginUser.toString());
+//	   System.out.println(loginUser.toString());
 	   int result = service.changePassword(loginUser.getUserNo(), currentPassword, newPassword);
 	   String path = "redirect:";
 	   String message = null;

@@ -25,10 +25,10 @@ public class MainPageServiceImpl implements MainPageService {
 	@Override
 	public List<Petition> selectPetition(int page) {
 		List<Petition> petitionList = dao.selectPetition(page);
-		System.out.println(petitionList);
+//		System.out.println(petitionList);
 		for(Petition p: petitionList) {
 			p.setCategoryList(dao.selectCategoryList(p.getPetitionNo()));
-			System.out.println(p.getCategoryList());
+//			System.out.println(p.getCategoryList());
 		}
 		return petitionList;
 	}

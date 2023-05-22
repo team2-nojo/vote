@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.nojo.vote.common.utility.Util;
 import edu.nojo.vote.mypage.model.dao.MyPageDAO;
 import edu.nojo.vote.user.model.dto.User;
 
@@ -63,6 +64,9 @@ public class MyPageServiceImpl implements MyPageService {
 	@Transactional(rollbackFor = { Exception.class })
 	@Override
 	public int updateProfile(User updateUser) {
+		
+		updateUser.setUserAboutMe(Util.XSSHandling(updateUser.getUserAboutMe()));
+		
 		return dao.updateProfile(updateUser);
 	}
 

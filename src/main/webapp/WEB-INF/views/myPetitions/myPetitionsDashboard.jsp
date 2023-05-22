@@ -2,11 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<c:if test="${not empty myPetition && not empty likeUserList}">
   <c:set var="MP" value="${myPetition}"/>
   <c:set var="UL" value="${likeUserList}"/>
   <c:set var="likeUserCount" value="${likeUserList.size()}"/>
-</c:if>
 
 <!DOCTYPE html>
 <html lang="ko">

@@ -43,5 +43,16 @@ public class MyPageDAO {
 		return sqlSession.selectOne("myPageMapper.selectUser", userNo);
 	}
 
+	public String selectEncryptedPassword(int userNo) {
+		return sqlSession.selectOne("myPageMapper.selectEncryptedPassword",userNo);
+	}
+
+	public int changePassword(int userNo, String newPassword) {
+		User user = new User();
+		user.setUserNo(userNo);
+		user.setUserPw(newPassword);
+		return sqlSession.update("myPageMapper.changePassword",user);
+	}
+
    
 }

@@ -12,7 +12,7 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <form id="changePasswordForm" name="changePasswordForm" action="myPage/changePassword" method="get">
+        <form id="changePasswordForm" name="changePasswordForm" action="changePassword" method="POST">
             <h1 id="changePasswordTitle">비밀번호 변경</h1>
             <p id="changePasswordTip">비밀번호는 숫자, 문자, 기호를 포함해 8~20자로 설정해주세요.</p>
 

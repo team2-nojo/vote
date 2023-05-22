@@ -140,15 +140,26 @@ public class MyPageController {
    }
    
    @PostMapping("/changePassword")
-   public String changePassword(User loginUser
+   public String changePassword(@SessionAttribute("loginUser") User loginUser
 		   , String currentPassword
-		   , String newPassword) {
+		   , String newPassword
+		   , RedirectAttributes ra) {
+	   System.out.println(loginUser.toString());
 	   int result = service.changePassword(loginUser.getUserNo(), currentPassword, newPassword);
-	   
-	   
-	   
-	   return null;
+	   String path = "redirect:";
+	   String message = null;
+	   if(result > 0) {
+		   path += "/myPage";
+		   message = "비밀번호가 변경되었습니다.";
+	   } else {
+		   path += "changePassword";
+		   message = "현재 비밀번호가 일치하지 않습니다.";
+	   }
+	   ra.addFlashAttribute("serverMessage",message);
+	   return path;
    }
+   
+   
    @GetMapping("/emailSettings")
    public String emailSettings() {
 	   return "myPage/emailSettings";

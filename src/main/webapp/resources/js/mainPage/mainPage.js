@@ -123,3 +123,5 @@ document.getElementById('loadButton').addEventListener('click', function () {
   xhr.open('GET', `/load-petitions?page=${page++}`, true);
   xhr.send();
 });
+
+// document.querySelector('.pet-title').childNodes[3].childNodes[7]

@@ -105,7 +105,7 @@
           </li>
             </c:forEach>
         </ul>
-       <button id="loadButton" type="button">클릭</button>
+       <button id="loadButton" type="button">더 보 기</button>
       </div>
 
 
@@ -130,8 +130,6 @@
     <%-- main.js --%>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/resources/js/mainPage/mainPage.js"></script>
-  <script>
-    const userImg = $
-  </script>
+ 
 </body>
 </html>

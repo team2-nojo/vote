@@ -24,6 +24,7 @@ public class AdminServiceImpl implements AdminService {
 	private BCryptPasswordEncoder bcrypt;
 	
 	
+	
 	@Override
 	public Map<String, Object> selectPetitionList(int cp) {
 		
@@ -44,7 +45,11 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 	
-	
+
+
+
+
+
 	@Override
 	public int updateMainPetition(int selectedNumber, int petitionNo) {
 		// TODO Auto-generated method stub
@@ -101,6 +106,25 @@ public class AdminServiceImpl implements AdminService {
 	
 
 	
+	
+	
+	@Override
+	public Map<String, Object> selectUserList(int cp) {
+		
+		int listCount = dao.getListCount();
+		
+		Pagination pagination = new Pagination(listCount, cp);
+		
+		List<Petition> petitionList = dao.selectPetitionList(pagination);
+		
+		// pagination, boardList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("userList", petitionList);
+		
+		
+		return map;
+	}
 
 
 

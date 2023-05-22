@@ -33,5 +33,12 @@ public interface AdminService {
 	Map<String, Object> selectPetitionList(Map<String, Object> paramMap, int cp);
 
 
+	/**유저 조회
+	 * @param cp
+	 * @return userList
+	 * */
+	Map<String, Object> selectUserList(int cp);
+
+
 
 }

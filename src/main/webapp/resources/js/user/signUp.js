@@ -173,7 +173,7 @@ userPw.addEventListener("focus", ()=>{
         // 비밀번호가 입력되지 않은 경우
         if(userPw.value.trim().length == 0){
             pwMessage.innerText = "영어,숫자,특수문자(!,@,#,-,_) 8~20글자 사이로 입력해주세요.";
-            emailMessage.classList.remove("confirm", "error")
+            pwMessage.classList.remove("confirm", "error")
             userPw.value = ""; // 띄어쓰기 못 넣게 하기
             checkObj.userPw = false; //빈칸 == 유효 X
             return;

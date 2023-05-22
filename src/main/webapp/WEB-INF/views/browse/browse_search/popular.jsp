@@ -10,6 +10,7 @@
     <title>브라우저 게시글 조회(popular)</title>
 
     <%-- popular.css --%>
+    <link rel="stylesheet" href="/resources/css/browse/browse_search/popular_top.css">
     <link rel="stylesheet" href="/resources/css/browse/browse_search/browse_search.css">
     
 </head>

@@ -55,10 +55,11 @@
 	</select>
 	
 	<select id="selectPetition" resultMap="petition_rm">
-SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD,
+	SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_IMG, USER_ADD,
 		(SELECT COUNT(*) FROM PETITION_LIKE) "LIKE_COUNT"
-		FROM PETITION
-		JOIN "USER" USING(USER_NO)
+	FROM PETITION
+	JOIN "USER" USING(USER_NO)
+	ORDER BY PT_NO
 	</select>
 	
 	<select id="selectCategoryList" resultMap="category_rm">

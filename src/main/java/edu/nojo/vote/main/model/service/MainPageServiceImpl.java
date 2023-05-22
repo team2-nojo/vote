@@ -1,16 +1,12 @@
 package edu.nojo.vote.main.model.service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.main.model.dao.MainPageDAO;
 import edu.nojo.vote.main.model.dto.Petition;
-import edu.nojo.vote.myPetitions.model.dto.Like;
 
 @Service
 public class MainPageServiceImpl implements MainPageService {
@@ -35,8 +31,8 @@ public class MainPageServiceImpl implements MainPageService {
 
 
 	@Override
-	public List<Petition> selectPetition() {
-		return dao.selectPetition();
+	public List<Petition> selectPetition(int page) {
+		return dao.selectPetition(page);
 	}
 
 

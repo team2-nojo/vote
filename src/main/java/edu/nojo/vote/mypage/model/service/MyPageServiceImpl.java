@@ -74,6 +74,7 @@ public class MyPageServiceImpl implements MyPageService {
 	public int changePassword(int userNo, String currentPassword, String newPassword) {
 		
 		
+		
 		return 0;
 	}
 

@@ -14,7 +14,7 @@ public interface MainPageService {
 	List<Petition> selectMainPtList();
 
 	
-	List<Petition> selectPetition();
+	List<Petition> selectPetition(int page);
 
 
 

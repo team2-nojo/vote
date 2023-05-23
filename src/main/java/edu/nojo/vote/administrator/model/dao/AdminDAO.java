@@ -123,6 +123,17 @@ public class AdminDAO {
 	}
 
 	
+	
+	
+	/**유저 삭제 
+	 * @param userNo
+	 * @return sqlSession.update("adminMapper.deleteUser", userNo);
+	 */
+	public int deleteUser(int userNo) {
+		return sqlSession.update("adminMapper.deleteUser", userNo);
+	}
+
+	
 
 
 

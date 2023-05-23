@@ -163,5 +163,12 @@ SELECT USER_NO, USER_NICKNAME, USER_EMAIL, USER_ADD, USER_ENDROLL_DT, USER_IMG,
 	</select>
 	
 	
+	<!--유저 삭제  -->
+	<update id="deleteUser">
+		UPDATE "USER" SET
+	 	USER_DEL_FL = 'Y'
+	 	WHERE USER_NO = #{userNo}
+	</update>
+	
 	
 </mapper>

@@ -130,7 +130,7 @@
     </main>
   </article>
   <script src="resources/js/admin/layout.js"></script>
-  <script src="resources/js/admin/adminBoardList.js"></script>
+  <script src="resources/js/admin/adminPetitionList.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="https://kit.fontawesome.com/8be2100736.js" crossorigin="anonymous"></script>
 </body>

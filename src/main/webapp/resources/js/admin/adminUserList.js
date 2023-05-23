@@ -27,4 +27,5 @@ function deleteUser(userNo, userNickname) {
   form.appendChild(userNoInput);
 
   form.submit();
+  alert('삭제 성공~!');
 }

@@ -85,4 +85,5 @@ function deleteUser(petitionNo, userNickname) {
   form.appendChild(petitionNoInput);
 
   form.submit();
+  alert('삭제 성공~!');
 }

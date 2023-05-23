@@ -200,5 +200,42 @@ public class AdministratorController {
 		return path;
 		
 	}
+	
+	@GetMapping("/adminPetitionDelList")
+	private String selectDelPetitionList(
+						@RequestParam(value="cp", required=false, defaultValue="1") int cp
+						,Model model
+						,@RequestParam Map<String, Object> paramMap) {
+		
+		Map<String, Object> map = service.selectPetitionDelList(cp);
+		
+		// 조회 결과를 request scope에 세팅 후 forward
+		model.addAttribute("map", map);
+		return "admin/adminPetitionDelList";
+	}
+	
+	@PostMapping("/adminUpdateDelPetition")
+	private String updateDelPetition(@RequestParam("petitionNo") int petitionNo
+									,@ModelAttribute Petition petition
+									, Model model
+									,RedirectAttributes ra) throws IllegalStateException, IOException{
+										int result = service.updateDelPetition(petitionNo);
+
+			String message = null;
+			String path = "redirect:";
+			
+			if(result > 0) {
+				message = "청원이 삭제 되었습니다.";
+				path += "/adminPetitionDelList";
+				
+			}else {
+				message = "청원 삭제 실패........";
+				path += "/adminPetitionDelList";
+			}
+			
+			ra.addFlashAttribute("message", message);
+			
+			return path;
+	}
 }
 

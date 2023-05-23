@@ -27,14 +27,8 @@
 
 .center-btn {
   padding-top: 90px;
-  width: 617.5px;
+  width: 618px;
   display: inline-block;
-}
-
-#ic {
-position: relative; 
-top: -40px;
-left: -5px;
 }
 
 #button1{
@@ -66,7 +60,7 @@ left: -5px;
 
 .search-area{
   padding-top: 50px;
-  width: 617.5px;
+  width: 618px;
   
 }
 
@@ -75,9 +69,29 @@ left: -5px;
   height: 47px;
 }
 
+.center-btn{
+  margin: auto;
+  padding: 10px;
+  width: 618px;
+  display: flex;
+  justify-content: space-between;
+}
 
-#button2 {
-  padding: 120px 0 0 52px;
+.center-btn > a{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-btn > a > i {
+  margin-bottom: 5px;
+}
+
+#button2, #button3, #button4 {
+  width: 200px;
+  height: 180px;
+  margin: 5px;
   background-color: white;
   text-decoration: none;
   color: black;
@@ -87,27 +101,6 @@ left: -5px;
   font-size: 20px;
 }
 
-#button3 {
-  padding: 120px 0 0 53px;
-  background-color: white;
-  text-decoration: none;
-  color: black;
-  border: 1px solid black;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 20px;
-}
-
-#button4 {
-  padding: 120px 0 0 52px;
-  background-color: white;
-  text-decoration: none;
-  color: black;
-  border: 1px solid black;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 20px;
-}
 
 .question:first-child {
   border-top: 1px solid black;
@@ -138,7 +131,7 @@ left: -5px;
   font-size: 14px;
   background-color: #f4f4f2;
   border-bottom: 1px solid #dddddd;
-  width: 617.5px;
+  width: 618px;
   height: 80px;
   padding-top: 10px;
 }
@@ -148,7 +141,7 @@ left: -5px;
   font-size: 14px;
   font-weight: bold;
   color: #000000;
-  width: 617.5px;
+  width: 618px;
   height: 80px;
 }
 
@@ -178,7 +171,7 @@ left: -5px;
 }
 
 #Accordion_wrap {
-  width: 617.5px;
+  width: 618px;
   height: 312px;
 }
 
@@ -190,10 +183,7 @@ left: -5px;
   background-color: white;
 }
 
-i {
-  top: 20px;
-  right: 60px;
-}
+
 
 #id {
   justify-content: center;

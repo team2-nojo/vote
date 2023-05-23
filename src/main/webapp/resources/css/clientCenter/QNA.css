@@ -19,8 +19,19 @@
 
 .suzip2 {
     font-size: 12px;
+    padding-top: 40px;
+    margin-left: 50px;
+}
+
+.suzip3 {
+    font-size: 12px;
     padding-bottom: 100px;
-    padding-top: 35px;
+    padding-top: 25px;
+    margin-left: 50px;
+}
+
+main h2 {
+    margin-left: 50px;
 }
 
 .filename {
@@ -29,8 +40,10 @@
     background-color: lightgray;
     font-size: 12px;
     padding-top: 10px;
-    padding-left: 30px;
-    margin-bottom: 30px;
+    padding-left: 10px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    
 }
 
 .profile-btn-area {
@@ -57,11 +70,12 @@ main li {
     padding: 15px;
 }
 
+
+
 #boardContent {
     margin-left: 20px;
     width: 619px;
     height: 268px;
-
 }
 
 #boardTitle {
@@ -74,7 +88,7 @@ main li {
     font-size: 16px;
     font-weight: bold;
     display: flex;
-    position: relative; top: 10px;
+    margin-top: 10px;
 }
 
 .board-title {
@@ -82,11 +96,11 @@ main li {
     justify-content: flex-start;
     font-weight: bold;
     font-size: 16px;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 #title {
-    margin-top: 20px;
+    margin-top: 50px;
     padding-left: 300px;
 }
 

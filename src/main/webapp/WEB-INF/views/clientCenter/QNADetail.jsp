@@ -51,6 +51,8 @@
 </div>
 
 
+
+
 <div class="board-btn-area">
                 <c:if test="${loginUser.userNo == qna.userNo}" >
                 <button id="updateBtn">수정</button>

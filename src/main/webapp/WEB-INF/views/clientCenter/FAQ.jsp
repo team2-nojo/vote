@@ -30,16 +30,20 @@
 
   </article>
 
+
   <div class="faq-category">
   <button id="button1">청원</button>
   <button id="button1">신고</button>
   <button id="button1">개인정보</button>
-  <button id="button1">전체</button>
+  <button id="button1">전체</button> 
   </div>
 
+
+
+  <div class="Faq">자주 묻는 질문</div>
   <div id="Accordion_wrap">
     <div class="question">
-      <span>신고는 어떻게 하나요</span>
+      <span>내용 1</span>
       <div class="arrow-wrap">
         <span class="arrow-top">▲</span>
         <span class="arrow-bottom">▼</span>
@@ -47,7 +51,7 @@
 
     </div>
     <div class="answer">
-      <span>이렇게 하면 됩니다.</span>
+      <span>답변 1.</span>
     </div>
     <div class="question">
       <span>청원 글 작성은 어떻게 하나요</span>
@@ -60,20 +64,20 @@
       <span>여기서 하면 됩니다.</span>
     </div>
     <div class="question">
-      <span>비밀번호를 잃어버렸어요</span>
+      <span>내용 2</span>
       <div class="arrow-wrap">
         <span class="arrow-top">▲</span>
         <span class="arrow-bottom">▼</span>
       </div>
     </div>
     <div class="answer">
-      <span>잃어버린 비밀번호는 어쩔수 없어</span>
+      <span>답변 2</span>
     </div>
   </div>
 
   <div class="center-btn">
-  <a href="/clientCenter/QNA" id="button2"><i class="fa-solid fa-user fa-4x" id="ic"></i>1:1 문의</a>
-  <a href="/clientCenter/QNA3" id="button3"><i class="fa-solid fa-scroll fa-4x" id="ic"></i>문의내역</a>
+  <a href="/clientCenter/QNA" id="button2"><i class="fa-solid fa-user fa-4x" id="ic"></i>1:1 문의</a>    
+  <a href="/clientCenter/QNA3" id="button3"><i class="fa-solid fa-scroll fa-4x" id="ic"></i>문의내역</a>    
   <a href="/clientCenter/chatbot" id="button4"><i class="fa-regular fa-comment fa-4x" id="ic"></i>챗봇</a>
   </div>
 

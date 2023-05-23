@@ -33,11 +33,12 @@
                     <div>
                         <div class="dashboard-update-text">제목</div>
                         <div>
-                            <input type="text" class="dashboard-update-input" name="petitionUpdateTitle" placeholder="ex.서포터 1만명 달성">
+                            <input type="text" class="dashboard-update-input" name="petitionUpdateTitle">
                         </div>
                     </div>
                     <div>
                         <div class="dashboard-update-text">사진추가</div>
+                        <!-- 사진 업로드 전 화면 -->
                         <div id="dashboardUpdateAddImage" class="exist-image">
                             <div id="relativeBox">
                                 <img src="/resources/images/common/user.png" id="imageBefore">
@@ -49,15 +50,14 @@
                                 </label>
                             </div>
                         </div>
-                        <div id="dashboardUpdateAddImage hidden" class="upload-image">
-                            <div id="relativeBox">
-                                <img src="" id="imagePreview">
-                                <span class="delete-image" id="deleteImage">X</span>
-                            </div>
+                        <!-- 사진 업로드 후 화면 -->
+                        <div id="dashboardUpdateAddImage" class="upload-image hidden">
+                            <img src="" id="imagePreview">
+                            <span class="delete-image" id="deleteImage">X</span>
                         </div>
                     <div>
                         <div class="dashboard-update-text">업데이트 정보</div>
-                        <div id="summernote" name="petitionUpdateContent"></div>
+                        <textarea id="summernote" name="petitionUpdateContent"></textarea>
                     </div>
                     <div>
                         <div class="dashboard-update-text-guide">
@@ -114,21 +114,5 @@
     <script src="/resources/js/myPetitions/myPetitionDashboardUpdate.js"></script>
     <%-- summernote --%>
     <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
-<%--     <script>
-        $('#summernote').summernote({
-            placeholder: 'Hello stand alone ui',
-            tabsize: 2,
-            height: 400,
-            toolbar: [
-            ['style', ['style']],
-            ['font', ['bold', 'underline', 'clear']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-    </script> --%>
 </body>
 </html>

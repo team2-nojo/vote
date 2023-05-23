@@ -113,8 +113,10 @@ public class MyPetitionsController {
 		update.setPetitionUpdateContent(petitionUpdateContent);
 		update.setUserNo(loginUser.getUserNo());
 		
-		System.out.println(update.getPetitionUpdateTitle());
-		System.out.println(update.getPetitionUpdateContent());
+		// 테스트용
+//		System.out.println(update.getPetitionNo());
+//		System.out.println(update.getPetitionUpdateTitle());
+//		System.out.println(update.getPetitionUpdateContent());
 		
 		String webPath = "/resources/images/petitionUpdate/";
 		String filePath = session.getServletContext().getRealPath(webPath);

@@ -63,7 +63,6 @@ let content = '';
 $(document).ready( () => {
     
     $('#summernote').summernote({
-        placeholder: '업데이트 내용을 입력해 주세요',
         height: 500,
         minHeight : null,
         maxHeight : null,
@@ -79,6 +78,7 @@ $(document).ready( () => {
 
 
         callbacks: {
+
 
             // 내용이 있는지 체크
             onChange:function(contents, $editable){
@@ -275,26 +275,17 @@ const deleteImage = document.getElementById("deleteImage"); // x버튼
 
 
 // 제출 못 하는 경우 : 내용, 타이틀 중 하나라도 작성하지 않았을 때
-document.getElementById("updatePetitionPost").addEventListener("submit", e => {
-    console.log("버튼은 눌렀고")
-
+document.getElementById("dashboardUpdateFrm").addEventListener("submit", e => {
 
     // 제목 미작성 시
     const petitionUpdateTitle = document.querySelector("input[name = 'petitionUpdateTitle']");
     if(petitionUpdateTitle.value.trim() == '') {
-        console.log("제목을 안 작성 했을 시")
         petitionUpdateTitle.value="";
         petitionUpdateTitle.focus();
         e.preventDefault();
         alert("업데이트 제목을 작성해 주시기 바랍니다.")
         return;
     }
-
-    
-    
-
-
-    console.log("다 통과 했으면?")
     
 });
 

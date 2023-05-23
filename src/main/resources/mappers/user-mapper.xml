@@ -63,5 +63,9 @@
 		AND USER_DEL_FL = 'N'
 	</select>
 	
+	<!-- 이메일 수신 설정 불러오기 -->
+	<select id="selectEmailSettings" resultType="int">
+		SELECT EMAIL_AGREE FROM SENDING_EMAIL WHERE USER_NO=#{userNo}
+	</select>
 	
 </mapper>

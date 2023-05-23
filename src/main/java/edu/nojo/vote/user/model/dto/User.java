@@ -1,5 +1,7 @@
 package edu.nojo.vote.user.model.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,10 +25,10 @@ public class User {
 	private String userEnrollDate;			// 회원 가입일
 	private String userDelFl;
 	private int userWriteCount;
-
-	public User() {
-	}			
 	
+	List<Integer> emailSettings;
+
+	public User() {}
 	
 	public User(int userNo, String userEmail, String userPw, String userNickname, String userImage) {
 		super();
@@ -36,8 +38,4 @@ public class User {
 		this.userNickname = userNickname;
 		this.userImage = userImage;
 	}
-
-
-
-
 }

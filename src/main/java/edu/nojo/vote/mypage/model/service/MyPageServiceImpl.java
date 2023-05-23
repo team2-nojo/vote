@@ -2,6 +2,7 @@ package edu.nojo.vote.mypage.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -76,10 +77,23 @@ public class MyPageServiceImpl implements MyPageService {
 		return dao.selectUser(userNo);
 	}
 	
+	// 비밀번호 변경
 	@Transactional(rollbackFor = { Exception.class })
 	@Override
-	public int changePassword(int userNo, String currentPassword, String newPassword) {
-		return bcrypt.matches(currentPassword, dao.selectEncryptedPassword(userNo))?dao.changePassword(userNo,bcrypt.encode(newPassword)):0; 
+	public int changePassword(User user, String currentPassword, String newPassword) {
+		user.setUserPw(bcrypt.encode(newPassword));
+		int result = bcrypt.matches(currentPassword, dao.selectEncryptedPassword(user))?dao.changePassword(user):0;
+		user.setUserPw("");
+		return result; 
 	}
-
+	
+	// 이메일 수신 설정
+	@Transactional(rollbackFor = { Exception.class })
+	@Override
+	public int emailSettings(User loginUser) {
+		int result = dao.deleteEmailSettings(loginUser);
+		if(loginUser.getEmailSettings() != null) result = dao.insertEmailSettings(loginUser);
+		
+		return result;
+	}
 }

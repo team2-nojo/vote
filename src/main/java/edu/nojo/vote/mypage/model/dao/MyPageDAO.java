@@ -43,16 +43,36 @@ public class MyPageDAO {
 		return sqlSession.selectOne("myPageMapper.selectUser", userNo);
 	}
 
-	public String selectEncryptedPassword(int userNo) {
-		return sqlSession.selectOne("myPageMapper.selectEncryptedPassword",userNo);
+	/** 암호화된 유저 비밀번호 조회
+	 * @param user
+	 * @return EncryptedPassword
+	 */
+	public String selectEncryptedPassword(User user) {
+		return sqlSession.selectOne("myPageMapper.selectEncryptedPassword",user);
 	}
 
-	public int changePassword(int userNo, String newPassword) {
-		User user = new User();
-		user.setUserNo(userNo);
-		user.setUserPw(newPassword);
-		return sqlSession.update("myPageMapper.changePassword",user);
+	/** 유저 비밀번호 변경
+	 * @param user
+	 * @return result
+	 */
+	public int changePassword(User loginUser) {
+		return sqlSession.update("myPageMapper.changePassword",loginUser);
 	}
+
+	/** 유저에게 설정된 이메일 설정 전체 삭제
+	 * @param user
+	 * @return result
+	 */
+	public int deleteEmailSettings(User loginUser) {
+		return sqlSession.delete("myPageMapper.deleteEmailSettings",loginUser);
+	}
+
+	public int insertEmailSettings(User loginUser) {
+		return sqlSession.insert("myPageMapper.insertEmailSettings", loginUser);
+	}
+	
+	
+
 
    
 }

@@ -37,7 +37,8 @@ public class UserServiceImpl implements UserService{
 			// 비밀번호 암호화 된거랑 안된거 비교
 			if(bcrypt.matches(inputUser.getUserPw(), loginUser.getUserPw())) { // loginUser암호와 안됨(DB는 암호화 함)
 				loginUser.setUserPw(null); // 비밀번호 유지 불필요하므로 로그인 정보에서 제거
-			}else { 
+				loginUser.setEmailSettings(dao.selectEmailSettings(loginUser.getUserNo()));
+			}else {
 				loginUser = null;
 			}
 		}

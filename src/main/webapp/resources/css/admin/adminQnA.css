@@ -1,5 +1,5 @@
 /* section, div{ border : 1px solid black;} */
-#menu-wrap2 > ul > li:nth-child(3) {
+#menu-wrap1 > ul > li:nth-child(3) {
   background-color: #444;
 }
 

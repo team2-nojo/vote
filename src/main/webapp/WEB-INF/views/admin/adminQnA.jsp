@@ -15,7 +15,7 @@
     <title>청원 조회</title>
     <link rel="stylesheet" href="resources/css/admin/layout.css" />
     <link rel="stylesheet" href="resources/css/admin/basic.css">
-    <link rel="stylesheet" href="resources/css/admin/adminPetitionList.css">
+    <link rel="stylesheet" href="resources/css/admin/adminQnA.css">
   </head>
   <body>
  <%-- header --%>

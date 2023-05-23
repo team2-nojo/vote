@@ -1,4 +1,7 @@
 /* section, div{ border : 1px solid black;} */
+#menu-wrap1 > ul > li:nth-child(2) {
+  background-color: #444;
+}
 
 .board-name {
   font-size: 2em;

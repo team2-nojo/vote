@@ -56,5 +56,21 @@ public interface AdminService {
 	int deletePetition(int petitionNo);
 
 
+	
+	
+	/** 삭제된 청원 조회
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> selectPetitionDelList(int cp);
+
+
+	/** 청원 복구
+	 * @param petitionNo
+	 * @return
+	 */
+	int updateDelPetition(int petitionNo);
+
+
 
 }

@@ -67,12 +67,12 @@
               />청원 글 조회</a>
             </li>
             <!-- 메뉴 아이템 3 -->
-            <li><a href="">
+            <li><a href="/adminPetitionDelList">
               <img
                 src="resources/images/mainPage/content_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />컨텐츠 관리</a>
+              />삭제된 청원 조회</a>
             </li>
           </ul>
           <ul>

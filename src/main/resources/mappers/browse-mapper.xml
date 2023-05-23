@@ -166,7 +166,7 @@
 		WHERE PT_NO = ${petitionNo}
 	</select>
 
-		<!-- 댓글 삽입 -->
+	<!-- 댓글 삽입 -->
 	<insert id="insert">
 		INSERT INTO "COMMENT"										
 		VALUES(SEQ_CM_NO.NEXTVAL, #{petitionNo}, #{userNo}, #{commentContent}, DEFAULT, DEFAULT

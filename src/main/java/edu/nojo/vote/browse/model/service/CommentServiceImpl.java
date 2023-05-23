@@ -28,7 +28,7 @@ public class CommentServiceImpl implements CommentService{
 	
 	// details 내부 댓글 조회
 	@Override
-	public List<Like> resetcommentList(int pno) {
+	public List<Comment> resetcommentList(int pno) {
 		
 		return dao.resetcommentList(pno);
 	}

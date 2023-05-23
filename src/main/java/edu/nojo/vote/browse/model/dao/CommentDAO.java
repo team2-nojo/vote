@@ -33,7 +33,7 @@ public class CommentDAO {
 	 * @param pno
 	 * @return list
 	 */
-	public List<Like> resetcommentList(int pno) {
+	public List<Comment> resetcommentList(int pno) {
 		
 		return sqlSession.selectList("myPetitionsMapper.resetcommentList", pno);
 	}

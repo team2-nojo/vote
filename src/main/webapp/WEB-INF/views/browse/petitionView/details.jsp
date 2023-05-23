@@ -102,40 +102,42 @@
                 <hr>
                 <br>
 
-
+                <%-- <c:set var="commentList" value="${commentList}"/> --%>
                 <div id="commentBox">
                     <div id="reason">댓글 보기</div>
-                    <p id="noti">
-                        
-                        <!-- 유저아이콘 추가해야 함-->
-                        <c:if test="${empty commentList[0].userImg}" >
-
-                            <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
-                            <img src="/resources/images/user.png">
-                        </c:if>
-                        <c:if test="${not empty commentList[0].userImg}" >
-                            <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
-                            <img src="${commentList[0].userImg}">
-                        </c:if>
-                        <span id="comUser">닉네임${commentList[0].userNickname}</span>
-                        <div>
-                            · <!-- 점 추가 -->
-                        </div>
-                        <p>${commentList[0].commentDate}</p>
-                    </p>
-                    <p id="commentCon"> ${commentList[0].commentContent}
-                            내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용
-                    </p>    
-                    <div id="commentP">
-                        <div id="push">
-                            <i class="fa-regular fa-thumbs-up fa-xl" style="color: red;"></i><span>0</span>
-                        </div>
-                        <div id="push2">
-                            <i class="fa-regular fa-thumbs-down fa-xl" style="color: blue;"></i><span>0</span>
-                        </div>
-                    </div>
-                    <!-- 댓글 사이 마다 수평선 추가 -->
-                    <!-- <hr> -->
+                    <ul>
+                        <%-- <c:forEach items="${commentList}" var="comment"> --%>
+                        <li class="comment-row">
+                            <p class="noti">
+                                <!-- 유저아이콘 추가해야 함-->
+                                <c:choose>
+                                    <c:when test="${empty comment.userImage}">
+                                        <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
+                                        <img src="/resources/images/common/user.png" class="profile">
+                                    </c:when>
+                                
+                                    <c:otherwise>
+                                        <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
+                                        <img src="${comment.userImage}" class="profile">
+                                    </c:otherwise>
+                                </c:choose>
+                                <span class="comUser" >닉네임${comment.userNickname}</span>
+                                <span class="commentDate">${comment.commentDate}</span>
+                            </p>
+                            <p class="commentCon"> ${comment.commentContent}
+                                    내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용
+                            </p>    
+                            <div class="commentP">
+                                <div id="push">
+                                    <i class="fa-regular fa-thumbs-up fa-xl" style="color: red;"></i><span>0</span>
+                                </div>
+                                <div id="push2">
+                                    <i class="fa-regular fa-thumbs-down fa-xl" style="color: blue;"></i><span>0</span>
+                                </div>
+                            </div>
+                        </li>
+                        <%-- </C:forEach> --%>
+                    </ul>
                 </div>
                 <!-- 버튼 클릭 시 이동 -->
                 <button type="button" id="commentMore" >댓글 더 보기</button>
@@ -171,7 +173,7 @@
                     <div id="row3">
                         <div id="row3-1">
                             <!-- 임시이미지 -->
-                            <%-- <i class="fa-solid fa-arrow-trend-up fa-xl" id="arrow"></i> --%>
+                            
                             <i class="fa-solid fa-arrow-trend-up fa-sm" id="arrow"></i>
                         </div>
                         <div id="row3-2">
@@ -204,65 +206,33 @@
                     </div>
 
                 </div>
-                <%-- 체크박스 --%>
-                <div id="check">
-                    <input type="checkbox" id="agree">
-                    <label for="agree">
-                        이 청원에 이름과 댓글을 표시합니다.
-                    </label>
-                </div>
-                <%-- 댓글창 --%>
-                <div id="commentPlace">
-                    <form action="browse/comment" method="POST" id="commentFrm">
-                        <div id="wrtComment">
-                            <textarea name="" id="commentContent" cols="10" rows="100" placeholder=" - 띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
-                        </div>
-                    </form>
-                    <div id="countComment">
-                        <span id="count">0</span>자 / 1000자
+                    <%-- 체크박스 --%>
+                    <div id="check">
+                        <input type="checkbox" id="agree">
+                        <label for="agree">
+                            이 청원에 이름과 댓글을 표시합니다.
+                        </label>
                     </div>
-                </div>
-                <%-- 좋아요 버튼 --%>
-                <div>
-                    <button id="signButton" >좋아요!</button>
-                </div>
-            </div>
+                    <%-- 댓글창 --%>
+                    <div id="commentPlace">
+                        <form action="/comment" method="POST" id="commentFrm">
+                            <div id="wrtComment">
+                                <textarea name="" id="commentContent" cols="10" rows="20" placeholder=" - 띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
+                            </div>
+                        </form>
+                        <div id="countComment">
+                            <span id="count">0</span>자 / 200자
+                        </div>
+                    </div>
+                    <%-- 좋아요 버튼 --%>
+                    <div>
+                        <button id="signButton" >좋아요!</button>
+                    </div>
+                </form>
         </section>
         
         
         
-        <br><br>
-        <hr>
-        
-        
-        <!-- 추천게시글 -->
-        <%-- <section class="middle">
-            <div id="trandPeti">
-                Trending petitions
-            </div>
-            <div class="result">
-                <div class="row">
-                    <div class="column" id="column-1">
-                        <div id="title">
-                            서울시 종로구 순덕이 출현
-                        </div>
-                        <div id="content">
-                            내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내용내용내용
-                        </div>
-                    </div>
-                    <div class="column" id="column-2">
-                        <div class="col" id="profile" >프로필</div>
-                        <div class="col" id="suporterNum">서포터 수</div>
-                    </div>
-                </div>
-                <div class="row" id="rowPicture">
-                    <img src="/resources/images/순덕이.png" class="picture">
-                </div>
-            </div>
-            <div>
-                <button type="button" id="moreView">더보기</button>
-            </div>
-        </section> --%>
     </main>
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

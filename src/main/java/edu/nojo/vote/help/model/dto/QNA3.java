@@ -19,6 +19,8 @@ public class QNA3 {
 	private String qnaDelFl;
 	private int userNo;
 	private String memberNickname;
+	
 }
+
 
 

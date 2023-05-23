@@ -33,8 +33,8 @@
                             <th>이메일<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
                             <th>주소<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
                             <th>가입일<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
-                            <th>작성 글</th>
-                            <th>회원 삭제</th>
+                            <th>작성 청원(건)</th>
+                            <th>유저 삭제</th>
                         </tr>
                     </thead>
 

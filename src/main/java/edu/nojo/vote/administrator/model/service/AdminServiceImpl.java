@@ -131,13 +131,30 @@ public class AdminServiceImpl implements AdminService {
 
 
 
+	/** 유저 삭제
+	 *
+	 */
 	@Override
 	public int deleteUser(int userNo) {
-		// TODO Auto-generated method stub
 		return dao.deleteUser(userNo);
 	}
 
 
+
+
+
+
+	/** 청원 삭제
+	 *
+	 */
+	@Override
+	public int deletePetition(int petitionNo) {
+		return dao.deletePetition(petitionNo);
+	}
+
+
+	
+	
 
 
 

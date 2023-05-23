@@ -195,6 +195,7 @@ userPw.addEventListener("focus", ()=>{
                 pwMessage.classList.remove("error"); // .error 스타일 제거
             }else{
                 if(userPw.value == userPwConfirm.value){ // 비밀번호가 유효하게 작성된 상태에서 비밀번호 확인이 입력되어 있을 때
+                    alert("확인")
                     pwMessage.innerText = "비밀번호가 일치합니다.";
                     pwMessage.classList.add("confirm"); // .confirm 스타일 적용
                     pwMessage.classList.remove("error"); // .error 스타일 제거
@@ -248,116 +249,53 @@ userPwConfirm.addEventListener("focus", ()=>{
         }
         
     });
-
-    
-    
-});
-
-
-// sign up버튼 활성화
-
-//닉네임
-const NicknameCheck = document.getElementById("NicknameCheck");
-const nameCheck = document.getElementById("nameCheck");
-NicknameCheck.addEventListener("click", ()=>{
-    if(userNickname.value.trim().length == 0) {
-        nameCheck.checked = false;
-        alert("사용할 닉네임을 입력해주세요.");
-        return;
-    }
-    
-    // 정규식 객체 생성
-    const regEx = /^[가-힣\w\d]{2,10}$/;
-    
-    // 입력받은 이메일과 정규식 일치 여부 판별
-    if( regEx.test(userNickname.value) ){ // 유효한 경우
-        
-        // GET방식 ajax요청(파라미터는 쿼리스트링)
-        fetch('dupCheck/nickname?nickname=' + userNickname.value)
-        .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
-        .then(count => {
-            // count : 중복되면 1, 중복 아니면 0
-            
-            if(count == 0){ // 중복이 아니면
-                nameCheck.checked = true;
-                alert("사용 가능한 닉네임 입니다.");
-            }else{ // 중복일 때
-                nameCheck.checked = false;
-                alert("이미 사용중인 닉네임 입니다.");
-            }
-            
-        }) //파싱한 데이터를 이용해서 수행할 코드 작성
-        .catch(err => console.log(err)); // 예외처리
-        
-    }else{ // 유효하지 않은 경우(무효인 경우)
-        nameCheck.checked = false;
-        alert("닉네임 형식이 유효하지 않습니다.");
-    }
-    
-});
-
-
-// 이메일
-const doubleCheck = document.getElementById("doubleCheck");
-const emailCheck = document.getElementById("emailCheck");
-doubleCheck.addEventListener("click", ()=>{
-    // 입력이 되지 않은 경우(공란일 때)
-    if(userEmail.value.trim().length == 0) {
-        emailCheck.checked = false;
-        alert("메일을 받을 수 있는 이메일을 입력해주세요.");
-        return;
-    }
-    
-    // 정규식 객체 생성
-    const regEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
-    
-    // 입력받은 이메일과 정규식 일치 여부 판별
-    if( regEx.test(userEmail.value) ){ // 유효한 경우
-        
-        // GET방식 ajax요청(파라미터는 쿼리스트링)
-        fetch('dupCheck/checkEmail?email=' + userEmail.value)
-        .then(resp => resp.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
-        .then(count => {
-            // count : 중복되면 1, 중복 아니면 0
-            
-            if(count == 0){ // 중복이 아니면
-                emailCheck.checked = true;
-                alert("사용 가능한 이메일 입니다.");
-            }else{ // 중복일 때
-                emailCheck.checked = false;
-                alert("이미 사용중인 이메일 입니다.");
-            }
-            
-        }) //파싱한 데이터를 이용해서 수행할 코드 작성
-        .catch(err => console.log(err)); // 예외처리
-        
-    }else{ // 유효하지 않은 경우(무효인 경우)
-        emailCheck.checked = false;
-        alert("이메일 형식이 유효하지 않습니다.");
-    }
-    
 });
 
 
 
 
+
+const agreeEmail = document.querySelector('[name=agreeEmail]');
 // 회원가입 폼 제출 시
 document.getElementById("signUpFrm").addEventListener("submit", () => {
+
+    if(!agree.checked){
+            alert("서비스 약관에 동의해주세요.");
+            return;
+    }
+
     for(let key in checkObj){
         if(!checkObj[key]){ // 각 key에 대한 value(true/false)를 얻어와 false인 경우 == 유효하지 않다!
             switch(key){
             case "userEmail": alert("이메일이 유효하지 않습니다."); break;
+            case "userNickname": alert("닉네임이 유효하지 않습니다."); break;
             case "userPw": alert("비밀번호가 유효하지 않습니다."); break;
             case "userPwConfirm": alert("비밀번호가 확인되지 않았습니다."); break;
-            case "userNickname": alert("닉네임이 유효하지 않습니다."); break;
             }
             // 유효하지 않은 input태그로 focus이동
             // - key를 input의 id와 똑같이 설정했음!
             document.getElementById(key).focus();
             e.preventDefault(); // from태그 기본 이벤트 제거
             return; // 함수 종료
+        }else{
+            fetch("/signUp", {
+                method : "POST",
+                header : {"Content-Type": "application/json"},
+                body : JSON
+            }) 
+            .then(resp => resp.text()) // 응답 객체를 text로 파싱(변환)
+            .then(result => {
 
+                
+
+
+            })
+            .catch(err => console.log(err));
         }
+        
+
+
+        
     }
 });
 

@@ -28,8 +28,14 @@ public class HelpController {
 	private HelpService service;
 	
 	@GetMapping("/FAQ")
-	public String FAQ() {
-		
+	public String FAQ(    	
+			@RequestParam(value="cp", required=false, defaultValue="1") int cp
+	    	, Model model
+	    	, @RequestParam Map<String, Object> paramMap) {
+	    	
+	    	Map<String, Object> map = service.FAQ(paramMap, cp);
+	    	model.addAttribute("map", map);
+	   
 		return "/clientCenter/FAQ";
 	}
 	

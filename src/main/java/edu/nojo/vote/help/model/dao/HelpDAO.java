@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.help.model.dto.QNA3;
+import edu.nojo.vote.help.model.dto.faq;
 
 @Repository
 public class HelpDAO {
@@ -62,6 +63,17 @@ public class HelpDAO {
 	public int qnaUpdate(QNA3 qna3) {
 		return sqlSession.update("HelpMapper.helpUpdate", qna3);
 	}
+
+	/** FAQ 조회
+	 * @param pagination
+	 * @param paramMap
+	 * @return
+	 */
+
+	public List<faq> FAQ(Map<String, Object> paramMap) {
+		return sqlSession.selectList("HelpMapper.FAQ");
+	}
+
 
 
 

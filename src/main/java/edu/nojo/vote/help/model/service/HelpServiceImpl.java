@@ -10,6 +10,7 @@ import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.common.utility.Util;
 import edu.nojo.vote.help.model.dao.HelpDAO;
 import edu.nojo.vote.help.model.dto.QNA3;
+import edu.nojo.vote.help.model.dto.faq;
 
 
 @Service
@@ -69,6 +70,17 @@ public class HelpServiceImpl implements HelpService{
 		return rowCount;
 	}
 
+	@Override
+	public Map<String, Object> FAQ(Map<String, Object> paramMap, int cp) {
+		
+	    List<faq> faqList = dao.FAQ(paramMap);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("faqList", faqList);
+	
+     return map;
+    
+}
 
 
 	}

@@ -6,6 +6,13 @@
   align-items: center;
 }
 
+.Faq {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  margin-right: 490px;
+}
+
 #title {
   font-size: 36px;
   padding-top: 70px;
@@ -16,11 +23,12 @@
   justify-content: space-around;
   padding-top: 15px;
   margin-right: 450px;
-
 }
 
 .center-btn {
   padding-top: 90px;
+  width: 617.5px;
+  display: inline-block;
 }
 
 #ic {
@@ -38,22 +46,28 @@ left: -5px;
 }
 
 #button1:hover {
-  background-color: #2DB400;
+  border-color: #2DB400;
+  color: #2DB400;
 }
 
-* {
-  box-sizing: border-box;
-}
 
 #searchBtn {
-  width: 100px;
+  width: 80px;
   height: 47px;
   background-color: white;
+  margin-left: 29px;
+  cursor: pointer;
+}
+
+#searchBtn:hover {
+  border-color: #2DB400;
   color: #2DB400;
 }
 
 .search-area{
-  padding-top: 10px;
+  padding-top: 50px;
+  width: 617.5px;
+  
 }
 
 #query {
@@ -63,39 +77,36 @@ left: -5px;
 
 
 #button2 {
-  padding: 120px 0 0 70px;
+  padding: 120px 0 0 52px;
   background-color: white;
   text-decoration: none;
   color: black;
   border: 1px solid black;
   border-radius: 5px;
   text-align: center;
-  margin-bottom: 120px;
-  position: relative; top: -30px;
+  font-size: 20px;
 }
 
 #button3 {
-  padding: 120px 0 0 70px;
+  padding: 120px 0 0 53px;
   background-color: white;
   text-decoration: none;
   color: black;
   border: 1px solid black;
   border-radius: 5px;
   text-align: center;
-  margin-bottom: 120px;
-  position: relative; top: -30px;
+  font-size: 20px;
 }
 
 #button4 {
-  padding: 120px 0 0 70px;
+  padding: 120px 0 0 52px;
   background-color: white;
   text-decoration: none;
   color: black;
   border: 1px solid black;
   border-radius: 5px;
   text-align: center;
-  margin-bottom: 120px;
-  position: relative; top: -30px;
+  font-size: 20px;
 }
 
 .question:first-child {
@@ -103,25 +114,22 @@ left: -5px;
 }
 
 .question {
+  display: flex;
   padding: 17px 0;
   cursor: pointer;
   font-size: 14px;
   border-bottom: 1px solid #dddddd;
-  
+  justify-content: space-between;
 }
 
 .question::before {
-  display: inline-block;
-  content: '';
   font-size: 14px;
-  color: #006633;
-  margin: 0 5px;
+  color: #000000;
 }
 
-.question.on>span {
-  margin-top: 20px;
+.question > span {
   font-weight: bold;
-  color: #006633;
+  color: #000000;
 }
 
 .answer {
@@ -129,31 +137,36 @@ left: -5px;
   overflow: hidden;
   font-size: 14px;
   background-color: #f4f4f2;
-  padding: 27px 0;
+  border-bottom: 1px solid #dddddd;
+  width: 617.5px;
+  height: 80px;
+  padding-top: 10px;
 }
 
-.answer::before {
-  display: inline-block;
+.answer > span {
   content: '';
   font-size: 14px;
   font-weight: bold;
-  color: #666;
-  margin: 0 5px;
+  color: #000000;
+  width: 617.5px;
+  height: 80px;
 }
 
 .arrow-wrap {
-  top: 50%;
-  right: 20px;
   transform: translate(0, -50%);
+  margin-top: 7px;
+  display: inline-block;
 }
+
 
 .question .arrow-top {
   display: none;
+  width: 20px;
 }
 
 .question .arrow-bottom {
   display: block;
-  position: relative; left: 600px;
+  width: 20px;
 }
 
 .question.on .arrow-bottom {
@@ -162,13 +175,11 @@ left: -5px;
 
 .question.on .arrow-top {
   display: block;
-  position: relative; left: 600px;
 }
 
 #Accordion_wrap {
-  width: 631.4px;
+  width: 617.5px;
   height: 312px;
-  margin-top: 10px;
 }
 
 .confirm {

@@ -1,3 +1,8 @@
+main *{
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
 /* 상세조회 전체 영역 */
 .content {
     display: flex;
@@ -55,7 +60,7 @@
 .board-info{
     width: 320px;
     font-size: 0.8em;
-    position: relative; left: 750px;
+    
 }
 
 .board-info > p{
@@ -78,16 +83,17 @@
 .board-content{
     clear: both;
     padding: 30px 0;
-    margin: 30px 0;
     font-size: 18px;
     white-space: pre-wrap;
-    
+    width: 500px;
+    height: 330px;
+    display: flex;
 }
 
 /* 버튼 영역 */
 .board-btn-area{
     text-align: right;
-    position: relative; top: 200px;
+    margin: 50px auto;
 }
 
 /* 버튼 */

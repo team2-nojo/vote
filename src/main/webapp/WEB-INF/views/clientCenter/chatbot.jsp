@@ -11,10 +11,12 @@
 
     <link rel="stylesheet" href="/resources/css/clientCenter/chatbot.css">
 </head>
-
- <div class="content">
 <body>
-    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
+<%-- <jsp:include page="/WEB-INF/views/common/header.jsp"/> --%>
+
+<main>
+<div class="content">
     <div id="chat-container">
         <div id="chat-messages"></div>
         <div id="user-input">
@@ -22,11 +24,11 @@
             <button>전송</button>
         </div>
     </div>
-    
-    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    <script src="/resources/js/clientCenter/chatbot.js"></script>
-</body>
 </div>
+</main>
 
+    <%-- <jsp:include page="/WEB-INF/views/common/footer.jsp"/> --%>
+    <script src="/resources/js/clientCenter/chatbot.js"></script>
 
+</body>
 </html>

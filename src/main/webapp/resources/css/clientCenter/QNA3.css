@@ -10,10 +10,10 @@
 .board-name{
 	font-size : 2em;
 	margin : 20px auto;
-    position: relative; left: 450px;
+    padding-left: 100px;
 }
 
-a{
+a {
     text-decoration: none;
     color : black;
 }
@@ -23,7 +23,7 @@ a:hover {
     text-decoration: underline;
 }
 
-.board-list{
+.board-list {
     /* display: flex; */
     width: 1000px;
     /* height: 800px; */
@@ -38,7 +38,9 @@ a:hover {
 
 .list-wrapper{
     min-height: 670px;
-    width: 100%;
+    width: 788px;
+    height: 424px;
+    margin: 50px auto;
 }
 
 .list-table{

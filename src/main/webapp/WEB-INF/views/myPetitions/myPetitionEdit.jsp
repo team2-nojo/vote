@@ -197,6 +197,11 @@
               </i>
             </div>
             <div id="addTopicBox">
+              <c:if test="${not empty CAT}" >
+                <c:forEach items="${CAT}" var="category">
+                  <div><span>${category.categoryName}&nbsp;<i class="fa-regular fa-rectangle-xmark"></i></span></div>
+                </c:forEach>
+              </c:if>
               <input id="topicInput" placeholder="예시 : 뭐하지">
             </div>
           </div>

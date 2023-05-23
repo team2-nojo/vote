@@ -357,9 +357,12 @@ textarea{
   color: #2db400;
 }
 
-
 #addTopicBox span{
   pointer-events: none;
+}
+
+.fa-rectangle-xmark{
+  color: #828282;
 }
 
 /* 결정권자 */

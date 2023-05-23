@@ -26,6 +26,7 @@ import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 import edu.nojo.vote.user.model.dto.User;
+import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 @SessionAttributes({"loginMember"}) 
 @RequestMapping("/myPetitions")
@@ -77,9 +78,15 @@ public class MyPetitionsDashboardController {
 		// 댓글 목록 조회
 		List<Like> commentList = service.resetcommentList(petitionNo);
 		
+		// 카테고리 유무 체크
+		List<PetitionCategory> catagoryCheck = service.catagoryCheck(petitionNo);
+		
+		
 		model.addAttribute("myPetition", myPetition);
 		model.addAttribute("likeUserList", likeUserList);
 		model.addAttribute("commentList", commentList);
+		model.addAttribute("catagoryCheck", catagoryCheck);
+		model.addAttribute("loginUser",loginUser);
 		
 		return "/myPetitions/myPetitionsDashboard";
 
@@ -101,11 +108,23 @@ public class MyPetitionsDashboardController {
 		return service.resetcommentList(pno);
 	}
 	
+	// petitonDelete
+	@PostMapping(value="/petitonDelete", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public int petitonDelete(@RequestBody String petitionNo) {
+		int pno = Integer.parseInt(petitionNo);
+		return service.petitonDelete(pno);
+	}
+	
+	// petitonVictory
+	@PostMapping(value="/petitonVictory", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public int petitonVictory(@RequestBody String petitionNo) {
+		int pno = Integer.parseInt(petitionNo);
+		return service.petitonVictory(pno);
+	}
 	
 	
-	
-	
-	// 작성된 글 상태 확인후 추가가능한 부분 체크리스트
 	
 	
 }

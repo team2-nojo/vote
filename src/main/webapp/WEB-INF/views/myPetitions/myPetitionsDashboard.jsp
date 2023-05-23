@@ -26,6 +26,7 @@
           <c:when test="${not empty MP}">
             <div class="nav-title">
               <h2>${MP.petitionTitle}</h2>
+              <div id="vicHidden" class="vic-hidden"><div id="victory">청원승리!!</div></div>
             </div>
           </c:when>
           <c:otherwise>
@@ -173,40 +174,100 @@
         <div class="list">
           <ul>
             <li>
-              <div><h3>사진 또는 비디오 추가</h3>사진이나 동영상이 있는 청원은 6배 더 많은 서명을 받습니다.</div>
-              <div><i class="fa-solid fa-chevron-right"></i></div>
+              <c:choose>
+                <c:when test="${not empty MP.petitionTitle}">
+                  <div class="list-checked">
+                    <div><h3>청원 제목</h3></div>
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                </c:when>
+                <c:otherwise>
+                  <a href="/myPetitions/myPetitionEdit/${petitionNo}#titleEdit">
+                    <div class=check-title>
+                      <h3>청원 제목 추가</h3>
+                      <h5>제목을 정해야 구체적인 청원이 나아갈 방향이 정해집니다.</h5>
+                    </div>
+                    <div><h3>청원 제목 추가</h3></div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </c:otherwise>
+              </c:choose>
             </li>
             <li>
-              <div><h3>프로필 사진 추가</h3>사람들은 실제 사람이 보낸 청원임을 알 때 청원을 지지할 가능성이 더 높습니다.</div>
-              <div><i class="fa-solid fa-chevron-right"></i></div>
+              <c:choose>
+                <c:when test="${not empty MP.petitionImage}">
+                  <div class="list-checked">
+                    <div><h3>사진 : 썸네일</h3></div>
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                </c:when>
+                <c:otherwise>
+                  <a href="/myPetitions/myPetitionEdit/${petitionNo}#imgEdit">
+                    <div class=check-title>
+                      <h3>사진 추가</h3>
+                      <h5>사진이 있는 청원은 6배 더 많은 서명을 받습니다.</h5>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </c:otherwise>
+              </c:choose>
             </li>
             <li>
-              <div><h3>이웃, 도시, 주 또는 국가 추가</h3>청원은 특정 위치에 관심이 있는 사람들에게 권장됩니다.</div>
-              <div><i class="fa-solid fa-chevron-right"></i></div>
+              <c:choose>
+                <c:when test="${not empty MP.petitionContent}">
+                  <div class="list-checked">
+                    <div><h3>주요 내용 : 문제 설명</h3></div>
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                </c:when>
+                <c:otherwise>
+                  <a href="/myPetitions/myPetitionEdit/${petitionNo}">
+                    <div class=check-title>
+                      <h3>청원에 대해 설명하십시오.</h3>
+                      <h5>청원에 관심을 가지는 사람들에게 구체적인 설명을 해주세요.</h5>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </c:otherwise>
+              </c:choose>
             </li>
             <li>
-              <div><h3>의사 결정권자의 연락처 정보 추가</h3>새로운 이정표에 도달하면 의사 결정권자에게 알림이 전송됩니다.</div>
-              <div><i class="fa-solid fa-chevron-right"></i></div>
+              <c:choose>
+                <c:when test="${catagoryCheck.size() == 5}">
+                  <div class="list-checked">
+                    <div><h3>카테고리</h3></div>
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                </c:when>
+                <c:otherwise>
+                  <a href="/myPetitions/myPetitionEdit/${petitionNo}">
+                    <div class=check-title>
+                      <h3>카테고리 추가</h3>
+                      <h5>구체적인 카테고리를 추가로 정하면 사람들이 청원에 관심을 가질 가능성이 높아집니다.</h5>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </c:otherwise>
+              </c:choose>
             </li>
             <li>
-              <div><h3>스마트 이미지</h3>다른 이미지를 시도하여 어떤 이미지가 더 많은 서명을 제공하는지 확인하십시오.</div>
-              <div><i class="fa-solid fa-chevron-right"></i></div>
-            </li>
-            <li>
-              <div><h3>주제 추가</h3></div>
-              <div><i class="fa-solid fa-chevron-right"></i></div>
-            </li>
-            <li>
-              <div><h3>해결하려는 문제를 설명하십시오.</h3></div>
-              <div><i class="fa-solid fa-chevron-right"></i></div>
-            </li>
-            <li>
-              <div><h3>의사 결정권자를 선택하십시오.</h3></div>
-              <div><i class="fa-solid fa-chevron-right"></i></div>
-            </li>
-            <li>
-              <div><h3>제목 쓰기</h3></div>
-              <div><i class="fa-solid fa-chevron-right"></i></div>
+              <c:choose>
+                <c:when test="${not empty loginUser.userImage}">
+                  <div class="list-checked">
+                    <div><h3>프로필 사진</h3></div>
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                </c:when>
+                <c:otherwise>
+                  <a href="/myPetitions/myPetitionEdit/${petitionNo}">
+                    <div class=check-title>
+                      <h3>프로필 사진 추가</h3>
+                      <h5>사람들은 실제 사람이 보낸 청원임을 알 때 청원을 지지할 가능성이 더 높습니다.</h5>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </a>
+                </c:otherwise>
+              </c:choose>
             </li>
           </ul>
         </div>
@@ -223,8 +284,8 @@
             </div>
           </div>
           <div class="guide-right">
-            <button type="button">청원 끝내기</button>
-            <button type="button">청원 승리선언</button>
+            <button id="petitionDel" type="button">청원 삭제</button>
+            <button id="petitionVic" type="button">청원 승리선언</button>
           </div>
         </div>
       </div>

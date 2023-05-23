@@ -54,7 +54,7 @@
         <form action="">
           <div class="content-title">
             <div class="content-side-title">
-              <h3>제목 편집</h3>
+              <h3 id="titleEdit">제목 편집</h3>
               <span id="titleTipBtn">팁 보기</span>
               <dialog class="tip" id="titleTip">
                 <div class="tip-container">
@@ -117,7 +117,7 @@
           <div class="img-link"><a href="#">이제 동영상과 이미지로 청원을 돋보이게 만들 수 있습니다. 여기에서 시도하십시오!</a></div>
           <div>
             <div class="content-side-title">
-              <h3>이미지</h3>
+              <h3 id="imgEdit">이미지</h3>
               <span id="imgTipBtn">팁 보기</span>
               <dialog class="tip" id="imgTip">
                 <div class="tip-container">

@@ -150,7 +150,8 @@ public class AdministratorController {
 	}
 	
 	@PostMapping("/adminUserDelete")
-	private String updateUser(@RequestParam("userNo") int userNo, Model model
+	private String updateUser(@RequestParam("userNo") int userNo
+								, Model model
 								,@ModelAttribute User user
 								,RedirectAttributes ra) throws IllegalStateException, IOException{
 		
@@ -160,11 +161,11 @@ public class AdministratorController {
 		String path = "redirect:";
 		
 		if(result > 0) {
-			message = "게시글이 삭제 되었습니다.";
+			message = "유저가 삭제 되었습니다.";
 			path += "/adminUser";
 			
 		}else {
-			message = "게시글 삭제 실패........";
+			message = "유저 삭제 실패........";
 			path += "/adminUser";
 		}
 		
@@ -173,5 +174,31 @@ public class AdministratorController {
 		return path;
 	}
 
+	
+	@PostMapping("/adminPetitionDelete")
+	private String updatePetition(@RequestParam("petitionNo") int petitionNo
+								  ,@ModelAttribute Petition petition
+								  , Model model
+								  ,RedirectAttributes ra)throws IllegalStateException, IOException{
+									
+		int result = service.deletePetition(petitionNo);
+
+		String message = null;
+		String path = "redirect:";
+		
+		if(result > 0) {
+			message = "청원이 삭제 되었습니다.";
+			path += "/adminPetitionList";
+			
+		}else {
+			message = "청원 삭제 실패........";
+			path += "/adminPetitionList";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+		
+	}
 }
 

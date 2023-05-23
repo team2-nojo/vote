@@ -56,18 +56,33 @@ function confirmChange(selectElement) {
     form.submit();
   }
 }
-// 클릭 이벤트 핸들러 등록
-document.querySelectorAll('.caret').addEventListener('click', function () {
-  // 현재 요소에 fa-rotate-180 클래스가 있는지 확인
-  var hasRotate180Class = this.classList.contains('fa-rotate-180');
 
-  // fa-rotate-180 클래스가 있는 경우 제거, 없는 경우 추가
-  if (hasRotate180Class) {
-    this.classList.remove('fa-rotate-180');
+function confirmDeletePetition(petitionNo, userNickname) {
+  var confirmed = confirm(
+    '청원 번호 : ' +
+      petitionNo +
+      '\n\n' +
+      ' "' +
+      userNickname +
+      '"' +
+      '님의 청원을 정말로 삭제하시겠습니까? '
+  );
+
+  if (confirmed) {
+    deleteUser(petitionNo, userNickname);
   } else {
-    this.classList.add('fa-rotate-180');
+    event.preventDefault();
+    console.log('삭제 취소');
   }
+}
 
-  // Ajax 요청 수행
-  // ...
-});
+function deleteUser(petitionNo, userNickname) {
+  var form = document.getElementById('mainForm2');
+  var petitionNoInput = document.createElement('input');
+  petitionNoInput.type = 'hidden';
+  petitionNoInput.name = 'petitionNo';
+  petitionNoInput.value = petitionNo;
+  form.appendChild(petitionNoInput);
+
+  form.submit();
+}

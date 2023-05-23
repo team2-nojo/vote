@@ -48,5 +48,13 @@ public interface AdminService {
 	int deleteUser(int userNo);
 
 
+	
+	/** 청원 삭제
+	 * @param petitionNo
+	 * @return
+	 */
+	int deletePetition(int petitionNo);
+
+
 
 }

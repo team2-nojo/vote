@@ -170,5 +170,14 @@ SELECT USER_NO, USER_NICKNAME, USER_EMAIL, USER_ADD, USER_ENDROLL_DT, USER_IMG,
 	 	WHERE USER_NO = #{userNo}
 	</update>
 	
+		<!--청원 삭제  -->
+	<update id="deletePetition">
+		UPDATE "PETITION" SET
+	 	PT_DEL_FL = 'Y'
+	 	WHERE PT_NO = #{petitionNo}
+	</update>
+	
+	
+	
 	
 </mapper>

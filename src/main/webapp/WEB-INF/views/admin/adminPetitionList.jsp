@@ -32,7 +32,7 @@
                             <th>작성자</th>
                            <th>작성일<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
                             <th>조회수<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
-                            <th>좋아요<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
+                            <th>청원삭제<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
                             <th>메인등록</th>
                         </tr>
                     </thead>
@@ -47,7 +47,8 @@
                             </c:when>
                                 
                             <c:otherwise>
-                                <form action="/admin/petition/${petition.petitionNo}" method="POST" id="mainForm">
+                                <form action="/adminPetitionDelete" method="POST" id="mainForm2">
+                                <%-- <form action="/admin/petition/${petition.petitionNo}" method="POST" id="mainForm"> --%>
                                 <c:forEach items="${petitionList}" var="petition">
 
                                 <tr>
@@ -60,7 +61,7 @@
                                     <td class='userNickname'>${petition.userNickname}</td>
                                     <td>${petition.petitionDate}</td>
                                     <td>${petition.petitionViewCount}</td>
-                                    <td>${petition.petitionVictory}</td>
+                                    <td><button onclick="confirmDeletePetition('${petition.petitionNo}', '${petition.userNickname}')">청원 삭제</button></td>
                                     <td>
                                             <label for="mainUpdateNumber"></label>
                                             <select id="mainUpdateNumber" name="mainUpdateNumber" onchange="confirmChange(this)">
@@ -80,7 +81,7 @@
                 </table>
             </div>
             <div class="btn-area">
-                <button id="insertBtn">메인 등록</button>                     
+                <%-- <button id="insertBtn">메인 등록</button>                      --%>
             </div>
             <div class="pagination-area">
                 <ul class="pagination">

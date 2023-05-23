@@ -134,6 +134,15 @@ public class AdminDAO {
 	}
 
 	
+	/**청원 삭제
+	 * @param petitionNo
+	 * @return sqlSession.update("adminMapper.deletePetition", petitionNo);
+	 */
+	public int deletePetition(int petitionNo) {
+		return sqlSession.update("adminMapper.deletePetition", petitionNo);
+	}
+
+	
 
 
 

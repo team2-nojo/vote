@@ -33,9 +33,12 @@
 	
 	
 	<!-- 회원가입 -->
-	<insert id="signUp" parameterType="User">
+	<insert id="signUp" parameterType="User" useGeneratedKeys="true">
+		<selectKey order="BEFORE" resultType="_int" keyProperty="userNo">
+			SELECT SEQ_USER_NO.NEXTVAL FROM DUAL
+		</selectKey>
 		INSERT INTO "USER"
-		VALUES(SEQ_USER_NO.NEXTVAL
+		VALUES(#{userNo}
 			, DEFAULT
 			, NULL
 			, #{userEmail}

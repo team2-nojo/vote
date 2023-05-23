@@ -64,10 +64,9 @@ const nextBtn = document.getElementById("next"); // 다음 버튼
 nextBtn.addEventListener("click", ()=>{
     window.close("서비스_이용약관_동의.html");
     window.opener.document.getElementById("agree").checked = true;
-    window.opener.document.querySelector('[name=agreeEmail]').value='y';
+    if(check4.checked)
+        window.opener.document.querySelector('[name=agreeEmail]').value='y';
 });
-
-
 
 // 취소버튼 클릭하면 그냥 닫힘
 const cancel = document.getElementById("cancel"); // 취소 버튼
@@ -77,8 +76,7 @@ cancel.addEventListener("click", () => {
     window.opener.document.querySelector('[name=agreeEmail]').value='n';
 });
 
-
-
-
-
-
+window.addEventListener('beforeunload', () => {
+    window.opener.document.getElementById("agree").checked = false;
+    window.opener.document.querySelector('[name=agreeEmail]').value='n';
+});

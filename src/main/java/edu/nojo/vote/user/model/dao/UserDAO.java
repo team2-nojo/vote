@@ -55,4 +55,8 @@ public class UserDAO {
 	public List<Integer> selectEmailSettings(int userNo) {
 		return sqlSession.selectList("userMapper.selectEmailSettings",userNo);
 	}
+	
+	public int insertEmailSettings(User user) {
+		return sqlSession.insert("myPageMapper.insertEmailSettings", user);
+	}
 }

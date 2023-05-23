@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 
 @Repository
 public class MyPetitionsDAO {
@@ -30,6 +31,15 @@ public class MyPetitionsDAO {
 	 */
 	public List<Petition> selectLikePetition(int userNo) {
 		return sqlSession.selectList("myPetitionsMapper.selectLikePetitions", userNo);
+	}
+
+
+	/** 청원 업데이트 게시글 작성
+	 * @param update
+	 * @return result
+	 */
+	public int updateInsert(PetitionUpdate update) {
+		return sqlSession.insert("myPetitionsMapper.updateInsert", update);
 	}
 	
 

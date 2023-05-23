@@ -71,6 +71,27 @@
 		ORDER BY CM_NO DESC
 	</select>
 	
+	<insert id="updateInsert">
+		<selectKey order="BEFORE" resultType="_int" keyProperty="petitionUpdateNo">
+			SELECT SEQ_UP_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO "PETITION_UPDATE"
+		VALUES (
+			#{petitionUpdateNo},
+			#{petitionUpdateTitle},
+			#{petitionUpdateContent},
+			DEFAULT,
+			<if test="petitionUpdateImage == null">
+			NULL,
+			</if>
+			<if test="petitionUpdateImage != null">
+			#{petitionUpdateImage}
+			</if>
+			DEFAULT,
+			#{userNo}
+		)
+	</insert>
+	
 	
 
 	<resultMap type="User" id="user_rm">
@@ -109,6 +130,7 @@
 		<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
 	
 	</resultMap>
+
 
 	<resultMap type="Like" id="like_rm">
 	

@@ -1,8 +1,11 @@
 package edu.nojo.vote.myPetitions.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,11 +14,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Like;
+import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsService;
 import edu.nojo.vote.user.model.dto.User;
@@ -75,10 +82,21 @@ public class MyPetitionsController {
 
 		return "/myPetitions/myPetitionDashboardUpdate";
 	}
-
 	
-	@PostMapping("/myPetitionsDashboard/myPetitionDashboardUpdate/{petitionNo}/insert")
-	public String updateInsert() {
+	
+	// 청원 업데이트 게시글 작성
+	@PostMapping("/myPetitionsDashboard/myPetitionDashboardUpdate/insert/{petitionNo}")
+	public String updateInsert(
+			@SessionAttribute User loginUser
+		   ,@PathVariable ("petitionNo") int petitionNo
+		   ,@RequestParam(value="petitionUpdateTitle", required=false) String petitionUpdateTitle
+		   ,@RequestParam(value="inputImage", required=false) MultipartFile inputImage
+		   , @RequestParam(value="petitionUpdateContent", required=false)String petitionUpdateContent
+		   ,HttpSession session
+		   ,RedirectAttributes ra
+		   ) throws IllegalStateException, IOException {
+		
+		String message = null;
 		
 		// 업데이트를 위해 필요한 것
 		// 입력값 : 업데이트할 표제, 사진, 업데이트 정보(내용)
@@ -88,7 +106,31 @@ public class MyPetitionsController {
 		// loginUser : 작성자 이름
 		// pathVariable : 페티션 번호
 		
-		return null;
+		PetitionUpdate update = new PetitionUpdate();
+		
+		update.setPetitionNo(petitionNo);
+		update.setPetitionUpdateTitle(petitionUpdateTitle);
+		update.setPetitionUpdateContent(petitionUpdateContent);
+		update.setUserNo(loginUser.getUserNo());
+		
+		System.out.println(update.getPetitionUpdateTitle());
+		System.out.println(update.getPetitionUpdateContent());
+		
+		String webPath = "/resources/images/petitionUpdate/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		int result = service.updateInsert(update, inputImage, webPath, filePath);
+		
+        if(result <= 0) 
+        {
+	        message = "업데이트 업로드 실패";
+	        ra.addFlashAttribute("message", message);
+	        // 업데이트 작성 화면으로 다시 리다이렉트
+	        return "/myPetitionsDashboard/myPetitionDashboardUpdate/{petitionNo}/insert";
+        }
+		
+        // 내 페티션 화면으로 리다이렉트
+		return "redirect:/myPetitions/myPetitionsDashboard/{petitionNo}";
+		
 	}
 	
 	// 게시글 장석

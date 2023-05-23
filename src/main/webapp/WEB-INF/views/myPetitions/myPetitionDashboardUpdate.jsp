@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit profile</title>
     <!-- summernote -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <!-- css -->
@@ -21,7 +21,7 @@
     <%-- header --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <form action="insert" method="POST" id="dashboardUpdateFrm" enctype="multipart/form-data">
+        <form action="insert/${myPetition.petitionNo}" method="POST" id="dashboardUpdateFrm" enctype="multipart/form-data">
             <div class="content" id="dashboardUpdate">
                 <div class="contentbox" id="dashboardUpdateContainer">
                     <div class="dashboard-update-top-frame">
@@ -31,36 +31,38 @@
                         <div id="dashboardUpdateSubtitle">${myPetition.petitionTitle}</div>
                     </div>
                     <div>
-                        <div class="dashboard-update-text">표제</div>
+                        <div class="dashboard-update-text">제목</div>
                         <div>
-                            <input type="text" class="dashboard-update-input" placeholder="서포터 1만명 달성">
+                            <input type="text" class="dashboard-update-input" name="petitionUpdateTitle" placeholder="ex.서포터 1만명 달성">
                         </div>
                     </div>
                     <div>
                         <div class="dashboard-update-text">사진추가</div>
-                        <div id="dashboardUpdateAddImage">
-                            <div>
-                                <c:if test="${Mypetition.petitionImage == null}" >
-                                    <img src="/resources/images/user.png" alt="">
-                                </c:if>
+                        <div id="dashboardUpdateAddImage" class="exist-image">
+                            <div id="relativeBox">
+                                <img src="/resources/images/common/user.png" id="imageBefore">
                             </div>
                             <div>
-                                <input type="file" id="DashboardUpdatefileInput">
-                                <label aria-controls="DashboardUpdatefileInput" for="DashboardUpdatefileInput">
-                                    <span>Upload an image</span>
+                                <input type="file" id="dashboardUpdatefileInput" name="inputImage">
+                                <label for="dashboardUpdatefileInput">
+                                    <span>이미지 등록</span>
                                 </label>
                             </div>
                         </div>
-                    </div>
+                        <div id="dashboardUpdateAddImage hidden" class="upload-image">
+                            <div id="relativeBox">
+                                <img src="" id="imagePreview">
+                                <span class="delete-image" id="deleteImage">X</span>
+                            </div>
+                        </div>
                     <div>
                         <div class="dashboard-update-text">업데이트 정보</div>
-                        <div id="summernote"></div>
+                        <div id="summernote" name="petitionUpdateContent"></div>
                     </div>
                     <div>
                         <div class="dashboard-update-text-guide">
                             <div><strong>업데이트는 24시간에 한 번씩 게시 가능합니다.</strong><br></div>
                             <div>업데이트는 청원 페이지에 나타나며, 모든 지원자에게 이메일로 전송됩니다.</div>
-                            
                         </div>
                     </div>
                     <div id="goRight">
@@ -98,8 +100,8 @@
                         </div>
                         <!-- 모달창 끝 -->
                         <div class="submit-cancel-button-frame">
-                            <button id="submit" class="submit-cancel-button preview" type="button">이메일 미리보기</button>
-                            <button id="cancel" class="submit-cancel-button">포스트</button>
+                            <button id="emailPreview" class="submit-cancel-button preview" type="button">이메일 미리보기</button>
+                            <button id="updatePetitionPost" class="submit-cancel-button">포스트</button>
                         </div>
                     </div>
                 </div>
@@ -112,7 +114,7 @@
     <script src="/resources/js/myPetitions/myPetitionDashboardUpdate.js"></script>
     <%-- summernote --%>
     <script src="https://kit.fontawesome.com/fa1a384c97.js" crossorigin="anonymous"></script>
-    <script>
+<%--     <script>
         $('#summernote').summernote({
             placeholder: 'Hello stand alone ui',
             tabsize: 2,
@@ -127,6 +129,6 @@
             ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
-    </script>
+    </script> --%>
 </body>
 </html>

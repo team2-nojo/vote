@@ -66,9 +66,10 @@
 
                 <div>
                     <a href="/user/agreeService" id="agreeServiceGo">
-                        <input type="checkbox" class= "check1" id="agree"><label for="agree"> vote 서비스약관에 동의합니다.</label> 
+                        <input type="checkbox" class= "check1" id="agree"><label for="agree"> VOTE 서비스약관에 동의합니다.</label> 
                     </a>
                 </div>
+                <input type="hidden" name="agreeEmail" value='n'>
 
                 <div>
                     <button id="SignUpSubmit" >Sign up</button>

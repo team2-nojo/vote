@@ -199,30 +199,54 @@
                     <div class="sTitle">마케팅 정보 제공 동의</div>
                     <div>
                         <div class="textBox">
-마케팅 활용 및 광고성 정보 수신 동의
-귀하는 개인(신용)정보의 선택적인 수집∙이용, 제공에 대한 동의를 거부할 수 있습니다. 다만, 동의하지 않을 경우 관련 편의제공(청원 안내, 공지사항)안내 등 이용 목적에 따른 혜택에 제한이 있을 수 있습니다.
-그 밖에 계약과 관련된 불이익은 없습니다. 동의한 경우에도 귀하는 동의를 철회하거나 마케팅 목적으로 귀하에게 연락하는 것을 중지하도록 요청할 수 있습니다.
-
-1. 수집 및 이용목적
-고객에 대한 편의제공, 귀사 및 제휴업체의 상품·서비스 안내 및 이용권유 등의 마케팅 활동, 시장조사 및 상품·서비스 개발연구 등을 목적으로 수집·이용
-
-2. 수집 및 이용항목
-- 개인식별정보: e-mail, 주소 등
-- 고객 ID, 접속 일시, IP주소 등
-
-3. 보유기간
-동의일로부터 회원 탈퇴 혹은 마케팅 동의 해제 시까지 보유·이용
+마케팅 활용 및 광고성 정보 수신 동의<br>
+귀하는 개인(신용)정보의 선택적인 수집∙이용, 제공에 대한 동의를 거부할 수 있습니다. 다만, 동의하지 않을 경우 관련 편의제공(청원 안내, 공지사항)안내 등 이용 목적에 따른 혜택에 제한이 있을 수 있습니다.<br>
+그 밖에 계약과 관련된 불이익은 없습니다. 동의한 경우에도 귀하는 동의를 철회하거나 마케팅 목적으로 귀하에게 연락하는 것을 중지하도록 요청할 수 있습니다.<br>
+<br>
+1. 수집 및 이용목적<br>
+고객에 대한 편의제공, 귀사 및 제휴업체의 상품·서비스 안내 및 이용권유 등의 마케팅 활동, 시장조사 및 상품·서비스 개발연구 등을 목적으로 수집·이용<br>
+<br>
+2. 수집 및 이용항목<br>
+- 개인식별정보: e-mail, 주소 등<br>
+- 고객 ID, 접속 일시, IP주소 등<br>
+<br>
+3. 보유기간<br>
+동의일로부터 회원 탈퇴 혹은 마케팅 동의 해제 시까지 보유·이용<br>
                             
                         </div>
-                    </div>
-                    <div class="agreeCheck">
+                        <div class="agreeCheck">
                         <input type="checkbox"  class="check" id="MarketingInfo" name="allCheck">
                         <label for="MarketingInfo">동의함(선택)</label>
+                        </div>
                     </div>
-                </div>
-                <div class="agreeCheckAll">
-                    <input type="checkbox" id="allAgree">
-                    <label for="allAgree">모두 동의</label>
+                </div>   
+
+                <div class="agreeBox">
+                    <div class="sTitle">이메일 정보 제공 동의</div>    
+                        <div class="textBox">
+
+이메일 정보 활용 및 광고성 정보 수신 동의<br>
+<br>
+1. 수집 및 이용목적<br>
+탄원서 모집에 대한 편의 제공, 탄원서에 대한 업데이트 내역 알림, 청원 관련 팁 제공, 청원 요양 제공, 청원을 바탕으로 다른 청원서에 대한 정보 제공<br>
+<br>
+2. 수집 및 이용항목<br>
+- 개인식별정보 : e-mail<br>
+<br>
+3. 보유기간<br>
+동의일로부터 회원 탈퇴 혹은 마케팅 동의 해제 시까지 보유·이용<br>
+
+                            
+                        </div>
+                        <div class="agreeCheck">
+                            <input type="checkbox"  class="check" id="emailInfo" name="allCheck">
+                            <label for="emailInfo">동의함(선택)</label>
+                        </div>
+                    </div>
+                    <div class="agreeCheckAll">
+                        <input type="checkbox" id="allAgree">
+                        <label for="allAgree">모두 동의</label>
+                    </div>
                 </div>
             </div>
             <div class="buttons">

@@ -255,9 +255,7 @@
             </div>
         </section>
     </main>
-
     <%-- agreeService.js --%>
     <script src="/resources/js/user/agreeService.js"></script>
-
 </body>
 </html>

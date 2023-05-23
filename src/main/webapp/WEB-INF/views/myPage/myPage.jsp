@@ -16,7 +16,8 @@
         <div id="accountInfoContainer" class="center">
             <div id="accountInfoInnerContainer" class="center innerContainer">
                 <div id="accountInfo" class="center flexCol">
-                    <img class="profileImg" src="${loginUser.userImage}" width="80px" height="80px">
+                    <img class="profileImg" src="<c:if test="${empty loginUser.userImage}">resources/images/myPage/default-user-profile.svg</c:if>
+                    <c:if test="${not empty loginUser.userImage}">${loginUser.userImage}</c:if>" width="80px" height="80px">
                     <div id="userName" class="bold largeFont">${loginUser.userNickname}</div>
                     <div id="joinDateContainer" class="flexRow">
                         <div id="joinDate" class="gray smallFont">가입일 : ${loginUser.userEnrollDate}</div>

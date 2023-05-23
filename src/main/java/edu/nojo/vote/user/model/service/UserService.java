@@ -18,7 +18,7 @@ public interface UserService {
 	 * @param inputUser
 	 * @return result
 	 */
-	int signUp(User inputUser);
+	int signUp(User inputUser, String agreeEmail);
 	
 	
 	/** 이메일 중복 확인

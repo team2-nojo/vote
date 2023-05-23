@@ -120,27 +120,22 @@ public class UserController {
 	@PostMapping("/signUp")
 	public String signUp(User inputUser
 						, String[] userAddress
+						, String agreeEmail
 						, RedirectAttributes ra
 						) {
-		
-		
 		// 만약 주소를 입력하지 않은 경우(,,) null로 변경
-				if(inputUser.getUserAddress().equals(",,")) {
-					inputUser.setUserAddress(null);
-				
-				}else {
-					//String.join("구분자", String[])
-					// 배열의 요소를 하나의 문자열로 변경
-					// 단, 요소 사이에 "구분자" 추가
-					String addr = String.join("^^^", userAddress);
-					inputUser.setUserAddress(addr);
-				}
-		
-		
+		if(inputUser.getUserAddress().equals("^^^")) {
+			inputUser.setUserAddress(null);
+		}else {
+			//String.join("구분자", String[])
+			// 배열의 요소를 하나의 문자열로 변경
+			// 단, 요소 사이에 "구분자" 추가
+			String addr = String.join("^^^", userAddress);
+			inputUser.setUserAddress(addr);
+		}
 
 		// 회원가입 서비스 호출
-		int result = service.signUp(inputUser);
-
+		int result = service.signUp(inputUser,agreeEmail);
 
 		// 가입 성공 여부에 따라 주소 결정
 		String path = "redirect:";
@@ -148,18 +143,15 @@ public class UserController {
 		
 		if(result > 0) { // 가입 성공
 			path += "/"; // 메인 페이지
-			
 			message = inputUser.getUserNickname() + "님의 가입을 환영합니다.";
-			
 		} else { // 가입 실패
 			// 회원 가입 페이지로 이동
 			path += "signUp";  // 상대 경로
-			
 			message = "회원 가입 실패!";
 		}
 		
 		// 리다이렉트 시 session에 잠깐 올라갔다 내려오도록 세팅
-		ra.addFlashAttribute("message", message);
+		ra.addFlashAttribute("serverMessage", message);
 		
 		return path;
 	}
@@ -195,6 +187,4 @@ public class UserController {
 	public String agreeService() {
 		return "/user/agreeService";
 	}
-	
-	
 }

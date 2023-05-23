@@ -1,5 +1,6 @@
 package edu.nojo.vote.administrator.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -145,6 +147,30 @@ public class AdministratorController {
 		model.addAttribute("map", map);
 		return "admin/adminUserList";
 		
+	}
+	
+	@PostMapping("/adminUserDelete")
+	private String updateUser(@RequestParam("userNo") int userNo, Model model
+								,@ModelAttribute User user
+								,RedirectAttributes ra) throws IllegalStateException, IOException{
+		
+		int result = service.deleteUser(userNo);
+
+		String message = null;
+		String path = "redirect:";
+		
+		if(result > 0) {
+			message = "게시글이 삭제 되었습니다.";
+			path += "/adminUser";
+			
+		}else {
+			message = "게시글 삭제 실패........";
+			path += "/adminUser";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
 	}
 
 }

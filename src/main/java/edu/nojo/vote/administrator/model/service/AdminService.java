@@ -41,4 +41,12 @@ public interface AdminService {
 
 
 
+	/** 유저 삭제
+	 * @param userNo
+	 * @return
+	 */
+	int deleteUser(int userNo);
+
+
+
 }

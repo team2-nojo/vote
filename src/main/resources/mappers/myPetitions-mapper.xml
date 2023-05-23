@@ -107,7 +107,18 @@
 		WHERE PT_NO = ${petitionNo}
 	</update>
 	
+	<!-- MyPetitionsEdit -->
 	
+	<!-- 청원 카테고리 조회 -->
+	<select id="selectCatagory" resultMap="petition_category_rm">
+		SELECT CAT_NO, CAT_NAME
+		FROM PETITION_CATEGORY 
+		LEFT JOIN PETITION_CATEGORY_LIST USING(CAT_NO)
+		WHERE PT_NO = ${petitionNo}
+	</select>
+
+
+
 
 	<resultMap type="User" id="user_rm">
 	

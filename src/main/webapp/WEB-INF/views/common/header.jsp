@@ -15,35 +15,35 @@
         <li><a class="header-a" id="Help" href="/clientCenter/FAQ">고객센터</a></li>
         <%-- 임시 --%>
         <div style="width: 150px; height: 57px; display:flex; flex-wrap: wrap; ">
-          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+          <form action="/user/login" method="post" style="margin-left : 5px;">
             <input type="hidden" name="userEmail" value="user02@kh.or.kr">
             <input type="hidden" name="userPw" value="pass02!">
-            <button id=btn>user02</button>
+            <button>user02</button>
           </form>
-          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+          <form action="/user/login" method="post" style="margin-left : 5px;">
             <input type="hidden" name="userEmail" value="user03@kh.or.kr">
             <input type="hidden" name="userPw" value="pass03!">
-            <button id=btn>user03</button>
+            <button>user03</button>
           </form>
-          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+          <form action="/user/login" method="post" style="margin-left : 5px;">
             <input type="hidden" name="userEmail" value="user04@kh.or.kr">
             <input type="hidden" name="userPw" value="pass04!">
-            <button id=btn>user04</button>
+            <button>user04</button>
           </form>
-          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+          <form action="/user/login" method="post" style="margin-left : 5px;">
             <input type="hidden" name="userEmail" value="user05@kh.or.kr">
             <input type="hidden" name="userPw" value="pass05!">
-            <button id=btn>user05</button>
+            <button>user05</button>
           </form>
-          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+          <form action="/user/login" method="post" style="margin-left : 5px;">
             <input type="hidden" name="userEmail" value="user06@kh.or.kr">
             <input type="hidden" name="userPw" value="pass06!">
-            <button id=btn>user06</button>
+            <button>user06</button>
           </form>
-          <form action="/user/login" method="post" id="loginFrm" style="margin-left : 5px;">
+          <form action="/user/login" method="post" style="margin-left : 5px;">
             <input type="hidden" name="userEmail" value="user07@kh.or.kr">
             <input type="hidden" name="userPw" value="pass07!">
-            <button id=btn>user07</button>
+            <button>user07</button>
           </form>
         </div>
         <%-- 임시끝 --%>

@@ -182,7 +182,7 @@
                   </div>
                 </c:when>
                 <c:otherwise>
-                  <a href="/myPetitions/myPetitionEdit/${petitionNo}#titleEdit">
+                  <a href="/myPetitions/myPetitionEdit/${petitionNo}/#titleEdit">
                     <div class=check-title>
                       <h3>청원 제목 추가</h3>
                       <h5>제목을 정해야 구체적인 청원이 나아갈 방향이 정해집니다.</h5>
@@ -202,7 +202,7 @@
                   </div>
                 </c:when>
                 <c:otherwise>
-                  <a href="/myPetitions/myPetitionEdit/${petitionNo}#imgEdit">
+                  <a href="/myPetitions/myPetitionEdit/${petitionNo}/#imgEdit">
                     <div class=check-title>
                       <h3>사진 추가</h3>
                       <h5>사진이 있는 청원은 6배 더 많은 서명을 받습니다.</h5>
@@ -221,7 +221,7 @@
                   </div>
                 </c:when>
                 <c:otherwise>
-                  <a href="/myPetitions/myPetitionEdit/${petitionNo}">
+                  <a href="/myPetitions/myPetitionEdit/${petitionNo}/#contentEdit">
                     <div class=check-title>
                       <h3>청원에 대해 설명하십시오.</h3>
                       <h5>청원에 관심을 가지는 사람들에게 구체적인 설명을 해주세요.</h5>
@@ -240,7 +240,7 @@
                   </div>
                 </c:when>
                 <c:otherwise>
-                  <a href="/myPetitions/myPetitionEdit/${petitionNo}">
+                  <a href="/myPetitions/myPetitionEdit/${petitionNo}/#topicEdit">
                     <div class=check-title>
                       <h3>카테고리 추가</h3>
                       <h5>구체적인 카테고리를 추가로 정하면 사람들이 청원에 관심을 가질 가능성이 높아집니다.</h5>
@@ -259,7 +259,7 @@
                   </div>
                 </c:when>
                 <c:otherwise>
-                  <a href="/myPetitions/myPetitionEdit/${petitionNo}">
+                  <a href="/myPage/editProfile">
                     <div class=check-title>
                       <h3>프로필 사진 추가</h3>
                       <h5>사람들은 실제 사람이 보낸 청원임을 알 때 청원을 지지할 가능성이 더 높습니다.</h5>

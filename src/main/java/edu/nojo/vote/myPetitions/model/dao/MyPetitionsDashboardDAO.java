@@ -91,6 +91,14 @@ public class MyPetitionsDashboardDAO {
 	public int petitonVictoryCancel(int petitionNo) {
 		return sqlSession.update("myPetitionsMapper.petitonVictoryCancel", petitionNo);
 	}
+
+	/** 청원 카테고리 조회
+	 * @param petitionNo
+	 * @return
+	 */
+	public List<PetitionCategory> selectCatagory(int petitionNo) {
+		return sqlSession.selectList("myPetitionsMapper.selectCatagory", petitionNo);
+	}
 	
 	
 	

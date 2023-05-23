@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-<c:if test="${not empty myPetition}">
-  <c:set var="MP" value="${myPetition}"/>
-</c:if>
+<c:set var="MP" value="${myPetition}"/>
+<c:set var="CAT" value="${category}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -85,7 +84,7 @@
           </div>
           <div class="description">
             <div class="content-side-title">
-              <h3>본문 편집</h3>
+              <h3 id="contentEdit">본문 편집</h3>
               <span id="descriptTipBtn">팁 보기</span>
               <dialog class="tip" id="descriptTip">
                 <div class="tip-container">
@@ -190,7 +189,7 @@
           </div>
           <div>
             <div class="content-data-side-title">
-              <h3>주제추가</h3>
+              <h3 id="topicEdit">주제추가</h3>
               <i id="topicI" class="fa-regular fa-circle-question">
                 <div id="topicP">
                   <p>청원서의 주요 관련 주제는 무엇입니까? 귀하의 청원에 적합한 청중을 찾는데 도움이 될 것입니다.</p>

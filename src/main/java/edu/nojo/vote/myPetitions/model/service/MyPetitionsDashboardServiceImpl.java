@@ -58,6 +58,7 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 	}
 	
 	// 청원 승리
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int petitonVictory(int petitionNo) {
 
@@ -74,10 +75,14 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 				result = 2; // 청원 승리 취소
 			}
 		}
-		
 		return result;
 	}
 	
+	// 청원 카테고리 조회
+	@Override
+	public List<PetitionCategory> selectCatagory(int petitionNo) {
+		return dao.selectCatagory(petitionNo);
+	}
 	
 	
 }

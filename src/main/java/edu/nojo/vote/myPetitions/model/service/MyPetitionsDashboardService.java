@@ -52,5 +52,11 @@ public interface MyPetitionsDashboardService {
 	 */
 	int petitonVictory(int pno);
 
+	/** 청원 카테고리 조회
+	 * @param petitionNo
+	 * @return
+	 */
+	List<PetitionCategory> selectCatagory(int petitionNo);
+
 
 }

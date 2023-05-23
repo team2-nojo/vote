@@ -1,5 +1,3 @@
-document.getElementsByTagName('li')[4].style.backgroundColor = '#333';
-
 function confirmChange(selectElement) {
   var selectedValue = selectElement.value;
   var userNickname = selectElement

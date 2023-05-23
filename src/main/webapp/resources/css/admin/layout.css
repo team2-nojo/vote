@@ -144,10 +144,14 @@ footer {
   background-color: #333 !important;
 }
 
-#menu-wrap1 {
+#menu-wrap1,
+#menu-wrap2,
+#menu-wrap3 {
   list-style-type: none;
 }
-#menu-wrap1 ul li img.menu-icon {
+#menu-wrap1 ul li img.menu-icon,
+#menu-wrap2 ul li img.menu-icon,
+#menu-wrap3 ul li img.menu-icon {
   float: left;
   margin-right: 8px;
   width: 16px;
@@ -200,4 +204,11 @@ footer {
 #admin-id {
   margin-top: -8px;
   color: white;
+}
+
+#menu-wrap1 > ul > li > a,
+#menu-wrap2 > ul > li > a,
+#menu-wrap3 > ul > li > a {
+  color: #fff;
+  text-decoration: none;
 }

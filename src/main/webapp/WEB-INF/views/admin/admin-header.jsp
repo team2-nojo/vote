@@ -54,7 +54,7 @@
             </li>
           </ul>
         </div>
-        <div id="menu-wrap1">
+        <div id="menu-wrap2">
           <ul>
             <!-- 메뉴 아이템 1 -->
             <li id="menu2">청원 관리</li>
@@ -75,6 +75,8 @@
               />삭제된 청원 조회</a>
             </li>
           </ul>
+          </div>
+          <div id="menu-wrap3">
           <ul>
             <!-- 메뉴 아이템 1 -->
             <li id="menu3">인사이트</li>

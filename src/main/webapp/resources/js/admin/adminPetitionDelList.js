@@ -1,5 +1,3 @@
-document.getElementsByTagName('li')[4].style.backgroundColor = '#333';
-
 function updateDeletePetition(petitionNo, userNickname) {
   var confirmed = confirm(
     '청원 번호 : ' +

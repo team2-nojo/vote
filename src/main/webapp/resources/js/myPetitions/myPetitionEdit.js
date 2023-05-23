@@ -55,8 +55,10 @@ tipHover("twitter");
 
 /* 주제추가 */
 const addTopicBox = document.getElementById("addTopicBox");
-let topicCount = 0;
+const inputTopic = document.querySelectorAll('#addTopicBox > div');
+let topicCount = inputTopic.length;
 let topicInputReference;
+
 
 function addTopic() {
     if (topicCount >= 5) return;
@@ -71,7 +73,7 @@ function addTopic() {
         topicCount--;
         if (topicCount === 4 && topicInputReference) restoreTopicInput();
     });
-
+    
     topicInput.insertAdjacentElement("beforebegin", addTopic);
     topicInput.value = "";
     topicCount++;
@@ -99,6 +101,16 @@ addTopicBox.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
         addTopic();
     }
+});
+
+
+
+inputTopic.forEach(element => {
+    element.addEventListener('click', e =>{
+        e.target.remove();
+        topicCount--;
+        if (topicCount === 4 && topicInputReference) restoreTopicInput();
+    });
 });
 
 

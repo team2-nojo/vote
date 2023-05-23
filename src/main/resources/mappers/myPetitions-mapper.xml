@@ -28,7 +28,7 @@
 	
 	<!-- 청원 조회 -->
 	<select id="selectMyPetition" resultMap="myPetitions_rm">
-		SELECT PT_NO , PT_TITLE , PT_CONTENT , PT_DATE , PT_VIEW_COUNT
+		SELECT PT_NO , PT_TITLE , PT_CONTENT , PT_DATE , PT_VIEW_COUNT, PT_IMG ,PT_VICT, PT_DEL_FL
 		FROM "PETITION"
 		WHERE USER_NO = ${loginUserNo}
 		AND PT_NO = ${petitionNo}
@@ -70,6 +70,42 @@
 		AND CM_DEL_FL = 'N'
 		ORDER BY CM_NO DESC
 	</select>
+	
+	<!-- 카테고리 유무 체크 -->
+	<select id="catagoryCheck" resultMap="petition_category_rm">
+		SELECT CAT_NO
+		FROM PETITION_CATEGORY 
+		WHERE PT_NO = ${petitionNo}
+	</select>
+	
+	<!-- 청원 삭제 -->
+	<update id="petitonDelete">
+		UPDATE "PETITION"
+		SET PT_DEL_FL = 'Y'
+		WHERE PT_NO = ${petitionNo}
+	</update>
+	
+	<!-- 청원 승리여부 체크 -->
+	<select id="checkPetition" resultMap="myPetitions_rm">
+		SELECT PT_VICT
+		FROM "PETITION"
+		WHERE PT_NO = ${petitionNo}
+		AND PT_DEL_FL ='N'
+	</select>
+	
+	<!-- 청원 승리 -->
+	<update id="petitonVictory">
+		UPDATE "PETITION"
+		SET PT_VICT = 'Y'
+		WHERE PT_NO = ${petitionNo}
+	</update>
+	
+	<!-- 청원 승리 취소 -->
+	<update id="petitonVictoryCancel">
+		UPDATE "PETITION"
+		SET PT_VICT = 'N'
+		WHERE PT_NO = ${petitionNo}
+	</update>
 	
 	
 
@@ -140,5 +176,12 @@
 	
 	</resultMap>
 	
+	<resultMap type="edu.nojo.vote.writePetition.model.dto.PetitionCategory"
+		id="petition_category_rm">
+		<id property="categoryNo" column="CAT_NO" />
+		<result property="categoryName" column="CAT_NAME" />
+		<result property="categoryMainFl" column="CAT_MAIN_FL" />
+		<result property="boardNo" column="BOARD_NO" />
+	</resultMap>
 	
 </mapper>

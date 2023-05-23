@@ -136,10 +136,10 @@ function commentListSet(){
         li.append(div1, div2, div3);
         commentList.append(li);
     }
-        }) 
-        .catch( err => {
-            console.log(err);
-        } );
+    }) 
+    .catch( err => {
+        console.log(err);
+    } );
 };
 
 
@@ -154,3 +154,60 @@ document.addEventListener('DOMContentLoaded', function() {
 supportBtn.addEventListener('click', suppoterListSet );
 
 commentBtn.addEventListener('click', commentListSet );
+
+
+/* 승리 삭제 */
+const petitionDel = document.getElementById("petitionDel");
+const petitionVic = document.getElementById("petitionVic");
+const vicHidden = document.getElementById("vicHidden");
+
+petitionDel.addEventListener('click', () => {
+
+    fetch("/myPetitions/petitonDelete", {
+        method: "POST",
+        headers: {"Content-Type": "application/json; charset=UTF-8"},
+        body: JSON.stringify(parseInt(petitionNo.value))
+    })
+    .then(resp => resp.json())
+    .then(result => {
+
+        if(result > 0){
+            alert("당신의 청원을 성공적으로 삭제하였습니다!");
+            location.href="http://localhost/myPetitions/myPetitions";
+        }
+
+    }) 
+    .catch( err => {
+        console.log(err);
+    } );
+
+});
+
+petitionVic.addEventListener('click', () => {
+
+    fetch("/myPetitions/petitonVictory", {
+        method: "POST",
+        headers: {"Content-Type": "application/json; charset=UTF-8"},
+        body: JSON.stringify(parseInt(petitionNo.value))
+    })
+    .then(resp => resp.json())
+    .then(result => {
+
+        if(result == 0){
+            alert("실패하였습니다.");
+        }else{
+            if(result == 1){
+                vicHidden.classList.remove("vic-hidden");
+                alert("청원이 승리하였습니다!");
+            }else{
+                vicHidden.classList.add("vic-hidden");
+                alert("승리를 취소하였습니다!");
+            }
+        }
+
+    }) 
+    .catch( err => {
+        console.log(err);
+    } );
+
+});

@@ -122,11 +122,18 @@ public class BrowseController {
 
 	
 	// 댓글 삽입
-	@PostMapping("/comment")
+	@PostMapping(value="/comment", produces = "application/json; charset=UTF-8")
 	public int insert(@RequestBody Comment comment) {
 		// 요청 데이터 (JSON)을 HttpMessageConverter가 해석해서 Java객체(comment)에 대입
 		return service2.insert(comment);
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	// petitionView 페이지 이동(comments)

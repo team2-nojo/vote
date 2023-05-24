@@ -23,12 +23,12 @@ submit.addEventListener("click", e => {
 
 })
 
-/* 모달창의 클로즈(x) 버튼을 누르면 모달창이 꺼지게 하기 */
-const closeBtn = modal.querySelector(".close-area")
-closeBtn.addEventListener("click", e => {
-    modal.style.display = "none"
-    document.body.style.removeProperty('overflow');
-})
+// /* 모달창의 클로즈(x) 버튼을 누르면 모달창이 꺼지게 하기 */
+// const closeBtn = modal.querySelector(".close-area")
+// closeBtn.addEventListener("click", e => {
+//     modal.style.display = "none"
+//     document.body.style.removeProperty('overflow');
+// })
 
 
 
@@ -37,6 +37,7 @@ modal.addEventListener("click", e => {
     const evTarget = e.target
     if(evTarget.classList.contains("modal-overlay")) {
         modal.style.display = "none";
+        document.body.style.removeProperty('overflow');
     }
 })
 
@@ -45,6 +46,7 @@ modal.addEventListener("click", e => {
 window.addEventListener("keyup", e => {
     if(modal.style.display === "flex" && e.key === "Escape") {
         modal.style.display = "none"
+        document.body.style.removeProperty('overflow');
     }
 })
 
@@ -55,24 +57,6 @@ modalClose.addEventListener("click", e => {
     document.body.style.removeProperty('overflow');
 });
 
-
-// const closeModal = modal.getElementById("closeModal")
-// closeModal.addEventListener("click", e => {
-// })
-
-
-// modal.addEventListener("click", e => {
-//     const evTarget = e.target
-//     if(evTarget.classList.contains("modal-overlay")) {
-//         modal.style.display = "none"
-//     }
-// })
-
-// window.addEventListener("keyup", e => {
-//     if(modal.style.display === "flex" && e.key === "Escape") {
-//         modal.style.display = "none"
-//     }
-// })
 
 
 // 써머노트 관련 설정
@@ -212,6 +196,7 @@ if(imageInput != null){
             const url = e.target.result;
             // 미리보기 태그에 src 속성으로 추가, exist-image 박스 hidden처리, upload-image 박스 보이게 처리
             imagePreview.setAttribute("src", url);
+            document.getElementById("modalImagePreview").setAttribute("src", url);
             document.getElementsByClassName("exist-image")[0].classList.add("hidden");
             document.getElementsByClassName("upload-image")[0].classList.remove("hidden");
             deleteCheck = 1;
@@ -232,8 +217,6 @@ const deleteImage = document.getElementById("deleteImage"); // x버튼
         document.getElementsByClassName("exist-image")[0].classList.remove("hidden");
         deleteCheck = 0;
     });
-
-
 
 
 // 제출 못 하는 경우 : 내용, 타이틀 중 하나라도 작성하지 않았을 때
@@ -258,7 +241,7 @@ document.getElementById("dashboardUpdateFrm").addEventListener("submit", e => {
     submitContent.value = summernote.summernote('code');
     previewContent.innerHTML = submitContent.value;
 
-    alert("업데이트가 작성되었습니다.")
+    alert("업데이트 이메일이 발송되었습니다.")
 
 });
 

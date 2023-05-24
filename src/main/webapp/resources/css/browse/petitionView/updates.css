@@ -129,16 +129,17 @@ body{
 
 .frame{
     display: flex;
-    
+    width: 1500px;
 }
 
 .updatesFrame{
+    display: flex;
+    float : left;
     width: 480px;
     height: 480px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 10px;
-    
 }
 
 .updatesImg{
@@ -244,3 +245,19 @@ body{
 .move{
     transform: translateX(480px)
 }
+
+#noUpdateBox{
+    width: 550px;
+    height: 500px;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    font-weight: bold;
+    text-align: center;
+    
+    border-radius: 5px;
+    border: 1px dashed #ccc;
+}
+

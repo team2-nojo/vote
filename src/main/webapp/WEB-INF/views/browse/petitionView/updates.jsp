@@ -30,99 +30,76 @@
             <div id="updatesBT">최근 소식</div>
         </section>
 
-        
-
-        <!-- updates -->
-        <section id="updatesSection2">
-            <button type="button" id="leftBtn"><a href="#" id="left">&lang;</a></button>
-            <div class="slide">
-                <div class="frame">
-
-                    <div class="updatesFrame">
-                        <div class="cImage">
-                            <a href="/browse/petitionView/updates_detail"><img src="/resources/images/순덕이.png" alt="업데이트사진" class="updatesImg"></a>
-                        </div>
-                        <div class="updatesT">
-                            <a href="/browse/petitionView/updates_detail" class="updatesTitle">
-                                업데이트 제목
-                            </a>
-                        </div>
-                        <div class="updatesC">
-                            <a href="/browse/petitionView/updates_detail" class="updatesContent">
-                                업데이트 내용 업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용
-                            </a>
-                        </div>
-                        <div class="updatesProfile">
+        <%-- 최근 소식이 없는 경우 --%>
+        <c:if test="${empty updatePetitionList}" >
+            <section id="updatesSection2">
+                <button type="button" id="leftBtn"><a href="#" id="left">&lang;</a></button>
+                <div class="slide">
+                    <div class="frame">
+                        <div id="noUpdateBox">
                             <div>
-                                <a href="/browse/petitionView/updates_detail" class="updatesProfileImg">
-                                    <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
-                                </a>
-                            </div>
-                            <div>
-                                <div class="uNickname">닉네임</div>
-                                <div class="uDate">등록시간</div>
+                                이 청원은 아직 업데이트 내용을 제공하지 않습니다
                             </div>
                         </div>
                     </div>
-
-                    <div class="updatesFrame">
-                        <div class="cImage">
-                            <a href="/browse/petitionView/updates_detail"><img src="/resources/images/순덕이.png" alt="업데이트사진" class="updatesImg"></a>
-                        </div>
-                        <div class="updatesT">
-                            <a href="/browse/petitionView/updates_detail" class="updatesTitle">
-                                업데이트 제목
-                            </a>
-                        </div>
-                        <div class="updatesC">
-                            <a href="/browse/petitionView/updates_detail" class="updatesContent">
-                                업데이트 내용 업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용
-                            </a>
-                        </div>
-                        <div class="updatesProfile">
-                            <div>
-                                <a href="/browse/petitionView/updates_detail" class="updatesProfileImg">
-                                    <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
-                                </a>
-                            </div>
-                            <div>
-                                <div class="uNickname">닉네임</div>
-                                <div class="uDate">등록시간</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="updatesFrame">
-                        <div class="cImage">
-                            <a href="/browse/petitionView/updates_detail"><img src="/resources/images/순덕이.png" alt="업데이트사진" class="updatesImg"></a>
-                        </div>
-                        <div class="updatesT">
-                            <a href="/browse/petitionView/updates_detail" class="updatesTitle">
-                                업데이트 제목
-                            </a>
-                        </div>
-                        <div class="updatesC">
-                            <a href="/browse/petitionView/updates_detail" class="updatesContent">
-                                업데이트 내용 업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용업데이트 내용
-                            </a>
-                        </div>
-                        <div class="updatesProfile">
-                            <div>
-                                <a href="/browse/petitionView/updates_detail" class="updatesProfileImg">
-                                    <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
-                                </a>
-                            </div>
-                            <div>
-                                <div class="uNickname">닉네임</div>
-                                <div class="uDate">등록시간</div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
-            </div>
-            <button type="button" id="rightBtn"><a href="#" id="right">&rang;</a></button>
-        </section>
+                <button type="button" id="rightBtn"><a href="#" id="right">&rang;</a></button>
+            </section>
+        </c:if>
+
+        <%-- 최신 소식이 있는 경우 --%>
+        <c:if test="${not empty updatePetitionList}">
+            <!-- updates -->
+            <section id="updatesSection2">
+                <button type="button" id="leftBtn"><a href="#" id="left">&lang;</a></button>
+                <div class="slide">
+                    <div class="frame" id="frame">
+                        <c:forEach items="${updatePetitionList}" var="updatePetition">
+                            <div class="updatesFrame">
+                                <%-- 업데이트 썸네일이 있는 경우 --%>
+                                <c:if test="${not empty updatePetition.petitionUpdateImage}">
+                                    <div class="cImage">
+                                        <a href="/browse/petitionView/updates_detail"><img src="/resources/images/common/default-img.jpg" class="updatesImg"></a>
+                                    </div>
+                                </c:if>
+                                <%-- 업데이트 썸네일이 없는 경우 --%>
+                                <c:if test="${not empty updatePetition.petitionUpdateImage}">
+                                    <div class="cImage">
+                                        <a href="/browse/petitionView/updates_detail"><img src="${updatePetition.petitionUpdateImage}" class="updatesImg"></a>
+                                    </div>
+                                </c:if>
+                                <div class="updatesT">
+                                    <a href="/browse/petitionView/updates_detail" class="updatesTitle">
+                                        ${updatePetition.petitionUpdateTitle}
+                                    </a>
+                                </div>
+                                <div class="updatesC">
+                                    <a href="/browse/petitionView/updates_detail" class="updatesContent">
+                                        ${updatePetition.petitionUpdateContent}
+                                    </a>
+                                </div>
+                                <div class="updatesProfile">
+                                    <div>
+                                        <a href="/browse/petitionView/updates_detail" class="updatesProfileImg">
+                                            <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <div class="uNickname">${updatePetition.userNo}</div>
+                                        <div class="uDate">${updatePetition.petitionUpdateDate}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+                <button type="button" id="rightBtn"><a href="#" id="right">&rang;</a></button>
+            </section>
+        </c:if>
+
+
+
+                    
 
         <section id="updatesSection3"></section>
     </main>

@@ -40,6 +40,13 @@
 			<version>1.4.7</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
 			
 		<!-- 롬복 -->
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->

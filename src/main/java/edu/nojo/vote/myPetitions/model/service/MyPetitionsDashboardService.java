@@ -1,7 +1,10 @@
 package edu.nojo.vote.myPetitions.model.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Like;
@@ -57,6 +60,9 @@ public interface MyPetitionsDashboardService {
 	 * @return
 	 */
 	List<PetitionCategory> selectCatagory(int petitionNo);
+
+	int myPetitionUpdate(Map<String, Object> map, Petition petition, MultipartFile thumbnailImage, String webPath, String filePath,
+			List<String> categoryList) throws IllegalStateException, IOException;
 
 
 }

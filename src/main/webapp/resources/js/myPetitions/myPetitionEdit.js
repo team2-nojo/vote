@@ -1,3 +1,4 @@
+/* 대시보드에서 특정위치로 이동 */
 window.addEventListener('load', function() {
     if (window.location.hash === '#titleEdit') {
         scrollToElement(document.querySelector('#titleEdit'));
@@ -13,7 +14,6 @@ window.addEventListener('load', function() {
     }
 });
 
-/* 대시보드에서 특정위치로 이동 */
 function scrollToElement(element) {
     var offset = element.offsetTop;
     window.scrollTo({
@@ -21,8 +21,6 @@ function scrollToElement(element) {
         behavior: 'smooth'
     });
 }
-
-
 
 /* 청원 주요내용 팁보기 */
 function tipView(input) {
@@ -44,14 +42,11 @@ tipView('imgTipCtn');
 function tipHover(input) {
     const inputI = document.getElementById(`${input}I`);
     const inputP = document.getElementById(`${input}P`);
-    inputI.addEventListener("mouseover", () => { inputP.style.display = "block"; });
-    inputI.addEventListener("mouseout", () => { inputP.style.display = "none"; });
+    inputI.addEventListener("mouseover", () => { inputP.style.display = "block"});
+    inputI.addEventListener("mouseout", () => { inputP.style.display = "none"});
 };
 tipHover("scope");
-tipHover("location");
 tipHover("topic");
-tipHover("owner");
-tipHover("twitter");
 
 /* 주제추가 */
 const addTopicBox = document.getElementById("addTopicBox");
@@ -103,8 +98,6 @@ addTopicBox.addEventListener('keyup', (e) => {
     }
 });
 
-
-
 inputTopic.forEach(element => {
     element.addEventListener('click', e =>{
         e.target.remove();
@@ -114,7 +107,64 @@ inputTopic.forEach(element => {
 });
 
 
+/* img 제거 및 업로드 */
+const imgframe = document.querySelector(".img-upload");
 
+function imgDelete(){
+
+    imgframe.innerHTML="";
+    
+    const input = document.createElement("input");
+    input.setAttribute("type","file");
+    input.setAttribute("id","inputImgUpload");
+    input.addEventListener('change',preView);
+
+    const label = document.createElement("label");
+    label.setAttribute("id","imgUpload");
+    label.setAttribute("for","inputImgUpload");
+    
+    const span = document.createElement("span");
+    span.innerText = 'Upload an image';
+
+    label.append(span);
+    
+    imgframe.append(input, label);
+    
+}
+
+if(document.getElementById("imgDelete") != null){
+    document.getElementById("imgDelete").addEventListener('click', imgDelete);
+}
+
+/* img 미리보기 */
+
+if(document.getElementById("inputImgUpload") != null){
+    document.getElementById("inputImgUpload").addEventListener('change',preView);
+}
+
+function preView(e){
+
+    let file = e.target.files[0];
+    let reader = new FileReader();
+
+    reader.readAsDataURL(file);
+
+    reader.onload = function(e) {
+        let result = e.target.result;
+        
+        imgframe.innerHTML="";
+    
+        const img = document.createElement("img");
+        img.setAttribute("src",result);
+
+        const div = document.createElement("div");
+        div.setAttribute("id","imgDelete");
+        div.textContent = "x";
+        div.addEventListener('click',imgDelete);
+        
+        imgframe.append(img, div);
+    };
+};
 
 /* summerNote */
 let content = '';

@@ -50,7 +50,7 @@
           <h1>청원서 편집</h1>
           <h2>청원 주요내용</h2>
         </div>
-        <form action="">
+        <form action="/myPetitionEdit/{petitionNo}" method="post" enctype="multipart/form-data">
           <div class="content-title">
             <div class="content-side-title">
               <h3 id="titleEdit">제목 편집</h3>
@@ -113,8 +113,10 @@
             </div>
             <div id="summernote">${MP.petitionContent}</div>
           </div>
-          <div class="img-link"><a href="#">이제 동영상과 이미지로 청원을 돋보이게 만들 수 있습니다. 여기에서 시도하십시오!</a></div>
-          <div>
+          <c:if test="${empty MP.petitionImage}" >
+            <div class="img-link">이미지를 추가해주세요! 당신의 청원을 돋보이게 만들 수 있습니다!!</div>
+          </c:if>
+          <div class="img-top">
             <div class="content-side-title">
               <h3 id="imgEdit">이미지</h3>
               <span id="imgTipBtn">팁 보기</span>
@@ -144,16 +146,19 @@
               </dialog>
             </div>
             <div class="content-img">
-              <div>사진 또는 비디오에 대한 링크 붙여넣기</div>
-              <div class="content-img-url">
-                <input id="AddUrl" type="url" placeholder="http://">
-                <button id="AddBtn" type="button">추가하다</button>
-              </div>
-              <hr>
-              <div class="content-img-up">
-                <div class="content-img-up-button"><button type="button">사진 업로드</button></div>
-                <div id="and">또는</div>
-                <div><p>사진은 최소 1200 × 675 픽셀이어야 합니다. 텍스트가 없는 큰 사진이 가장 좋습니다.</p></div>
+              <div class="img-upload">
+                <c:choose>
+                  <c:when test="${not empty MP.petitionImage}">
+                    <img src="/${MP.petitionImage}">
+                    <button type="button" id="imgDelete">x</button>
+                  </c:when>
+                  <c:otherwise>
+                    <input type="file" id="inputImgUpload">
+                    <label id="imgUpload" for="inputImgUpload">
+                        <span>Upload an image</span>
+                    </label>
+                  </c:otherwise>
+                </c:choose>
               </div>
             </div>
           </div>
@@ -178,17 +183,6 @@
           </div>
           <div>
             <div class="content-data-side-title">
-              <h3>위치</h3>
-              <i id="locationI" class="fa-regular fa-circle-question">
-                <div id="locationP">
-                  <p>귀하의 청원이 어떤 분야와 더 관련이 있습니까? 귀하의 청원에 적합한 청중을 찾는데 도움이 될 것입니다.</p>
-                </div>
-              </i>
-            </div>
-            <input id="lcationInput" rows="3">
-          </div>
-          <div>
-            <div class="content-data-side-title">
               <h3 id="topicEdit">주제추가</h3>
               <i id="topicI" class="fa-regular fa-circle-question">
                 <div id="topicP">
@@ -205,37 +199,9 @@
               <input id="topicInput" placeholder="예시 : 뭐하지">
             </div>
           </div>
-          <div>
-            <div class="content-data-side-title">
-              <h3>결정권자</h3>
-              <i id="ownerI" class="fa-regular fa-circle-question">
-                <div id="ownerP">
-                  <p>귀하의 청원서에 대한 결정에 영향을 미칠 수 있는 주요 인물 또는 조직은 누구입니까?</p>
-                </div>
-              </i>
-            </div>
-            <div>
-              <div class="content-owner">
-                <div>의사 결정권자 추가</div>
-                <div class="content-owner-add">
-                  <input type="text" placeholder="누구를 의사 결정권자로 추가하고 싶나요?">
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="content-data-side-title">
-              <h3>기본 트위터 메시지</h3>
-              <i id="twitterI" class="fa-regular fa-circle-question">
-                <div id="twitterP">
-                  <p>이 메시지는 누군가 트위터에서 이 청원을 공유할 때마다 기본적으로 나타납니다. 청원을 증폭시키는데 도움이 되도록 해시태그를 추가하고 특정 트위터 계정을 언급할 수 있습니다.</p>
-                </div>
-              </i>
-            </div>
-            <textarea name="conTitle" id="twitterText" rows="3"></textarea>
-          </div>
           <div class="edit-btn">
             <button id="cancel" type="reset">cancel</button>
-            <button id="save" type="button">save</button>
+            <button id="save">save</button>
           </div>
         </form>
       </div>

@@ -1,5 +1,6 @@
 package edu.nojo.vote.browse.model.service;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import edu.nojo.vote.browse.model.dao.BrowseDAO;
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 
 @Service
 public class BrowseServiceImpl implements BrowseService {
@@ -53,5 +55,17 @@ public class BrowseServiceImpl implements BrowseService {
 	public Petition selectPetitionList(int petitionNo) {
 		return dao.selectPetitionList(petitionNo);
 	}
-
+	
+	// 청원 업데이트 리스트 조회
+	@Override
+	public List<PetitionUpdate> updatePetitionList(int petitionNo) {
+		List<PetitionUpdate> updatePetitionList = dao.updatePetitionList(petitionNo);
+		for(PetitionUpdate p : updatePetitionList) {
+			if(p.getPetitionUpdateContent() != null) 
+				p.setPetitionUpdateContent(p.getPetitionUpdateContent().replace("<[^>]*>", ""));
+		}
+		return updatePetitionList;
+	}
+	
+	
 }

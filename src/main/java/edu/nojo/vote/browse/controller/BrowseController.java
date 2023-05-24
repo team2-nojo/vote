@@ -115,6 +115,22 @@ public class BrowseController {
 	
 	
 	
+	// petitionView 페이지 이동(update)
+	@GetMapping("/petitionView/update/{petitionNo}")
+	public String update(@PathVariable("petitionNo") int petitionNo
+			, Model model
+			, RedirectAttributes ra
+			){
+		
+		List<PetitionUpdate> updatePetitionList = service.updatePetitionList(petitionNo);
+		
+		model.addAttribute("updatePetitionList", updatePetitionList);
+		
+		return "/browse/petitionView/updates";
+	}
+	
+	
+	
 
 	
 	

@@ -140,7 +140,18 @@
 		LEFT JOIN PETITION_CATEGORY_LIST USING(CAT_NO)
 		WHERE PT_NO = ${petitionNo}
 	</select>
-
+	
+	
+	<!-- brows-detail-update -->
+	<!-- 청원 업데이트 목록 조회 -->
+	<select id="updatePetitionList" resultMap="petitionUpdate_rm">
+	SELECT UP_NO , UP_TITLE , UP_CONTENT , UP_CREATE_DT , UP_IMG , PT_NO , USER_NO
+	FROM PETITION_UPDATE 
+	LEFT JOIN "PETITION" USING (PT_NO)
+	LEFT JOIN "USER" USING (USER_NO)
+	WHERE PT_NO = ${petitionNo}
+	AND UP_DEL_FL = 'N'
+	</select>
 
 
 	<resultMap type="User" id="user_rm">
@@ -180,6 +191,17 @@
 	
 	</resultMap>
 
+	<resultMap type="PetitionUpdate" id="petitionUpdate_rm">
+	
+		<id property="petitionUpdateNo" column="UP_NO" />
+		<result property="petitionUpdateTitle" column="UP_TITLE" />
+		<result property="petitionUpdateContent" column="UP_CONTENT" />
+		<result property="petitionUpdateDate" column="UP_CREAT_DT" />
+		<result property="petitionUpdateImage" column="UP_IMG" />
+		<result property="petitionNo" column="PT_NO" />
+		<result property="userNo" column="USER_NO" />
+		
+	</resultMap>
 
 	<resultMap type="Like" id="like_rm">
 	

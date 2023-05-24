@@ -61,7 +61,7 @@
                     </div>
                     <div>
                         <div class="dashboard-update-text-guide">
-                            <div><strong>업데이트는 24시간에 한 번씩 게시 가능합니다.</strong><br></div>
+                            <%-- <div><strong>업데이트는 24시간에 한 번씩 게시 가능합니다.</strong><br></div> --%>
                             <div>업데이트는 청원 페이지에 나타나며, 모든 지원자에게 이메일로 전송됩니다.</div>
                         </div>
                     </div>
@@ -71,22 +71,22 @@
                             <div class="modal-window">
                                 <div class="modal-title-container">
                                     <div class="modal-title">업데이트 이메일 미리보기</div>
-                                    <div class="modal-subtitle">지원자의 받은 편지함에 메세지가 어떻게 표시되는지 확인하십시오</div>
+                                    <div class="modal-subtitle">지지자에게 메세지가 어떻게 표시되는지 확인하십시오</div>
                                 </div>
                                 <div class="modal-content-container">
                                     <div class="modal-content-title">제목</div>
                                     <div class="modal-content-title-profile">
                                         <img src="${loginUser.userImage}" id="userProfileMini">
                                         <div>
-                                            <p>${loginUser.userNickname}</p>
-                                            <p>to 나에게</p>
+                                            <strong>${loginUser.userNickname}</strong>
+                                            <p>to. 지지자</p>
                                         </div>  
                                     </div>
                                     <div>
-                                        <img src="" alt="">
+                                        <img src="" id="modalImagePreview">
                                         <p></p>
                                     </div>
-                                    <div class = modal-content>
+                                    <div class = "modal-content">
                                         <div id="summernotePreview">내용</div>
                                     </div>
                                 </div>    

@@ -3,6 +3,7 @@ package edu.nojo.vote.browse.model.service;
 import java.util.List;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 
 public interface BrowseService {
 
@@ -26,6 +27,13 @@ public interface BrowseService {
 	 * @return list
 	 */
 	Petition selectPetitionList(int petitionNo);
+
+	/** 청원 업데이트 리스트 조회
+	 * @param petitionNo
+	 * @return updateList
+	 */
+	List<PetitionUpdate> updatePetitionList(int petitionNo);
+
 
 
 }

@@ -30,7 +30,7 @@
             <div id="menu">
                 <div id="details">Petition details</div>
                 <div><a href="/browse/petitionView/comments/${petitionNo}" id="comments">Comments</a></div>
-                <div ><a href="/browse/petitionView/updates" id="updates">Updates</a></div>
+                <div ><a href="/browse/petitionView/update/${petitionNo}" id="updates">Updates</a></div>
             </div>
         </section>
 

@@ -281,3 +281,19 @@ main * {
 #main-news-link:hover {
   color: red;
 }
+
+.text-limit1 {
+  overflow: hidden;
+  height: 70px;
+}
+
+.text-limit2 {
+  overflow: hidden;
+  height: 100px;
+}
+
+.text-limit3 {
+  overflow: hidden;
+  height: 50px;
+  display: block;
+}

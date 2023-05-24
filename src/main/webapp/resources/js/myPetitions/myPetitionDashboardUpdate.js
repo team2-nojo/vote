@@ -241,68 +241,6 @@ document.getElementById("dashboardUpdateFrm").addEventListener("submit", e => {
     submitContent.value = summernote.summernote('code');
     previewContent.innerHTML = submitContent.value;
 
-
-    // 이메일 발송
-    const sendAuthKeyBtn = document.getElementById("sendAuthKeyBtn");
-    const authKeyMessage = document.getElementById("authKeyMessage");
-    let authTimer;
-    let authMin = 4;
-    let authSec = 59;
-
-    // 인증번호를 발송한 이메일 저장
-    let tempEmail;
-
-    let petitionNo = "<c:out value ='${myPetition.petitionNo}'/>";
-        
-
-    /* fetch() API 방식 ajax */
-    fetch("/sendEmail/update?petitionNo="+ petitionNo)
-    .then(resp => resp.text())
-    .then(result => {
-        if(result > 0){
-            console.log("인증 번호가 발송되었습니다.")
-            tempEmail = memberEmail.value;
-        }else{
-            console.log("인증번호 발송 실패")
-        }
-    })
-    .catch(err => {
-        console.log("이메일 발송 중 에러 발생");
-        console.log(err);
-    });
-    
-
-    alert("인증번호가 발송 되었습니다.");
-
-    
-    authKeyMessage.innerText = "05:00";
-    authKeyMessage.classList.remove("confirm");
-
-    authTimer = window.setInterval(()=>{
-
-        authKeyMessage.innerText = "0" + authMin + ":" + (authSec<10 ? "0" + authSec : authSec);
-        
-        // 남은 시간이 0분 0초인 경우
-        if(authMin == 0 && authSec == 0){
-            checkObj.authKey = false;
-            clearInterval(authTimer); // 시간 멈춤
-            return;
-        }
-
-        // 0초인 경우
-        if(authSec == 0){
-            authSec = 60;
-            authMin--;
-        }
-
-
-        authSec--; // 1초 감소
-
-    }, 1000)
-
-  
-
-
     alert("업데이트 이메일이 발송되었습니다.")
 
 });

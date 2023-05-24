@@ -229,3 +229,12 @@ div a {
 .article:hover {
   color: red;
 }
+
+.profile-image {
+  border-radius: 50%;
+  width: 27px;
+}
+div.pettition1.id {
+  padding-left: 13px;
+  padding-bottom: 5px;
+}

@@ -20,13 +20,7 @@
       	<result property="userNickname" column="USER_NICKNAME" />
       	<result property="userAddress" column="USER_ADD" />
       	
-  
-      	
-
       	<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
-      	
-      	
-      	
       	
 	</resultMap>
 

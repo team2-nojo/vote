@@ -1,34 +1,65 @@
-// 서비스약관 체크하려고 할 때 팝업으로 약관 볼 수 있게 하기
-const searchButton = document.getElementById("searchButton");
-const searchPetitions = document.getElementById("searchPetitions");
 
-searchButton.addEventListener("click", () => {
-    // window.open(url);
+document.addEventListener("DOMContentLoaded", () => {
 
+    const query = document.querySelector("#searchPetitions");
+    const searchResult = document.querySelector("#searchResult");
 
-    // 검색 키워드가 포함된 패티션의 유무에 따라 페이지 이동
-    if(searchPetitions.value.length > 0){ 
-        const search ="내용"; // 임시변수
-        
-        // 검색창에 값이 입력되었을 때
-        if(searchPetitions.value == search){ 
-            // 검색창에 입력된 값이 DB에 있을 때(임시변수와 같을 때로 임시적용 수정예정)
-            location.href="searchPetition_result.jsp"; 
+    query.addEventListener("input", e => {
+
+        if(query.value.trim().length > 0){
+            fetch("/search/allSearch?query=" + query.value.trim())
+            .then(resp => resp.json())
+            .then(list => {
+                console.log(list);
+
+                if(list.length > 0){ 
+                    searchResult.classList.remove("close");
+                    searchResult.innerHTML = "";
+
+                    for(let map of list){
+                        const li = document.createElement("li");
+                        li.setAttribute("path", `${map.PT_NO}`);
+
+                        const a = document.createElement("a");
+
+                        map.PT_TITLE = map.PT_TITLE.replace(query.value, `<mark>${query.value}</mark>`);
+                        map.PT_TITLE = `<span>${map.PT_TITLE}</span>`;
+
+                        a.innerHTML = `<i class="fa-sharp fa-solid fa-magnifying-glass"></i>${map.PT_TITLE}`;
+                        a.setAttribute("href", "#");
+                        a.addEventListener("click", e => {
+                            e.preventDefault();
+                            const path = e.currentTarget.parentElement.getAttribute("path");
+                            location.href = "/browse/petitionView/details/" + path;
+                        });
+                        li.append(a)
+                        searchResult.append(li);
+                    }
+                }else{
+                    searchResult.classList.add("close");
+                }
+            })
+            .catch(err => console.log(err));
         }else{
-            // 검색차에 입력된 값이 없을 때
-            location.href="Petitions_not_found.jsp"; 
+            searchResult.classList.add("close");
         }
-    }else{ // 검색창이 공란일 때
-        alert("검색어를 입력해주세요.")
-        rollback;
+    })
+    
+});
+
+document.addEventListener("click", e => {
+    const elementList = document.querySelectorAll(".search, .search *");
+    const searchResult = document.querySelector("#searchResult"); // 검색창 자동 완성 영역
+
+    let flag = true;
+    for(let element of elementList){
+        if(element == e.target){
+            flag = false;
+            break;
+        }
     }
 
-
-
-    
-
-
-    
-});  
-
-
+    if(flag){
+        searchResult.classList.add("close");
+    }
+});

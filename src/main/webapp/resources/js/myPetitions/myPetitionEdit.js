@@ -228,3 +228,22 @@ const uploadSummernoteImageFile = (file, editor) => {
         }
     });
 }
+
+//에디터 내용 텍스트 제거
+const f_SkipTags_html = (input, allowed) => {
+	// 허용할 태그는 다음과 같이 소문자로 넘겨받습니다. (<a><b><c>)
+    allowed = (((allowed || "") + "").toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join('');
+    var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
+    commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+    return input.replace(commentsAndPhpTags, '').replace(tags, function ($0, $1) {
+        return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
+    });
+}
+
+const summernote = $('#summernote');
+const submitContent = document.getElementById('summernote');
+
+const previewPageUpdate = () => {
+    submitContent.value = summernote.summernote('code');
+    previewContent.innerHTML = submitContent.value;
+};

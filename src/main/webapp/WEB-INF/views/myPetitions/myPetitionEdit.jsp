@@ -110,8 +110,7 @@
                   </div>
                 </div>
               </dialog>
-            </div>
-            <div id="summernote">${MP.petitionContent}</div>
+            <div id="summernote" name="editorContent">${MP.petitionContent}</div>
           </div>
           <c:if test="${empty MP.petitionImage}" >
             <div class="img-link">이미지를 추가해주세요! 당신의 청원을 돋보이게 만들 수 있습니다!!</div>
@@ -153,7 +152,7 @@
                     <button type="button" id="imgDelete">x</button>
                   </c:when>
                   <c:otherwise>
-                    <input type="file" id="inputImgUpload">
+                    <input name="thumbnailImage" type="file" id="inputImgUpload">
                     <label id="imgUpload" for="inputImgUpload">
                         <span>Upload an image</span>
                     </label>

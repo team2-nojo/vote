@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -87,17 +88,12 @@ public class MyPageController {
 	   	 
 	
          // 프로필 이미지 수정
-         String path = "/resources/images/user/" + profileImage.getOriginalFilename();
-         
- 		// 실제로 이미지 파일이 저장 되어야하는 서버 컴퓨터 경로
- 		String filePath = session.getServletContext().getRealPath(path);
-         
-         // 프로필 이미지 수정 서비스 호출
-         result = service.updateProfileImage(profileImage, path, filePath, loginUser);
-         // 프로필 update문 실패시
+         String webpath = "/resources/images/user/";
+ 		 String filePath = session.getServletContext().getRealPath(webpath);
+         result = service.updateProfileImage(profileImage, webpath, filePath, loginUser);
+
          if(result <= 0) 
             {
-//        	 System.out.println("이미지변이실패했나");
             message = "프로필 이미지 변경 실패";
             ra.addFlashAttribute("message", message);
             return "redirect:/myPage/editProfile";
@@ -183,8 +179,25 @@ public class MyPageController {
    }
    
    @PostMapping("/secession")
-   public String secession(User loginUser) {
+   public String secession(@SessionAttribute("loginUser") User loginUser
+		   , @RequestParam("userPw")String userPw
+		   , SessionStatus status
+		   , RedirectAttributes ra) {
+	   int result = service.secession(loginUser, userPw);
 	   
-	   return null;
+	   String message = null;
+	   String path = "redirect:";
+	   
+	   if(result>0) {
+		   message = "계정이 비활성화되었습니다.";
+		   path += "/";
+		   status.setComplete();
+	   } else {
+		   message = "비밀번호가 일치하지 않습니다.";
+		   path += "secession";
+	   }
+	   
+	   ra.addFlashAttribute("serverMessage",message);
+	   return path;
    }
 }

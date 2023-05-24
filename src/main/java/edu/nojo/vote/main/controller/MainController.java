@@ -21,14 +21,8 @@ public class MainController {
 	
 	
 	@GetMapping("/")
-	public String mainForward(
-			Model model
-			) {
-		
-				
+	public String mainForward(Model model) {
 		List<Petition> mainPetitionList = service.selectPetition(0);
-		
-		
 		model.addAttribute("mainPetitionList", mainPetitionList);
 		
 		return "common/main";

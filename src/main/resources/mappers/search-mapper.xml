@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="myPageMapper">
+<mapper namespace="searchMapper">
+
+	<resultMap type="Petition" id="petition_rm">
+		
+		<id property="petitionNo" column="PT_NO" />
+		
+      	<result property="petitionTitle" column="PT_TITLE" />
+      	<result property="petitionContent" column="PT_CONTENT" />
+      	<result property="petitionDate" column="PT_DATE" />
+      	<result property="petitionViewCount" column="PT_VIEW_COUNT" />
+      	<result property="petitionImage" column="PT_IMG" />
+      	<result property="petitionVictory" column="PT_VICT" />
+      	
+      	<result property="userNo" column="USER_NO" />
+      	<result property="userImage" column="USER_IMG" />
+      	<result property="userNickname" column="USER_NICKNAME" />
+      	<result property="userAddress" column="USER_ADD" />
+      	
+      	<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
+      	
+	</resultMap>
+
 	
+	<select id="allSearch" resultType="map">
+		SELECT * FROM(
+			SELECT PT_NO , PT_TITLE
+			FROM "PETITION"
+			WHERE PT_TITLE LIKE '%${query}%'
+			OR PT_CONTENT LIKE '%${query}%'
+			AND PT_DEL_FL ='N'
+			ORDER BY PT_VIEW_COUNT DESC, PT_DATE DESC)
+		<![CDATA[ WHERE ROWNUM <= 10  ]]>
+	</select>
+	
+	<select id="searchResult" resultMap="petition_rm">
+		SELECT PT_NO, PT_DATE, PT_TITLE, PT_CONTENT, PT_IMG, USER_NO, USER_IMG, USER_NICKNAME,
+		(SELECT COUNT(*) FROM PETITION_LIKE WHERE MAIN.PT_NO = PT_NO) PT_LIKE_COUNT
+		FROM PETITION MAIN
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_TITLE LIKE '%${query}%'
+		OR PT_CONTENT LIKE '%${query}%'
+		AND PT_DEL_FL ='N'
+		ORDER BY PT_VIEW_COUNT DESC, PT_DATE DESC
+	</select>
+		
+		
+		
+		
+		
+		
 </mapper>

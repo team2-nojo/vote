@@ -91,7 +91,7 @@ public class UserController {
 			
 			// 이전페이지로 돌아감
 			path += referer;
-			ra.addFlashAttribute("message","아이디 또는 비밀번호가 일치하지 않습니다.");
+			ra.addFlashAttribute("serverMessage","아이디 또는 비밀번호가 일치하지 않습니다.");
 		}
 		
 		return path;
@@ -124,9 +124,9 @@ public class UserController {
 						, RedirectAttributes ra
 						) {
 		// 만약 주소를 입력하지 않은 경우(,,) null로 변경
-		if(inputUser.getUserAddress().equals("^^^")) {
+		if(inputUser.getUserAddress().equals(",")) {
 			inputUser.setUserAddress(null);
-		}else {
+		} else {
 			//String.join("구분자", String[])
 			// 배열의 요소를 하나의 문자열로 변경
 			// 단, 요소 사이에 "구분자" 추가

@@ -14,7 +14,6 @@
     <%-- header --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <main>
-    <c:set var="abc" value="mainPetitionList"/>
 
       <section class="section1">
 
@@ -28,17 +27,13 @@
       </div>
     </section>
       <div class="container2">
-        <a href="#" style="cursor:pointer" id="mainNewsLink"><div class="item box1"><img src="${mainPtList[0].petitionImage}" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
+        <a href="/browse/petitionView/details/${mainPtList[0].petitionNo}" style="cursor:pointer" id="main-news-link"><div class="item box1"><img src="${mainPtList[0].petitionImage}" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
         <div class="item box2" id="newsTitle">
           <div id="newsTitle">
-            <h3 id="news-title">${mainPtList[0].petitionTitle}</h3></a>
-          
-            <%-- <input type="hidden" name="petitionContent" value="${mainPtList[0].petitionContent}">
-            <input type="hidden" name="petitionLikeCount" value="${mainPtList[0].petitionLikeCount}">
-            <input type="hidden" name="userAddress" value="${mainPtList.userAddress}"> --%>
+            <a href="/browse/petitionView/details/${mainPtList[0].petitionNo}" id="title-link"><h3 id="news-title" class="text-limit1">${mainPtList[0].petitionTitle}</h3></a></a>
           </div>
           <div id="newsContent">
-            <h5 id="news">${mainPtList[0].petitionContent}</div>
+            <h5 id="news" class="text-limit2">${mainPtList[0].petitionContent}</div>
           </h5>
         
         </div>
@@ -69,12 +64,14 @@
       <div class="box6">
         <img src="${mainPt.petitionImage}" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2">
       </div>
-          <div class="box13 small-news"><a href="/adminPetitionList">${mainPt.petitionTitle}</a></div>
+          <div class="box13 small-news"><a href="/browse/petitionView/details/${mainPt.petitionNo}" class="text-limit3">${mainPt.petitionTitle}</a></div>
             <input type="hidden" name="petitionContent" value="${mainPt.petitionContent}">
             <input type="hidden" name="userImage" value="${mainPt.userImage}">
             <input type="hidden" name="userAddress" value="${mainPt.userAddress}">
             <input type="hidden" name="userNickname" value="${mainPt.userNickname}">
             <input type="hidden" name="petitionViewCount" value="${mainPt.petitionViewCount}">
+            <input type="hidden" name="petitionLink" value="/browse/petitionView/details/${mainPt.petitionNo}">
+            <input type="hidden" name="petitionLink2" value="/browse/petitionView/details/${mainPetition.petitionNo}">
         </c:forEach>
       </div>
       <i class="fa-solid fa-angle-up fa-rotate-90" id="slide-btn2" style="color: #a9aaad;"></i>
@@ -82,20 +79,20 @@
     <section class="main-section">
       <div class="container4">
         <div>
-         <ul class="content2" id="petitionContainer">
-           <c:forEach var="mainPetition" items="${mainPetitionList}" begin="0" end="3">
+          <ul class="content2" id="petitionContainer">
+            <c:forEach var="mainPetition" items="${mainPetitionList}" begin="0" end="3">
             <li class="content pettition1">
             <div class="pettition1 pet-title">
               <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
-              <span>Trending in 
+              <span class="text-limit4">Trending in 
                 <c:forEach items="${mainPetition.categoryList}" var="category" varStatus="status"><c:if test="${status.index > 0}">, </c:if><a href="#" class="petCategory">${category.categoryName}</a></c:forEach>
               </span>
               <a href="#" style="text-decoration: underline;">See more</a>
             </div>
             <div class="pettition1 article">
-              <div class="article-title"><h3>${mainPetition.petitionTitle}</h3></div>
+              <div class="article-title"><a href="/browse/petitionView/details/${mainPetition.petitionNo}"><h3 id="box-petition-title" onclick="changeBorder()" class="text-limit5">${mainPetition.petitionTitle}</h3></a></div>
               <div>
-                <div>${mainPetition.petitionContent}<a href="#">더보기</a></div>
+                <a href="/browse/petitionView/details/${mainPetition.petitionNo}"><div class="text-limit6">${mainPetition.petitionContent}</a></a></div>
               </div>
               <div class="photo"><img src="${mainPetition.petitionImage}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>

@@ -70,6 +70,10 @@ public class MyPageDAO {
 	public int insertEmailSettings(User loginUser) {
 		return sqlSession.insert("myPageMapper.insertEmailSettings", loginUser);
 	}
+
+	public int secession(User loginUser) {
+		return sqlSession.update("myPageMapper.secession",loginUser);
+	}
 	
 	
 

@@ -5,7 +5,7 @@
 #dashboardUpdateContainer {
     text-align: center !important;
     line-height: 1.5;
-    width: 80%;
+    width: 600px;
     max-width: 620px;  /* 920px이 너무 커서 620px로 줄여서 맞춤 */
 }
 
@@ -82,12 +82,19 @@
     margin-bottom: 30px;
 }
 
-/* Dashboard-Update 페이지의 사진추가 프레임 속 상부 프레임 속 이미지 */
-#dashboardUpdateAddImage img {
+/* Dashboard-Update 페이지의 사진추가 프레임 속 상부 프레임 속 기본 이미지 */
+#imageBefore {
     width : 115px;
     max-width: 100%;
     height: auto;
     border-style : none;
+}
+
+/* Dashboard-Update 페이지의 사진추가 프레임 속 상부 프레임 속 업로드한 이미지 프리뷰 */
+#imagePreview {
+    max-height: 317px;
+    border-style : none;
+    object-fit: contain;
 }
 
 /* Dashboard-Update 페이지의 사진추가 프레임 속 하부 프레임 */
@@ -210,8 +217,8 @@
     top: 50%;
     left: 50%;
 
-    width: 40%;
-    height: 70%;
+    width: 500px;
+    height: 600px;
 
     padding: 40px;
 
@@ -233,6 +240,7 @@
     margin-top: 20px;
     padding: 0px 10px;
     color: black;
+    text-align: left;
 }
 
 /* 모달창 닫기 버튼 div */
@@ -256,6 +264,32 @@
     font-size: 24px;
 }
 
+
+
+/* 모달창 유저이미지 */
+.modal-content-title-profile {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#userProfileMini {
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.modal-content-title-profile > div{
+    padding-top: 2px;
+}
+
+.modal-content-title-profile > div > p:last-child{
+    margin-left: 5px;
+    color: #737273;
+}
+
+
 /* 모달창 내부 서브 타이틀 */
 .modal-subtitle {
     font-size: 16px;
@@ -267,28 +301,29 @@
     border: 1px solid #737273;
     margin-bottom: 15px;
     padding: 20px 15px;
+    overflow: scroll;
 }
 
+/* 모달창 이메일 타이틀 */
+.modal-content-title {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+}
 
-
-
-
+/* 모달창 내부 이미지 */
+#modalImagePreview {
+    margin-top: 20px;
+    width: 300px;
+    height: auto;
+}
 
 /* 저장 버튼 */
-#submit{
+#emailPreview, #updatePetitionPost{
     background-color: #2DB400;
     color: #ffffff;
 }
-
-/* 취소 버튼 */
-#cancel{
-    background-color: #ffffff;
-    color: #2DB400;
-}
-
-
-
-
 
 
 /* 이미지 미리보기 화면 */           
@@ -311,3 +346,40 @@
     margin-top: 25px;
     text-align: center !important;
 }
+
+/* 이미지를 담는 박스 */
+#dashboardUpdateAddImage {
+    width: 100%;
+    height: 100%;
+}
+
+/* x버튼 위치 고정 */
+.upload-image {
+  width: 100%;
+  height: 100%;
+  position : relative;
+}
+
+/* x버튼 */
+.delete-image:hover {
+    cursor: pointer;
+}
+
+.delete-image {
+    position:absolute;
+    top: 10px;
+    right: 20px;
+}
+
+
+/* 숨기기 */
+.hidden{
+    display: none !important;
+  }
+
+  /* 썸머노트 글쓰기 왼쪽정렬 */
+  .note-editable {
+    text-align: left !important;
+  }
+
+

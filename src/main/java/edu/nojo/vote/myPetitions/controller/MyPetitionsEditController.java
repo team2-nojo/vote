@@ -1,17 +1,25 @@
 package edu.nojo.vote.myPetitions.controller;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
@@ -50,6 +58,55 @@ public class MyPetitionsEditController {
 		
 		
 		return "/myPetitions/myPetitionEdit";
+	}
+	
+	
+	// myPetitionEdit 수정
+	@PostMapping("/myPetitionEdit/{petitionNo}")
+	public String myPetitionUpdate(@SessionAttribute User loginUser
+			, Model model
+			, @PathVariable("petitionNo") int petitionNo
+			, @RequestParam(value="conTitle")String title
+			, @RequestParam(value="editorContent")String content
+			, @RequestParam(value="inputCategory")String category
+			, @RequestParam(value="thumbnailImage", required=false) MultipartFile thumbnailImage
+			, RedirectAttributes ra
+			, HttpSession session
+			) throws IllegalStateException, IOException {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("loginUserNo", loginUser.getUserNo());
+		map.put("petitionNo", petitionNo);
+		
+		Petition petition = new Petition();
+		
+		petition.setUserNo(loginUser.getUserNo());
+		petition.setPetitionTitle(title);
+		petition.setPetitionContent(content);
+		
+		List<String> categoryList = Arrays.asList(category.split(","));
+		
+		
+		String webPath = "/resources/images/writePetition/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		int result = service.myPetitionUpdate(map,petition,thumbnailImage,webPath,filePath,categoryList);
+		
+		String message = null;
+		String path = null;
+		
+		if(result == 3) {
+			message = "성공적으로 수정되었습니다.";
+			path = "/browse/petitionView/details/" + petitionNo;
+		}else {
+			message = "수정실패 하었습니다.";
+			path = "/myPetitions/myPetitionsDashboard/" + petitionNo;
+		}
+		
+		ra.addFlashAttribute(message);
+		
+		
+		
+		return path;
 	}
 
 	

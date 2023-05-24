@@ -1,17 +1,22 @@
 package edu.nojo.vote.myPetitions.model.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import edu.nojo.vote.common.utility.Util;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dao.MyPetitionsDashboardDAO;
 import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.user.model.dao.UserDAO;
 import edu.nojo.vote.user.model.dto.User;
+import edu.nojo.vote.writePetition.model.dao.WritePetitionDAO;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 @Service
@@ -19,6 +24,7 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 	
 	@Autowired
 	private MyPetitionsDashboardDAO dao;
+	
 	
 	// 청원 조회 서비스
 	@Override
@@ -84,5 +90,42 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 		return dao.selectCatagory(petitionNo);
 	}
 	
+	@Override
+	public int myPetitionUpdate(Map<String, Object> map, Petition petition, MultipartFile thumbnailImage,
+			String webPath, String filePath, List<String> categoryList) throws IllegalStateException, IOException {
+
+		// 기존 글 불러오기
+		Petition pt = dao.selectMyPetition(map);
+		
+		// 비교하면서 틀린거만 업데이트 하기
+		int result = 0;
+		Petition update = new Petition();
+		
+		int petitionNo = Integer.parseInt((String) map.get("petitionNo"));
+		update.setPetitionNo(petitionNo);
+		// 제목
+		if(!pt.getPetitionTitle().equals(petition.getPetitionTitle())) {
+			update.setPetitionTitle(Util.XSSHandling(petition.getPetitionTitle()));
+			result += dao.updateTitle(update);
+		}
+		// 내용
+		if(!pt.getPetitionContent().equals(petition.getPetitionContent())) {
+			update.setPetitionContent(petition.getPetitionContent());
+			result += dao.updateContent(update);
+		}
+		// 썸네일이 null이 아니면 주소 생성
+		if(thumbnailImage.getSize()>0) {
+			String rename = Util.fileRename(thumbnailImage.getOriginalFilename());
+			petition.setPetitionImage(webPath+rename);
+			thumbnailImage.transferTo(new File(filePath+rename));
+		}
+		if(!pt.getPetitionImage().equals(petition.getPetitionImage())) {
+			update.setPetitionImage(petition.getPetitionImage());
+			result += dao.updateImage(update);
+		}
+	
+	
+	return result;
+}
 	
 }

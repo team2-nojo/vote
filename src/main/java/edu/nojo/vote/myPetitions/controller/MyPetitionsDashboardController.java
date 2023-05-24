@@ -28,7 +28,6 @@ import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 import edu.nojo.vote.user.model.dto.User;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
-@SessionAttributes({"loginMember"}) 
 @RequestMapping("/myPetitions")
 @Controller
 public class MyPetitionsDashboardController {

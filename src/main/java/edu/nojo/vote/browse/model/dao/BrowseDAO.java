@@ -3,11 +3,13 @@ package edu.nojo.vote.browse.model.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 
 @Repository
 public class BrowseDAO {
@@ -21,8 +23,8 @@ public class BrowseDAO {
 	}
 
 	// 최신순으로 조
-	public List<Petition> recent() {
-		return sqlSession.selectList("browseMapper.recent");
+	public List<Petition> recent(int page) {
+		return sqlSession.selectList("browseMapper.recent",null,new RowBounds(page*5, 5));
 	}
 
 	/** 승리한 청원 조회(최신순)
@@ -43,6 +45,7 @@ public class BrowseDAO {
 		return sqlSession.selectOne("browseMapper.selectPetitionList", petitionNo);
 	}
 
+
 	/** 청원 좋아요 확인
 	 * @param map
 	 * @return count
@@ -61,6 +64,11 @@ public class BrowseDAO {
 	public int petitionLike(Map<String, Integer> paramMap) {
 		
 		return sqlSession.insert("browseMapper.petitionLike", paramMap);
+  }
+
+	public List<PetitionUpdate> updatePetitionList(int petitionNo) {
+		return sqlSession.selectList("myPetitionsMapper.updatePetitionList", petitionNo);
+
 	}
 	
 	

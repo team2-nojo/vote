@@ -33,4 +33,15 @@ public class SummernoteController {
 		// 업로드 서비스 호출
 		return service.uploadSummernoteImageFile(multipartFile,webPath,filePath);
 	}
+	
+	@PostMapping(value="/petitionUpdateUploadSummernoteImageFile", produces="application/json; charset=utf8")
+	@ResponseBody
+	public String petitionUpdateUploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile
+			, HttpSession session)  throws IllegalStateException, IOException {
+		// 내부 경로로 저장
+		String webPath = "/resources/images/petitionUpdate/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		// 업로드 서비스 호출
+		return service.uploadSummernoteImageFile(multipartFile,webPath,filePath);
+	}
 }

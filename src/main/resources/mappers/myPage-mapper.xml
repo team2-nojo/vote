@@ -54,4 +54,8 @@
 	  </foreach>
 	  SELECT 1 FROM DUAL
 	</insert>
+	
+	<update id="secession">
+		UPDATE "USER" SET USER_DEL_FL = 'Y' WHERE USER_NO = #{userNo}
+	</update>
 </mapper>

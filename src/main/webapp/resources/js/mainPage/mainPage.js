@@ -83,7 +83,7 @@ document.getElementById('loadButton').addEventListener('click', function () {
           var li = document.createElement('li');
           let categories = '';
           mainPetition.categoryList.forEach((category, index) => {
-            categories += `<a href="#">${category.categoryName}</a>`;
+            categories += `<a href="#" class="petCategory">${category.categoryName}</a>`;
             if (index < mainPetition.categoryList.length - 1) {
               categories += ', ';
             }

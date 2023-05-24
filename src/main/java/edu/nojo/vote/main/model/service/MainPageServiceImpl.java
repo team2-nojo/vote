@@ -27,6 +27,8 @@ public class MainPageServiceImpl implements MainPageService {
 		List<Petition> petitionList = dao.selectPetition(page);
 		for(Petition p: petitionList) {
 			p.setCategoryList(dao.selectCategoryList(p.getPetitionNo()));
+			if(p.getPetitionContent()!=null)
+				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));
 		}
 		return petitionList;
 	}

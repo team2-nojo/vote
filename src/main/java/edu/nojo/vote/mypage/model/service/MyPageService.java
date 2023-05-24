@@ -18,13 +18,13 @@ public interface MyPageService {
 
 	 /** 프로필 이미지 수정 서비스
 	 * @param userImage
-	 * @param path
+	 * @param webpath
 	 * @param loginUser
 	 * @return result
 	 * @throws IllegalStateException
 	 * @throws IOException
 	 */
-	int updateProfileImage(MultipartFile profileImage, String path, String filePath, User loginUser) throws IllegalStateException, IOException;
+	int updateProfileImage(MultipartFile profileImage, String webpath, String filePath, User loginUser) throws IllegalStateException, IOException;
 
    /** DB 회원 정보 수정(UPDATE) 서비스
     * @param updateUser

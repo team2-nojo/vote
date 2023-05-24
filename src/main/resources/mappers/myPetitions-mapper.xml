@@ -107,6 +107,30 @@
 		WHERE PT_NO = ${petitionNo}
 	</update>
 	
+
+	<!-- 청원 업데이트 업로드 -->
+	<insert id="updateInsert">
+		<selectKey order="BEFORE" resultType="_int" keyProperty="petitionUpdateNo">
+			SELECT SEQ_UP_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO "PETITION_UPDATE"
+		VALUES (
+			#{petitionUpdateNo},
+			#{petitionUpdateTitle},
+			#{petitionUpdateContent},
+			DEFAULT,
+			<if test="petitionUpdateImage == null">
+			NULL,
+			</if>
+			<if test="petitionUpdateImage != null">
+			#{petitionUpdateImage},
+			</if>
+			DEFAULT,
+			#{userNo}
+		)
+	</insert>
+	
+
 	<!-- MyPetitionsEdit -->
 	
 	<!-- 청원 카테고리 조회 -->
@@ -116,7 +140,6 @@
 		LEFT JOIN PETITION_CATEGORY_LIST USING(CAT_NO)
 		WHERE PT_NO = ${petitionNo}
 	</select>
-
 
 
 
@@ -156,6 +179,7 @@
 		<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
 	
 	</resultMap>
+
 
 	<resultMap type="Like" id="like_rm">
 	

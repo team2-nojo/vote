@@ -278,6 +278,6 @@ main * {
 .titleBtn:focus {
   outline: none; /* 포커스 아웃라인 제거 */
 }
-#mainNewsLink:hover {
+#main-news-link:hover {
   color: red;
 }

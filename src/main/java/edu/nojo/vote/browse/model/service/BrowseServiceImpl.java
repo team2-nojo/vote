@@ -2,6 +2,7 @@ package edu.nojo.vote.browse.model.service;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,7 +56,29 @@ public class BrowseServiceImpl implements BrowseService {
 	public Petition selectPetitionList(int petitionNo) {
 		return dao.selectPetitionList(petitionNo);
 	}
+
 	
+	/**
+	 *	청원 좋아요 확인
+	 */
+//	@Override
+//	public int petitionLikeCheck(Map<String, Object> map) {
+//		return dao.petitionLikeCheck(map);
+//	}
+	
+	
+	
+	/**
+	 * 청원 좋아요
+	 */
+	@Override
+	public int petitionLike(Map<String, Integer> paramMap) {
+		
+		return dao.petitionLike(paramMap);
+	}
+	
+	
+
 	// 청원 업데이트 리스트 조회
 	@Override
 	public List<PetitionUpdate> updatePetitionList(int petitionNo) {
@@ -66,6 +89,5 @@ public class BrowseServiceImpl implements BrowseService {
 		}
 		return updatePetitionList;
 	}
-	
-	
+
 }

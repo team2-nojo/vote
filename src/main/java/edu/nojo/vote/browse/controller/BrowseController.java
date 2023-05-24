@@ -2,6 +2,7 @@ package edu.nojo.vote.browse.controller;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -78,6 +79,9 @@ public class BrowseController {
 		List<Petition> victoriesList = service.victories();
 		model.addAttribute("victoriesList", victoriesList);
 		
+		
+		
+		
 		return "/browse/browse_search/victories";
 	}
 	
@@ -95,19 +99,30 @@ public class BrowseController {
 	public String details(@PathVariable("petitionNo") int petitionNo
 						, Model model
 						, RedirectAttributes ra
+						, @SessionAttribute(value="loginUser", required=false) User loginUser
 						){
 		
 		
 		Petition petition = service.selectPetitionList(petitionNo); 
-		List<Comment> commentList = service2.resetcommentList(petitionNo);
-		List<Like> likeUserList = service3.selectlikeUserList(petitionNo);
-
-		
 		
 		model.addAttribute("petition", petition);
-		model.addAttribute("commentList", commentList);
-		model.addAttribute("likeUserList", likeUserList);
 //		System.out.println(petition);
+		
+//		if(loginUser != null) { // 로그인 상태인 경우
+//			// 회원번호를 map에 추가 
+//			
+//			Map<String, Object> map = new HashMap<String, Object>();
+//			map.put("loginUser", loginUser.getUserNo());
+//			
+//			// 좋아요  여부 확인 서비스 호출
+//			int result = service.petitionLikeCheck(map);
+//			
+//			// 누른 적이 있을 경우
+//			if(result>0) model.addAttribute("likeCheck", "on");
+//		}
+//		
+		
+		
 		
 		
 		return "/browse/petitionView/details";
@@ -132,13 +147,11 @@ public class BrowseController {
 	
 	
 
-	
-	
 
 	
 	
 	// 댓글 삽입
-	@PostMapping("/petitionView/details/")
+	@PostMapping("/petitionView/details/comment")
 	@ResponseBody
 	public int insert(@RequestBody Comment comment) {
 		// 요청 데이터 (JSON)을 HttpMessageConverter가 해석해서 Java객체(comment)에 대입
@@ -150,8 +163,29 @@ public class BrowseController {
 	}
 	
 	
+	// 청원 좋아요
+	// 좋아요 처리
+		@PostMapping("/petitionView/details/like")
+		@ResponseBody // 반환되는 값이 비동기 요청한 곳으로 돌아가게 함
+		public int petitionLike(@RequestBody Map<String, Integer> paramMap) {
+			System.out.println(paramMap);
+			return service.petitionLike(paramMap);
+		}
 	
 	
+	
+	
+	
+	// petitionView details(comments)
+	@GetMapping("/petitionView/details/selectComment")
+	public String comment(Model model, @PathVariable("petitionNo") int petitionNo) {
+		// 해당 청원에 대한 댓글 조회
+		List<Comment> selectCommentList = service2.selectCommentList(petitionNo);
+		System.out.println(selectCommentList);
+		model.addAttribute("selectCommentList", selectCommentList);
+
+		return "/browse/petitionView/details/selectComment";
+	}
 	
 	
 	

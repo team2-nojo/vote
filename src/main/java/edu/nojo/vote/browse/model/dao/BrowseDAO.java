@@ -1,6 +1,7 @@
 package edu.nojo.vote.browse.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -45,8 +46,29 @@ public class BrowseDAO {
 	}
 
 
+	/** 청원 좋아요 확인
+	 * @param map
+	 * @return count
+	 */
+//	public int petitionLikeCheck(Map<String, Object> map) {
+//		
+//		return sqlSession.selectOne("browseMapper.petitionLikeCheck", map);
+//	}
+	
+	
+
+	/** 청원 좋아요 삽입
+	 * @param paramMap
+	 * @return count
+	 */
+	public int petitionLike(Map<String, Integer> paramMap) {
+		
+		return sqlSession.insert("browseMapper.petitionLike", paramMap);
+  }
+
 	public List<PetitionUpdate> updatePetitionList(int petitionNo) {
 		return sqlSession.selectList("myPetitionsMapper.updatePetitionList", petitionNo);
+
 	}
 	
 	

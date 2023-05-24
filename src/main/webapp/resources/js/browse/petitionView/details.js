@@ -65,14 +65,14 @@ content.addEventListener("input", () => {
 // 댓글 목록 조회
 function selectCommentList(){
 
-    fetch("/browse/petitionView/selectComment", {
+    fetch("/browse/petitionView/details/selectComment", {
         method: "POST",
         headers: {"Content-Type": "application/json; charset=UTF-8"},
-        body: JSON.stringify(parseInt(petitionNo.value))
+        body: JSON.stringify
     }) 
     .then(response => response.json()) // 응답 객체 -> 파싱
     .then(cList => { // cList : 댓글 목록(객체배열)
-        
+        console.log(cList);
         
         // 화면에 출력되어 있는 댓글 목록 삭제
         const commentList = document.getElementById("commentList"); // ul태그
@@ -138,18 +138,18 @@ function selectCommentList(){
 
 // 좋아요 버튼 누르면 게이지 올라감, 좋아요 누른 사람 수 & 남은 사람 수 표시
 // const signButton = document.getElementById("signButton");
-const progress = document.getElementById("progress");
-const likeCount = document.getElementById("likeCount");
 
 // signButton.addEventListener("click", ()=> {
-
-//     progress.value += 1;
-
-//     const crrent1 = parseInt(likeCount.innerText, 10)
-//     likeCount.innerText = crrent1 + 1;
-
-//     const crrent2 = parseInt(remainNumber.innerText, 10)
-//     remainNumber.innerText = 50 - likeCount.innerText ;
+//         // alert(progress.max);
+//         progress.value += 1;
+        
+//         const crrent1 = parseInt(likeCount.innerText, 10)
+//         likeCount.innerText = crrent1 + 1;
+    
+//         const crrent2 = parseInt(remainNumber.innerText, 10)
+//         remainNumber.innerText = progress.max - likeCount.innerText ;
+        
+        
     
 // });
 
@@ -158,13 +158,14 @@ const likeCount = document.getElementById("likeCount");
 
 
 
-// 댓글등록(중)
 
+// 좋아요 버튼을 누르면 
 const like = document.getElementById("signButton");
-
+const progress = document.getElementById("progress");
+const likeCount = document.getElementById("likeCount");
 
 like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되었을 때
-    
+
     // 1) 로그인이 되어있나? -> 전역변수 memberNo 이용
     if(loginUserNo == ""){ // 로그인 X
         alert("로그인 후 이용해주세요.");
@@ -190,29 +191,78 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
     
     // 3) AJAX를 이용해서 댓글 내용 DB에 저장(INSERT)
     
-    const data = {"commentContent" : commentContent.value, 
-    "userNo" : loginUserNo, "petitionNo" : petitionNo, "petitionLikeCount": petitionLikeCount}; // JS객체
+
+
+    // 좋아요(미완)
+    let check; // 기존에 좋아요가 아닐 때(빈하트) : 0, 좋아요(꽉찬하트) : 1
+    if(loginUserNo){ // 좋아요가 아닐 때
+        check = 0;
+    }else{ 
+        check = 1;
+    }
+
+
+    // ajax로 서버로 제출할 파라미터를 모아둔 JS객체
+    const data2 = {"petitionNo" : petitionNo, "loginUserNo" : loginUserNo};
     
-    fetch("/petitionView/details", {
+    // ajax코드 작성
+    fetch("/browse/petitionView/details/like", {
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(data2)
+    })
+    .then(response => response.text()) // 응답 객체를 필요한 형태로 파싱하여 리턴
+    
+    .then(count => { 
+
+        console.log("count : " + count);
+
+        if(count == -1){ // INSERT, DELETE실패 시 
+            console.log("좋아요 처리 실패");
+            return;
+        }
+
+
+    
+        // 현재 게시글의 좋아요 수를 화면에 출력
+        e.target.nextElementSibling.innerText = count;
+
+    }) // 파싱된 데이터를 받아서 처리하는 코드 작성
+    
+    .catch(err => {
+        console.log("예외발생");
+        console.log(err);
+    }) //예외 발생시 처리하는 부분
+
+
+
+
+
+    // 댓글등록(완료)
+    const data1 = {"commentContent" : commentContent.value, 
+    "userNo" : loginUserNo, "petitionNo" : petitionNo, "petitionLikeCount" : petitionLikeCount}; // JS객체
+    
+    fetch("/browse/petitionView/details/comment", {
         method: "POST",
         headers: {"Content-Type" : "application/json;"},
-        body: JSON.stringify(data) // JS객체 -> JSON파싱
+        body: JSON.stringify(data1) // JS객체 -> JSON파싱
     })
     .then(resp =>resp.text())
     .then(result => {
-        
-        if(result < 0){ // 등록 성공
+        // console.log(result);
+        if(result > 0){ // 등록 성공
             alert("댓글이 등록되었습니다.");
             
+
+            // DB반영 안됨 임시로 작성함.-----------
             progress.value += 1;
-            petitionLikeCount += 1; // 전역변수(myPetition에서 설정)
             
             const crrent1 = parseInt(likeCount.innerText, 10)
             likeCount.innerText = crrent1 + 1;
             
             const crrent2 = parseInt(remainNumber.innerText, 10)
             remainNumber.innerText = 50 - likeCount.innerText ;
-            
+            //-------------------------------------
             
             commentContent.value = ""; // 작성했던 댓글 삭제
 
@@ -225,5 +275,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
     })
     .catch(err => console.log(err));
 
+    
+    
 
 });

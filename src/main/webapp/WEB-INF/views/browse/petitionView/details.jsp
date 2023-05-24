@@ -102,27 +102,27 @@
                 <hr>
                 <br>
 
-                <c:set var="resetcommentList" value="${resetcommentList}"/>
+                <c:set var="commentList" value="${selectCommentList}"/>
                 <div id="commentBox">
                     <div id="reason">댓글 보기</div>
                     <ul>
-                        <%-- <c:forEach items="${commentList}" var="comment"> --%>
+                        <%-- <c:forEach items="${selectCommentList}" var="comment"> --%>
                         <li class="comment-row">
                             <p class="noti">
                                 <!-- 유저아이콘 추가해야 함-->
                                 <c:choose>
-                                    <c:when test="${empty resetcommentList.userImage}">
+                                    <c:when test="${empty commentList.userImage}">
                                         <img src="/resources/images/common/user.png" class="profile">
                                     </c:when>
                                 
                                     <c:otherwise>
-                                        <img src="${resetcommentList.userImage}" class="profile">
+                                        <img src="${commentList.userImage}" class="profile">
                                     </c:otherwise>
                                 </c:choose>
-                                <span class="comUser" >닉네임${resetcommentList.userNickname}</span>
-                                <span class="commentDate">${resetcommentList.commentDate}</span>
+                                <span class="comUser" >닉네임${selectCommentList.userNickname}</span>
+                                <span class="commentDate">${selectCommentList.commentDate}</span>
                             </p>
-                            <p class="commentCon"> ${resetcommentList.commentContent}
+                            <p class="commentCon"> ${selectCommentList.commentContent}
                                     내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용
                             </p>    
                             <div class="commentP">
@@ -154,17 +154,17 @@
                     <div id="row1">
                         <strong>
                             <%-- 좋아요 클릭 한 사람 수 --%>
-                            <span id="likeCount">0</span> 
+                            <span id="likeCount">${petition.petitionLikeCount}</span> 
                             명이 서명했습니다.
                         </strong>
                         50명을 향해!!
                     </div>
-                    <progress id="progress" value="0" min="0" max="50" ></progress>
+                    <progress id="progress" value="${petition.petitionLikeCount}" min="0" max="50" ></progress>
                     <div id="row2">
                         청원 달성까지 서포터 단
                         <strong>
                             <!-- 청원 달성 위해 남은 사람의 수-->
-                            <span id="remainNumber">50</span>
+                            <span id="remainNumber">${50-petition.petitionLikeCount}</span>
                             명만 더!
                         </strong> 
                     </div>
@@ -210,7 +210,6 @@
                         이 청원에 이름과 댓글을 표시합니다.
                     </label>
                 </div>
-                <form action="browse/petitionView/details" method="POST" id="commentFrm">
                     <%-- 댓글창 --%>
                     <div id="commentPlace">
                             <div id="wrtComment">
@@ -225,8 +224,6 @@
                     <div>
                         <button id="signButton" >좋아요!</button>
                     </div>
-                </form>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </section>
         
         
@@ -238,6 +235,7 @@
     <script>
         const petitionNo = ${petition.petitionNo};
         const loginUserNo = "${loginUser.userNo}";
+        let petitionLikeCount = "${petition.petitionLikeCount}";
     </script>
     
     <%-- petitionView.js --%>

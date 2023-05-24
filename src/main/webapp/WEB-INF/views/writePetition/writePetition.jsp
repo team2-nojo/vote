@@ -74,7 +74,7 @@
                     <p>사람들에게 당신이 바꾸고 싶은 것을 말하세요.</p>
                     <div id="titleContainer">
                         <div>청원 제목</div>
-                        <input type="text" name="title" id="inputTitle">
+                        <input type="text" name="title" id="inputTitle" onkeydown="return event.key != 'Enter';">
                         <div id="titleCountContainer"><div id="titleCharCount">0</div><div>/90</div></div>
                     </div>
                 </div>
@@ -136,13 +136,27 @@
                                 <div id="progC"><div id="prog"></div></div>
                                 <hr id="progHr" style="width:100%;">
                                 <div id="signer">
-                                    <img id="signerProfileImage" class="profile-img" src="${loginUser.userImage}">
+                                    <c:choose>
+                                        <c:when test="${not empty loginUser.userImage}">
+                                            <img class="user-image" src="${loginUser.userImage}" />
+                                        </c:when>
+                                        <c:otherwise>
+                                            <i class="fa-sharp fa-solid fa-user header-a"></i>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <div id="signerName">${loginUser.userNickname}</div>
                                 </div>
                             </div>
                         </div>
                         <div id="writer">
-                            <img class="profile-img" src="${loginUser.userImage}">
+                            <c:choose>
+                                <c:when test="${not empty loginUser.userImage}">
+                                    <img class="user-image" src="${loginUser.userImage}" />
+                                </c:when>
+                                <c:otherwise>
+                                    <i class="fa-sharp fa-solid fa-user header-a"></i>
+                                </c:otherwise>
+                            </c:choose>
                             ${loginUser.userNickname}님이 이 청원을 시작하였습니다.
                         </div>
                         <div id="previewContentContainer">

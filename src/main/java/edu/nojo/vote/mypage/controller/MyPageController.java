@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -178,8 +179,25 @@ public class MyPageController {
    }
    
    @PostMapping("/secession")
-   public String secession(User loginUser) {
+   public String secession(@SessionAttribute("loginUser") User loginUser
+		   , @RequestParam("userPw")String userPw
+		   , SessionStatus status
+		   , RedirectAttributes ra) {
+	   int result = service.secession(loginUser, userPw);
 	   
-	   return null;
+	   String message = null;
+	   String path = "redirect:";
+	   
+	   if(result>0) {
+		   message = "계정이 비활성화되었습니다.";
+		   path += "/";
+		   status.setComplete();
+	   } else {
+		   message = "비밀번호가 일치하지 않습니다.";
+		   path += "secession";
+	   }
+	   
+	   ra.addFlashAttribute("serverMessage",message);
+	   return path;
    }
 }

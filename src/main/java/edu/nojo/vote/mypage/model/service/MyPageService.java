@@ -49,7 +49,18 @@ public interface MyPageService {
 	 */
 	int changePassword(User loginUser, String currentPassword, String newPassword);
 
+	/** 이메일 수신 설정 서비스
+	 * @param loginUser
+	 * @return
+	 */
 	int emailSettings(User loginUser);
+
+	/** 계정 비활성화(회원 탈퇴)
+	 * @param loginUser
+	 * @param userPw
+	 * @return result
+	 */
+	int secession(User loginUser, String userPw);
 
 
 

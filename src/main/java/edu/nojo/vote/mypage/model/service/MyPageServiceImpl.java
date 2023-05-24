@@ -95,4 +95,10 @@ public class MyPageServiceImpl implements MyPageService {
 		
 		return result;
 	}
+	
+	@Override
+	public int secession(User loginUser, String userPw) {
+		// 로그인 유저의 비밀번호가 입력받은 비밀번호와 일치하면 회원탈퇴 처리
+		return bcrypt.matches(userPw, dao.selectEncryptedPassword(loginUser))?dao.secession(loginUser):0;
+	}
 }

@@ -33,7 +33,7 @@
         </section>
 
         <section class="middle">
-            <c:forEach items="${popularList}" var="petition">
+            <%-- <c:forEach items="${popularList}" var="petition"> --%>
                 <div class="result">
                     <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1">
                         <div class="row-left" id="rowPicture">
@@ -57,7 +57,7 @@
                         </div>
                     </a>
                 </div>
-            </c:forEach>
+            <%-- </c:forEach> --%>
         </section>
         <section>
             <div>

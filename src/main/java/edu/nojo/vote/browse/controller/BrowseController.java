@@ -21,7 +21,6 @@ import edu.nojo.vote.browse.model.service.CommentService;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.Like;
-import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 
 

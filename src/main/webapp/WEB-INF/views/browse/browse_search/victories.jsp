@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -11,7 +12,6 @@
 
     <%-- css --%>
     <link rel="stylesheet" href="/resources/css/browse/browse_search/browse_search.css">
-    <link rel="stylesheet" href="/resources/css/browse/browse_search/victories_top.css">
     
 </head>
 <body>
@@ -28,7 +28,7 @@
             <div class="menu" id="menu">
                 <div><a href="/browse/browse_search/popular" id="popular">Popular</a></div>
                 <div><a href="/browse/browse_search/recent" id="recent">Recent</a></div>
-                <div id="now">Victories</div>
+                <div><a id="now" href="/browse/browse_search/victories" id="victories">Victories</a></div>
             </div>
         </section>
 
@@ -36,24 +36,22 @@
             <c:forEach items="${victoriesList}" var="petition">
                 <div class="result">
                     <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1">
-                        <div class="row" id="rowPicture">
+                        <div class="row-left" id="rowPicture">
                             <img src="/${petition.petitionImage}" class="picture">
                         </div>
-                        <div class="row">
-                            <div class="column" id="column-1">
-                                <div id="title">
-                                    ${petition.petitionTitle}
-                                </div>
-                                <div id="content">
-                                    ${petition.petitionContent}
-                                    <a href="/browse/petitionView/details/${petition.petitionNo}" id="readMore"> Read more</a>
-                                </div>
+                        <div class="row-right">
+                            <div id="title">
+                                ${petition.petitionTitle}
                             </div>
-                            <div class="column" id="column-2">
-                                <progress id="progress" value="35000" min="0" max="50000" ></progress>
+                            <div id="content">
+                                ${petition.petitionContent}
+                                <a href="/browse/petitionView/details/${petition.petitionNo}" id="readMore"> Read more</a>
+                            </div>
+                            <div class="progress">
+                                <progress id="progress" value="${petition.petitionLikeCount}" min="0" max="${fn:substringBefore((Math.ceil(petition.petitionLikeCount / 5) * 5), '.')}" ></progress>
                                 <div id="value"></div>
                                 <div id="goal">
-                                    <span id="count">${petition.petitionLikeCount}</span>of 50,000 goal
+                                    청원 지지자 수 <span id="count">${petition.petitionLikeCount}</span> 명
                                 </div>
                             </div>
                         </div>

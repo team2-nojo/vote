@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -10,7 +11,6 @@
     <title>브라우저 게시글 조회(popular)</title>
 
     <%-- popular.css --%>
-    <link rel="stylesheet" href="/resources/css/browse/browse_search/popular_top.css">
     <link rel="stylesheet" href="/resources/css/browse/browse_search/browse_search.css">
     
 </head>
@@ -26,7 +26,7 @@
                 서명할 청원을 검색해주세요.
             </div>
             <div class="menu" id="menu">
-                <div id="now">Popular</div>
+                <div><a id="now" href="/browse/browse_search/popular" id="popular">Popular</a></div>
                 <div><a href="/browse/browse_search/recent" id="recent">Recent</a></div>
                 <div><a href="/browse/browse_search/victories" id="victories">Victories</a></div>
             </div>
@@ -48,10 +48,10 @@
                                 <a href="/browse/petitionView/details/${petition.petitionNo}" id="readMore"> Read more</a>
                             </div>
                             <div class="progress">
-                                <progress id="progress" value="35000" min="0" max="50000" ></progress>
+                                <progress id="progress" value="${petition.petitionLikeCount}" min="0" max="${fn:substringBefore((Math.ceil(petition.petitionLikeCount / 5) * 5), '.')}" ></progress>
                                 <div id="value"></div>
                                 <div id="goal">
-                                    <span id="count">${petition.petitionLikeCount}</span>of 50,000 goal
+                                    청원 지지자 수 <span id="count">${petition.petitionLikeCount}</span> 명
                                 </div>
                             </div>
                         </div>

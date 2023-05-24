@@ -34,12 +34,4 @@ public class Petition {
 	
 	// 좋아요 수
 	private int petitionLikeCount;
-	
-
-    
-
-   
-
-
-
 }

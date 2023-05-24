@@ -1,5 +1,9 @@
 package edu.nojo.vote.user.model.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -37,7 +41,8 @@ public class UserServiceImpl implements UserService{
 			// 비밀번호 암호화 된거랑 안된거 비교
 			if(bcrypt.matches(inputUser.getUserPw(), loginUser.getUserPw())) { // loginUser암호와 안됨(DB는 암호화 함)
 				loginUser.setUserPw(null); // 비밀번호 유지 불필요하므로 로그인 정보에서 제거
-			}else { 
+				loginUser.setEmailSettings(dao.selectEmailSettings(loginUser.getUserNo()));
+			}else {
 				loginUser = null;
 			}
 		}
@@ -48,17 +53,19 @@ public class UserServiceImpl implements UserService{
 	// 회원가입
 	@Transactional(rollbackFor = {Exception.class}) 
 	@Override
-	public int signUp(User inputUser) {
-		
-		
+	public int signUp(User inputUser, String agreeEmail) {
 		// 비밀번호 암호화 후 inputUser에 세팅
 		String encPw = bcrypt.encode(inputUser.getUserPw());
 		inputUser.setUserPw(encPw);
-		
-		System.out.println(inputUser);
-		
 		// DAO호출 결과로 성공한 갯수 받음
 		int result =  dao.signUp(inputUser);
+		
+		if(agreeEmail.equals("y")) {
+			inputUser.setEmailSettings(new ArrayList<>(Arrays.asList(1,2,3,4,5))); 
+		} else if (agreeEmail.equals("n")){
+			inputUser.setEmailSettings(new ArrayList<>(Arrays.asList(0)));
+		}
+		dao.insertEmailSettings(inputUser);
 		
 		return result;
 	}

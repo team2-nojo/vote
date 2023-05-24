@@ -33,9 +33,12 @@
 	
 	
 	<!-- 회원가입 -->
-	<insert id="signUp" parameterType="User">
+	<insert id="signUp" parameterType="User" useGeneratedKeys="true">
+		<selectKey order="BEFORE" resultType="_int" keyProperty="userNo">
+			SELECT SEQ_USER_NO.NEXTVAL FROM DUAL
+		</selectKey>
 		INSERT INTO "USER"
-		VALUES(SEQ_USER_NO.NEXTVAL
+		VALUES(#{userNo}
 			, DEFAULT
 			, NULL
 			, #{userEmail}
@@ -63,5 +66,9 @@
 		AND USER_DEL_FL = 'N'
 	</select>
 	
+	<!-- 이메일 수신 설정 불러오기 -->
+	<select id="selectEmailSettings" resultType="int">
+		SELECT EMAIL_AGREE FROM SENDING_EMAIL WHERE USER_NO=#{userNo}
+	</select>
 	
 </mapper>

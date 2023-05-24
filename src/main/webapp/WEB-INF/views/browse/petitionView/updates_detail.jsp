@@ -20,8 +20,8 @@
         <!-- 상단메뉴 -->
         <section id="top">
             <div id="menu">
-                <div><a href="/browse/petitionView/details" id="details">Petition details</a></div>
-                <div><a href="/browse/petitionView/comments" id="comments">Comments</a></div>
+                <div><a href="/browse/petitionView/details/${petitionNo}" id="details">Petition details</a></div>
+                <div><a href="/browse/petitionView/comments/${petitionNo}" id="comments">Comments</a></div>
                 <div id="updates">Updates</div>
             </div>
         </section>
@@ -139,34 +139,6 @@
         <hr>
         
         
-        <!-- 추천게시글 -->
-        <%-- <section class="middle">
-            <div id="trandPeti">
-                Trending petitions
-            </div>
-            <div class="result">
-                <div class="row">
-                    <div class="column" id="column-1">
-                        <div id="title">
-                            서울시 종로구 순덕이 출현
-                        </div>
-                        <div id="content">
-                            내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내용내용내용내용내용내용내용내용내용내용용내용내용내용내용내용
-                        </div>
-                    </div>
-                    <div class="column" id="column-2">
-                        <div class="col" id="profile" >프로필</div>
-                        <div class="col" id="suporterNum">서포터 수</div>
-                    </div>
-                </div>
-                <div class="row" id="rowPicture">
-                    <img src="/resources/images/순덕이.png" class="picture">
-                </div>
-            </div>
-            <div>
-                <button type="button" id="moreView">더보기</button>
-            </div>
-        </section> --%>
         
     </main>
     <%-- footer --%>

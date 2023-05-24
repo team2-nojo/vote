@@ -5,6 +5,7 @@
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="userList" value="${map.userList}"/>
 
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -32,8 +33,8 @@
                             <th>이메일<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
                             <th>주소<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
                             <th>가입일<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
-                            <th>작성 글</th>
-                            <th>회원 삭제</th>
+                            <th>작성 청원(건)</th>
+                            <th>유저 삭제</th>
                         </tr>
                     </thead>
 
@@ -47,16 +48,17 @@
                             </c:when>
                                 
                             <c:otherwise>
-                                <form action="/adminUser" method="POST" id="mainForm">
+                                <form action="/adminUserDelete" method="POST" id="mainForm">
                                 <c:forEach items="${userList}" var="user">
-
+                                <input type="hidden" name="userNickname" value="${user.userNickname}">
+                                <input type="hidden" name="userNo" value="${user.userNo}">
                                 <tr>
                                     <td class='petitionNo'>${user.userNo}</td>
                                     
                                     <c:choose>
                                       <c:when test="${empty user.userImage}">
                                         <td>
-                                          <img class="list-thumbnail" src="resources/images/common/user.png">${user.userNickname}
+                                          <img class="list-thumbnail" src="resources/images/common/doge2.png">${user.userNickname}
                                         </td>
                                       </c:when>
                                       <c:otherwise>
@@ -70,19 +72,22 @@
                                     <td>${user.userAddress}</td>
                                     <td>${user.userEnrollDate}</td>
                                     <td>${user.userWriteCount}</td>
-                                    <td></td>
+                                    <td>
+                                        <button onclick="confirmDeleteUser('${user.userNo}', '${user.userNickname}')">유저 삭제</button>
+                                    </td>
 
                                 </tr>
                                 </c:forEach>
-                                </form>
+                               
                             </c:otherwise>
                         </c:choose>
                     </tbody>
                 </table>
             </div>
             <div class="btn-area">
-                <button id="insertBtn">회원 삭제</button>                     
+                <%-- <button id="delete-check-btn" type="button" onclick="deleteCheck()">회원 삭제</button>                      --%>
             </div>
+             </form>
             <div class="pagination-area">
                 <ul class="pagination">
                     <!-- 첫 페이지로 이동 -->
@@ -131,7 +136,7 @@
     </main>
   </article>
   <script src="resources/js/admin/layout.js"></script>
-  <script src="resources/js/admin/adminBoardList.js"></script>
+  <script src="resources/js/admin/adminUserList.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="https://kit.fontawesome.com/8be2100736.js" crossorigin="anonymous"></script>
 </body>

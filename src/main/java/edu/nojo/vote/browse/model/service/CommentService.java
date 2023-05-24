@@ -18,7 +18,7 @@ public interface CommentService {
 	 * @param pno
 	 * @return list
 	 */
-	List<Like> resetcommentList(int pno);
+	List<Comment> resetcommentList(int pno);
 
 	/** 댓글 작성
 	 * @param comment

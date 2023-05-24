@@ -1,6 +1,7 @@
 package edu.nojo.vote.mypage.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -139,8 +140,7 @@ public class MyPageController {
 		   , String currentPassword
 		   , String newPassword
 		   , RedirectAttributes ra) {
-//	   System.out.println(loginUser.toString());
-	   int result = service.changePassword(loginUser.getUserNo(), currentPassword, newPassword);
+	   int result = service.changePassword(loginUser, currentPassword, newPassword);
 	   String path = "redirect:";
 	   String message = null;
 	   if(result > 0) {
@@ -161,10 +161,17 @@ public class MyPageController {
    }
    
    @PostMapping("/emailSettings")
-   public String emailSettings(User loginUser) {
+   public String emailSettings(@SessionAttribute("loginUser") User loginUser
+		   , @RequestParam(value = "items", required=false) List<Integer> items
+		   , RedirectAttributes ra
+		   ) {
+	   loginUser.setEmailSettings(items);
+	   int result = service.emailSettings(loginUser);
+	   ra.addFlashAttribute("serverMessage","이메일 수신 설정이 변경되었습니다.");
 	   
-	   return null;
+	   return "redirect:/myPage";
    }
+   
    @GetMapping("/secession")
    public String secession() {
 	   return "myPage/secession";

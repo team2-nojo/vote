@@ -123,6 +123,57 @@ public class AdminDAO {
 	}
 
 	
+	
+	
+	/**유저 삭제 
+	 * @param userNo
+	 * @return sqlSession.update("adminMapper.deleteUser", userNo);
+	 */
+	public int deleteUser(int userNo) {
+		return sqlSession.update("adminMapper.deleteUser", userNo);
+	}
+
+	
+	/**청원 삭제
+	 * @param petitionNo
+	 * @return sqlSession.update("adminMapper.deletePetition", petitionNo);
+	 */
+	public int deletePetition(int petitionNo) {
+		return sqlSession.update("adminMapper.deletePetition", petitionNo);
+	}
+
+
+
+	/** 삭제한 청원 수 조회
+	 * @return
+	 */
+	public int getPetitionDelCount() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("adminMapper.getPetitionDelCount");
+	}
+
+	
+	
+	/** 삭제된 청원 조회
+	 * @param pagination
+	 * @return
+	 */
+	public List<Petition> selectPetitionDelList(Pagination pagination) {
+		int offset = (pagination.getCurrentPage() - 1 ) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		return sqlSession.selectList("adminMapper.selectPetitionDelList", null, rowBounds);
+	}
+
+	/** 삭제된 청원 복구
+	 * @param petitionNo
+	 * @return
+	 */
+	public int updateDelPetition(int petitionNo) {
+		return sqlSession.update("adminMapper.updateDelPetition", petitionNo);
+	}
+
+
+	
 
 
 

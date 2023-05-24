@@ -22,53 +22,43 @@
             <form action="/user/signUp" method="post" name="signUpFrm" id="signUpFrm">
                 <div id="signUp">Sign up</div>
                 <br>
-                
                 <div id="haveAccount">Already have an account? <a href="/user/login" id="loginMember">Login</a></div>
                 <br>
-                
                 <button type="button" id="kakao" onclick="kakaoLogin();"><img src="/resources/images/user/kakaoLogin.png"></button>
-
-                
                 <br>
-
-                
-                
                 <div class="or"> OR </div>
                 <br>
-
                 <div>
-                    <input type="text" name="userEmail" id="email" placeholder=" Email">
+                    <input type="text" name="userEmail" id="userEmail" placeholder="Email">
                 </div>
                 <div id="emailMessage">
                     메일을 받을 수 있는 이메일을 입력해주세요.
                 </div>
                 <div>
-                    <input type="text" name="userNickname" id="name" placeholder=" Nickname" maxlength='10'>
+                    <input type="text" name="userNickname" id="userNickname" placeholder="Nickname" maxlength='10'>
                 </div>
                 <div id="nameMessage">
                     한글,영어,숫자로만 2~10글자 입력해주세요.
                 </div>
                 <div>
-                    <input type="password" name="userPw" id="password1" placeholder=" Password" maxlength='8'>
-                    <input type="password" name="userPwConfirm" id="password2" placeholder=" Password" maxlength='8'>
+                    <input type="password" name="userPw" id="userPw" placeholder="Password">
+                    <input type="password" name="userPwConfirm" id="userPwConfirm" placeholder="Password Confirm">
                 </div>
                 <div id="pwMessage">
-                    영어,숫자,특수문자(!,@,#,-,_) 8~20글자 사이로 입력해주세요.
-                </div>
-                <div id="pwCfMessage">
-                    영어,숫자,특수문자(!,@,#,-,_) 8~20글자 사이로 입력해주세요.
+                    "영어, 숫자, 특수문자(!, @, #, -, _) 8~20글자 사이로 입력해주세요."
                 </div>
                 <div>
-                    <input type="text" name="userAddress" id="sample6_address" placeholder=" Address">
+                    <input type="text" name="userAddress" id="sample6_address" placeholder="Address">
                     <button type="button" id="addressSearch" onclick="sample6_execDaumPostcode()">주소찾기</button> <br>
-                    <input type="text" name="userAddress" id="sample6_detailAddress" placeholder=" Address">
+                    <input type="text" name="userAddress" id="sample6_detailAddress" placeholder="Address">
                 </div>
 
                 <div>
                     <a href="/user/agreeService" id="agreeServiceGo">
-                        <input type="checkbox" class= "check1" id="agree"><label for="agree"> vote 서비스약관에 동의합니다.</label> 
+                        <input type="checkbox" class= "check1" id="agree"><label for="agree"> VOTE 서비스약관에 동의합니다.</label> 
                     </a>
                 </div>
+                <input type="hidden" name="agreeEmail" value='n'>
 
                 <div>
                     <button id="SignUpSubmit" >Sign up</button>
@@ -82,8 +72,6 @@
 
     <%-- signUp.js --%>
     <script src="/resources/js/user/signUp.js"></script>
-    <%-- agreeService.js --%>
-    <script src="/resources/js/user/agreeService.js"></script>
 
 
 

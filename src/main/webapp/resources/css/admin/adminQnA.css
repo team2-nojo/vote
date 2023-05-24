@@ -1,5 +1,5 @@
 /* section, div{ border : 1px solid black;} */
-#menu-wrap1 > ul > li:nth-child(2) {
+#menu-wrap1 > ul > li:nth-child(3) {
   background-color: #444;
 }
 
@@ -53,11 +53,11 @@ a:hover {
   text-align: center;
 }
 .list-table tr > *:nth-of-type(1) {
-  width: 5%;
+  width: 8%;
 }
 
 .list-table tr > td:nth-of-type(2) {
-  width: 8%;
+  width: 32%;
   text-align: left;
   padding-left: 50px;
   text-decoration: none;
@@ -67,16 +67,16 @@ a:hover {
   width: 13%;
 }
 .list-table tr > *:nth-of-type(4) {
-  width: 15%;
+  width: 10%;
 }
 .list-table tr > *:nth-of-type(5) {
-  width: 15%;
+  width: 8%;
 }
 .list-table tr > *:nth-of-type(6) {
-  width: 5%;
+  width: 8%;
 }
 .list-table tr > *:nth-of-type(7) {
-  width: 8%;
+  width: 20%;
 }
 
 .btn-area {

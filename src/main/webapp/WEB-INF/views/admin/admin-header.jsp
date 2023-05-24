@@ -54,7 +54,7 @@
             </li>
           </ul>
         </div>
-        <div id="menu-wrap1">
+        <div id="menu-wrap2">
           <ul>
             <!-- 메뉴 아이템 1 -->
             <li id="menu2">청원 관리</li>
@@ -67,14 +67,16 @@
               />청원 글 조회</a>
             </li>
             <!-- 메뉴 아이템 3 -->
-            <li><a href="">
+            <li><a href="/adminPetitionDelList">
               <img
                 src="resources/images/mainPage/content_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />컨텐츠 관리</a>
+              />삭제된 청원 조회</a>
             </li>
           </ul>
+          </div>
+          <div id="menu-wrap3">
           <ul>
             <!-- 메뉴 아이템 1 -->
             <li id="menu3">인사이트</li>

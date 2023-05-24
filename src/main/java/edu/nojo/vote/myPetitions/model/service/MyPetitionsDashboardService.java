@@ -6,6 +6,7 @@ import java.util.Map;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.user.model.dto.User;
+import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 public interface MyPetitionsDashboardService {
 
@@ -32,6 +33,30 @@ public interface MyPetitionsDashboardService {
 	 * @return
 	 */
 	List<Like> resetcommentList(int pno);
+
+	/** 카테고리 유무 체크
+	 * @param petitionNo
+	 * @return
+	 */
+	List<PetitionCategory> catagoryCheck(int petitionNo);
+
+	/** 청원 삭제
+	 * @param pno
+	 * @return
+	 */
+	int petitonDelete(int pno);
+
+	/** 청원 승리
+	 * @param pno
+	 * @return
+	 */
+	int petitonVictory(int pno);
+
+	/** 청원 카테고리 조회
+	 * @param petitionNo
+	 * @return
+	 */
+	List<PetitionCategory> selectCatagory(int petitionNo);
 
 
 }

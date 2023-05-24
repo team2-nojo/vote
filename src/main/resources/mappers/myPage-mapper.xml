@@ -24,8 +24,7 @@
 		USER_ADD  = #{userAddress}
 		WHERE USER_NO = #{userNo}
 	</update>
-   
-   
+
 	<select id="selectUser" resultType="User">
  		SELECT USER_NO , USER_IMG , USER_NICKNAME , USER_ADD , USER_ABOUT_ME 
 		FROM "USER"
@@ -42,5 +41,17 @@
 		USER_PW = #{userPw}
 		WHERE USER_NO = #{userNo}
 	</update>
-   
+	
+	<delete id="deleteEmailSettings">
+		DELETE FROM SENDING_EMAIL WHERE USER_NO = #{userNo}
+	</delete>
+	
+	
+	<insert id="insertEmailSettings">
+	  INSERT ALL
+	  <foreach collection="emailSettings" item="emailSetting">
+	    INTO SENDING_EMAIL VALUES (#{emailSetting}, #{userNo})
+	  </foreach>
+	  SELECT 1 FROM DUAL
+	</insert>
 </mapper>

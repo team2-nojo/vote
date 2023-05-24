@@ -1,6 +1,7 @@
 package edu.nojo.vote.mypage.model.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,10 +43,15 @@ public interface MyPageService {
 	/** 비밀번호 변경 서비스
 	 * @param userNo
 	 * @param currentPassword
+	 * @param newPassword 
 	 * @param newPassword
 	 * @return result
 	 */
-	int changePassword(int userNo, String currentPassword, String newPassword);
+	int changePassword(User loginUser, String currentPassword, String newPassword);
+
+	int emailSettings(User loginUser);
+
+
 
 
 

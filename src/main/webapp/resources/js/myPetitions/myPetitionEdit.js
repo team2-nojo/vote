@@ -1,3 +1,29 @@
+window.addEventListener('load', function() {
+    if (window.location.hash === '#titleEdit') {
+        scrollToElement(document.querySelector('#titleEdit'));
+    }
+    if (window.location.hash === '#imgEdit') {
+        scrollToElement(document.querySelector('#imgEdit'));
+    }
+    if (window.location.hash === '#contentEdit') {
+        scrollToElement(document.querySelector('#contentEdit'));
+    }
+    if (window.location.hash === '#topicEdit') {
+        scrollToElement(document.querySelector('#topicEdit'));
+    }
+});
+
+/* 대시보드에서 특정위치로 이동 */
+function scrollToElement(element) {
+    var offset = element.offsetTop;
+    window.scrollTo({
+        top: offset,
+        behavior: 'smooth'
+    });
+}
+
+
+
 /* 청원 주요내용 팁보기 */
 function tipView(input) {
     const inputTip = document.getElementById(input.slice(0, -3));
@@ -29,8 +55,10 @@ tipHover("twitter");
 
 /* 주제추가 */
 const addTopicBox = document.getElementById("addTopicBox");
-let topicCount = 0;
+const inputTopic = document.querySelectorAll('#addTopicBox > div');
+let topicCount = inputTopic.length;
 let topicInputReference;
+
 
 function addTopic() {
     if (topicCount >= 5) return;
@@ -45,7 +73,7 @@ function addTopic() {
         topicCount--;
         if (topicCount === 4 && topicInputReference) restoreTopicInput();
     });
-
+    
     topicInput.insertAdjacentElement("beforebegin", addTopic);
     topicInput.value = "";
     topicCount++;
@@ -74,6 +102,18 @@ addTopicBox.addEventListener('keyup', (e) => {
         addTopic();
     }
 });
+
+
+
+inputTopic.forEach(element => {
+    element.addEventListener('click', e =>{
+        e.target.remove();
+        topicCount--;
+        if (topicCount === 4 && topicInputReference) restoreTopicInput();
+    });
+});
+
+
 
 
 /* summerNote */

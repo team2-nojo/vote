@@ -160,13 +160,13 @@
 	
 	<!-- 청원 상세조회 -->
 	<select id="selectPetitionList" resultMap="petition_rm">
-		SELECT PT_TITLE, PT_CONTENT, PT_DATE, PT_VIEW_COUNT, PT_VICT, PT_IMG, USER_NICKNAME, USER_IMG
+		SELECT PT_NO, PT_TITLE, PT_CONTENT, PT_DATE, PT_VIEW_COUNT, PT_VICT, PT_IMG, USER_NO, USER_NICKNAME, USER_IMG
 		FROM "PETITION"
 		JOIN "USER" USING(USER_NO)
 		WHERE PT_NO = ${petitionNo}
 	</select>
 
-		<!-- 댓글 삽입 -->
+	<!-- 댓글 삽입 -->
 	<insert id="insert">
 		INSERT INTO "COMMENT"										
 		VALUES(SEQ_CM_NO.NEXTVAL, #{petitionNo}, #{userNo}, #{commentContent}, DEFAULT, DEFAULT

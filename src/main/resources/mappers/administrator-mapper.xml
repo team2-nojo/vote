@@ -132,7 +132,7 @@
 	</select>
 	
 	
-	<!-- 삭제되지 않은 청원 수 조회 -->
+	<!-- 삭제되지 않은 유저 수  조회 -->
 	<select id="getUserListCount" resultType="_int">
 		SELECT COUNT(*) FROM "USER" 
 		WHERE USER_DEL_FL = 'N'
@@ -162,6 +162,38 @@ SELECT USER_NO, USER_NICKNAME, USER_EMAIL, USER_ADD, USER_ENDROLL_DT, USER_IMG,
 	ORDER BY USER_NO DESC
 	</select>
 	
+	
+	<!--유저 삭제  -->
+	<update id="deleteUser">
+		UPDATE "USER" SET
+	 	USER_DEL_FL = 'Y'
+	 	WHERE USER_NO = #{userNo}
+	</update>
+	
+		<!--청원 삭제  -->
+	<update id="deletePetition">
+		UPDATE "PETITION" SET
+	 	PT_DEL_FL = 'Y'
+	 	WHERE PT_NO = #{petitionNo}
+	</update>
+	
+	<!-- 삭제된 청원 수 조회 -->
+	<select id="getPetitionDelCount" resultType="_int">
+		SELECT COUNT(*) FROM "PETITION" 
+		WHERE PT_DEL_FL = 'Y'
+	</select>
+	
+	<!--삭제된 청원 조회  -->
+	<select id="selectPetitionDelList" resultMap="petition_rm">
+		SELECT * FROM "PETITION" JOIN "USER" USING(USER_NO) WHERE PT_DEL_FL = 'Y'
+	</select>
+	
+	<!-- 삭제된 청원 복구 -->
+	<update id="updateDelPetition">
+		UPDATE "PETITION" SET
+	 	PT_DEL_FL = 'N'
+	 	WHERE PT_NO = #{petitionNo}
+	</update>
 	
 	
 </mapper>

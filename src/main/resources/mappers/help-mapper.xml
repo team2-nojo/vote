@@ -14,9 +14,18 @@
     <result property="qnaDelFl" column="QNA_DEL_FL" />
     <result property="userNo" column="USER_NO" />
     <result property="qnaCont" column="QNA_CONT" />
+   
     
 </resultMap>
 
+<resultMap type="edu.nojo.vote.help.model.dto.faq" id="faq_rm">
+ <result property="faqQuestionI" column="FAQ_QUESTIONI" />
+    <result property="faqAnswer" column="FAQ_ANSWER" />
+    <result property="faqCatCode" column="FAQ_CAT_CODE" />
+    <result property="faqNo" column="FAQ_NO" />
+    </resultMap>
+    
+    
 	<!-- 삭제되지 않은 문의 수 조회 -->
 	<select id="QA3" resultType="_int">
 		SELECT COUNT(*) FROM "QNA" 
@@ -66,7 +75,6 @@
 		JOIN "USER" U ON Q.USER_NO = U.USER_NO
 		WHERE Q.QNA_DEL_FL = 'N'
 		AND Q.QNA_NO = #{qnaNo}
-
 	</select>
 
 	<update id="helpUpdate">
@@ -77,6 +85,13 @@
 		QNA_CREATE_DT = SYSDATE
 		WHERE QNA_NO = #{qnaNo}
 	</update>
+	
+	<!-- 문의글 조회 -->
+	<select id="FAQ" resultMap="faq_rm">
+	  SELECT FAQ_QUESTIONI, FAQ_ANSWER
+      FROM "FAQ"
+	</select>
+	
 	
 </mapper>
 

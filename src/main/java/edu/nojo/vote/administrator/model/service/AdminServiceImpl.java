@@ -126,7 +126,66 @@ public class AdminServiceImpl implements AdminService {
 		return map;
 	}
 
+	/** 유저 삭제
+	 *
+	 */
+	@Override
+	public int deleteUser(int userNo) {
+		return dao.deleteUser(userNo);
+	}
 
+	/** 청원 삭제
+	 *
+	 */
+	@Override
+	public int deletePetition(int petitionNo) {
+		return dao.deletePetition(petitionNo);
+	}
+
+
+
+
+
+
+	/** 삭제된 청원 조회
+	 *
+	 */
+	@Override
+	public Map<String, Object> selectPetitionDelList(int cp) {
+		
+		int listCount = dao.getPetitionDelCount();
+		
+		Pagination pagination = new Pagination(listCount, cp);
+		
+		List<Petition> petitionDelList = dao.selectPetitionDelList(pagination);
+		
+		// pagination, boardList를 Map에 담아서 반환
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("petitionDelList", petitionDelList);
+		
+		
+		
+		return map;
+		
+	}
+
+
+
+
+
+
+	@Override
+	public int updateDelPetition(int petitionNo) {
+		return dao.updateDelPetition(petitionNo);
+	}
+	
+	
+	
+
+
+	
+	
 
 
 

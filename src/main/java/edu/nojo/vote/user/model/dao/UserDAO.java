@@ -1,5 +1,7 @@
 package edu.nojo.vote.user.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -49,5 +51,12 @@ public class UserDAO {
 	public int checkNickname(String nickname) {
 		return sqlSession.selectOne("userMapper.checkNickname", nickname);
 	}
+
+	public List<Integer> selectEmailSettings(int userNo) {
+		return sqlSession.selectList("userMapper.selectEmailSettings",userNo);
+	}
 	
+	public int insertEmailSettings(User user) {
+		return sqlSession.insert("myPageMapper.insertEmailSettings", user);
+	}
 }

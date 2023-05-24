@@ -31,5 +31,14 @@ public interface HelpService {
 	 */
 	int qnaUpdate(QNA3 qna3);
 
+	/** FAQ DB에서 불러오기
+	 * @param paramMap
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> FAQ(Map<String, Object> paramMap, int cp);
+
+
+
 
 }

@@ -112,31 +112,36 @@ public class BrowseController {
 	// details페이지 내부 comment list
 	@PostMapping(value="/selectComment", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public List<Like> selectComment(@RequestBody String petitionNo) {
+	public List<Comment> selectComment(@RequestBody String petitionNo) {
 		int pno = Integer.parseInt(petitionNo);
+		System.out.println(service2.resetcommentList(pno));
 		return service2.resetcommentList(pno);
 	}
 	
 	
 
+	
 	// 댓글 삽입
-	@PostMapping("/comment")
+	@PostMapping(value="/comment", produces = "application/json; charset=UTF-8")
 	public int insert(@RequestBody Comment comment) {
 		// 요청 데이터 (JSON)을 HttpMessageConverter가 해석해서 Java객체(comment)에 대입
 		return service2.insert(comment);
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	// petitionView 페이지 이동(comments)
 	@GetMapping("/petitionView/comments/{petitionNo}")
 	public String comments(Model model, @PathVariable("petitionNo") int petitionNo) {
-
-		
-		
 		// 해당 청원에 대한 댓글 조회
 		List<Browse> commentList = service2.selectComments(petitionNo);
 //		System.out.println(commentList);
-		
 		model.addAttribute("commentList", commentList);
 
 		return "/browse/petitionView/comments";

@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-<c:if test="${not empty myPetition}">
-  <c:set var="MP" value="${myPetition}"/>
-</c:if>
+<c:set var="MP" value="${myPetition}"/>
+<c:set var="CAT" value="${category}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -54,7 +53,7 @@
         <form action="">
           <div class="content-title">
             <div class="content-side-title">
-              <h3>제목 편집</h3>
+              <h3 id="titleEdit">제목 편집</h3>
               <span id="titleTipBtn">팁 보기</span>
               <dialog class="tip" id="titleTip">
                 <div class="tip-container">
@@ -85,7 +84,7 @@
           </div>
           <div class="description">
             <div class="content-side-title">
-              <h3>본문 편집</h3>
+              <h3 id="contentEdit">본문 편집</h3>
               <span id="descriptTipBtn">팁 보기</span>
               <dialog class="tip" id="descriptTip">
                 <div class="tip-container">
@@ -117,7 +116,7 @@
           <div class="img-link"><a href="#">이제 동영상과 이미지로 청원을 돋보이게 만들 수 있습니다. 여기에서 시도하십시오!</a></div>
           <div>
             <div class="content-side-title">
-              <h3>이미지</h3>
+              <h3 id="imgEdit">이미지</h3>
               <span id="imgTipBtn">팁 보기</span>
               <dialog class="tip" id="imgTip">
                 <div class="tip-container">
@@ -190,7 +189,7 @@
           </div>
           <div>
             <div class="content-data-side-title">
-              <h3>주제추가</h3>
+              <h3 id="topicEdit">주제추가</h3>
               <i id="topicI" class="fa-regular fa-circle-question">
                 <div id="topicP">
                   <p>청원서의 주요 관련 주제는 무엇입니까? 귀하의 청원에 적합한 청중을 찾는데 도움이 될 것입니다.</p>
@@ -198,6 +197,11 @@
               </i>
             </div>
             <div id="addTopicBox">
+              <c:if test="${not empty CAT}" >
+                <c:forEach items="${CAT}" var="category">
+                  <div><span>${category.categoryName}&nbsp;<i class="fa-regular fa-rectangle-xmark"></i></span></div>
+                </c:forEach>
+              </c:if>
               <input id="topicInput" placeholder="예시 : 뭐하지">
             </div>
           </div>

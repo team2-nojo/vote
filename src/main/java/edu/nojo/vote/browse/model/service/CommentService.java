@@ -14,17 +14,22 @@ public interface CommentService {
 	 */
 	List<Browse> selectComments(int petitionNo);
 
-	/** details 내부 댓글 조회
-	 * @param pno
-	 * @return list
-	 */
-	List<Comment> resetcommentList(int pno);
+
 
 	/** 댓글 작성
 	 * @param comment
 	 * @return result
 	 */
 	int insert(Comment comment);
+
+	
+	
+	/** details 내부 댓글 조회
+	 * @param petitionNo
+	 * @return list
+	 */
+	List<Comment> selectCommentList(int petitionNo);
+
 
 	
 	

@@ -33,10 +33,10 @@ public class CommentDAO {
 	 * @param pno
 	 * @return list
 	 */
-	public List<Comment> resetcommentList(int petitionNo) {
-		
-		return sqlSession.selectList("myPetitionsMapper.resetcommentList", petitionNo);
-	}
+//	public List<Comment> resetcommentList(int petitionNo) {
+//		
+//		return sqlSession.selectList("myPetitionsMapper.resetcommentList", petitionNo);
+//	}
 
 
 
@@ -46,6 +46,16 @@ public class CommentDAO {
 	 */
 	public int insert(Comment comment) {
 		return sqlSession.insert("browseMapper.insert", comment);
+	}
+
+
+	/** details내부 댓글조회
+	 * @param petitionNo
+	 * @return selectCommentList
+	 */
+	public List<Comment> selectCommentList(int petitionNo) {
+		
+		return sqlSession.selectList("browseMapper.selectCommentList", petitionNo);
 	}
 	
 	

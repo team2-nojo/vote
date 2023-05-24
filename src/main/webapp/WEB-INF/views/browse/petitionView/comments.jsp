@@ -91,6 +91,10 @@
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
+    <script>
+        let commentUserNo = "${comment.userNo}";
+    </script>
+
     <%-- comments.js --%>
     <script src="/resources/js/browse/petitionView/comments.js"></script>
 </body>

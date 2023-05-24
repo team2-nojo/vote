@@ -26,12 +26,8 @@ public class CommentServiceImpl implements CommentService{
 	}
 	
 	
-	// details 내부 댓글 조회
-	@Override
-	public List<Comment> resetcommentList(int petitionNo) {
-		
-		return dao.resetcommentList(petitionNo);
-	}
+	
+	
 	
 	// 댓글 작성
 	@Override
@@ -39,8 +35,18 @@ public class CommentServiceImpl implements CommentService{
 		// XSS방지 처리
 		comment.setCommentContent(Util.XSSHandling(comment.getCommentContent()));
 		
-		System.out.println(comment);
+//		System.out.println(comment);
 		
 		return dao.insert(comment);
 	}
+	
+	
+	// details 내부 댓글 조회
+	@Override
+	public List<Comment> selectCommentList(int petitionNo) {
+		
+		return dao.selectCommentList(petitionNo);
+	}
+	
+	
 }

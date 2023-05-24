@@ -1,6 +1,7 @@
 package edu.nojo.vote.browse.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import edu.nojo.vote.main.model.dto.Petition;
 
@@ -26,6 +27,20 @@ public interface BrowseService {
 	 * @return list
 	 */
 	Petition selectPetitionList(int petitionNo);
+
+	
+	
+	/** 청원 좋아요 확인
+	 * @param map
+	 * @return result
+	 */
+//	int petitionLikeCheck(Map<String, Object> map);
+
+	/** 청원 좋아요
+	 * @param paramMap
+	 * @return count
+	 */
+	int petitionLike(Map<String, Integer> paramMap);
 
 
 }

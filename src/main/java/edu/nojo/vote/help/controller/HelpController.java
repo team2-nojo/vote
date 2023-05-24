@@ -28,32 +28,36 @@ public class HelpController {
 	private HelpService service;
 	
 	@GetMapping("/FAQ")
-	public String FAQ(    	
-			@RequestParam(value="cp", required=false, defaultValue="1") int cp
-	    	, Model model
-	    	, @RequestParam Map<String, Object> paramMap) {
-	    	
-	    	Map<String, Object> map = service.FAQ(paramMap, cp);
-	    	model.addAttribute("map", map);
-	   
+	// FAQ (아래 버튼을 누르면 아코디언 메뉴가 바뀜)
+	public String FAQ(
+			 @RequestParam(value="cp", required=false, defaultValue="1") int cp
+          , Model model
+          , @RequestParam Map<String, Object> paramMap
+           ) {
+				
+		Map<String, Object> map = service.FAQList(paramMap, cp);
+		
+		model.addAttribute("map", map);
 		return "/clientCenter/FAQ";
 	}
 	
+
+
+	   	
+	// 게시글 등록 시 뜨는 팝업창
     @GetMapping("/popup")
     public String popup() {
     	
     	return "/clientCenter/popup";
     }
     
+    // 1:1 문의 등록
     @GetMapping("/QNA")
     public String qna() {
     	return "/clientCenter/QNA";
     }
     
-    
-    
-    
-    
+    // 1:1 문의 등록
     @PostMapping("/QNA")
     public String QA(@SessionAttribute(value="loginUser", required=false) User loginUser
     	  , QNA3 qna3
@@ -81,12 +85,14 @@ public class HelpController {
     	return path;
     }    
     
+    // 챗봇이었던것
     @GetMapping("/chatbot")
     public String chatbot() {
     		
     	return "/clientCenter/chatbot";
     }    
     
+    // 문의내역
     @GetMapping("/QNA3")
     public String QA3(
     	@RequestParam(value="cp", required=false, defaultValue="1") int cp
@@ -100,7 +106,7 @@ public class HelpController {
     	return "/clientCenter/QNA3";
     } 
     
-    
+    // 문의내역 상세조회
     @GetMapping("/QNADetail/{qnaNo:[0-9]+}")
     public String qnaDetail(
     		@SessionAttribute(value="loginUser", required=false) User loginUser
@@ -122,7 +128,7 @@ public class HelpController {
         return path;
      }
     
-	// 게시글 수정 화면 전환
+	// 문의글 수정 화면 전환
 	@GetMapping("/QNAupdate/{qnaNo}")
 	public String qnaUpdate(
 		 @PathVariable("qnaNo") int qnaNo
@@ -142,9 +148,7 @@ public class HelpController {
 	}
 	
     
-    
-    
-    
+	// 문의글 수정
     @PostMapping("/QNAupdate/{qnaNo}")
     public String qnaUpdate(
     	QNA3 qna3
@@ -172,8 +176,31 @@ public class HelpController {
 	return path;
 }
     
-    
-    
+    // 문의글 삭제
+    @GetMapping("/QNAupdate/{qnaNo}/delete")
+    public String qnaDelete(
+    		  QNA3 qna3
+    		, @PathVariable("qnaNo") int qnaNo
+    		, RedirectAttributes ra) {
+    	
+    	int result = service.qnaDelete(qnaNo);
+    	
+		String message = null;
+		String path = "redirect:";
+		
+		if(result > 0) {
+			message = "삭제 되었습니다";
+			path += "/clientCenter/QNA3";
+		} else {
+			message = "삭제 실패";
+			path += "/clientCenter/QNADetail/" + qnaNo;
+		}
+			
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+    	
+    }
     
     
     

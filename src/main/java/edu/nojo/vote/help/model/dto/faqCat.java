@@ -7,9 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class faq {
-	private String faqQuestionI;
-	private String faqAnswer;
-	private String faqCatCode;
-	private String faqNo;
+public class faqCat {
+	private String faqCatNo;
+	private String faqCatName;
 }

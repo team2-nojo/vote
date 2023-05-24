@@ -3,7 +3,7 @@
 <mapper namespace="HelpMapper">
 
 <resultMap type="edu.nojo.vote.help.model.dto.QNA3" id="QNA3_rm">
-	<!-- <result property="qnaContent" column="QNA_CONT" jdbcType="CLOB" javaType="String" /> -->
+
 	<result property="qnaNo" column="QNA_NO" />	
 	<result property="qnaCatCode" column="QNA_CAT_CODE" />
 	<result property="qnaStatus" column="QNA_STATUS" />
@@ -15,16 +15,23 @@
     <result property="userNo" column="USER_NO" />
     <result property="qnaCont" column="QNA_CONT" />
    
-    
 </resultMap>
 
 <resultMap type="edu.nojo.vote.help.model.dto.faq" id="faq_rm">
+
  <result property="faqQuestionI" column="FAQ_QUESTIONI" />
     <result property="faqAnswer" column="FAQ_ANSWER" />
     <result property="faqCatCode" column="FAQ_CAT_CODE" />
     <result property="faqNo" column="FAQ_NO" />
+    
     </resultMap>
     
+    <resultMap type="edu.nojo.vote.help.model.dto.faqCat" id="faqCat_rm">
+    
+     <result property="faqCatNo" column="FAQ_CAT_NO" />
+    <result property="faqCatName" column="FAQ_CAT_NAME" />
+    
+    </resultMap>
     
 	<!-- 삭제되지 않은 문의 수 조회 -->
 	<select id="QA3" resultType="_int">
@@ -68,6 +75,8 @@
 		
 	</insert>
 
+
+   <!-- 문의글 상세조회 -->
 	<select id="selectqna" resultMap="QNA3_rm">
 		SELECT Q.QNA_NO, Q.QNA_TITLE, Q.QNA_CONT, U.USER_NO,
 		TO_CHAR(Q.QNA_CREATE_DT, 'YYYY"년" MM"월" DD"일') AS QNA_CREATE_DT
@@ -76,22 +85,40 @@
 		WHERE Q.QNA_DEL_FL = 'N'
 		AND Q.QNA_NO = #{qnaNo}
 	</select>
-
+	
+	
+    <!-- 문의글 수정 -->
 	<update id="helpUpdate">
 		UPDATE "QNA" SET
 		QNA_TITLE = #{qnaTitle},
-		QNA_CONT =
-		#{qnaCont},
+		QNA_CONT = #{qnaCont},
 		QNA_CREATE_DT = SYSDATE
 		WHERE QNA_NO = #{qnaNo}
 	</update>
 	
-	<!-- 문의글 조회 -->
-	<select id="FAQ" resultMap="faq_rm">
-	  SELECT FAQ_QUESTIONI, FAQ_ANSWER
-      FROM "FAQ"
+
+    <!-- 문의글 삭제 -->
+	<update id="qnaDelete">
+		UPDATE "QNA" SET
+		QNA_DEL_FL = 'Y'
+		WHERE QNA_NO = #{qnaNo}
+	</update>
+
+    <!-- FAQ 종류 목록 조회 -->
+	<select id="selectfaqTypeList" resultType="map">
+       SELECT * FROM "FAQ_CAT" ORDER BY 1
 	</select>
-	
+
+
+	<select id="faqCount_search" resultType="_int">
+       SELECT COUNT(*) 
+       FROM "FAQ"
+	</select>
+
+	<select id="faq2List_search" resultMap="faq_rm">
+       SELECT FAQ_QUESTIONI, FAQ_ANSWER
+       FROM "FAQ"
+	</select>
 	
 </mapper>
 

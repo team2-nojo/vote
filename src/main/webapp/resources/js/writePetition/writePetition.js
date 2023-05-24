@@ -93,7 +93,6 @@ const categorySelectCheck = () =>{
       count++;
     })
   }
-  console.log(count);
   if(count<1 || count>5){
     nextBtn.disabled=true;
   } else {
@@ -110,11 +109,16 @@ categoryItems.forEach(categoryItem =>{
 directInputCheckBox.addEventListener('change', () =>{
   categorySelectCheck();
 });
+
 // 직접 입력하는 창 또는 버튼에 이벤트 리스너 추가
 const categoryInput = document.getElementById('categoryInput');
 const directInputItemContainer = document.getElementById('directInputItemContainer');
-const categoryInputBtn = document.getElementById('categoryInputBtn');
-categoryInputBtn.addEventListener('click', () => {
+const categoryInputEvent =  () => {
+  if (isCategoryAlreadyAdded(categoryInput.value)) {
+    alert("이미 선택된 주제입니다.")
+    return;
+  }
+
   if(categoryInput.value.trim().length > 0){
     const item = document.createElement('label');
     item.classList.add("direct-input-item","category-item");
@@ -129,8 +133,27 @@ categoryInputBtn.addEventListener('click', () => {
     `
     directInputItemContainer.append(item);
     categorySelectCheck();
+    categoryInput.value = "";
+  }
+}
+const categoryInputBtn = document.getElementById('categoryInputBtn');
+categoryInput.addEventListener("keydown", e =>{
+  if(e.key === 'Enter') {
+    e.preventDefault();
+    categoryInputEvent();
   }
 })
+categoryInputBtn.addEventListener('click', categoryInputEvent);
+const isCategoryAlreadyAdded = value => {
+  const existingItems = directInputItemContainer.querySelectorAll('.direct-input-item');
+  for (let i = 0; i < existingItems.length; i++) {
+    const itemValue = existingItems[i].querySelector('input[name="directInputCategory"]').value;
+    if (itemValue === value) {
+      return true;
+    }
+  }
+  return false;
+}
 
 
 
@@ -197,9 +220,7 @@ $(document).ready(() => {
 });
 // 내용이 있는 지 체크
 const checkContentsLength = () => {
-  console.log(content);
     let str = f_SkipTags_html(content).trim();
-    console.log(str);
     if(str=='') nextBtn.disabled = true;
     else nextBtn.disabled = false;
 }

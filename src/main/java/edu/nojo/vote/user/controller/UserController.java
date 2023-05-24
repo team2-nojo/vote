@@ -91,7 +91,7 @@ public class UserController {
 			
 			// 이전페이지로 돌아감
 			path += referer;
-			ra.addFlashAttribute("message","아이디 또는 비밀번호가 일치하지 않습니다.");
+			ra.addFlashAttribute("serverMessage","아이디 또는 비밀번호가 일치하지 않습니다.");
 		}
 		
 		return path;

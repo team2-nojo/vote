@@ -27,8 +27,8 @@ public class BrowseServiceImpl implements BrowseService {
 	
 	// 최신순으로 조회
 	@Override
-	public List<Petition> recent() {
-		List<Petition> petitionList = dao.recent(); 
+	public List<Petition> recent(int page) {
+		List<Petition> petitionList = dao.recent(page); 
 		for(Petition p: petitionList) {
 			if(p.getPetitionContent()!=null)
 				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));

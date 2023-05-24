@@ -127,7 +127,7 @@ main{
 
 #content{
     font-size: 3px;
-    margin: 20px;
+    margin: 10px 20px;
 }
 
 #readMore{
@@ -205,4 +205,16 @@ main{
     margin-bottom: 20px;
     cursor: pointer;
 
+}
+
+.limit-title{
+    overflow: hidden;
+    height: 40px;
+    max-width: 500px;
+}
+
+.limit-content{
+    overflow: hidden;
+    height: 100px;
+    max-width: 500px;
 }

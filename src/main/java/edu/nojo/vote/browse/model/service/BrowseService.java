@@ -14,7 +14,7 @@ public interface BrowseService {
 	/** 최신순으로 조회
 	 * @return recentList
 	 */
-	List<Petition> recent();
+	List<Petition> recent(int page);
 
 	/** 승리한 청원 조회(최신순)
 	 * @return victoriesList

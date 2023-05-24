@@ -2,6 +2,7 @@ package edu.nojo.vote.browse.model.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,8 +21,8 @@ public class BrowseDAO {
 	}
 
 	// 최신순으로 조
-	public List<Petition> recent() {
-		return sqlSession.selectList("browseMapper.recent");
+	public List<Petition> recent(int page) {
+		return sqlSession.selectList("browseMapper.recent",null,new RowBounds(page*5, 5));
 	}
 
 	/** 승리한 청원 조회(최신순)

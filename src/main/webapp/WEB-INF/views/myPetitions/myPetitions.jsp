@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="userProfileID">${loginUser.userNickname}</div>
-                        <div class="userProfileLocation">${loginUser.userAddress.split(" ")[0]}</div>
+                        <div class="userProfileLocation">${loginUser.userAddress.split("^^^")[0]}</div>
                         <div>
                             <a href="/myPage/editProfile">Edit profile</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
                         </div>

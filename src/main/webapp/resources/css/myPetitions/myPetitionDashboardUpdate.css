@@ -217,8 +217,8 @@
     top: 50%;
     left: 50%;
 
-    width: 40%;
-    height: 70%;
+    width: 500px;
+    height: 600px;
 
     padding: 40px;
 
@@ -240,6 +240,7 @@
     margin-top: 20px;
     padding: 0px 10px;
     color: black;
+    text-align: left;
 }
 
 /* 모달창 닫기 버튼 div */
@@ -263,6 +264,32 @@
     font-size: 24px;
 }
 
+
+
+/* 모달창 유저이미지 */
+.modal-content-title-profile {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#userProfileMini {
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.modal-content-title-profile > div{
+    padding-top: 2px;
+}
+
+.modal-content-title-profile > div > p:last-child{
+    margin-left: 5px;
+    color: #737273;
+}
+
+
 /* 모달창 내부 서브 타이틀 */
 .modal-subtitle {
     font-size: 16px;
@@ -274,8 +301,23 @@
     border: 1px solid #737273;
     margin-bottom: 15px;
     padding: 20px 15px;
+    overflow: scroll;
 }
 
+/* 모달창 이메일 타이틀 */
+.modal-content-title {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* 모달창 내부 이미지 */
+#modalImagePreview {
+    margin-top: 20px;
+    width: 300px;
+    height: auto;
+}
 
 /* 저장 버튼 */
 #emailPreview, #updatePetitionPost{

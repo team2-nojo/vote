@@ -50,7 +50,7 @@
           <h1>청원서 편집</h1>
           <h2>청원 주요내용</h2>
         </div>
-        <form action="/myPetitionEdit/{petitionNo}" method="post" enctype="multipart/form-data">
+        <form id="editForm" action="/myPetitions/myPetitionEdit/${petitionNo}" method="post" enctype="multipart/form-data">
           <div class="content-title">
             <div class="content-side-title">
               <h3 id="titleEdit">제목 편집</h3>
@@ -110,7 +110,8 @@
                   </div>
                 </div>
               </dialog>
-            <div id="summernote" name="editorContent">${MP.petitionContent}</div>
+            </div>
+            <textarea id="summernote" name="editorContent">${MP.petitionContent}</textarea>
           </div>
           <c:if test="${empty MP.petitionImage}" >
             <div class="img-link">이미지를 추가해주세요! 당신의 청원을 돋보이게 만들 수 있습니다!!</div>
@@ -148,7 +149,7 @@
               <div class="img-upload">
                 <c:choose>
                   <c:when test="${not empty MP.petitionImage}">
-                    <img src="/${MP.petitionImage}">
+                    <img src="${MP.petitionImage}">
                     <button type="button" id="imgDelete">x</button>
                   </c:when>
                   <c:otherwise>
@@ -197,6 +198,7 @@
               </c:if>
               <input id="topicInput" placeholder="예시 : 뭐하지">
             </div>
+            <input id="inputCategory" name="inputCategory" type="hidden">
           </div>
           <div class="edit-btn">
             <button id="cancel" type="reset">cancel</button>

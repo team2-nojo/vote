@@ -168,8 +168,12 @@ mark{
 
 /* 사진 */
 
+
 .picture{
     border-radius: 5px;
+    width: 145px;
+    height: 145px;
+    object-fit: cover;
 }
 
 .progress{

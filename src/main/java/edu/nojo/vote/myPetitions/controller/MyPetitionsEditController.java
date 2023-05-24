@@ -1,8 +1,12 @@
 package edu.nojo.vote.myPetitions.controller;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,36 +68,45 @@ public class MyPetitionsEditController {
 			, @PathVariable("petitionNo") int petitionNo
 			, @RequestParam(value="conTitle")String title
 			, @RequestParam(value="editorContent")String content
+			, @RequestParam(value="inputCategory")String category
 			, @RequestParam(value="thumbnailImage", required=false) MultipartFile thumbnailImage
-			,RedirectAttributes ra
-			) {
+			, RedirectAttributes ra
+			, HttpSession session
+			) throws IllegalStateException, IOException {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("loginUserNo", loginUser.getUserNo());
 		map.put("petitionNo", petitionNo);
 		
-		// 청원 조회 서비스 호출
-		Petition myPetition = service.selectMyPetition(map);
-		
-		// 카테고리 조회 서비스 호출
-		List<PetitionCategory> category = service.selectCatagory(petitionNo);
-		
-		
 		Petition petition = new Petition();
 		
-		if(!myPetition.getPetitionTitle().equals(title)) {
-			petition.setPetitionTitle(title);
+		petition.setUserNo(loginUser.getUserNo());
+		petition.setPetitionTitle(title);
+		petition.setPetitionContent(content);
+		
+		List<String> categoryList = Arrays.asList(category.split(","));
+		
+		
+		String webPath = "/resources/images/writePetition/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		int result = service.myPetitionUpdate(map,petition,thumbnailImage,webPath,filePath,categoryList);
+		
+		String message = null;
+		String path = null;
+		
+		if(result == 3) {
+			message = "성공적으로 수정되었습니다.";
+			path = "/browse/petitionView/details/" + petitionNo;
+		}else {
+			message = "수정실패 하었습니다.";
+			path = "/myPetitions/myPetitionsDashboard/" + petitionNo;
 		}
-		if(!myPetition.getPetitionContent().equals(content)) {
-			petition.setPetitionTitle(content);
-		}
-		if(!myPetition.getPetitionImage().equals(title)) {
-			petition.setPetitionTitle(title);
-		}
+		
+		ra.addFlashAttribute(message);
 		
 		
 		
-		return null;
+		return path;
 	}
 
 	

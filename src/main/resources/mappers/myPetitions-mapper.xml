@@ -141,6 +141,24 @@
 		WHERE PT_NO = ${petitionNo}
 	</select>
 
+	<!-- 제목 업데이트 -->
+	<update id="updateTitle">
+		UPDATE "PETITION" SET
+		PT_TITLE = #{petitionTitle}
+		WHERE PT_NO = ${petitionNo}
+	</update>
+	<!-- 내용 업데이트 -->
+	<update id="updateContent">
+		UPDATE "PETITION" SET
+		PT_CONTENT = #{petitionContent}
+		WHERE PT_NO = ${petitionNo}
+	</update>
+	<!-- 이미지 업데이트 -->
+	<update id="updateImage">
+		UPDATE "PETITION" SET
+		PT_IMG = #{petitionImage}
+		WHERE PT_NO = ${petitionNo}
+	</update>
 
 
 	<resultMap type="User" id="user_rm">

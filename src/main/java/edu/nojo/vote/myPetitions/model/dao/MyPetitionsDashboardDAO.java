@@ -99,6 +99,29 @@ public class MyPetitionsDashboardDAO {
 	public List<PetitionCategory> selectCatagory(int petitionNo) {
 		return sqlSession.selectList("myPetitionsMapper.selectCatagory", petitionNo);
 	}
+
+
+	/** 제목 수정
+	 * @param update
+	 * @return
+	 */
+	public int updateTitle(Petition update) {
+		return sqlSession.update("myPetitionsMapper.updateTitle", update);
+	}
+	/** 내용 수정
+	 * @param update
+	 * @return
+	 */
+	public int updateContent(Petition update) {
+		return sqlSession.update("myPetitionsMapper.updateContent", update);
+	}
+	/** 이미지 수정
+	 * @param update
+	 * @return
+	 */
+	public int updateImage(Petition update) {
+		return sqlSession.update("myPetitionsMapper.updateImage", update);
+	}
 	
 	
 	

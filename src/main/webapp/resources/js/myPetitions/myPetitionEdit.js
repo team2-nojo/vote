@@ -107,6 +107,7 @@ inputTopic.forEach(element => {
 });
 
 
+
 /* img 제거 및 업로드 */
 const imgframe = document.querySelector(".img-upload");
 
@@ -166,67 +167,31 @@ function preView(e){
     };
 };
 
-/* summerNote */
-let content = '';
-$(document).ready(() => {
-    //에디터 설정
-    $('#summernote').summernote({
-        height: 500,                 // 에디터 높이
-        minHeight: null,             // 최소 높이
-        maxHeight: null,             // 최대 높이
-        focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-        lang: "ko-KR",					// 한글 설정
-        toolbar: [
-            ['style', ['style']],
-            ['font', ['bold', 'underline', 'clear']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture']],
-        ],
-        callbacks: {
-            onChange: function (contents, $editable) { //텍스트 글자수
-                content = contents;
-                checkContentsLength();
-            },
-            onImageUpload: function (files) {
-                for (let i = 0; i < files.length; i++)
-                    uploadSummernoteImageFile(files[i], this);
-            },
-            onPaste: function (e) {
-                var clipboardData = e.originalEvent.clipboardData;
-                if (clipboardData && clipboardData.items && clipboardData.items.length) {
-                    var item = clipboardData.items[0];
-                    if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
-                        e.preventDefault();
-                    }
-                }
-            }
-        }
-    });
-});
-// 내용이 있는 지 체크
-const checkContentsLength = () => {
-    console.log(content);
-    let str = f_SkipTags_html(content).trim();
-    console.log(str);
-    if (str == '') nextBtn.disabled = true;
-    else nextBtn.disabled = false;
-}
 
-// ajax로 이미지 업로드
-const uploadSummernoteImageFile = (file, editor) => {
-    data = new FormData();
-    data.append("file", file);
-    $.ajax({
-        data: data,
-        type: "POST",
-        url: "/uploadSummernoteImageFile",
-        contentType: false,
-        processData: false,
-        success: data => {
-            $(editor).summernote('insertImage', data.url);
-        }
-    });
+/* 제출하기 */
+
+/* 버튼제어 */
+const saveBtn = document.getElementById("save");
+const cancelBtn = document.getElementById("cancel");
+
+// 이전페이지로, 작성계속
+cancelBtn.addEventListener('click', () => {
+
+    let result = confirm("기존 내용을 제외한 작성된 내용이 모두 초기화 되었습니다.\n이전화면으로 돌아가시겠습니까?");
+    if(result){
+        location.href = document.referrer;
+        return;
+    }else{
+        return;
+    }
+    alert(result);
+});
+
+// 텍스트제거 후 섬머노트 내용 없으면 비활성화
+const checkContentsLength = () => {
+    let str = f_SkipTags_html(content).trim();
+    if(str=='') saveBtn.disabled = true;
+    else saveBtn.disabled = false;
 }
 
 //에디터 내용 텍스트 제거
@@ -240,10 +205,92 @@ const f_SkipTags_html = (input, allowed) => {
     });
 }
 
-const summernote = $('#summernote');
-const submitContent = document.getElementById('summernote');
 
-const previewPageUpdate = () => {
+// 써머노트 관련 설정
+let content = '';
+$(document).ready( () => {
+    
+    $('#summernote').summernote({
+        height: 500,
+        minHeight : null,
+        maxHeight : null,
+        focus : true,
+        lang : "ko-KR",
+        toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ],
+        callbacks: {
+            // 써머노트 내에서 이미지 삽입 시
+            onImageUpload : function(files) {
+            for(let i=0 ; i<files.length ; i++)
+                uploadSummernoteImageFile(files[i],this);
+            },
+            onPaste: function (e) {
+                var clipboardData = e.originalEvent.clipboardData;
+                if (clipboardData && clipboardData.items && clipboardData.items.length) {
+                    var item = clipboardData.items[0];
+                    if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
+                    e.preventDefault();
+                    }
+                }
+            }
+        }
+    });
+});
+
+// ajax로 이미지 업로드
+const uploadSummernoteImageFile = (file, editor) => {
+    data = new FormData();
+    data.append("file", file);
+    $.ajax({
+        data : data,
+        type : "POST",
+        url : "/petitionUpdateUploadSummernoteImageFile",
+        contentType : false,
+        processData : false,
+        success : data => {
+        $(editor).summernote('insertImage', data.url);
+        }
+    });
+}
+
+const editForm = document.getElementById("editForm"); // 폼
+const category = document.getElementById("inputCategory");
+
+saveBtn.addEventListener('click', () => {
+    category.value = addTopicBox.innerText.replace(/\s*\n\s*/g, ",");
+});
+
+
+editForm.addEventListener("submit", () => {
+    // 제목 미작성 시
+    const petitionUpdateTitle = document.querySelector("input[name = 'petitionUpdateTitle']");
+    if(petitionUpdateTitle.value.trim() == '') {
+        petitionUpdateTitle.value="";
+        petitionUpdateTitle.focus();
+        e.preventDefault();
+        alert("업데이트 제목을 작성해 주시기 바랍니다.")
+        return;
+    }
+
+    // 제출할때 섬머노트 내용 대입
+    const summernote = $('#summernote');
+    const submitContent = document.getElementById('summernote');
+
     submitContent.value = summernote.summernote('code');
-    previewContent.innerHTML = submitContent.value;
-};
+    
+});
+
+
+
+
+console.log(category.value)
+// 엔터키 제출 막기
+editForm.addEventListener("keydown", evt => {
+    if (evt.code === "Enter") 
+    evt.preventDefault();
+});

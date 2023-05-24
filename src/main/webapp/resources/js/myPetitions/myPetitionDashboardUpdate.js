@@ -233,7 +233,6 @@ const deleteImage = document.getElementById("deleteImage"); // x버튼
         deleteCheck = 0;
     });
 
-  
 
 
 

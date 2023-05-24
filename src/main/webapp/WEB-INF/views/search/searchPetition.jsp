@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="row-right" id="rowPicture">
-                            <img src="/${petition.petitionImage}" class="picture">
+                            <img src="${petition.petitionImage}" class="picture">
                         </div>
                     </a>
                 </div>

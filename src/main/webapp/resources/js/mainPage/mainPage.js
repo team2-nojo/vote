@@ -98,7 +98,7 @@ document.getElementById('loadButton').addEventListener('click', function () {
           var li = document.createElement('li');
           let categories = '';
           mainPetition.categoryList.forEach((category, index) => {
-            categories += `<a href="#">${category.categoryName}</a>`;
+            categories += `<a href="#" class="petCategory">${category.categoryName}</a>`;
             if (index < mainPetition.categoryList.length - 1) {
               categories += ', ';
             }
@@ -107,13 +107,13 @@ document.getElementById('loadButton').addEventListener('click', function () {
           li.innerHTML = `
             <div class="pettition1 pet-title">
               <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
-              <span>Trending in ${categories}</span>
+              <span class="text-limit4">Trending in ${categories}</span>
               <a href="#" style="text-decoration: underline;">See more</a>
             </div>
             <div class="pettition1 article">
-              <div class="article-title"><a href="/browse/petitionView/details/${mainPetition.petitionNo}"><h3 id="box-petition-title">${mainPetition.petitionTitle}</h3></a></div>
+              <div class="article-title"><a href="/browse/petitionView/details/${mainPetition.petitionNo}"><h3 id="box-petition-title" class="text-limit5">${mainPetition.petitionTitle}</h3></a></div>
               <div>
-                <a href="/browse/petitionView/details/${mainPetition.petitionNo}"><div>${mainPetition.petitionContent}</a></a></div>
+                <a href="/browse/petitionView/details/${mainPetition.petitionNo}"><div class="text-limit6">${mainPetition.petitionContent}</a></a></div>
               </div>
               <div class="photo"><img src="${mainPetition.petitionImage}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>

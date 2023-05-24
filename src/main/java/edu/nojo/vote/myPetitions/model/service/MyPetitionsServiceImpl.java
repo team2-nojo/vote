@@ -25,7 +25,14 @@ public class MyPetitionsServiceImpl implements MyPetitionsService {
 	// 로그인 한 멤버의 회원 번호를 이용해 작성한 글 조회
 	@Override
 	public List<Petition> selectMyPetitions(int userNo) {
-		return dao.selectMyPetitions(userNo);
+		List<Petition> petitionList = dao.selectMyPetitions(userNo);
+
+		for(Petition p: petitionList) {
+			if(p.getPetitionContent()!=null)
+				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));
+		}
+		
+		return petitionList;
 	}
 
 

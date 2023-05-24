@@ -2,7 +2,6 @@ package edu.nojo.vote.mypage.model.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

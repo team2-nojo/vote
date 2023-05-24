@@ -7,11 +7,19 @@ const data = {
 // 게시글 수정 버튼 클릭 시
 
 const updatebtn = document.getElementById("updateBtn");
+const deletebtn = document.getElementById("deleteBtn");
 
 updatebtn.addEventListener("click", e => {
 
     // /clientCenter/QNADetail/25?cp=1
     location.href = '/clientCenter/QNAupdate/' + qnaNo;
 
+});
 
+deletebtn.addEventListener("click", e => {
+
+    if(confirm("정말 삭제하겠습니까?")) {
+    location.href = '/clientCenter/QNAupdate/' + qnaNo + "/delete";
+
+    }
 });

@@ -1,10 +1,16 @@
 package edu.nojo.vote.help.model.service;
 
+import java.util.List;
 import java.util.Map;
 
 import edu.nojo.vote.help.model.dto.QNA3;
 
 public interface HelpService {
+	
+	/** FAQ 목록
+	 * @return
+	 */
+	List<Map<String, Object>> selectFaqTypeList();
 
 	/** 문의 내역 조회
 	 * @param paramMap 
@@ -31,13 +37,20 @@ public interface HelpService {
 	 */
 	int qnaUpdate(QNA3 qna3);
 
-	/** FAQ DB에서 불러오기
-	 * @param paramMap
-	 * @param cp
-	 * @return
-	 */
-	Map<String, Object> FAQ(Map<String, Object> paramMap, int cp);
 
+	/** 문의글 삭제 서비스
+	 * @param qnaNo
+	 * @return result
+	 */
+	int qnaDelete(int qnaNo);
+
+	
+    /** FAQ와 글 조회
+     * @param paramMap 
+     * @param faqNo
+     * @return 
+     */
+	Map<String, Object> FAQList(Map<String, Object> paramMap, int faqNo);
 
 
 

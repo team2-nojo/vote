@@ -17,19 +17,34 @@ public class BrowseServiceImpl implements BrowseService {
 	// 인기순으로 조회
 	@Override
 	public List<Petition> popular() {
-		return dao.popular();
+		List<Petition> petitionList = dao.popular(); 
+		for(Petition p: petitionList) {
+			if(p.getPetitionContent()!=null)
+				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));
+		}
+		return petitionList;
 	}
 	
 	// 최신순으로 조회
 	@Override
-	public List<Petition> recent() {
-		return dao.recent();
+	public List<Petition> recent(int page) {
+		List<Petition> petitionList = dao.recent(page); 
+		for(Petition p: petitionList) {
+			if(p.getPetitionContent()!=null)
+				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));
+		}
+		return petitionList;
 	}
 	
 	// 승리한 청원 조회(최신순)
 	@Override
 	public List<Petition> victories() {
-		return dao.victories();
+		List<Petition> petitionList = dao.victories();
+		for(Petition p: petitionList) {
+			if(p.getPetitionContent()!=null)
+				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));
+		}
+		return petitionList;
 	}
 	
 	

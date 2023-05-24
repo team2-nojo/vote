@@ -37,13 +37,13 @@
                 <div class="result">
                     <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1">
                         <div class="row-left" id="rowPicture">
-                            <img src="/${petition.petitionImage}" class="picture">
+                            <img src="${petition.petitionImage}" class="picture">
                         </div>
                         <div class="row-right">
-                            <div id="title">
+                            <div id="title" class="limit-title">
                                 ${petition.petitionTitle}
                             </div>
-                            <div id="content">
+                            <div id="content" class="limit-content">
                                 ${petition.petitionContent}
                                 <a href="/browse/petitionView/details/${petition.petitionNo}" id="readMore"> Read more</a>
                             </div>
@@ -58,7 +58,6 @@
                     </a>
                 </div>
             </c:forEach>
-
         </section>
         <section>
             <div>
@@ -70,6 +69,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <%-- browse_search.js --%>
-    <script src="/resources/js/browes/browse_search/recent.js"></script>
+    <script src="/resources/js/browse/browse_search/recent.js"></script>
 </body>
 </html>

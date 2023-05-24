@@ -21,21 +21,6 @@ reportClick.addEventListener("click", ()=>{
 });
 
 
-// 좋아요 버튼 누르면 게이지 올라감, 좋아요 누른 사람 수 & 남은 사람 수 표시
-const signButton = document.getElementById("signButton");
-const progress = document.getElementById("progress");
-const likeCount = document.getElementById("likeCount");
-
-signButton.addEventListener("click", ()=> {
-    progress.value += 1;
-
-    const crrent1 = parseInt(likeCount.innerText, 10)
-    likeCount.innerText = crrent1 + 1;
-
-    const crrent2 = parseInt(remainNumber.innerText, 10)
-    remainNumber.innerText = 50000 - likeCount.innerText ;
-
-});
 
 // 체크박스 클릭 시 댓글창 열림
 const agree = document.getElementById("agree");
@@ -79,26 +64,15 @@ content.addEventListener("input", () => {
 
 // 댓글 목록 조회
 function selectCommentList(){
-    
-    // REST (REpresentational State Transfer) API
-    // - 자원을 이름(주소)으로 구분(REpresentational)하여 
-    //   자원의 상태(State)를 주고 받는 것(Transfer)
 
-    // -> 주소를 명시하고 Http Method(GET, POST, PUT, DELETE)를 이용해
-    // 지정된 자원에 대한 CRUD진행
-
-    // Create : 생성, 삽입(POST)
-    // Read : 조회(GET)
-    // Update : 수정(PUT, PETCH)
-    // Delete : 삭제(DELETE)
-
-    // 기본적으로 from태그는 GET/POST만 지원
-
-
-    fetch("/browse/petitionView/" + petitionNo) // GET방식은 주소에 파라미터를 담아서 전달
+    fetch("/browse/petitionView/selectComment", {
+        method: "POST",
+        headers: {"Content-Type": "application/json; charset=UTF-8"},
+        body: JSON.stringify(parseInt(petitionNo.value))
+    }) 
     .then(response => response.json()) // 응답 객체 -> 파싱
     .then(cList => { // cList : 댓글 목록(객체배열)
-        console.log(cList);
+        
         
         // 화면에 출력되어 있는 댓글 목록 삭제
         const commentList = document.getElementById("commentList"); // ul태그
@@ -162,43 +136,22 @@ function selectCommentList(){
 
 
 
+// 좋아요 버튼 누르면 게이지 올라감, 좋아요 누른 사람 수 & 남은 사람 수 표시
+// const signButton = document.getElementById("signButton");
+const progress = document.getElementById("progress");
+const likeCount = document.getElementById("likeCount");
 
+// signButton.addEventListener("click", ()=> {
 
+//     progress.value += 1;
 
+//     const crrent1 = parseInt(likeCount.innerText, 10)
+//     likeCount.innerText = crrent1 + 1;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     const crrent2 = parseInt(remainNumber.innerText, 10)
+//     remainNumber.innerText = 50 - likeCount.innerText ;
+    
+// });
 
 
 
@@ -209,9 +162,8 @@ function selectCommentList(){
 
 const like = document.getElementById("signButton");
 
+
 like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되었을 때
-    
-    
     
     // 1) 로그인이 되어있나? -> 전역변수 memberNo 이용
     if(loginUserNo == ""){ // 로그인 X
@@ -219,35 +171,29 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
         return;
     }
     
-
-    alert("확인")
     if(!agree.checked){
         alert("해당 청원에 이름과 댓글을 표시하는 것에 동의해주세요.")
         return;
     }
-
-
     
     if(commentContent.value.trim().length == 0){ 
         alert("댓글을 작성한 후 버튼을 클릭해주세요.");
         return;
     }
     
-
     if(commentContent.value.trim().length > 200){ 
         alert("댓글을 200자 이내로 작성해주세요.");
         return;
     }
-
-
-
+    
+    
+    
     // 3) AJAX를 이용해서 댓글 내용 DB에 저장(INSERT)
     
     const data = {"commentContent" : commentContent.value, 
-    "userNo" : loginUserNo, "petitionNo" : petitionNo}; // JS객체
+    "userNo" : loginUserNo, "petitionNo" : petitionNo, "petitionLikeCount": petitionLikeCount}; // JS객체
     
-    // 주소가 잘못된 것 같음
-    fetch("/comment", {
+    fetch("/petitionView/details", {
         method: "POST",
         headers: {"Content-Type" : "application/json;"},
         body: JSON.stringify(data) // JS객체 -> JSON파싱
@@ -255,9 +201,19 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
     .then(resp =>resp.text())
     .then(result => {
         
-        if(result > 0){ // 등록 성공
+        if(result < 0){ // 등록 성공
             alert("댓글이 등록되었습니다.");
-
+            
+            progress.value += 1;
+            petitionLikeCount += 1; // 전역변수(myPetition에서 설정)
+            
+            const crrent1 = parseInt(likeCount.innerText, 10)
+            likeCount.innerText = crrent1 + 1;
+            
+            const crrent2 = parseInt(remainNumber.innerText, 10)
+            remainNumber.innerText = 50 - likeCount.innerText ;
+            
+            
             commentContent.value = ""; // 작성했던 댓글 삭제
 
             selectCommentList(); // 비동기 댓글 목록 조회 함수 호출

@@ -64,14 +64,40 @@ public class HelpDAO {
 		return sqlSession.update("HelpMapper.helpUpdate", qna3);
 	}
 
-	/** FAQ 조회
+	/** FAQ 종류 목록 조회
 	 * @param pagination
 	 * @param paramMap
 	 * @return
 	 */
 
-	public List<faq> FAQ(Map<String, Object> paramMap) {
-		return sqlSession.selectList("HelpMapper.FAQ");
+	public List<Map<String, Object>> selectFaqTypeList() {
+		return sqlSession.selectList("HelpMapper.selectfaqTypeList");
+	}
+	
+
+	/** 문의글 삭제
+	 * @param qnaNo
+	 * @return
+	 */
+	public int qnaDelete(int qnaNo) {
+		return sqlSession.update("HelpMapper.qnaDelete", qnaNo);
+	}
+
+
+	/** 게시글 수 조회(검색)
+	 * @param paramMap
+	 * @return
+	 */
+	public int getListCount(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("HelpMapper.faqCount_search", paramMap);
+	}
+
+	// 게시글 목록 조회(검색)
+	public List<faq> selectfaq2List(Pagination pagination,  Map<String, Object> paramMap) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		return sqlSession.selectList("HelpMapper.faq2List_search", paramMap, rowBounds);
 	}
 
 

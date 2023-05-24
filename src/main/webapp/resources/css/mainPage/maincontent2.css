@@ -238,3 +238,19 @@ div.pettition1.id {
   padding-left: 13px;
   padding-bottom: 5px;
 }
+
+.text-limit4 {
+  overflow: hidden;
+  height: 24px;
+  max-width: 600px;
+}
+.text-limit5 {
+  overflow: hidden;
+  height: 52px;
+  max-width: 500px;
+}
+.text-limit6 {
+  overflow: hidden;
+  max-height: 108px;
+  max-width: 500px;
+}

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit profile</title>
+    <title>업데이트 업로드</title>
     <!-- summernote -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
@@ -74,11 +74,11 @@
                                     <div class="modal-subtitle">지원자의 받은 편지함에 메세지가 어떻게 표시되는지 확인하십시오</div>
                                 </div>
                                 <div class="modal-content-container">
-                                    <div class="modal-content-title">업데이트한당</div>
+                                    <div class="modal-content-title">제목</div>
                                     <div class="modal-content-title-profile">
-                                        <img src="" alt="user">
+                                        <img src="${loginUser.userImage}" id="userProfileMini">
                                         <div>
-                                            <p>사용자이름</p>
+                                            <p>${loginUser.userNickname}</p>
                                             <p>to 나에게</p>
                                         </div>  
                                     </div>
@@ -87,14 +87,11 @@
                                         <p></p>
                                     </div>
                                     <div class = modal-content>
-                                        <p>가나다라마바사 아자차카타파하</p>
-                                        <p>가나다라마바사 아자차카타파하</p>
-                                        <p>가나다라마바사 아자차카타파하</p>
-                                        <p>가나다라마바사 아자차카타파하</p>
+                                        <div id="summernotePreview">내용</div>
                                     </div>
                                 </div>    
                                 <div class="close-area">
-                                    <button>미리보기 닫기</button>
+                                    <button type="button" id="modalClose">미리보기 닫기</button>
                                 </div>
                             </div>
                         </div>

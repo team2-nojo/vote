@@ -5,7 +5,7 @@
 #dashboardUpdateContainer {
     text-align: center !important;
     line-height: 1.5;
-    width: 80%;
+    width: 600px;
     max-width: 620px;  /* 920px이 너무 커서 620px로 줄여서 맞춤 */
 }
 
@@ -92,8 +92,7 @@
 
 /* Dashboard-Update 페이지의 사진추가 프레임 속 상부 프레임 속 업로드한 이미지 프리뷰 */
 #imagePreview {
-    max-width: 100%;
-    max-height: 100%;
+    max-height: 317px;
     border-style : none;
     object-fit: contain;
 }
@@ -340,3 +339,5 @@
   .note-editable {
     text-align: left !important;
   }
+
+

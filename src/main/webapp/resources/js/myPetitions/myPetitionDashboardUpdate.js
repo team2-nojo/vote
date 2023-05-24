@@ -7,6 +7,20 @@ const submit = document.getElementById("emailPreview")
 submit.addEventListener("click", e => {
     modal.style.display = "flex";
     document.body.style.overflowY = "hidden";
+
+    // 제목 대입
+    const updateTitle = document.getElementsByClassName("dashboard-update-input")[0];
+    const modalTitle = document.getElementsByClassName("modal-content-title")[0];
+    modalTitle.innerHTML = updateTitle.value;
+
+
+    // 써머노트 컨텐츠 대입
+    const summernote = $('#summernote');
+    const previewContent = document.getElementById('summernotePreview');
+    previewContent.innerHTML = summernote.summernote('code');
+
+    
+
 })
 
 /* 모달창의 클로즈(x) 버튼을 누르면 모달창이 꺼지게 하기 */
@@ -34,13 +48,16 @@ window.addEventListener("keyup", e => {
     }
 })
 
-
-
 /* 이메일 미리보기 모달창 내부 닫기 버튼 */
+const modalClose = document.getElementById("modalClose");
+modalClose.addEventListener("click", e => {
+    modal.style.display = "none";
+    document.body.style.removeProperty('overflow');
+});
+
+
 // const closeModal = modal.getElementById("closeModal")
 // closeModal.addEventListener("click", e => {
-//     modal.style.display = "none";
-//     document.body.style.removeProperty('overflow');
 // })
 
 
@@ -81,10 +98,10 @@ $(document).ready( () => {
 
 
             // 내용이 있는지 체크
-            onChange:function(contents, $editable){
-                content = contents;
-                checkContentsLength();
-            },
+            // onChange:function(contents, $editable){
+            //     content = contents;
+            //     checkContentsLength();
+            // },
 
             // 써머노트 내에서 이미지 삽입 시
             onImageUpload : function(files) {
@@ -107,13 +124,13 @@ $(document).ready( () => {
 
 
 // 내용이 있는 지 체크
-const checkContentsLength = () => {
-      let str = f_SkipTags_html(content).trim();
-      if(str=='') {
-        document.getElementById("updatePetitionPost").preventDefault(); // 제출 이벤트 제거
-        alert("업데이트 내용을 작성해 주시기 바랍니다.")
-      }
-  }
+// const checkContentsLength = () => {
+//       let str = f_SkipTags_html(content).trim();
+//       if(str=='') {
+//         document.getElementById("updatePetitionPost").preventDefault(); // 제출 이벤트 제거
+//         alert("업데이트 내용을 작성해 주시기 바랍니다.")
+//       }
+//   }
   
 
 // ajax로 이미지 업로드
@@ -204,7 +221,6 @@ if(imageInput != null){
 } 
 
 
-
 const deleteImage = document.getElementById("deleteImage"); // x버튼
 
     // x버튼 클릭 시
@@ -221,61 +237,9 @@ const deleteImage = document.getElementById("deleteImage"); // x버튼
 
 
 
-
-
-
-//   const noImgContainers = document.querySelectorAll('.no-image');
-//   const imgContainers = document.querySelectorAll('.exist-image');
-//   const deleteImages = document.querySelectorAll('.delete-image');
-//   const previewImages = document.querySelectorAll('.preview-image');
-//   const inputImage = document.getElementById('inputImage');
-
-
-
-//   // 이미지가 있을 때, 없을 때 이미지 삽입 컨테이너 유무
-//   const imgContainerHiddenToggle = ()=>{
-//     noImgContainers.forEach(noImgContainer =>{
-//       noImgContainer.classList.toggle('hidden');
-//     })
-//     imgContainers.forEach(imgContainer =>{
-//       imgContainer.classList.toggle('hidden');
-//     })
-//   }
-  
-//   // 이미지 삭제 버튼을 누를 시, 이미지가 있는지 확인하고 컨테이너 바꾸기
-//   deleteImages.forEach(deleteImage=>{
-//     deleteImage.addEventListener('click',()=>{
-//       inputImage.value='';
-//       imgContainerHiddenToggle();
-//     })
-//   })
-
-
-
-  
-//   if(inputImage != null) {
-      
-//       // 파일을 프리뷰 이미지에 미리보기 띄우기
-//       inputImage.addEventListener('change', e=>{
-//         const file = e.target.files[0]; // 선택된 파일의 데이터
-//         if(file != undefined){ // 파일이 선택되었을 때
-//             const reader = new FileReader(); // 파일을 읽는 객체
-//             reader.readAsDataURL(file);
-//             reader.onload = e => { // 파일을 다 읽은 후 수행
-//               previewImages[0].setAttribute("src",e.target.result);
-//             }
-//         } else { // 파일 선택 후 취소 되었을 때
-//           previewImages[0].removeAttribute("src");
-//         }
-//         imgContainerHiddenToggle();
-//       });
-
-//   }
-
-
-
 // 제출 못 하는 경우 : 내용, 타이틀 중 하나라도 작성하지 않았을 때
 document.getElementById("dashboardUpdateFrm").addEventListener("submit", e => {
+
 
     // 제목 미작성 시
     const petitionUpdateTitle = document.querySelector("input[name = 'petitionUpdateTitle']");
@@ -286,6 +250,16 @@ document.getElementById("dashboardUpdateFrm").addEventListener("submit", e => {
         alert("업데이트 제목을 작성해 주시기 바랍니다.")
         return;
     }
-    
+
+    // 써머노트 컨텐츠 대입하기
+    const submitContent = document.getElementById('summernote');
+    const summernote = $('#summernote');
+
+
+    submitContent.value = summernote.summernote('code');
+    previewContent.innerHTML = submitContent.value;
+
+    alert("업데이트가 작성되었습니다.")
+
 });
 

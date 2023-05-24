@@ -71,6 +71,8 @@
 		ORDER BY CM_NO DESC
 	</select>
 	
+	
+	<!-- 청원 업데이트 업로드 -->
 	<insert id="updateInsert">
 		<selectKey order="BEFORE" resultType="_int" keyProperty="petitionUpdateNo">
 			SELECT SEQ_UP_NO.NEXTVAL FROM DUAL
@@ -85,7 +87,7 @@
 			NULL,
 			</if>
 			<if test="petitionUpdateImage != null">
-			#{petitionUpdateImage}
+			#{petitionUpdateImage},
 			</if>
 			DEFAULT,
 			#{userNo}

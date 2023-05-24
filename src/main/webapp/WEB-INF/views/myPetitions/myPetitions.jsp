@@ -155,6 +155,7 @@
     <script>
         const num1 = ${fn:length(petitionList)};
         const num2 = 3;
+        let petitionLikeCount = ${petition.petitionLikeCount};
     </script>
 
     <%-- myPetitions.js --%>

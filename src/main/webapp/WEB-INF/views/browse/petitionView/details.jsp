@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <c:set var="petition" value="${petition}"/>
-<c:set var="commentList" value="${commentList}"/>
+<c:set var="likeUserList" value="${likeUserList}"/>
 
 
 <!DOCTYPE html>
@@ -102,7 +102,7 @@
                 <hr>
                 <br>
 
-                <%-- <c:set var="commentList" value="${commentList}"/> --%>
+                <c:set var="resetcommentList" value="${resetcommentList}"/>
                 <div id="commentBox">
                     <div id="reason">댓글 보기</div>
                     <ul>
@@ -111,20 +111,18 @@
                             <p class="noti">
                                 <!-- 유저아이콘 추가해야 함-->
                                 <c:choose>
-                                    <c:when test="${empty comment.userImage}">
-                                        <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
+                                    <c:when test="${empty resetcommentList.userImage}">
                                         <img src="/resources/images/common/user.png" class="profile">
                                     </c:when>
                                 
                                     <c:otherwise>
-                                        <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
-                                        <img src="${comment.userImage}" class="profile">
+                                        <img src="${resetcommentList.userImage}" class="profile">
                                     </c:otherwise>
                                 </c:choose>
-                                <span class="comUser" >닉네임${comment.userNickname}</span>
-                                <span class="commentDate">${comment.commentDate}</span>
+                                <span class="comUser" >닉네임${resetcommentList.userNickname}</span>
+                                <span class="commentDate">${resetcommentList.commentDate}</span>
                             </p>
-                            <p class="commentCon"> ${comment.commentContent}
+                            <p class="commentCon"> ${resetcommentList.commentContent}
                                     내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용
                             </p>    
                             <div class="commentP">
@@ -159,14 +157,14 @@
                             <span id="likeCount">0</span> 
                             명이 서명했습니다.
                         </strong>
-                        50000명을 향해!!
+                        50명을 향해!!
                     </div>
-                    <progress id="progress" value="0" min="0" max="50000" ></progress>
+                    <progress id="progress" value="0" min="0" max="50" ></progress>
                     <div id="row2">
                         청원 달성까지 서포터 단
                         <strong>
                             <!-- 청원 달성 위해 남은 사람의 수-->
-                            <span id="remainNumber">50000</span>
+                            <span id="remainNumber">50</span>
                             명만 더!
                         </strong> 
                     </div>
@@ -204,20 +202,19 @@
                         <div class="signNickname">닉네임</div>
                         <div Class="signTime">서명시간</div>
                     </div>
-
                 </div>
-                    <%-- 체크박스 --%>
-                    <div id="check">
-                        <input type="checkbox" id="agree">
-                        <label for="agree">
-                            이 청원에 이름과 댓글을 표시합니다.
-                        </label>
-                    </div>
+                <%-- 체크박스 --%>
+                <div id="check">
+                    <input type="checkbox" id="agree">
+                    <label for="agree">
+                        이 청원에 이름과 댓글을 표시합니다.
+                    </label>
+                </div>
+                <form action="browse/petitionView/details" method="POST" id="commentFrm">
                     <%-- 댓글창 --%>
                     <div id="commentPlace">
-                        <form action="/comment" method="POST" id="commentFrm">
                             <div id="wrtComment">
-                                <textarea name="" id="commentContent" cols="10" rows="20" placeholder=" - 띄어쓰기를 포함하여 최대 200자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
+                                <textarea id="commentContent" cols="10" rows="20" placeholder=" - 띄어쓰기를 포함하여 최대 200자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
                             </div>
                         </form>
                         <div id="countComment">
@@ -229,6 +226,7 @@
                         <button id="signButton" >좋아요!</button>
                     </div>
                 </form>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </section>
         
         

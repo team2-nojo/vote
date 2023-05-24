@@ -98,7 +98,14 @@ public class BrowseController {
 		
 		
 		Petition petition = service.selectPetitionList(petitionNo); 
+		List<Comment> commentList = service2.resetcommentList(petitionNo);
+		List<Like> likeUserList = service3.selectlikeUserList(petitionNo);
+
+		
+		
 		model.addAttribute("petition", petition);
+		model.addAttribute("commentList", commentList);
+		model.addAttribute("likeUserList", likeUserList);
 //		System.out.println(petition);
 		
 		
@@ -108,23 +115,21 @@ public class BrowseController {
 	
 	
 
-	// details페이지 내부 comment list
-	@PostMapping(value="/selectComment", produces = "application/json; charset=UTF-8")
-	@ResponseBody
-	public List<Comment> selectComment(@RequestBody String petitionNo) {
-		int pno = Integer.parseInt(petitionNo);
-		System.out.println(service2.resetcommentList(pno));
-		return service2.resetcommentList(pno);
-	}
 	
 	
 
 	
+	
 	// 댓글 삽입
-	@PostMapping(value="/comment", produces = "application/json; charset=UTF-8")
+	@PostMapping("/petitionView/details/")
+	@ResponseBody
 	public int insert(@RequestBody Comment comment) {
 		// 요청 데이터 (JSON)을 HttpMessageConverter가 해석해서 Java객체(comment)에 대입
-		return service2.insert(comment);
+		
+		int result = service2.insert(comment);
+//		System.out.println(result);
+		
+		return result;
 	}
 	
 	

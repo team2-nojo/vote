@@ -215,3 +215,17 @@ div a {
 .petCategory:hover {
   color: #2db400;
 }
+#box-petition-title:hover {
+  color: red;
+}
+
+#news-title:hover {
+  color: red;
+}
+.article {
+  border: red;
+}
+
+.article:hover {
+  color: red;
+}

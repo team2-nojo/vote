@@ -10,6 +10,11 @@ const mainPhoto = document.querySelector('#mainPhoto');
 const idImg = document.querySelector('#news-id');
 const newsContent = document.querySelector('#newsContent');
 const mainUserImage = document.querySelector('#main-user-image');
+const mainNewsLink = document.querySelector('#main-news-link');
+const titleLink = document.querySelector('#title-link');
+const boxPetitionTitle = document.querySelector('#box-petition-title');
+const articleTitle = document.querySelector('.article');
+
 const hiddenContent = document.querySelectorAll(
   'input[type="hidden"][name="petitionContent"]'
 );
@@ -24,6 +29,12 @@ const hiddenUserNickname = document.querySelectorAll(
 );
 const hiddenPetitionViewCount = document.querySelectorAll(
   'input[type="hidden"][name="petitionViewCount"]'
+);
+const hiddenPetitionLink = document.querySelectorAll(
+  'input[type="hidden"][name="petitionLink"]'
+);
+const hiddenPetitionLink2 = document.querySelectorAll(
+  'input[type="hidden"][name="petitionLink2"]'
 );
 
 smallNews[0].style.borderBottom = '6px solid #2DB400';
@@ -52,6 +63,8 @@ smallNews.forEach((newBox, index) => {
       newsAddress.innerText = hiddenUserAddress[0].value;
       newsId.innerText = hiddenUserNickname[0].value;
       viewers.innerText = hiddenPetitionViewCount[0].value + ' 명';
+      mainNewsLink.href = hiddenPetitionLink[0].value;
+      titleLink.href = hiddenPetitionLink[0].value;
     } else {
       newsTitle.innerText = newsTitles[index].childNodes[0].innerText;
       mainPhoto.src = smallNews[index].src;
@@ -60,6 +73,8 @@ smallNews.forEach((newBox, index) => {
       newsAddress.innerText = hiddenUserAddress[index].value;
       newsId.innerText = hiddenUserNickname[index].value;
       viewers.innerText = hiddenPetitionViewCount[index].value + ' 명';
+      mainNewsLink.href = hiddenPetitionLink[index].value;
+      titleLink.href = hiddenPetitionLink[index].value;
     }
   });
 });
@@ -96,9 +111,9 @@ document.getElementById('loadButton').addEventListener('click', function () {
               <a href="#" style="text-decoration: underline;">See more</a>
             </div>
             <div class="pettition1 article">
-              <div class="article-title"><h3>${mainPetition.petitionTitle}</h3></div>
+              <div class="article-title"><a href="/browse/petitionView/details/${mainPetition.petitionNo}"><h3 id="box-petition-title">${mainPetition.petitionTitle}</h3></a></div>
               <div>
-                <div>${mainPetition.petitionContent}<a href="#">더보기</a></div>
+                <a href="/browse/petitionView/details/${mainPetition.petitionNo}"><div>${mainPetition.petitionContent}</a></a></div>
               </div>
               <div class="photo"><img src="${mainPetition.petitionImage}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>

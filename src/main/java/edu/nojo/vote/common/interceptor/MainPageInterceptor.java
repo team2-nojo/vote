@@ -34,14 +34,9 @@ public class MainPageInterceptor implements HandlerInterceptor{
 		// 서버시작 후 누구도 요청이 한적이 없을 경우
 		if(application.getAttribute("mainPtList") == null) {
 			// 조회 서비스 호출
-			
 			List<Petition> mainPtList = service.selectMainPtList();
 			application.setAttribute("mainPtList", mainPtList);
 		}
-		
-		
-		
-		
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 
@@ -56,8 +51,4 @@ public class MainPageInterceptor implements HandlerInterceptor{
 			throws Exception {
 		HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
 	}
-
-	
-	
-	
 }

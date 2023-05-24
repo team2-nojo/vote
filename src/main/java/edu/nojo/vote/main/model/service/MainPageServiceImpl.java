@@ -18,7 +18,13 @@ public class MainPageServiceImpl implements MainPageService {
 	// 메인페이지 박스에 청원 보이기
 	@Override
 	public List<Petition> selectMainPtList() {
-		return dao.selectMainPtList();
+		List<Petition> petitionList = dao.selectMainPtList();
+		for(Petition p: petitionList) {
+			if(p.getPetitionContent()!=null)
+				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));
+		}
+		
+		return petitionList;
 	}
 
 

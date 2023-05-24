@@ -12,13 +12,14 @@ import edu.nojo.vote.help.model.dao.HelpDAO;
 import edu.nojo.vote.help.model.dto.QNA3;
 import edu.nojo.vote.help.model.dto.faq;
 
-
 @Service
 public class HelpServiceImpl implements HelpService{
 	
 	@Autowired
 	private HelpDAO dao;
 
+	
+	// 문의내역 조회
 	@Override
 	public Map<String, Object> QA3(Map<String, Object> paramMap, int cp) {
 		
@@ -70,18 +71,41 @@ public class HelpServiceImpl implements HelpService{
 		return rowCount;
 	}
 
+
+    // FAQ 목록 불러오기
 	@Override
-	public Map<String, Object> FAQ(Map<String, Object> paramMap, int cp) {
+	public List<Map<String, Object>> selectFaqTypeList() {
+		return dao.selectFaqTypeList();
+	}
+
+	// 게시글 삭제
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int qnaDelete(int qnaNo) {
+		return dao.qnaDelete(qnaNo);
+	}
+
+	@Override
+	public Map<String, Object> FAQList( Map<String, Object> paramMap, int cp) {
+	int listCount = dao.getListCount(paramMap);
 		
-	    List<faq> faqList = dao.FAQ(paramMap);
+		Pagination pagination = new Pagination(listCount, cp);
+		
+		List<faq> faqList = dao.selectfaq2List(pagination, paramMap);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
 		map.put("faqList", faqList);
+		
+		return map;
+
+	}
+
 	
-     return map;
-    
+
 }
 
 
-	}
+
+	
 	

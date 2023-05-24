@@ -206,18 +206,21 @@ function selectCommentList(){
 
 
 // 댓글등록(중)
+
 const like = document.getElementById("signButton");
+
 like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되었을 때
     
-    /*
+    
+    
     // 1) 로그인이 되어있나? -> 전역변수 memberNo 이용
-    if(loginUser.userNo == ""){ // 로그인 X
+    if(loginUserNo == ""){ // 로그인 X
         alert("로그인 후 이용해주세요.");
         return;
     }
-    */
+    
 
-
+    alert("확인")
     if(!agree.checked){
         alert("해당 청원에 이름과 댓글을 표시하는 것에 동의해주세요.")
         return;
@@ -241,16 +244,17 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
     // 3) AJAX를 이용해서 댓글 내용 DB에 저장(INSERT)
     
     const data = {"commentContent" : commentContent.value, 
-    /*"userNo" : loginUser.userNo, "petitionNo" : petitionNo*/}; // JS객체
+    "userNo" : loginUserNo, "petitionNo" : petitionNo}; // JS객체
     
-
+    // 주소가 잘못된 것 같음
     fetch("/comment", {
         method: "POST",
-        headers: {"Content-Type" : "application/json"},
+        headers: {"Content-Type" : "application/json;"},
         body: JSON.stringify(data) // JS객체 -> JSON파싱
     })
     .then(resp =>resp.text())
     .then(result => {
+        
         if(result > 0){ // 등록 성공
             alert("댓글이 등록되었습니다.");
 

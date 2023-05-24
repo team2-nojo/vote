@@ -217,7 +217,7 @@
                     <div id="commentPlace">
                         <form action="/comment" method="POST" id="commentFrm">
                             <div id="wrtComment">
-                                <textarea name="" id="commentContent" cols="10" rows="20" placeholder=" - 띄어쓰기를 포함하여 최대 1000자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
+                                <textarea name="" id="commentContent" cols="10" rows="20" placeholder=" - 띄어쓰기를 포함하여 최대 200자까지 작성할 수 있습니다. &#13;&#10; *욕설, 서비스 이용에 방해되는 글은 관리자에 의해 삭제됩니다."></textarea>
                             </div>
                         </form>
                         <div id="countComment">
@@ -237,6 +237,11 @@
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
+    <script>
+        const petitionNo = ${petition.petitionNo};
+        const loginUserNo = "${loginUser.userNo}";
+    </script>
+    
     <%-- petitionView.js --%>
     <script src="/resources/js/browse/petitionView/details.js"></script>
 </body>

@@ -20,6 +20,8 @@ import edu.nojo.vote.browse.model.service.BrowseService;
 import edu.nojo.vote.browse.model.service.CommentService;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
+import edu.nojo.vote.myPetitions.model.dto.Like;
+import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 
 
@@ -110,6 +112,22 @@ public class BrowseController {
 		
 		
 		return "/browse/petitionView/details";
+	}
+	
+	
+	
+	// petitionView 페이지 이동(update)
+	@GetMapping("/petitionView/update/{petitionNo}")
+	public String update(@PathVariable("petitionNo") int petitionNo
+			, Model model
+			, RedirectAttributes ra
+			){
+		
+		List<PetitionUpdate> updatePetitionList = service.updatePetitionList(petitionNo);
+		
+		model.addAttribute("updatePetitionList", updatePetitionList);
+		
+		return "/browse/petitionView/updates";
 	}
 	
 	

@@ -37,7 +37,7 @@
                 <div class="result">
                     <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1">
                         <div class="row-left" id="rowPicture">
-                            <img src="/${petition.petitionImage}" class="picture">
+                            <img src="${petition.petitionImage}" class="picture">
                         </div>
                         <div class="row-right">
                             <div id="title">

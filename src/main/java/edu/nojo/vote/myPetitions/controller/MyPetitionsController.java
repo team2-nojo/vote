@@ -73,7 +73,6 @@ public class MyPetitionsController {
 
 		// 청원 조회 서비스 호출
 		Petition myPetition = dashboardService.selectMyPetition(map);
-		
 		model.addAttribute("myPetition", myPetition);
 		
 		
@@ -118,14 +117,14 @@ public class MyPetitionsController {
 		
         // 청원 업데이트 내용을 이메일로 청원 지지자에게 전송
         // 해당 청원 지지자 호출
-        List<Like> likeUserList = dashboardService.selectlikeUserList(petitionNo);
-        if (likeUserList.isEmpty()) {
-        	return "redirect:/myPetitions/myPetitionsDashboard/{petitionNo}";
-        } 
-        result = emailService.sendEmail(update, likeUserList);
+//        List<Like> likeUserList = dashboardService.selectlikeUserList(petitionNo);
+//        if (likeUserList.isEmpty()) {
+//        	return "redirect:/myPetitions/myPetitionsDashboard/{petitionNo}";
+//        } 
+//        result = emailService.sendEmail(update, likeUserList);
        
         // 내 페티션 화면으로 리다이렉트
-		return "redirect:/myPetitions/myPetitionsDashboard/{petitionNo}";
+		return "redirect:/browse/petitionView/details/{petitionNo}";
 	}
 	
 }

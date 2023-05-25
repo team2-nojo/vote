@@ -76,7 +76,7 @@ public class MyPageController {
    // 회원정보 수정(파일 미스매치 에러 해결중)
    @PostMapping("/editProfile")
    public String updateProfile(
-         @RequestParam("profileImage") MultipartFile profileImage // 업로드 파일
+         @RequestParam(value="profileImage", required=false) MultipartFile profileImage // 업로드 파일
          , @SessionAttribute("loginUser") User loginUser // 로그인 회원
          , User updateUser
          , String[] userAddress

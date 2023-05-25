@@ -29,7 +29,7 @@
             <div id="updatesBT">청원 업데이트</div>
         </section>
 
-        <%-- 최근 소식이 없는 경우 --%>
+        <%-- 청원 업데이트가 없는 경우 --%>
         <c:if test="${empty updatePetitionList}" >
             <section id="updatesSection2">
                 <button type="button" id="leftBtn"><a href="#" id="left">&lang;</a></button>
@@ -45,7 +45,7 @@
                 <button type="button" id="rightBtn"><a href="#" id="right">&rang;</a></button>
             </section>
         </c:if>
-        <%-- 최신 소식이 있는 경우 --%>
+        <%-- 청원 업데이트가 있는 경우 --%>
         <c:if test="${not empty updatePetitionList}">
             <!-- updates -->
             <section id="updatesSection2">
@@ -54,18 +54,20 @@
                     <div class="frame" id="frame">
                         <c:forEach items="${updatePetitionList}" var="updatePetition">
                             <div class="updatesFrame">
-                                <%-- 업데이트 썸네일이 있는 경우 --%>
-                                <c:if test="${not empty updatePetition.petitionUpdateImage}">
-                                    <div class="cImage">
-                                        <img src="/resources/images/common/default-img.jpg" class="updatesImg">
-                                    </div>
-                                </c:if>
-                                <%-- 업데이트 썸네일이 없는 경우 --%>
-                                <c:if test="${not empty updatePetition.petitionUpdateImage}">
-                                    <div class="cImage">
-                                       <img src="${updatePetition.petitionUpdateImage}" class="updatesImg">
-                                    </div>
-                                </c:if>
+                                <c:choose>
+                                    <%-- 업데이트 썸네일이 없는 경우 --%>
+                                    <c:when test="${empty updatePetition.petitionUpdateImage}">
+                                        <div class="cImage">
+                                            <img src="/resources/images/common/default-img.jpg" class="updatesImg">
+                                        </div>
+                                    </c:when>
+                                    <%-- 업데이트 썸네일이 있는 경우 --%>
+                                    <c:otherwise>
+                                        <div class="cImage">
+                                            <img src="${updatePetition.petitionUpdateImage}" class="updatesImg">
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
                                 <div class="updatesT">
                                     ${updatePetition.petitionUpdateTitle}
                                 </div>
@@ -76,8 +78,8 @@
                                     <div>
                                         <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
                                     </div>
-                                    <div>
-                                        <div class="uNickname">${updatePetition.userNo}</div>
+                                    <div id="horizenAlign">
+                                        <div class="uNickname">${updatePetition.userNickname}</div>
                                         <div class="uDate">${updatePetition.petitionUpdateDate}</div>
                                     </div>
                                 </div>

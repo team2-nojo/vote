@@ -163,8 +163,8 @@ if(imageInput != null){
     // inputimage이 있을 경우
     imageInput.addEventListener("change", e => {
     
-        // 2MB로 최대 크기 제한 
-        const maxSize = 1 * 1024 * 1024 * 2; 
+        // 10MB로 최대 크기 제한 
+        const maxSize = 1 * 1024 * 1024 * 10; 
         const file = e.target.files[0]; // 업로드한 파일의 정보가 담긴 객체
     
         // 파일을 한번 선택한 후 취소했을 때
@@ -178,7 +178,7 @@ if(imageInput != null){
     
         // 선택된 파일의 크기가 최대 크기를 초과한 경우
         if(file.size > maxSize){ 
-            alert("2MB 이하의 이미지를 선택해주세요.");
+            alert("10MB 이하의 이미지를 선택해주세요.");
             imageInput.value = ""; // input 이미지 삭제
             deleteCheck = -1; // 취소 == 파일 없음 == 초기상태
             // 기본 이미지로 변경

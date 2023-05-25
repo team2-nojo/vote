@@ -18,13 +18,15 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/favicon.ico" location="/resources/images/favicon.ico" />
 
 	<!-- @Transactional 어노테이션 인식, 활성화 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<!-- AOP Proxy를 이용한 관점 제어 자동화 -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-
+	
+	
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

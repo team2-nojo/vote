@@ -31,13 +31,7 @@
 
   <h1 id="title">질문해보세요</h1>
 
-  <article class="search-area">
 
-    <form action="#" ></form>
-    <input type="search" name="query" id="query" autocomplete="off">
-    <button id="searchBtn" class="fa-solid fa-magnifying-glass">검색</button>
-
-  </article>
 
           <c:if test="${not empty param.key}" >
             <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>

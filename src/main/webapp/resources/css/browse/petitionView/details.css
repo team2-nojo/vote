@@ -109,6 +109,27 @@ main{
     margin: 20px 40px;
 }
 
+.writer{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    margin: 5px 5px 5px 20px;
+}
+
+.nickname{
+    margin: 0 0 0 5px;
+}
+
+main img{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-left: 20px;
+}
+
+
 #postPic{
     width: 90%;
     height: 350px;
@@ -332,6 +353,8 @@ main i{
     margin: 20px 10px;
     margin-top: 25%;
 }
+
+
 
 
 #row2{

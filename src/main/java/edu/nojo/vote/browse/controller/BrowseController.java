@@ -174,6 +174,8 @@ public class BrowseController {
 	}
 	
 	
+	
+	
 	// 청원 좋아요
 	// 좋아요 처리
 	@PostMapping("/petitionView/details/like")
@@ -206,7 +208,7 @@ public class BrowseController {
 
 
 	
-
+	
 	
 	
 	

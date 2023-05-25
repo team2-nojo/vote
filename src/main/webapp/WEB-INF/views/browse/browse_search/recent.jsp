@@ -35,7 +35,7 @@
         <section class="middle">
             <c:forEach items="${recentList}" var="petition">
                 <div class="result">
-                    <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1">
+                    <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1 contentBox">
                         <div class="row-left" id="rowPicture">
                             <img src="${petition.petitionImage}" class="picture">
                         </div>

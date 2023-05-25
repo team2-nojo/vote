@@ -51,9 +51,9 @@ document.getElementById('moreView').addEventListener('click', function () {
                     `;
                     middle.append(div);
 
-                    if (response.length < 5) {
-                        document.getElementById('moreView').style.display = 'none';
-                    }
+                }
+                if (response.length < 5) {
+                    document.getElementById('moreView').style.display = 'none';
                 }
             } else {
                 // 서버 오류 처리

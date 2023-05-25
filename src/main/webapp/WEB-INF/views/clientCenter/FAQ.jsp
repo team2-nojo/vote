@@ -45,10 +45,10 @@
 
   <div class="faq-category">
 
-  <a href="http://localhost/clientCenter/FAQ?faqCatNo=1" id="button1">청원</a>
-  <a href="http://localhost/clientCenter/FAQ?faqCatNo=2" id="button1">신고</a>
-  <a href="http://localhost/clientCenter/FAQ?faqCatNo=3" id="button1">개인정보</a>
-  <a href="http://localhost/clientCenter/FAQ?faqCatNo=4" id="button1">전체</a>
+  <a href="/clientCenter/FAQ?faqCatNo=1" id="button1">청원</a>
+  <a href="/clientCenter/FAQ?faqCatNo=2" id="button1">신고</a>
+  <a href="/clientCenter/FAQ?faqCatNo=3" id="button1">개인정보</a>
+  <a href="/clientCenter/FAQ?faqCatNo=4" id="button1">전체</a>
   
 <%--   <button id="button1">청원</button>
   <button id="button1">신고</button>
@@ -69,10 +69,11 @@
 
   <c:otherwise>
   
-<c:forEach items="${faqList}" var="faq" begin="0" end="3">
+
 
   <div class="Faq">자주 묻는 질문</div>
 
+<c:forEach items="${faqList}" var="faq">
   <div id="Accordion_wrap">
     <div class="question">
       <span>${faq.faqQuestionI}</span>
@@ -118,7 +119,7 @@
   <div class="center-btn">
     <a href="/clientCenter/QNA" id="button2"><i class="fa-solid fa-user fa-4x" id="ic"></i>1:1 문의</a>    
     <a href="/clientCenter/QNA3" id="button3"><i class="fa-solid fa-scroll fa-4x" id="ic"></i>문의내역</a>    
-    <a href="/clientCenter/chatbot" id="button4"><i class="fa-regular fa-comment fa-4x" id="ic"></i>챗봇</a>
+    <a href="/" id="button4"><i class="fa-regular fa-comment fa-4x" id="ic"></i>챗봇</a>
   </div>
 
 </div>

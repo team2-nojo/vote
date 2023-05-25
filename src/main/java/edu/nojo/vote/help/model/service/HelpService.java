@@ -45,10 +45,6 @@ public interface HelpService {
 	int qnaDelete(int qnaNo);
 
 	
-
-	
-
-	
     /** FAQ와 글 조회
      * @param paramMap 
      * @param cp 

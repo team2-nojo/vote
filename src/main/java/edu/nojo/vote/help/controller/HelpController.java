@@ -93,12 +93,6 @@ public class HelpController {
     	return path;
     }    
     
-    // 챗봇이었던것
-    @GetMapping("/chatbot")
-    public String chatbot() {
-    		
-    	return "/clientCenter/chatbot";
-    }    
     
     // 문의내역
     @GetMapping("/QNA3")

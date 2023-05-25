@@ -1,21 +1,3 @@
-function confirmDeleteUserCancler(userNo, userNickname) {
-  var confirmed = confirm(
-    '회원번호 : ' +
-      userNo +
-      ' "' +
-      userNickname +
-      '"' +
-      '님을 정말로 복구하시겠습니까? '
-  );
-
-  if (confirmed) {
-    updateDeleteUser(userNo, userNickname);
-  } else {
-    event.preventDefault();
-    console.log('복구 취소');
-  }
-}
-
 // document
 //   .getElementById('delete-check-btn2')
 //   .addEventListener('click', function () {
@@ -73,23 +55,45 @@ document
         var pagination2 = data.pagination2;
         var delUserList = data.delUserList;
 
+        var tBody = document.getElementById('t-body');
         for (var i = 0; i < delUserList.length; i++) {
-          const tr = document.createElement('tr');
           console.log(delUserList[i]);
-          tr.className = 'delUserTable';
+          const tr = document.createElement('tr');
+          tr.className = 'tr-table';
           tr.innerHTML = `<td class='petitionNo'>${delUserList[i].userNo}</td>
             <td>
               <img class="list-thumbnail" src="${delUserList[i].userImage}">${delUserList[i].userNickname}
             </td>
             <td>
-            ${delUserList[i].userNickname}
+            ${delUserList[i].userEnrollDate}
             </td>
             <td>
                 <button onclick="confirmDeleteUserCancle('${delUserList[i].userNo}', '${delUserList[i].userNickname}')">유저 복구</button>
             </td>`;
 
           // 수정된 부분: 생성한 행을 실제 테이블에 추가
-          document.getElementsByClassName('delUserTable').appendChild(tr);
+          tBody.appendChild(tr);
+
+          function confirmDeleteUser(userNo, userNickname) {
+            var confirmed = confirm(
+              '회원번호: ' +
+                userNo +
+                ' "' +
+                userNickname +
+                '"' +
+                '님을 정말로 복구하시겠습니까?'
+            );
+
+            if (confirmed) {
+              updateDeleteUser(userNo, userNickname);
+            } else {
+              event.preventDefault();
+              console.log('복구 취소');
+            }
+          }
+
+          form.submit();
+          alert('복구 성공~!');
         }
       })
 

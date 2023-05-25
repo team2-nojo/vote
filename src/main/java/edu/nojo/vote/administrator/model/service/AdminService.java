@@ -86,7 +86,7 @@ public interface AdminService {
 	 * @param userNo2
 	 * @return
 	 */
-	int updateDeleteUser(int userNo2);
+	int updateDeleteUser(int userNo);
 
 
 

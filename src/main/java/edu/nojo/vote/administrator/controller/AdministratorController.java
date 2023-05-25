@@ -256,12 +256,12 @@ public class AdministratorController {
 	
 	
 	@PostMapping("/adminUserDeleteCancle")
-	private String updateDelUser(@RequestParam("userNo") int userNo2
+	private String updateDelUser(@RequestParam("userNo") int userNo
 			, Model model
 			,@ModelAttribute User user
 			,RedirectAttributes ra) throws IllegalStateException, IOException{
 
-			int result = service.updateDeleteUser(userNo2);
+			int result = service.updateDeleteUser(userNo);
 			
 			String message = null;
 			String path = "redirect:";

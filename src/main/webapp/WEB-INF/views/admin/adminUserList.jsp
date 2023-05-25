@@ -149,6 +149,9 @@
                         <span class="close-button"><i class="fa-sharp fa-solid fa-circle-xmark" style="color: #4a4e54;"></i></span>
                         <section class="board-list2">
         <div>
+
+
+          <form action="/adminUserDeleteCancle" method="POST" id="mainForm">
             <div class="list-wrapper2">
                 <table class="list-table2">
                     
@@ -160,8 +163,8 @@
                             <th>유저복구</th>
                         </tr>
                     </thead>
-                    <tbody>
-                                <tr>
+                    <tbody id="t-body">
+                                <tr class='tr-table'>
                                     <td class='petitionNo'>${user2.userNo}</td>
                                         <td>
                                           <img class="list-thumbnail" src="${user2.userImage}">${user2.userNickname}

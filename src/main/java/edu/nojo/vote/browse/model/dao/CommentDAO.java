@@ -44,9 +44,9 @@ public class CommentDAO {
 	 * @param petitionNo
 	 * @return selectCommentList
 	 */
-	public List<Browse> selectCommentList(int petitionNo) {
+	public List<Browse> selectCommentList(int pno) {
 		
-		return sqlSession.selectList("myPetitionsMapper.resetcommentList", petitionNo);
+		return sqlSession.selectList("myPetitionsMapper.resetcommentList", pno);
 	}
 	
 	

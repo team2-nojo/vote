@@ -122,6 +122,16 @@ public class MyPetitionsDashboardDAO {
 	public int updateImage(Petition update) {
 		return sqlSession.update("myPetitionsMapper.updateImage", update);
 	}
+
+	
+	/** 카테고리 추가
+	 * @param category
+	 * @return 
+	 */
+	public int insertCategory(String s) {
+		return sqlSession.insert("myPetitionsMapper.insertCategory", s);
+		
+	}
 	
 	
 	

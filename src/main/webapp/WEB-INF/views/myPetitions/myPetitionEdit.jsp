@@ -146,6 +146,7 @@
               </dialog>
             </div>
             <div class="content-img">
+              <input name="thumbnailImage" type="file" id="inputImgUpload" accept="image/*">
               <div class="img-upload">
                 <c:choose>
                   <c:when test="${not empty MP.petitionImage}">
@@ -153,7 +154,6 @@
                     <button type="button" id="imgDelete">x</button>
                   </c:when>
                   <c:otherwise>
-                    <input name="thumbnailImage" type="file" id="inputImgUpload">
                     <label id="imgUpload" for="inputImgUpload">
                         <span>Upload an image</span>
                     </label>

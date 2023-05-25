@@ -61,7 +61,18 @@ public interface MyPetitionsDashboardService {
 	 */
 	List<PetitionCategory> selectCatagory(int petitionNo);
 
-	int myPetitionUpdate(Map<String, Object> map, Petition petition, MultipartFile thumbnailImage, String webPath, String filePath,
+
+	/** 청원 수정
+	 * @param petition
+	 * @param thumbnailImage
+	 * @param webPath
+	 * @param filePath
+	 * @param categoryList
+	 * @return
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 */
+	int myPetitionUpdate(Petition petition, MultipartFile thumbnailImage, String webPath, String filePath,
 			List<String> categoryList) throws IllegalStateException, IOException;
 
 

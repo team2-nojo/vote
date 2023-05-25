@@ -22,5 +22,6 @@ public class PetitionUpdate {
 	
 	// 회원
 	private int userNo;
+	private String userNickname;
 	
 }

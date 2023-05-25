@@ -125,7 +125,7 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우
     deleteImage.addEventListener('click', () => {
         imageInput.value = ""; // input type="file"의 value 삭제
 
-        profileImage.setAttribute("src", "/resources/images/user.png");
+        profileImage.setAttribute("src", "/resources/images/common/user.png");
         // 프로필 이미지를 기본 이미지로 변경
 
         deleteCheck = 0;

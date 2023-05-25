@@ -140,27 +140,8 @@ ${resetlikeUserList}
                         </div>
                     </div>
                 </div>
-                <div id="sign_User">
-                    <!-- 서명한 유저 이름 & 서명한 시간 실시간업로드 -->
-                    <div class="signUserBox">
-                        <div class="signImg">
-                            <img src="/resources/images/순덕이.png" class="prof">
-                        </div>
-                        <div class="signNickname">닉네임</div>
-                        <div id="signTimebox">
-                            <div Class="signTime">서명시간</div>
-                        </div>
-                    </div>
-                    <div class="signUserBox">
-                        <div class="signImg">
-                            <img src="/resources/images/순덕이.png" class="prof">
-                        </div>
-                        <div class="signNickname">닉네임</div>
-                        <div Class="signTime">서명시간</div>
-                    </div>
-                </div>
                  <c:choose>
-                        <c:when test="${loginUser.userNo} != ${petition.userNo}">
+                        <c:when test="${loginUser.userNo != petition.userNo}">
                             <%-- 로그인 유저와 해당 글 작성자가 다른 경우 --%>
                             <%-- 체크박스 --%>
                             <div id="check">

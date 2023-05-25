@@ -12,20 +12,6 @@ const english = document.getElementById('english');
 const chinese = document.getElementById('chinese');
 const japanese = document.getElementById('japanese');
 const voteLogo = document.getElementById('vote_logo');
-// const menuLabelsEnglish = ['Member management', 'LogOut'];
-// const menuLabelsKorean = ['회원관리', '로그아웃'];
-// const menuLabelsJapanese = ['会員管理', 'ログアウト'];
-// const menuLabelsChinese = ['会员管理', '退出'];
-const menuLabels = {
-  English: ['Member management', 'LogOut'],
-  Korean: ['회원관리', '로그아웃'],
-  Japanese: ['会員管理', 'ログアウト'],
-  Chinese: ['会员管理', '退出'],
-};
-
-voteLogo.addEventListener('click', () => {
-  window.location.href = '../html/main_login.html';
-});
 
 const menu = document.querySelector('.menu');
 const subBar = document.querySelector('.menu > .sub');

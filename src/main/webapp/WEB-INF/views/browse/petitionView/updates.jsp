@@ -20,7 +20,7 @@
         <!-- 상단메뉴 -->
         <section id="top">
             <div id="menu">
-                <div><a href="/browse/petitionView/details/${petitionNo}" id="details">Petition details</a></div>
+               <div><a href="/browse/petitionView/details/${petitionNo}" id="details">Petition details</a></div>
                 <div><a href="/browse/petitionView/comments/${petitionNo}" id="comments">Comments</a></div>
                 <div id="updates">Updates</div>
             </div>

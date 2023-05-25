@@ -3,7 +3,7 @@
 
 <c:set var="petition" value="${petition}"/>
 <c:set var="likeUserList" value="${likeUserList}"/>
-
+<c:set var="resetlikeUserList" value="${resetlikeUserList}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -101,40 +101,11 @@
                 <br>
                 <hr>
                 <br>
-
-                <c:set var="commentList" value="${selectCommentList}"/>
+${resetlikeUserList}
+                
                 <div id="commentBox">
                     <div id="reason">댓글 보기</div>
-                    <ul>
-                        <%-- <c:forEach items="${selectCommentList}" var="comment"> --%>
-                        <li class="comment-row">
-                            <p class="noti">
-                                <!-- 유저아이콘 추가해야 함-->
-                                <c:choose>
-                                    <c:when test="${empty commentList.userImage}">
-                                        <img src="/resources/images/common/user.png" class="profile">
-                                    </c:when>
-                                
-                                    <c:otherwise>
-                                        <img src="${commentList.userImage}" class="profile">
-                                    </c:otherwise>
-                                </c:choose>
-                                <span class="comUser" >닉네임${selectCommentList.userNickname}</span>
-                                <span class="commentDate">${selectCommentList.commentDate}</span>
-                            </p>
-                            <p class="commentCon"> ${selectCommentList.commentContent}
-                                    내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용
-                            </p>    
-                            <div class="commentP">
-                                <div id="push">
-                                    <i class="fa-regular fa-thumbs-up fa-xl" style="color: red;"></i><span>0</span>
-                                </div>
-                                <div id="push2">
-                                    <i class="fa-regular fa-thumbs-down fa-xl" style="color: blue;"></i><span>0</span>
-                                </div>
-                            </div>
-                        </li>
-                        <%-- </C:forEach> --%>
+                    <ul class="commentList">
                     </ul>
                 </div>
                 <!-- 버튼 클릭 시 이동 -->
@@ -235,7 +206,7 @@
     <script>
         const petitionNo = ${petition.petitionNo};
         const loginUserNo = "${loginUser.userNo}";
-        let petitionLikeCount = "${petition.petitionLikeCount}";
+        const petitionLikeCount = "${petition.petitionLikeCount}";
     </script>
     
     <%-- petitionView.js --%>

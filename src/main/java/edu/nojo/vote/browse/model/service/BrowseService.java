@@ -43,6 +43,8 @@ public interface BrowseService {
 	 */
 	int petitionLike(Map<String, Integer> paramMap);
 
+	
+	
 	/** 청원 업데이트 리스트 조회
 	 * @param petitionNo
 	 * @return updateList

@@ -56,19 +56,19 @@ content.addEventListener("input", () => {
 
 
 
+// 페이지 로드시 댓글 목록 조회
+window.onload = selectCommentList();
 
 
 
 
-
-
-// 댓글 목록 조회
+//댓글 목록 조회
 function selectCommentList(){
 
-    fetch("/browse/petitionView/details/selectComment", {
+    fetch("/browse/petitionView/details/selectCommentList", {
         method: "POST",
         headers: {"Content-Type": "application/json; charset=UTF-8"},
-        body: JSON.stringify
+        body: JSON.stringify(petitionNo)
     }) 
     .then(response => response.json()) // 응답 객체 -> 파싱
     .then(cList => { // cList : 댓글 목록(객체배열)
@@ -195,15 +195,15 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
 
     // 좋아요(미완)
     let check; // 기존에 좋아요가 아닐 때(빈하트) : 0, 좋아요(꽉찬하트) : 1
-    if(loginUserNo){ // 좋아요가 아닐 때
+    if(loginUserNo !== commentUserNo){ // 좋아요가 아닐 때
         check = 0;
     }else{ 
         check = 1;
     }
-
-
+    
+    
     // ajax로 서버로 제출할 파라미터를 모아둔 JS객체
-    const data2 = {"petitionNo" : petitionNo, "loginUserNo" : loginUserNo};
+    const data2 = {"check": check, "petitionNo" : petitionNo, "loginUserNo" : loginUserNo};
     
     // ajax코드 작성
     fetch("/browse/petitionView/details/like", {
@@ -212,12 +212,13 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
         body : JSON.stringify(data2)
     })
     .then(response => response.text()) // 응답 객체를 필요한 형태로 파싱하여 리턴
-    
     .then(count => { 
-
+        
+        
+        alert(check)
         console.log("count : " + count);
 
-        if(count == -1){ // INSERT, DELETE실패 시 
+        if(count > 0){ // INSERT, DELETE실패 시 
             console.log("좋아요 처리 실패");
             return;
         }
@@ -225,7 +226,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
 
     
         // 현재 게시글의 좋아요 수를 화면에 출력
-        e.target.nextElementSibling.innerText = count;
+        // likeCount.nextElementSibling.innerText = count;
 
     }) // 파싱된 데이터를 받아서 처리하는 코드 작성
     
@@ -237,7 +238,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
 
 
 
-
+    /*
     // 댓글등록(완료)
     const data1 = {"commentContent" : commentContent.value, 
     "userNo" : loginUserNo, "petitionNo" : petitionNo, "petitionLikeCount" : petitionLikeCount}; // JS객체
@@ -276,6 +277,6 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
     .catch(err => console.log(err));
 
     
-    
+    */
 
 });

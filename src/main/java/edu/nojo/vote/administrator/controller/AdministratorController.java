@@ -105,7 +105,7 @@ public class AdministratorController {
 	
 	
 	// 청원 상세 조회
-	@GetMapping("/{petitionNo}")
+	@GetMapping("/{petitionNo:[0-9]+}")
 	public String petitionDetail(
 	
 		@PathVariable("petitionNo") int petitionNo

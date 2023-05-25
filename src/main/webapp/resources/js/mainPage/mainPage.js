@@ -130,9 +130,9 @@ document.getElementById('loadButton').addEventListener('click', function () {
           `;
           petitionContainer.appendChild(li);
 
-          if (response.length < 3) {
-            document.getElementById('loadButton').style.display = 'none';
-          }
+        }
+        if (response.length < 3) {
+          document.getElementById('loadButton').style.display = 'none';
         }
       } else {
         // 서버 오류 처리

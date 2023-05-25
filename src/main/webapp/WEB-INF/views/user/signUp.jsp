@@ -24,8 +24,6 @@
                 <br>
                 <div id="haveAccount">Already have an account? <a href="/user/login" id="loginMember">Login</a></div>
                 <br>
-                <button type="button" id="kakao" onclick="kakaoLogin();"><img src="/resources/images/user/kakaoLogin.png"></button>
-                <br>
                 <div class="or"> OR </div>
                 <br>
                 <div>

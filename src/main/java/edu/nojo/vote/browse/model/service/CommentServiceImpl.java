@@ -45,7 +45,7 @@ public class CommentServiceImpl implements CommentService{
 	@Override
 	public List<Browse> selectCommentList(int pno) {
 //		System.out.println(dao.selectCommentList(pno));
-		System.out.println(pno);
+//		System.out.println(pno);
 		return dao.selectCommentList(pno);
 	}
 	

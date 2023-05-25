@@ -27,20 +27,25 @@ public class HelpController {
 	@Autowired
 	private HelpService service;
 	
-	@GetMapping("/FAQ")
-	// FAQ (아래 버튼을 누르면 아코디언 메뉴가 바뀜)
-	public String FAQ(
-			 @RequestParam(value="cp", required=false, defaultValue="1") int cp
-          , Model model
-          , @RequestParam Map<String, Object> paramMap
-           ) {
-				
-		Map<String, Object> map = service.FAQList(paramMap, cp);
-		
-		model.addAttribute("map", map);
-		return "/clientCenter/FAQ";
-	}
+	//   /clientCenter/FAQ?faqCatNo=1
 	
+	@GetMapping("/FAQ")
+	public String clientCenterFAQ(
+		   @RequestParam(value="faqCatNo", required=false, defaultValue="1") int faqCatNo,
+	       @RequestParam(value="cp", required=false, defaultValue="1") int cp,
+	       Model model,
+	       @RequestParam Map<String, Object> paramMap
+	       ) {
+		
+		paramMap.put("faqCatNo", faqCatNo);
+
+		
+	    Map<String, Object> map = service.FAQList(paramMap, cp);
+	    
+	    model.addAttribute("map", map);
+	    
+	    return "/clientCenter/FAQ";
+	} 
 
 
 	   	

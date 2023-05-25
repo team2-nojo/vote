@@ -9,7 +9,13 @@ $(".question").click(function() {
   const button = document.getElementById("button2");
   const buttons = document.getElementById("button3");
   const buttonsa = document.getElementById("button4");
+  const button1 = document.getElementsByClassName("button1");
 
+  button1.addEventListener("click", e => {
+
+    location.href = `/FAQ`;
+
+});
 
   buttList.addEventListener("click", e => {
     if(e.target.classList.contains("confirm")){

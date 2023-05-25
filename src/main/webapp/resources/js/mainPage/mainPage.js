@@ -103,6 +103,11 @@ document.getElementById('loadButton').addEventListener('click', function () {
               categories += ', ';
             }
           });
+          let img;
+          if(mainPetition.petitionImage === null)
+              img = "/resources/images/common/defaultThumbnail.png";
+          else
+              img = mainPetition.petitionImage;
           li.className = 'content pettition1';
           li.innerHTML = `
             <div class="pettition1 pet-title">
@@ -115,7 +120,7 @@ document.getElementById('loadButton').addEventListener('click', function () {
               <div>
                 <a href="/browse/petitionView/details/${mainPetition.petitionNo}"><div class="text-limit6">${mainPetition.petitionContent}</a></a></div>
               </div>
-              <div class="photo"><img src="${mainPetition.petitionImage}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
+              <div class="photo"><img src="${img}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>
             <div class="pettition1 id">
               <span id="id-profile"><img src="${mainPetition.userImage}" style="height: 28px; margin: 5px;" class="profile-image"></span>

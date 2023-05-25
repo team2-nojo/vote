@@ -33,7 +33,9 @@
                 <div class="result">
                     <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1 contentBox">
                         <div class="row-left" id="rowPicture">
-                            <img src="${petition.petitionImage}" class="picture">
+                            <img src="<c:if test="${not empty petition.petitionImage}" >
+                            ${petition.petitionImage}</c:if><c:if test="${empty petition.petitionImage}" >
+                            /resources/images/common/defaultThumbnail.png</c:if>" class="picture">
                         </div>
                         <div class="row-right">
                             <div id="title" class="limit-title">

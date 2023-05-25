@@ -45,10 +45,16 @@
 
   <div class="faq-category">
 
-  <button class="button1">청원</button>
+  <a href="http://localhost/clientCenter/FAQ?faqCatNo=1" id="button1">청원</a>
+  <a href="http://localhost/clientCenter/FAQ?faqCatNo=2" id="button1">신고</a>
+  <a href="http://localhost/clientCenter/FAQ?faqCatNo=3" id="button1">개인정보</a>
+  <a href="http://localhost/clientCenter/FAQ?faqCatNo=4" id="button1">전체</a>
+  
+<%--   <button id="button1">청원</button>
   <button id="button1">신고</button>
   <button id="button1">개인정보</button>
   <button id="button1">전체</button>
+ --%>
   </div>
 
 

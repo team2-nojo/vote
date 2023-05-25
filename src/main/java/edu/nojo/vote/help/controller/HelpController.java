@@ -26,23 +26,26 @@ public class HelpController {
 	
 	@Autowired
 	private HelpService service;
-	
-	//   /clientCenter/FAQ?faqCatNo=1
+
 	
 	@GetMapping("/FAQ")
 	public String clientCenterFAQ(
 		   @RequestParam(value="faqCatNo", required=false, defaultValue="1") int faqCatNo,
 	       @RequestParam(value="cp", required=false, defaultValue="1") int cp,
 	       Model model,
-	       @RequestParam Map<String, Object> paramMap
+	       @RequestParam Map<String, Object> paramMap,
+	       @SessionAttribute(value="loginUser", required=false) User loginUser
 	       ) {
 		
+		
+		
 		paramMap.put("faqCatNo", faqCatNo);
-
+		
 		
 	    Map<String, Object> map = service.FAQList(paramMap, cp);
 	    
 	    model.addAttribute("map", map);
+	    model.addAttribute("loginUser", loginUser);
 	    
 	    return "/clientCenter/FAQ";
 	} 

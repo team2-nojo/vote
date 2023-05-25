@@ -5,33 +5,17 @@ $(".question").click(function() {
   });
   
   
-  const buttList = document.getElementById("button1");
   const button = document.getElementById("button2");
   const buttons = document.getElementById("button3");
   const buttonsa = document.getElementById("button4");
-  const button1 = document.getElementsByClassName("button1");
-
-  button1.addEventListener("click", e => {
-
-    location.href = `/FAQ`;
-
-});
-
-  buttList.addEventListener("click", e => {
-    if(e.target.classList.contains("confirm")){
-        buttList.classList.toggle("confirm")
-    } else {
-      buttList.classList.remove("confirm")
-    }
-  });
 
   button.addEventListener("click", e => {
     if(loginUserNo == ""){
       alert("로그인 후 이용해주세요")
       e.preventDefault();
-      location.href = `/user/login`
+      location.href = 'http://localhost/user/login';
   } else {
-    location.href = `/clientCenter/QNA`
+    location.href = '/clientCenter/QNA';
   }
   });
 
@@ -39,9 +23,9 @@ $(".question").click(function() {
     if(loginUserNo == ""){
       alert("로그인 후 이용해주세요")
       e.preventDefault();
-      location.href = `/user/login`
+      location.href = '/user/login';
   } else {
-    location.href = `/clientCenter/QNA3`
+    location.href = '/clientCenter/QNA3';
   }
   });
 
@@ -49,12 +33,23 @@ $(".question").click(function() {
     if(loginUserNo == ""){
       alert("로그인 후 이용해주세요")
       e.preventDefault();
-      location.href = `/user/login`
+      window.location.href = '/user/login';
   } else {
-    location.href = `/clientCenter/chatbot`
+    location.href = '/clientCenter/chatbot';
   }
+
   });
 
+
+  const buttList = document.getElementById("button1");
+
+buttList.addEventListener("click", e => {
+    if(e.target.classList.contains("confirm")){
+        buttList.classList.toggle("confirm")
+    } else {
+      buttList.classList.remove("confirm")
+    }
+  });
 
   // 로고 클릭시 메인페이지
 document.getElementById("logoimg").addEventListener("click", () => {

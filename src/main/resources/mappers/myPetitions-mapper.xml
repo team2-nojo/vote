@@ -159,6 +159,17 @@
 		PT_IMG = #{petitionImage}
 		WHERE PT_NO = ${petitionNo}
 	</update>
+	
+	<!-- 카테고리 추가 -->
+	<insert id="insertCategory">
+		INSERT INTO "PETITION_CATEGORY_LIST"
+		VALUES (
+			SEQ_CAT_NO.NEXTVAL,
+			#{categoryName},
+			DEFAULT
+		)
+	</insert>
+	
 
   <!-- brows-detail-update -->
 	<!-- 청원 업데이트 목록 조회 -->

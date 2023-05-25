@@ -40,14 +40,7 @@ public class CommentDAO {
 	}
 
 
-	/** details내부 댓글조회
-	 * @param petitionNo
-	 * @return selectCommentList
-	 */
-	public List<Browse> selectCommentList(int pno) {
-		
-		return sqlSession.selectList("myPetitionsMapper.resetcommentList", pno);
-	}
+
 	
 	
 	

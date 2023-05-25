@@ -251,50 +251,50 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
 
 
     // 좋아요(미완)
-    let check; // 기존에 좋아요가 아닐 때(빈하트) : 0, 좋아요(꽉찬하트) : 1
+    // let check; // 기존에 좋아요가 아닐 때(빈하트) : 0, 좋아요(꽉찬하트) : 1
 
-    for(let i = 0; i < likeUser.length; i++){
-        if(likeUser[i].userNo != loginUserNo){ // 좋아요 안 해본 사람
-            check = 0;
-        }else{
-            check = 1;
-        }
-    }
+    // for(let i = 0; i < likeUser.length; i++){
+    //     if(likeUser[i].userNo != loginUserNo){ // 좋아요 안 해본 사람
+    //         check = 0;
+    //     }else{
+    //         check = 1;
+    //     }
+    // }
 
     // alert(check);
 
 
     // ajax로 서버로 제출할 파라미터를 모아둔 JS객체
-    const data2 = {"check": check, "petitionNo" : petitionNo, "loginUserNo" : loginUserNo};
+    // const data2 = {"check": check, "petitionNo" : petitionNo, "loginUserNo" : loginUserNo};
     
-    // ajax코드 작성
-    fetch("/browse/petitionView/details/like", {
-        method : "POST",
-        headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify(data2)
-    })
-    .then(response => response.text()) // 응답 객체를 필요한 형태로 파싱하여 리턴
-    .then(count => { 
+    // // ajax코드 작성
+    // fetch("/browse/petitionView/details/like", {
+    //     method : "POST",
+    //     headers : {"Content-Type" : "application/json"},
+    //     body : JSON.stringify(data2)
+    // })
+    // .then(response => response.text()) // 응답 객체를 필요한 형태로 파싱하여 리턴
+    // .then(count => { 
         
         
-        // alert(check)
-        console.log("count : " + count);
+    //     // alert(check)
+    //     console.log("count : " + count);
 
-        if(count > 0){ // INSERT, DELETE실패 시 
-            console.log("좋아요 처리 실패");
-            return;
-        }
+    //     if(count > 0){ // INSERT, DELETE실패 시 
+    //         console.log("좋아요 처리 실패");
+    //         return;
+    //     }
 
     
-        // 현재 게시글의 좋아요 수를 화면에 출력
-        e.target.nextElementSibling.innerText = count;
+    //     // 현재 게시글의 좋아요 수를 화면에 출력
+    //     e.target.nextElementSibling.innerText = count;
 
-    }) // 파싱된 데이터를 받아서 처리하는 코드 작성
+    // }) // 파싱된 데이터를 받아서 처리하는 코드 작성
     
-    .catch(err => {
-        console.log("예외발생");
-        console.log(err);
-    }) //예외 발생시 처리하는 부분
+    // .catch(err => {
+    //     console.log("예외발생");
+    //     console.log(err);
+    // }) //예외 발생시 처리하는 부분
 
 
 

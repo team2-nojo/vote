@@ -26,13 +26,11 @@ public interface CommentService {
 
 
 
+
+
+
+
 	
-	
-	/** details 내부 댓글 조회
-	 * @param petitionNo
-	 * @return list
-	 */
-	List<Browse> selectCommentList(int pno);
 
 
 	

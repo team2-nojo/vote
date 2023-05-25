@@ -47,8 +47,11 @@ public interface HelpService {
 	
 
 	
+
+	
     /** FAQ와 글 조회
      * @param paramMap 
+     * @param cp 
      * @param faqNo
      * @return 
      */

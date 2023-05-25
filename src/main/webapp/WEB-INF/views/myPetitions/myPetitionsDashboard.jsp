@@ -45,7 +45,6 @@
             <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">대시보드</a></li>
             <li id="nav"><a href="/browse/petitionView/details/${petitionNo}">청원상세조회</a></li>
             <li id="nav"><a href="/myPetitions/myPetitionEdit/${petitionNo}">편집</a></li>
-            <li id="nav"><a href="#">댓글</a></li>
           </ul>
         </div>
       </nav>

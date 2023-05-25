@@ -13,7 +13,7 @@ $(".question").click(function() {
     if(loginUserNo == ""){
       alert("로그인 후 이용해주세요")
       e.preventDefault();
-      location.href = 'http://localhost/user/login';
+      location.href = '/user/login';
   } else {
     location.href = '/clientCenter/QNA';
   }

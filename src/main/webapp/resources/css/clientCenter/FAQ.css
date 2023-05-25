@@ -38,7 +38,7 @@ main * {
   display: inline-block;
 }
 
-.button1{
+#button1{
   text-decoration: none;
   color: black;
   background-color: white;
@@ -47,6 +47,10 @@ main * {
   width: 60px;
   height: 20px;
   border: 1px solid black;
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 3px;
+  padding: 0 3px 0;
 }
 
 #button1:hover {
@@ -182,7 +186,10 @@ main * {
 
 #Accordion_wrap {
   width: 618px;
-  height: 312px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 .confirm {

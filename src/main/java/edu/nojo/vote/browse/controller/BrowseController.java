@@ -76,6 +76,8 @@ public class BrowseController {
 		List<Browse> selectCommentList = service2.selectCommentList(petitionNo);
 		List<Like> resetlikeUserList = service3.selectlikeUserList(petitionNo);
 		
+		
+		model.addAttribute("loginUser", loginUser);
 		model.addAttribute("petition", petition);
 		model.addAttribute("selectCommentList", selectCommentList);
 		model.addAttribute("resetlikeUserList", resetlikeUserList);
@@ -149,9 +151,7 @@ public class BrowseController {
 			){
 		
 		List<PetitionUpdate> updatePetitionList = service.updatePetitionList(petitionNo);
-		
 		model.addAttribute("updatePetitionList", updatePetitionList);
-		
 		return "/browse/petitionView/updates";
 	}
 	

@@ -73,27 +73,6 @@ document
 
           // 수정된 부분: 생성한 행을 실제 테이블에 추가
           tBody.appendChild(tr);
-
-          function confirmDeleteUser(userNo, userNickname) {
-            var confirmed = confirm(
-              '회원번호: ' +
-                userNo +
-                ' "' +
-                userNickname +
-                '"' +
-                '님을 정말로 복구하시겠습니까?'
-            );
-
-            if (confirmed) {
-              updateDeleteUser(userNo, userNickname);
-            } else {
-              event.preventDefault();
-              console.log('복구 취소');
-            }
-          }
-
-          form.submit();
-          alert('복구 성공~!');
         }
       })
 
@@ -102,3 +81,33 @@ document
         console.log(error);
       });
   });
+
+function confirmDeleteUserCancle(userNo2, userNickname) {
+  var confirmed = confirm(
+    '회원번호: ' +
+      userNo2 +
+      ' "' +
+      userNickname +
+      '"' +
+      '님을 정말로 복구하시겠습니까?'
+  );
+
+  if (confirmed) {
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/adminUserDeleteCancle';
+    form.style.display = 'none';
+
+    var userNoInput = document.createElement('input');
+    userNoInput.type = 'hidden';
+    userNoInput.name = 'userNo2';
+    userNoInput.value = userNo2;
+    form.appendChild(userNoInput);
+
+    document.body.appendChild(form);
+    form.submit();
+    alert('복구 성공~!');
+  } else {
+    console.log('복구 취소');
+  }
+}

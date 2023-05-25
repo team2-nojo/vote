@@ -12,7 +12,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>청원 조회</title>
+    <title>VOTE 1대1 문의 내역</title>
     <link rel="stylesheet" href="resources/css/admin/layout.css" />
     <link rel="stylesheet" href="resources/css/admin/basic.css">
     <link rel="stylesheet" href="resources/css/admin/adminQnA.css">
@@ -25,7 +25,7 @@
     <div class="content">
 
         <section class="board-list">
-            <h1 class="board-name">문의 조회</h1>
+            <h1 class="board-name">1:1 문의 내역</h1>
             <div class="list-wrapper">
                 <table class="list-table">
                     <thead>

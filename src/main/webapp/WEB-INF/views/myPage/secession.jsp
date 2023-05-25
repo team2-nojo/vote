@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/myPage/secession.css">
-    <title>내 계정 비활성화</title>
+    <title>VOTE 계정 비활성화</title>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>

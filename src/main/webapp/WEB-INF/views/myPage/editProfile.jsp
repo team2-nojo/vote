@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit profile</title>
+    <title>VOTE 프로필 편집</title>
     <link rel="stylesheet" href="/resources/css/myPage/editProfile.css">
 </head>
 <body>
@@ -37,7 +37,7 @@
                     <div class="userProfileID">${loginUser.userNickname}</div>
                     <div class="userProfileLocation">${loginUser.userAddress.split(" ")[0]}</div>
                     <div>
-                        <label class="upload-photo" for="inputUserImage">Upload photo</label>
+                        <label class="upload-photo" for="inputUserImage">사진 업로드</label>
                         <input type="file" name="profileImage" id="inputUserImage" accept="image/*">
                     </div>
                     <div id="editPrifileNameFrame">
@@ -72,8 +72,8 @@
                     </div>
                     <div id="goRight">
                         <div class="submit-cancel-button-frame">
-                            <button id="submit" class="submit-cancel-button">저장</button>
                             <button id="cancel" class="submit-cancel-button">취소</button>
+                            <button id="submit" class="submit-cancel-button">저장</button>
                         </div>
                     </div>
                 </div>

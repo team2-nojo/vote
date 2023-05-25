@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>브라우저 게시글 View(updates)</title>
+    <title>VOTE 청원 업데이트</title>
 
     <link rel="stylesheet" href="/resources/css/browse/petitionView/updates.css">
     <script src="https://kit.fontawesome.com/f7459b8054.js"crossorigin="flag"></script>
@@ -20,14 +20,13 @@
         <!-- 상단메뉴 -->
         <section id="top">
             <div id="menu">
-               <div><a href="/browse/petitionView/details/${petitionNo}" id="details">Petition details</a></div>
-                <div><a href="/browse/petitionView/comments/${petitionNo}" id="comments">Comments</a></div>
-                <div id="updates">Updates</div>
+               <div><a href="/browse/petitionView/details/${petitionNo}" id="details">청원 상세</a></div>
+                <div id="updates">청원 업데이트</div>
             </div>
         </section>
 
         <section id="updatesSection1">
-            <div id="updatesBT">최근 소식</div>
+            <div id="updatesBT">청원 업데이트</div>
         </section>
 
         <%-- 최근 소식이 없는 경우 --%>

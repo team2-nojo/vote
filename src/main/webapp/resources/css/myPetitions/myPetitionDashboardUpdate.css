@@ -383,3 +383,14 @@
   }
 
 
+#modalClose {
+    width: 100px;
+    height: 30px;
+
+    background-color: #fff;
+    border-radius: 5px;
+    border-color: #2DB400;
+
+    color: #2DB400;
+    font-weight: bold;
+}

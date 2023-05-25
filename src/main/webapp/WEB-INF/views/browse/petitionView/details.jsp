@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>브라우저 게시글 View</title>
+    <title>VOTE 청원 상세</title>
 
     <%-- petitionView.css --%>
     <link rel="stylesheet" href="/resources/css/browse/petitionView/details.css">
@@ -29,9 +29,8 @@
         <!-- 상단메뉴 -->
         <section class="top">
             <div id="menu">
-                <div id="details">Petition details</div>
-                <div><a href="/browse/petitionView/comments/${petitionNo}" id="comments">Comments</a></div>
-                <div ><a href="/browse/petitionView/update/${petitionNo}" id="updates">Updates</a></div>
+                <div id="details">청원 상세</div>
+                <div ><a href="/browse/petitionView/update/${petitionNo}" id="updates">청원 업데이트</a></div>
             </div>
         </section>
 
@@ -152,7 +151,7 @@
                                 </div>
                                 <%-- 좋아요 버튼 --%>
                                 <div>
-                                    <button id="signButton" >좋아요!</button>
+                                    <button id="signButton" >서명하기</button>
                                 </div>
                         </c:when>
                             <%-- 로그인 유저와 해당 글 작성자가 같은 경우 --%>

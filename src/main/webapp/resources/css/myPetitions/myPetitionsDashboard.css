@@ -27,7 +27,7 @@ nav{
   margin-top: 5px;
 }
 
-nav a:hover{color: red;}
+nav a:hover{color: #2db400;}
 
 .nav-title{
   width: 960px;
@@ -69,7 +69,7 @@ nav a:hover{color: red;}
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background-color: red;
+  background-color: #2db400;
   /* transition: width 0.5s ease-in-out; */
 }
 
@@ -77,8 +77,8 @@ nav a:hover{color: red;}
   width: 100%;
 }
 
-#navSelect{border-bottom: 2px solid red;}
-#navSelect>a{color: red;}
+#navSelect{border-bottom: 2px solid #2db400;}
+#navSelect>a{color: #2db400;}
 
 /* content */
 .content{
@@ -439,17 +439,18 @@ nav a:hover{color: red;}
   align-items: center;
   width: 120px;
   height: 38px;
-  border: 3px solid red;
+  border: 3px solid #2db400;
   border-radius: 5px;
   font-size: 16px;
-  color: red;
+  color: white;
+  background-color: #2db400;
   font-weight: bold;
 }
-.reflesh a:hover{
-  background-color: red;
+/* .reflesh a:hover{
+  background-color: #2db400;
   color: white;
 }
-
+ */
 .reflesh a:active{
   transform: scale(0.9);
 }
@@ -550,7 +551,7 @@ nav a:hover{color: red;}
 }
 
 
-.guide-select button{
+#petitionDel {
   margin-left: 20px;
   display: flex;
   justify-content: center;
@@ -558,16 +559,32 @@ nav a:hover{color: red;}
   width: 120px;
   height: 50px;
   background-color: white;
-  border: 3px solid red;
+  border: 3px solid #2db400;
   border-radius: 5px;
   font-size: 16px;
-  color: red;
+  color: #2db400;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#petitionVic {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 50px;
+  background-color: #2db400;
+  border: 3px solid #2db400;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
 .guide-select button:hover{
-  background-color: red;
+  background-color: #2db400;
   color: white;
 }
 

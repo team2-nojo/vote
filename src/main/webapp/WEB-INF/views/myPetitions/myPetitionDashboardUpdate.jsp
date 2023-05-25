@@ -25,7 +25,7 @@
             <div class="content" id="dashboardUpdate">
                 <div class="contentbox" id="dashboardUpdateContainer">
                     <div class="dashboard-update-top-frame">
-                        <div id="dashboardUpdateTitle">청원 지지자 업데이트</div>
+                        <div id="dashboardUpdateTitle">청원 업데이트</div>
                     </div>
                     <div class="dashboard-update-top-frame">
                         <div id="dashboardUpdateSubtitle">${myPetition.petitionTitle}</div>
@@ -62,7 +62,7 @@
                     <div>
                         <div class="dashboard-update-text-guide">
                             <%-- <div><strong>업데이트는 24시간에 한 번씩 게시 가능합니다.</strong><br></div> --%>
-                            <div>업데이트는 청원 페이지에 나타나며, 모든 지원자에게 이메일로 전송됩니다.</div>
+                            <div>업데이트는 청원 페이지에 나타납니다.</div>
                         </div>
                     </div>
                     <div id="goRight">
@@ -70,7 +70,7 @@
                         <div id="modal" class="modal-overlay">
                             <div class="modal-window">
                                 <div class="modal-title-container">
-                                    <div class="modal-title">업데이트 이메일 미리보기</div>
+                                    <div class="modal-title">업데이트 미리보기</div>
                                     <div class="modal-subtitle">지지자에게 메세지가 어떻게 표시되는지 확인하십시오</div>
                                 </div>
                                 <div class="modal-content-container">
@@ -97,8 +97,8 @@
                         </div>
                         <!-- 모달창 끝 -->
                         <div class="submit-cancel-button-frame">
-                            <button id="emailPreview" class="submit-cancel-button preview" type="button">이메일 미리보기</button>
-                            <button id="updatePetitionPost" class="submit-cancel-button">포스트</button>
+                            <button id="emailPreview" class="submit-cancel-button preview" type="button">미리보기</button>
+                            <button id="updatePetitionPost" class="submit-cancel-button">제출</button>
                         </div>
                     </div>
                 </div>

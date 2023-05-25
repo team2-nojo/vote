@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>청원하기</title>
+        <title>VOTE 나의청원</title>
         
         <!-- include summernote css/js -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -24,7 +24,7 @@
             <form action="/writePetition" method="post" enctype="multipart/form-data">
                 <!-- page1 -->
                 <div id="page1" class="page container border current">
-                    <h1>변화를 향한 첫 걸음</h1>
+                    <h2>변화를 향한 첫 걸음</h2>
                     <p>청원 범위 선택:</p>
                     <div class="select-container border">
                         <span class="scope-item selected-item" name="scope" value="local">
@@ -43,7 +43,7 @@
                 
                 <!-- page2 -->
                 <div id="page2" class="page container border">
-                    <h1>이 청원에 가장 적합한 주제는 무엇인가요?</h1>
+                    <h2>이 청원에 가장 적합한 주제는 무엇인가요?</h2>
                     <div id="categoryContainer" class="border">
                         <c:forEach items="${defaultCategoryList}" var="defaultCategory">
                             <input type="checkbox" name="categoryItems" class="hidden" id="defaultCategoryItem${defaultCategory.categoryNo}"
@@ -70,10 +70,10 @@
                 
                 <!-- page3 -->
                 <div id="page3" class="page container border">
-                    <h1>청원 제목을 작성하세요.</h1>
-                    <p>사람들에게 당신이 바꾸고 싶은 것을 말하세요.</p>
+                    <h2>청원 제목을 작성하세요.</h2>
+                    <p>사람들에게 당신이 바꾸고 싶은 주제에 대해 말해보세요.</p>
                     <div id="titleContainer">
-                        <div>청원 제목</div>
+                        <div id="writeTitle">청원 제목</div>
                         <input type="text" name="title" id="inputTitle" onkeydown="return event.key != 'Enter';">
                         <div id="titleCountContainer"><div id="titleCharCount">0</div><div>/90</div></div>
                     </div>
@@ -81,16 +81,16 @@
                 
                 <!-- page4 -->
                 <div id="page4" class="page container border">
-                    <h1>당신의 이야기를 들려주세요.</h1>
+                    <h2>당신의 이야기를 들려주세요.</h2>
                     <!-- 에디터 출력영역 -->
                     <textarea id="summernote" name="editorContent"></textarea>
                 </div>
                 
                 <!-- page5 -->
                 <div id="page5" class="page container border">
-                    <h1>이미지를 추가하세요.</h1>
-                    <p>(선택 사항)</p>
-                    <p>이미지가 있는 청원은 6배 많은 서명을 받습니다.</p>
+                    <h2 id="writeImageTitle">이미지를 추가하세요.</h2>
+                    <div class="smallText">(선택 사항)</div>
+                    <h4>이미지가 있는 청원은 6배 많은 서명을 받습니다.</h4>
                     <div class="input-img-container container border center">
                         <div class="no-img-container center container">
                             <img data-testid="drop-target" width="115" src="resources/images/writePetition/uploadimg.svg">
@@ -102,19 +102,18 @@
                             <span class="delete-image center">X</span>
                         </div>
                     </div>
-                    <p>이미지 크기는 1200 x 675픽셀에 최적화 되어 있습니다.</p>
+                    <div class="smallText">이미지 크기는 1200 x 675픽셀에 최적화 되어 있습니다.</div>
                 </div>
                 
                 <!-- page6 -->
                 <div id="page6" class="page container border">
-                    <h1>당신의 청원이 준비되었습니다.</h1>
-                    <h3>다음은 다음과 같습니다.</h3>
+                    <h2>당신의 청원이 준비되었습니다.</h2>
+                    <h3>다음 진행 사항은 아래와 같습니다.</h3>
                     <ol>
                         <li>아래에서 당신의 청원서를 확인하세요.</li>
-                        <li>청원서 최종 제출 버튼을 눌러 작성을 완료하세요.</li>
+                        <li>제출 버튼을 눌러 작성을 완료하세요.</li>
                         <li>청원서는 언제든지 수정할 수 있습니다.</li>
                         <li>아는 사람이나 온라인 커뮤니티에 공유하세요.</li>
-                        <li>당신의 청원은 5개의 서명에 도달한 후 본 사이트에서 볼 수 있습니다.</li>
                     </ol>
                     <div id="previewContainer" class="border container">
                         <h1 id="previewTitle">제목이 작성되는 곳</h1>
@@ -168,7 +167,7 @@
             <div id="btnContainer" class="btn-container border">
                 <button type="button" id="prevBtn" class="my-btn">이전으로</button>
                 <button type="button" id="nextBtn" class="my-btn">다음으로</button>
-                <button type="submit" id="submitBtn" class="my-btn">청원서 최종 제출</button>
+                <button type="submit" id="submitBtn" class="my-btn">제출</button>
             </div>
             </form>
         </div>

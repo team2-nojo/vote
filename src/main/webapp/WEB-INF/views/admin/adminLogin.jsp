@@ -8,7 +8,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>"VOTE LOGIN"</title>
+    <title>VOTE 관리자 로그인</title>
     <link rel="stylesheet" type="text/css" href="resources/css/admin/adminLogin.css" />
   </head>
   <body>

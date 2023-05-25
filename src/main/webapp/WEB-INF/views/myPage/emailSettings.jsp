@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/myPage/emailSettings.css">
-    <title>이메일 수신 설정</title>
+    <title>VOTE 이메일 수신 설정</title>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -24,8 +24,8 @@
                 <hr class="email-settings-hr">
                 <div><input type="checkbox" name="items" class="disagree" id="item0" value="0"<c:if test="${fn:contains(loginUser.emailSettings,0)}"> checked</c:if>> <label for="item0">그 어떤 이메일도 받고 싶지 않습니다.</label></div>
                 <div id="btnContainer">
-                    <button type="submit" id="submit" class="submit-cancel-button">저장</button>
                     <a href="/myPage"><button type="button" id="cancel" class="submit-cancel-button">취소</button></a>
+                    <button type="submit" id="submit" class="submit-cancel-button">저장</button>
                 </div>
             </form>
         </main>

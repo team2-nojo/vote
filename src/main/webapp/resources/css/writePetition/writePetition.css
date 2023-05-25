@@ -192,6 +192,7 @@ main *{
 #titleCountContainer {
   display: flex;
   align-self: flex-end;
+  margin-top: 5px;
 }
 
 .red{
@@ -398,4 +399,16 @@ input[name="categoryItems"]:checked + label,#directInputCheckbox:checked + label
   border: 1px solid black;
   border-radius: 5px;
   background-color: white;
+}
+
+#writeTitle {
+  margin-bottom: 5px;
+}
+
+#writeImageTitle{
+  margin-bottom: 5px;
+}
+
+.smallText {
+  font-size: 12px;
 }

@@ -11,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>유저 조회</title>
+    <title>VOTE 회원정보</title>
 
     <link rel="stylesheet" href="resources/css/admin/adminUserList.css">
     <link rel="stylesheet" href="resources/css/admin/adminUserList2.css">
@@ -23,7 +23,7 @@
     <main>
         <section class="board-list">
         <div>
-            <h1 class="board-name">유저 조회</h1>
+            <h1 class="board-name">회원정보</h1>
             <div class="list-wrapper">
                 <table class="list-table">
                     

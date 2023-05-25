@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signUp</title>
+    <title>VOTE 회원 가입</title>
 
     <%-- signUp.css --%>
     <link rel="stylesheet" href="/resources/css/user/signUp.css">
@@ -20,33 +20,28 @@
 
         <section>
             <form action="/user/signUp" method="post" name="signUpFrm" id="signUpFrm">
-                <div id="signUp">Sign up</div>
-                <br>
-                <div id="haveAccount">Already have an account? <a href="/user/login" id="loginMember">Login</a></div>
-                <br>
-                <div class="or"> OR </div>
-                <br>
+                <div id="logIn"><img src="/resources/images/common/voteLogo2.png" id="signUpLogo"></div>
                 <div>
-                    <input type="text" name="userEmail" id="userEmail" placeholder="Email">
+                    <input type="text" name="userEmail" id="userEmail" placeholder="이메일">
                 </div>
                 <div id="emailMessage">
                     메일을 받을 수 있는 이메일을 입력해주세요.
                 </div>
                 <div>
-                    <input type="text" name="userNickname" id="userNickname" placeholder="Nickname" maxlength='10'>
+                    <input type="text" name="userNickname" id="userNickname" placeholder="닉네임" maxlength='10'>
                 </div>
                 <div id="nameMessage">
                     한글,영어,숫자로만 2~10글자 입력해주세요.
                 </div>
                 <div>
-                    <input type="password" name="userPw" id="userPw" placeholder="Password">
-                    <input type="password" name="userPwConfirm" id="userPwConfirm" placeholder="Password Confirm">
+                    <input type="password" name="userPw" id="userPw" placeholder="비밀번호">
+                    <input type="password" name="userPwConfirm" id="userPwConfirm" placeholder="비밀번호 확인">
                 </div>
                 <div id="pwMessage">
                     "영어, 숫자, 특수문자(!, @, #, -, _) 8~20글자 사이로 입력해주세요."
                 </div>
                 <div>
-                    <input type="text" name="userAddress" id="sample6_address" placeholder="Address">
+                    <input type="text" name="userAddress" id="sample6_address" placeholder="주소">
                     <button type="button" id="addressSearch" onclick="sample6_execDaumPostcode()">주소찾기</button> <br>
                     <input type="text" name="userAddress" id="sample6_detailAddress" placeholder="Address">
                 </div>
@@ -61,6 +56,10 @@
                 <div>
                     <button id="SignUpSubmit" >Sign up</button>
                 </div>
+                <br>
+                <div class="or"> OR </div>
+                <br>
+                <div id="haveAccount">이미 계정이 있으신가요? <a href="/user/login" id="loginMember">로그인</a></div>
             </form>
         </section>
 

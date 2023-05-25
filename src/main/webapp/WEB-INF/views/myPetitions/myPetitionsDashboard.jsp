@@ -13,7 +13,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>myPetitions</title>
+  <title>VOTE 대시보드</title>
   <link rel="stylesheet" href="/resources/css/myPetitions/myPetitionsDashboard.css">
 </head>
 <body>
@@ -43,7 +43,7 @@
         <div class="nav">
           <ul>
             <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">대시보드</a></li>
-            <li id="nav"><a href="/browse/petitionView/details/${petitionNo}">청원상세조회</a></li>
+            <li id="nav"><a href="/browse/petitionView/details/${petitionNo}">청원 상세</a></li>
             <li id="nav"><a href="/myPetitions/myPetitionEdit/${petitionNo}">편집</a></li>
           </ul>
         </div>
@@ -77,7 +77,7 @@
               <div class="maxnum">
                 <c:choose>
                   <c:when test="${not empty likeUserCount}">
-                    다음 목표까지 서포터 단 
+                    다음 목표까지 지지자 단 
                     <c:choose>
                       <c:when test="${fn:substringBefore((Math.ceil(likeUserCount / 5) * 5), '.') == likeUserCount}">
                         ${fn:substringBefore((Math.ceil((likeUserCount + 1) / 5) * 5), '.') - likeUserCount}명만 더!
@@ -87,7 +87,7 @@
                       </c:otherwise>
                     </c:choose>
                   </c:when>
-                  <c:otherwise>당신의 청원을 지지해줄 서포터를 찾으세요!</c:otherwise>
+                  <c:otherwise>당신의 청원을 지지해줄 지지자를 찾으세요!</c:otherwise>
                 </c:choose>
               </div>
               <div class="graph-text">
@@ -99,7 +99,7 @@
           <div class="agree">
             <div class="support" id="contentFrame">
               <div class="agree-top">
-                <h3>최신 서포터 목록</h3>
+                <h3>최신 지지자 목록</h3>
                 <button id="supportBtn" type = "button">
                   <i class="fa-solid fa-arrows-rotate"></i>&nbsp&nbsp최신화
                 </button>
@@ -109,8 +109,8 @@
                 </ul>
               </div>
               <div class="agree-L">
-                <div><h3>전체 서포터 목록</h3></div>
-                <div><p>서포터들의 좋아요와 댓글이 담긴 전체 목록을 이메일로 받으십시오.</p></div>
+                <div><h3>전체 지지자 목록</h3></div>
+                <div><p>지지자들의 서명과 댓글이 담긴 전체 목록을 이메일로 받으십시오.</p></div>
                 <div class="agree-B">
                   <select id="exportOpt">
                     <option value="">좋아요(스프레드시트)</option>
@@ -162,7 +162,7 @@
               </div>
               <div>
                 <p>
-                  성공적인 청원 시작자들은 약 12번의 청원을 공유합니다. 가능한 한 다양한 플랫폼에서 공유하고 추진력을 높이기 위해 다른 사람들에게 청원서에 서명하고 공유하도록 요청하세요!
+                  성공적인 청원의 작성자는 약 12번의 청원을 공유합니다. 가능한 한 다양한 플랫폼에서 공유하고 추진력을 높이기 위해 다른 사람들에게 청원서에 서명하고 공유하도록 요청하세요!
                 </p>
               </div>
               <div class="input-url">
@@ -288,8 +288,8 @@
             </div>
           </div>
           <div class="guide-right">
-            <button id="petitionDel" type="button">청원 삭제</button>
-            <button id="petitionVic" type="button">청원 승리선언</button>
+            <button id="petitionDel" type="button">삭제</button>
+            <button id="petitionVic" type="button">승리 선언</button>
           </div>
         </div>
       </div>

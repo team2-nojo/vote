@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>비밀번호 찾기</title>
+    <title>VOTE 비밀번호 찾기</title>
 
     <link rel="stylesheet" href="/resources/css/user/searchPw.css">
 
@@ -26,18 +26,16 @@
 
 
             <div>
-                여기에 이메일 주소를 입력한 후 받은 편지함을 확인하십시오.<br>
-                암호를 재설정하는 링크를 보내드립니다.
+                이메일 주소를 입력해 주세요.<br>
+                비밀번호를 재설정하는 링크를 보내드립니다.
             </div>
 
             
-            <div>
+            <div id="marginTopBox">
                 <input type="text" id="email" placeholder=" Email">
             </div>
-
-
             <div>
-                <button id="resetPw">Reset password</button>
+                <button id="resetPw">비밀번호 재설정</button>
             </div>
         </section>
     </main>

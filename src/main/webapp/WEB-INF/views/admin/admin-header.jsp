@@ -64,7 +64,7 @@
                 src="resources/images/mainPage/search_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />청원 글 조회</a>
+              />청원 조회</a>
             </li>
             <!-- 메뉴 아이템 3 -->
             <li><a href="/adminPetitionDelList">

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.user.model.dto.User;
@@ -40,7 +41,8 @@ public class WritePetitionController {
 			, @RequestParam(value="title")String title
 			, @RequestParam(value="editorContent")String content
 			, @RequestParam(value="thumbnailImage", required=false) MultipartFile thumbnailImage
-			, HttpSession session) throws IllegalStateException, IOException, Exception {
+			, HttpSession session
+			, RedirectAttributes ra) throws IllegalStateException, IOException, Exception {
 		Petition petition = new Petition();
 		
 		petition.setUserNo(loginUser.getUserNo());
@@ -48,10 +50,18 @@ public class WritePetitionController {
 		petition.setPetitionContent(content);
 		String webPath = "/resources/images/writePetition/";
 		String filePath = session.getServletContext().getRealPath(webPath);
-		service.writePetition(petition,categoryItems,directInput,directInputCategory,thumbnailImage,webPath,filePath);
+		int result = service.writePetition(petition,categoryItems,directInput,directInputCategory,thumbnailImage,webPath,filePath);
+		String message = null;
+		String path = "redirect:/";
+		if(result > 0) {
+			message = "청원이 작성되었습니다.";
+			path += "browse/petitionView/details/"+petition.getPetitionNo();
+		} else {
+			message = "청원 작성 실패";
+		}
 		
 		
-		
-		return "redirect:/";
+		ra.addFlashAttribute("serverMessage",message);
+		return path;
 	}
 }

@@ -12,7 +12,7 @@ public interface WritePetitionService {
 
 	List<PetitionCategory> selectPetitionCategoryList();
 
-	void writePetition(Petition petition, List<Integer> categoryItems, String directInput,
+	int writePetition(Petition petition, List<Integer> categoryItems, String directInput,
 			List<String> directInputCategory, MultipartFile thumbnailImage, String webPath, String filePath) throws IllegalStateException, IOException, Exception;
 
 }

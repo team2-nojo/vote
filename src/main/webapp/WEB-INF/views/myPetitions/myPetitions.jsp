@@ -95,46 +95,55 @@
                 </div>
                 <div id="mySignedPetitions" class="invisibleMyPetitions">
                     <c:choose>
-                        <c:when test="${empty petitionList}">
+                        <c:when test="${empty likeList}">
                             <%-- signed한 청원이 없을 경우 empty default box 출력 --%>
                             <div class="empty-default-box">
                                 <div class="emptyDefaultBoxArea">
                                     <div>관심이 있는 문제에 선한 영향력을 주는 청원을 찾아 지지를 표시하세요.</div>
-                                    <div><a href="/browse/browse_search/featured" class="toStartAPetition">청원 둘러보기</a></div>
+                                    <div><a href="/browse/browseSearch/popular" class="toStartAPetition">청원 둘러보기</a></div>
                                 </div>
                             </div>
                         </c:when>
                         <c:otherwise>
                             <%-- signed한 청원이 있을 경우 petitionList 출력 --%>
                             <c:forEach items="${likeList}" var="petition">
-                                <div class="defaultbox" onclick="location.href =`/myPetitions/myPetitionsDashboard/${petition.petitionNo}`">
-                                <%-- Title이 30자 초과이면 ...로 출력, 30자 이하면 그대로 출력 --%>
-                                    <div class="myPetitionTitle">
-                                    <c:choose>
-                                        <c:when test="${fn:length(petition.petitionTitle) > 30}">
-                                            ${fn:substring(petition.petitionTitle, 0, 31)}...
-                                        </c:when>
-                                        <c:otherwise>
-                                            ${petition.petitionTitle}
-                                        </c:otherwise>
-                                    </c:choose>
-                                    </div>
-                                    <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
-                                    <div class="myPetitionText">
-                                    <c:choose>
-                                        <c:when test="${fn:length(petition.petitionContent) > 200}">
-                                            ${fn:substring(petition.petitionContent, 0, 201)}...
-                                        </c:when>
-                                        <c:otherwise>
-                                            ${petition.petitionContent}
-                                        </c:otherwise>
-                                    </c:choose>
-                                    </div>
-                                    <div>
-                                        <div class="myPetitionWriter">${petition.userNickname}</div>
-                                        <div class="myPetitionsupporter">${petition.petitionLikeCount}</div>
-                                    </div>
-                                </div>
+                                <c:choose>
+                                    <%-- signed한 청원이 내가 쓴 글인 경우 --%>
+                                    <c:when test="${loginUser.userNo == petition.userNo}">
+                                        <div class="defaultbox" onclick="location.href =`/myPetitions/myPetitionsDashboard/${petition.petitionNo}`">
+                                    </c:when>
+                                    <%-- signed한 청원이 내가 쓴 글이 아닌 경우 --%>
+                                    <c:otherwise>
+                                        <div class="defaultbox" onclick="location.href =`/browse/petitionView/details/${petition.petitionNo}`">
+                                    </c:otherwise>
+                                </c:choose>
+                                            <%-- Title이 30자 초과이면 ...로 출력, 30자 이하면 그대로 출력 --%>
+                                            <div class="myPetitionTitle">
+                                            <c:choose>
+                                                <c:when test="${fn:length(petition.petitionTitle) > 30}">
+                                                    ${fn:substring(petition.petitionTitle, 0, 31)}...
+                                                </c:when>
+                                                <c:otherwise>
+                                                    ${petition.petitionTitle}
+                                                </c:otherwise>
+                                            </c:choose>
+                                            </div>
+                                            <%-- Content가 100자 초과이면 ...로 출력, 100자 이하면 그대로 출력 --%>
+                                            <div class="myPetitionText">
+                                            <c:choose>
+                                                <c:when test="${fn:length(petition.petitionContent) > 200}">
+                                                    ${fn:substring(petition.petitionContent, 0, 201)}...
+                                                </c:when>
+                                                <c:otherwise>
+                                                    ${petition.petitionContent}
+                                                </c:otherwise>
+                                            </c:choose>
+                                            </div>
+                                            <div>
+                                                <div class="myPetitionWriter">${petition.userNickname}</div>
+                                                <div class="myPetitionsupporter">${petition.petitionLikeCount}</div>
+                                            </div>
+                                        </div>
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>

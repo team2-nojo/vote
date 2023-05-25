@@ -8,9 +8,8 @@ commentMore.addEventListener("click", ()=>{
 
 const reportClick = document.getElementById("reportClick");
 
-reportClick.addEventListener("click", ()=>{
-    window.open("/browse/petitionView/report_popUp", "신고팝업", "width=450, hight=450px");
-    
+reportClick.addEventListener("click", () => {
+    window.open("/browse/petitionView/report_popUp", "신고팝업", "width=600, height=580");
 });
 
 

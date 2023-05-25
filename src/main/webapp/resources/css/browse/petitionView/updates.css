@@ -121,8 +121,8 @@ body{
 
 
 .slide{
-    width: 550px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 
     overflow: hidden;
     position: relative;
@@ -130,6 +130,7 @@ body{
 
 .frame{
     display: flex;
+    flex-direction: row-reverse;
     left: 0;
     width: 10000px;
     transition-property: transform;
@@ -155,7 +156,7 @@ body{
 }
 
 .updatesImg{
-    width: 480px;
+    width: 440px;
     height: 250px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -163,25 +164,25 @@ body{
 }
 
 
-.updatesTitle{
+.updatesT{
     font-weight: bold;
-    font-size: 15px;
+    font-size: 24px;
     color: black;
     text-decoration: none;
-    margin: 10px;
+    margin: 20px 10px;
 }
 
-.updatesC, .updatesT{
-    margin: 10px;
-}
 
-.updatesContent{
-    font-size: 12px;
+.updatesC{
+    font-size: 16px;
     color: black;
     text-decoration: none;
     
     margin: 10px;
-    
+}
+
+.updatesC img {
+    width: 440px !important;
 }
 
 .updatesProfile{
@@ -222,8 +223,7 @@ body{
 
 
 #rightBtn:disabled{
-    background: #020202;
-    border: 3px solid #020202;
+    cursor: default;
 }
 
 
@@ -265,6 +265,19 @@ body{
     border: 1px dashed #ccc;
 }
 
-button:disabled {
-    cursor: default;   
+#horizenAlign {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: 10px;
+}
+
+.uNickname {
+    font-weight: bold;
+}
+
+.uDate {
+    color: #ccc;
+    font-size: 12px;
 }

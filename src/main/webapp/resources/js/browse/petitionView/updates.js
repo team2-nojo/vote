@@ -30,7 +30,8 @@ function left(){
  }
 
  // 오른쪽 버튼
-function right(){ 
+function right(){
+    
     if(index < slideCount){
         leftBtn.removeAttribute("disabled")
         position -= go

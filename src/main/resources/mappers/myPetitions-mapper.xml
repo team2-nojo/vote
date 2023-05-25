@@ -174,7 +174,8 @@
   <!-- brows-detail-update -->
 	<!-- 청원 업데이트 목록 조회 -->
 	<select id="updatePetitionList" resultMap="petitionUpdate_rm">
-	SELECT UP_NO , UP_TITLE , UP_CONTENT , UP_CREATE_DT , UP_IMG , PT_NO , USER_NO, USER_NICKNAME
+	SELECT UP_NO , UP_TITLE , UP_CONTENT, UP_IMG , PT_NO , USER_NO, USER_NICKNAME, 
+		   TO_CHAR(UP_CREATE_DT, 'YYYY"년"MM"월"DD"일"') UP_CREATE_DT 
 	FROM PETITION_UPDATE 
 	LEFT JOIN "PETITION" USING (PT_NO)
 	LEFT JOIN "USER" USING (USER_NO)
@@ -225,7 +226,7 @@
 		<id property="petitionUpdateNo" column="UP_NO" />
 		<result property="petitionUpdateTitle" column="UP_TITLE" />
 		<result property="petitionUpdateContent" column="UP_CONTENT" />
-		<result property="petitionUpdateDate" column="UP_CREAT_DT" />
+		<result property="petitionUpdateDate" column="UP_CREATE_DT" />
 		<result property="petitionUpdateImage" column="UP_IMG" />
 		<result property="petitionNo" column="PT_NO" />
 		<result property="userNo" column="USER_NO" />

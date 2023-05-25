@@ -27,7 +27,7 @@
             <div class="list-wrapper">
                 <table class="list-table">
                     
-                    <thead>
+                    <thead id='thead'>
                         <tr>
                             <th>회원번호<i class="caret" fa-solid fa-caret-up fa-rotate-180" style="color: #ffffff;"></i></th>
                             <th>닉네임</th>
@@ -53,7 +53,7 @@
                                 <c:forEach items="${userList}" var="user">
                                 <input type="hidden" name="userNickname" value="${user.userNickname}">
                                 <input type="hidden" name="userNo" value="${user.userNo}">
-                                <tr>
+                                <tr class='delUserTable'>
                                     <td class='petitionNo'>${user.userNo}</td>
                                     
                                     <c:choose>
@@ -99,9 +99,9 @@
             <div class="pagination-area">
                 <ul class="pagination">
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/adminUserList?cp=1">&lt;&lt;</a></li>
+                    <li><a href="/adminUserList?cp=1"><i class="fa-solid fa-backward" style="color: #3d434d;"></i></a></li>
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/adminUserList?cp=${pagination.prevPage}">&lt;</a></li>
+                    <li><a href="/adminUserList?cp=${pagination.prevPage}"><i class="fa-solid fa-caret-up fa-rotate-270" style="color: #40454f;"></i></a></li>
                     <!-- 특정 페이지로 이동 -->
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
 
@@ -118,9 +118,9 @@
                         </c:choose>
                     </c:forEach>
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/adminUserList?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="/adminUserList?cp=${pagination.nextPage}"><i class="fa-solid fa-caret-up fa-rotate-90" style="color: #3d3f43;"></i></a></li>
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/adminUserList?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                    <li><a href="/adminUserList?cp=${pagination.maxPage}"><i class="fa-solid fa-backward fa-rotate-180" style="color: #3d434d;"></i></a></li>
                 </ul>
             </div>
             </div>
@@ -161,47 +161,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:choose>
-                            <c:when test="${empty delUserList}">
-                            
-                                <tr>
-                                    <th colspan="6">회원이 존재하지 않습니다.</th>
-                                </tr>
-                            </c:when>
-                                <%-- <input type="hidden" id="pagination2" value="${pagination2}" />
-                                <input type="hidden" id="delUserList" value="${delUserList}" /> --%>
-                            <c:otherwise>
-                                <form action="/adminUserDeleteCancle" method="POST" id="mainForm2">
-                                <c:forEach items="${delUserList}" var="user2">
-     
-                                <%-- <input type="hidden" id="pagination2" value="">
-                                <input type="hidden" id="delUserList" value=""> --%>
                                 <tr>
                                     <td class='petitionNo'>${user2.userNo}</td>
-                                    
-                                    <c:choose>
-                                      <c:when test="${empty user2.userImage}">
-                                        <td>
-                                          <img class="list-thumbnail" src="resources/images/common/doge2.png">${user2.userNickname}
-                                        </td>
-                                      </c:when>
-                                      <c:otherwise>
                                         <td>
                                           <img class="list-thumbnail" src="${user2.userImage}">${user2.userNickname}
                                         </td>
-                                      </c:otherwise>
-                                    </c:choose>
-
                                     <td>${user2.userEnrollDate}</td>
                                     <td>
                                         <button onclick="confirmDeleteUserCancle('${user2.userNo}', '${user2.userNickname}')">유저 복구</button>
                                     </td>
 
                                 </tr>
-                                </c:forEach>
-                               
-                            </c:otherwise>
-                        </c:choose>
+                            
                     </tbody>
                 </table>
             </div>

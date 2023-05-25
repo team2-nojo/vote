@@ -85,9 +85,9 @@
             <div class="pagination-area">
                 <ul class="pagination">
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/adminPetitionDelList?cp=1">&lt;&lt;</a></li>
+                    <li><a href="/adminPetitionDelList?cp=1"><i class="fa-solid fa-backward" style="color: #3d434d;"></i></a></li>
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/adminPetitionDelList?cp=${pagination.prevPage}">&lt;</a></li>
+                    <li><a href="/adminPetitionDelList?cp=${pagination.prevPage}"><i class="fa-solid fa-caret-up fa-rotate-270" style="color: #40454f;"></i></a></li>
                     <!-- 특정 페이지로 이동 -->
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
 
@@ -104,9 +104,9 @@
                         </c:choose>
                     </c:forEach>
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/adminPetitionDelList?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="/adminPetitionDelList?cp=${pagination.nextPage}"><i class="fa-solid fa-caret-up fa-rotate-90" style="color: #3d3f43;"></i></a></li>
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/adminPetitionDelList?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                    <li><a href="/adminPetitionDelList?cp=${pagination.maxPage}"><i class="fa-solid fa-backward fa-rotate-180" style="color: #3d434d;"></i></a></li>
                 </ul>
             </div>
 

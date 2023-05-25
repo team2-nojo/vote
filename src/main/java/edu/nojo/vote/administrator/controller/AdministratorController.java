@@ -243,14 +243,14 @@ public class AdministratorController {
 	// 삭제된 유저 목록 조회
 	@GetMapping("/adminUser2")
 	@ResponseBody 
-	public String selectDelUserList(
+	public Map<String, Object> selectDelUserList(
 	    @RequestParam(value="cp", required=false, defaultValue="1") int cp2,
 	    Model model
 	) {
 	    Map<String, Object> map2 = service.selectDelUserList(cp2);
 	    model.addAttribute("map2", map2);
 	    
-	    return "admin/adminUser";
+	    return map2;
 	}
 
 	

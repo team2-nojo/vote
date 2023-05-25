@@ -75,19 +75,6 @@
     <%--             <hr> --%>
                 
                 <br>
-                <!-- 업데이트 -->
-                <div id="notification">
-                    <div id="update">업데이트</div>
-                    <div class="box2" id="box2">
-                        <div class="updateCon">업데이트 내용</div>
-                        <div class="time">1일 전</div>
-                    </div>
-                </div>
-
-
-                <br>
-                <%-- <hr> --%>
-                <br>
 
 
                 <%-- 댓글 --%>
@@ -143,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                 <c:choose>
+                <c:choose>
                         <c:when test="${loginUser.userNo != petition.userNo}">
                             <%-- 로그인 유저와 해당 글 작성자가 다른 경우 --%>
                             <%-- 체크박스 --%>

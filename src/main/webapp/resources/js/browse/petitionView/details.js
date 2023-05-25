@@ -53,8 +53,6 @@ agree.addEventListener("change", ()=>{
 // window.onload = selectCommentList();
 
 
-
-
 //댓글 목록 조회
 function selectCommentList(){
 
@@ -66,8 +64,8 @@ function selectCommentList(){
     }) 
     .then(response => response.json()) // 응답 객체 -> 파싱
     .then(cList => { // cList : 댓글 목록(객체배열)
-        console.log("되나?");
-        console.log(cList);
+        
+        // console.log(cList);
         
         // 화면에 출력되어 있는 댓글 목록 삭제
         const commentList = document.getElementById("commentList"); // ul태그
@@ -120,7 +118,6 @@ function selectCommentList(){
             // 댓글 목록(ul)에 행(li)추가
             commentList.append(commentRow);
         }
-
 
     })
     .catch(err => console.log(err));
@@ -199,7 +196,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
         }
     }
 
-    alert(check);
+    // alert(check);
 
 
     // ajax로 서버로 제출할 파라미터를 모아둔 JS객체
@@ -215,7 +212,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
     .then(count => { 
         
         
-        alert(check)
+        // alert(check)
         console.log("count : " + count);
 
         if(count > 0){ // INSERT, DELETE실패 시 
@@ -225,7 +222,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
 
     
         // 현재 게시글의 좋아요 수를 화면에 출력
-        // likeCount.nextElementSibling.innerText = count;
+        e.target.nextElementSibling.innerText = count;
 
     }) // 파싱된 데이터를 받아서 처리하는 코드 작성
     
@@ -254,7 +251,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
             alert("댓글이 등록되었습니다.");
             
 
-            // DB반영 안됨 임시로 작성함.-----------
+            // DB반영 안 됨 임시로 작성함.-----------
             progress.value += 1;
             
             const crrent1 = parseInt(likeCount.innerText, 10)

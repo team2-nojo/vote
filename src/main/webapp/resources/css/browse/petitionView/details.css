@@ -194,60 +194,6 @@ main i{
 }
 
 
-/* 업데이트  */
-
-#notification{
-    margin: 10px 30px;
-}
-
-
-#update{
-    font-size: 25px;
-    font-weight: bold;
-
-    margin: 10px 10px;
-}
-
-
-#box2{
-    border: 1px solid #939293;
-    border-radius: 10px;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-    margin: 10px 0px;
-    padding: 10px;
-}
-
-
-.time{
-    font-size: 12px;
-    margin: 10px 10px;
-}
-
-
-#box3{
-    border: #ccc;
-    background-color: #ccc;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-    margin: 10px 0px;
-    padding: 10px;
-}
-
-
-.updateCon{
-    font-size: 12px;
-
-    width: 70%;
-    margin: 10px 10px;
-    
-}
 
 
 

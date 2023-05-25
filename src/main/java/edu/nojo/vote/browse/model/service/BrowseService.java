@@ -8,20 +8,6 @@ import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 
 public interface BrowseService {
 
-	/** 인기순으로 조회
-	 * @return popularList
-	 */
-	List<Petition> popular();
-
-	/** 최신순으로 조회
-	 * @return recentList
-	 */
-	List<Petition> recent(int page);
-
-	/** 승리한 청원 조회(최신순)
-	 * @return victoriesList
-	 */
-	List<Petition> victories();
 
 	/** 청원 상세조회
 	 * @param petitionNo
@@ -48,6 +34,13 @@ public interface BrowseService {
 	 * @return updateList
 	 */
 	List<PetitionUpdate> updatePetitionList(int petitionNo);
+
+	/** 청원 리스트 조회
+	 * @param page
+	 * @param order
+	 * @return petitionList
+	 */
+	List<Petition> loadPetitionList(int page, String order);
 
 
 

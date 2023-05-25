@@ -1,3 +1,6 @@
+const current = window.location.href.split('/').pop();
+document.getElementById(current).classList.add('now');
+
 let page = 1;
 const middle = document.querySelector('.middle');
 document.getElementById('moreView').addEventListener('click', function () {
@@ -42,8 +45,8 @@ document.getElementById('moreView').addEventListener('click', function () {
                     `;
                     middle.append(div);
 
-                    if (response.length < 3) {
-                        document.getElementById('loadButton').style.display = 'none';
+                    if (response.length < 5) {
+                        document.getElementById('moreView').style.display = 'none';
                     }
                 }
             } else {
@@ -52,6 +55,6 @@ document.getElementById('moreView').addEventListener('click', function () {
             }
         }
     };
-    xhr.open('GET', `/browse/load-recent?page=${page++}`, true);
+    xhr.open('GET', `/browse/load-${current}?page=${page++}`, true);
     xhr.send();
 });

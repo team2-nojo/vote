@@ -1,7 +1,7 @@
 main * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  /* padding: 0;
+  margin: 0; */
   /* border: 1px solid black; */
 }
 
@@ -11,60 +11,57 @@ main * {
 } */
 
 main {
-  width: 960px;
-  height: 925px;
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 960px;
+    height: 925px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* body */
 
-#now {
-  color: #2db400 !important;
-  font-weight: bold;
-  text-decoration: underline !important;
+.now {
+    color: #2db400 !important;
+    font-weight: bold;
+    text-decoration: underline !important;
 }
 
 #menu a {
-  color: black;
-  text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
 
 .top {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-
-  margin-right: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
 }
 
 .middle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  width: 80%;
+    width: 80%;
 
-  margin-top: auto;
-  margin-bottom: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #discoverP {
   font-size: 35px;
   font-weight: bold;
   margin-top: 20px;
-  margin-left: -85px;
   padding: 20px;
 }
 
 .menu {
   display: flex;
   flex-direction: row;
-  margin-left: -70px;
 }
 
 .menu > * {
@@ -181,7 +178,7 @@ main {
 
 .limit-title {
   overflow: hidden;
-  height: 40px;
+  height: 52px;
   font-size: 20px;
 }
 

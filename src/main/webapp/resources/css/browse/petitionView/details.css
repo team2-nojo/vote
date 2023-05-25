@@ -172,22 +172,15 @@ main i{
 #startBtn{
     width: 180px;
     height: 40px;
-
-    
     border: 3px solid #2DB400;
     background-color: white;
     border-radius: 5px;
-
+    color: #2DB400;
+    font-weight: bold;
     margin: 20px 5px;
     cursor: pointer;
 }
 
-#start{
-    text-decoration: none;
-    color: #2DB400;
-    font-weight: bold;
-
-}
 
 /* 업데이트  */
 

@@ -101,13 +101,52 @@ main {
 
 #title {
   font-weight: bold;
-  margin: 20px 20px 0;
+  margin: 20px 20px 10px 20px;
 }
 
 #content {
   font-size: 16px;
-  margin: 10px 20px;
+  margin: 5px 20px 3px 20px ;
 }
+
+.profile{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.writer{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
+
+
+  margin: 5px 5px 5px 20px;
+  
+}
+
+.nickname{
+  margin: 2px 0px 7px 5px;
+}
+
+
+#goal {
+  color: gray;
+  font-size: 15px;
+  
+  
+  margin: 15px 35px 5px 5px;
+  /* text-align: right; */
+}
+
+main img{
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin: 5px 0 5px 10px;
+}
+
 
 #readMore {
   color: #ccc;
@@ -149,15 +188,6 @@ main {
   background: linear-gradient(to right, #ffd700, #dc143c);
 }
 
-#goal {
-  color: gray;
-  font-size: 15px;
-
-  margin-top: 5px;
-  margin-bottom: 15px;
-  margin-right: 35px;
-  text-align: right;
-}
 
 /* 더보기버튼 */
 #moreView {
@@ -177,7 +207,7 @@ main {
 
 .limit-title {
   overflow: hidden;
-  height: 52px;
+  height: 30px;
   font-size: 20px;
 }
 

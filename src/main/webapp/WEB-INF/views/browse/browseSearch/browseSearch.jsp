@@ -48,9 +48,26 @@
                             <div class="progress">
                                 <progress id="progress" value="${petition.petitionLikeCount}" min="0" max="${fn:substringBefore((Math.ceil(petition.petitionLikeCount / 5) * 5), '.')}" ></progress>
                                 <div id="value"></div>
+                            <div class="profile">
+                                <div class="writer">
+                                    <c:choose>
+                                        <c:when test="${empty petition.userImage}">
+                                        <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
+                                            <img src="/resources/images/common/user.png">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
+                                            <img src="${petition.userImage}">
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <div class="nickname">
+                                        ${petition.userNickname}
+                                    </div>
+                                </div>
                                 <div id="goal">
                                     청원 지지자 수 <span id="count">${petition.petitionLikeCount}</span> 명
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </a>

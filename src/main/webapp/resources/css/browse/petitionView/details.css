@@ -246,6 +246,9 @@ main i{
     border: 1px solid black;
 } */
 
+#commentBox{
+    overflow: auto;
+}
 
 
 #reason{

@@ -181,13 +181,13 @@
 	<!-- 청원 좋아요 -->
 	<insert id="petitionLike">
 		INSERT INTO "PETITION_LIKE"
-		VALUES (SEQ_PT_LIKE_NO.NEXTVAL, #{petitionNo}, #{userNo})
+		VALUES(SEQ_PT_LIKE_NO.NEXTVAL, #{petitionNo}, #{userNo}, DEFAULT)
 	</insert>
 	
 
 	<!-- details 댓글목록 조회 -->
-	<select id="selectCommentList" resultMap="comment_rm">
-		SELECT CM_NO, USER_NICKNAME, USER_IMG, CM_CONTENT, TO_CHAR(CM_DATE, 'YYYY-MM-DD') CM_DATE,
+	<select id="selectCommentList" resultMap="browse">
+		SELECT CM_NO, USER_NICKNAME, USER_NO, USER_IMG, CM_CONTENT, TO_CHAR(CM_DATE, 'YYYY-MM-DD') CM_DATE,
 		(SELECT COUNT(*) FROM COMMENT_RESP R WHERE R.CM_NO = C.CM_NO AND CM_FL = 'Y') CM_FLY, 
 		(SELECT COUNT(*) FROM COMMENT_RESP R WHERE R.CM_NO = C.CM_NO AND CM_FL = 'N') CM_FLN
 		FROM "COMMENT" C
@@ -196,6 +196,8 @@
 		AND CM_DEL_FL = 'N'
 		ORDER BY CM_NO DESC
 	</select>
+	
+	
 	
 	
 </mapper>

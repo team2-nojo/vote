@@ -29,15 +29,6 @@ public class CommentDAO {
 
 
 
-	/** details내부 댓글조회
-	 * @param pno
-	 * @return list
-	 */
-//	public List<Comment> resetcommentList(int petitionNo) {
-//		
-//		return sqlSession.selectList("myPetitionsMapper.resetcommentList", petitionNo);
-//	}
-
 
 
 	/** 댓글 작성
@@ -53,9 +44,9 @@ public class CommentDAO {
 	 * @param petitionNo
 	 * @return selectCommentList
 	 */
-	public List<Comment> selectCommentList(int petitionNo) {
+	public List<Browse> selectCommentList(int petitionNo) {
 		
-		return sqlSession.selectList("browseMapper.selectCommentList", petitionNo);
+		return sqlSession.selectList("myPetitionsMapper.resetcommentList", petitionNo);
 	}
 	
 	

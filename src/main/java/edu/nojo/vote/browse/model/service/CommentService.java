@@ -28,7 +28,7 @@ public interface CommentService {
 	 * @param petitionNo
 	 * @return list
 	 */
-	List<Comment> selectCommentList(int petitionNo);
+	List<Browse> selectCommentList(int petitionNo);
 
 
 	

@@ -9,7 +9,7 @@ import edu.nojo.vote.browse.model.dao.CommentDAO;
 import edu.nojo.vote.browse.model.dto.Browse;
 import edu.nojo.vote.common.utility.Util;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
-import edu.nojo.vote.myPetitions.model.dto.Like;
+
 
 
 @Service
@@ -21,7 +21,7 @@ public class CommentServiceImpl implements CommentService{
 	// 댓글 조회(comments페이지)
 	@Override
 	public List<Browse> selectComments(int petitionNo) {
-		
+//		System.out.println(dao.selectComments(petitionNo));
 		return dao.selectComments(petitionNo);
 	}
 	
@@ -43,8 +43,8 @@ public class CommentServiceImpl implements CommentService{
 	
 	// details 내부 댓글 조회
 	@Override
-	public List<Comment> selectCommentList(int petitionNo) {
-		
+	public List<Browse> selectCommentList(int petitionNo) {
+		System.out.println(dao.selectCommentList(petitionNo));
 		return dao.selectCommentList(petitionNo);
 	}
 	

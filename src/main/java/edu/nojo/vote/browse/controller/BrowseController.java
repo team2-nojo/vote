@@ -1,6 +1,7 @@
 package edu.nojo.vote.browse.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,10 +21,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.nojo.vote.browse.model.dto.Browse;
 import edu.nojo.vote.browse.model.service.BrowseService;
 import edu.nojo.vote.browse.model.service.CommentService;
+
 import edu.nojo.vote.main.model.dto.Petition;
+
 import edu.nojo.vote.myPetitions.model.dto.Comment;
+import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
+
 import edu.nojo.vote.user.model.dto.User;
 
 
@@ -68,8 +73,14 @@ public class BrowseController {
 						, @SessionAttribute(value="loginUser", required=false) User loginUser
 						){
 		Petition petition = service.selectPetitionList(petitionNo); 
+		List<Browse> selectCommentList = service2.selectCommentList(petitionNo);
+		List<Like> likeUserList = service3.selectlikeUserList(petitionNo);
 		
 		model.addAttribute("petition", petition);
+		model.addAttribute("selectCommentList", selectCommentList);
+		
+		
+		
 //		System.out.println(petition);
 		
 //		if(loginUser != null) { // 로그인 상태인 경우
@@ -77,6 +88,7 @@ public class BrowseController {
 //			
 //			Map<String, Object> map = new HashMap<String, Object>();
 //			map.put("loginUser", loginUser.getUserNo());
+		
 //			
 //			// 좋아요  여부 확인 서비스 호출
 //			int result = service.petitionLikeCheck(map);
@@ -84,13 +96,35 @@ public class BrowseController {
 //			// 누른 적이 있을 경우
 //			if(result>0) model.addAttribute("likeCheck", "on");
 //		}
-//		
-		
-		
 		
 		
 		return "/browse/petitionView/details";
 	}
+	
+	
+	
+	
+	// suppoter list
+	@PostMapping(value="/selectSuppoter", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<Like> selectSuppoter(@RequestBody String petitionNo) {
+		int pno = Integer.parseInt(petitionNo);
+		return service3.resetlikeUserList(pno);
+	}
+	
+	
+	
+	// petitionView details(comments)
+	@PostMapping(value="/selectCommentList", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<Browse> selectCommentList(Model model, String petitionNo) {
+		// 해당 청원에 대한 댓글 조회
+		
+		int pno = Integer.parseInt(petitionNo);
+			
+		return service2.selectCommentList(pno);
+	}
+	
 	
 	
 	
@@ -129,27 +163,18 @@ public class BrowseController {
 	
 	// 청원 좋아요
 	// 좋아요 처리
-		@PostMapping("/petitionView/details/like")
-		@ResponseBody // 반환되는 값이 비동기 요청한 곳으로 돌아가게 함
-		public int petitionLike(@RequestBody Map<String, Integer> paramMap) {
-			System.out.println(paramMap);
-			return service.petitionLike(paramMap);
-		}
-	
-	
-	
-	
-	
-	// petitionView details(comments)
-	@GetMapping("/petitionView/details/selectComment")
-	public String comment(Model model, @PathVariable("petitionNo") int petitionNo) {
-		// 해당 청원에 대한 댓글 조회
-		List<Comment> selectCommentList = service2.selectCommentList(petitionNo);
-		System.out.println(selectCommentList);
-		model.addAttribute("selectCommentList", selectCommentList);
-
-		return "/browse/petitionView/details/selectComment";
+	@PostMapping("/petitionView/details/like")
+	@ResponseBody // 반환되는 값이 비동기 요청한 곳으로 돌아가게 함
+	public int petitionLike(@RequestBody Map<String, Integer> paramMap) {
+		
+		int result = service.petitionLike(paramMap);
+		
+//			System.out.println(service.petitionLike(paramMap));
+		return result;
 	}
+
+	
+	
 	
 	
 	

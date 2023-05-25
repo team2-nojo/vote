@@ -50,7 +50,7 @@ public class MyPetitionsServiceImpl implements MyPetitionsService {
 		// 이미지 rename, 이미지 주소 삽입
 		if(inputImage.getSize()>0) {
 			String rename = Util.fileRename(inputImage.getOriginalFilename());
-			update.setPetitionUpdateImage(filePath + rename);
+			update.setPetitionUpdateImage(webPath + rename);
 			inputImage.transferTo(new File(filePath+rename));
 		}
 		

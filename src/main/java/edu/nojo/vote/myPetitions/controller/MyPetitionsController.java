@@ -46,12 +46,6 @@ public class MyPetitionsController {
 	@GetMapping("/myPetitions")
 	public String myPetitions(@SessionAttribute User loginUser, Model model) {
 
-		// 필요한 자원
-		// 로그인멤버 : 로그인 한 멤버의 회원 번호, 회원 닉네임, 회원 주소
-		// 청원 : 글 번호, 글 제목, 글 내용, 글 삭제여부 (로그인 멤버의 회원 번호로 청원 테이블에서 조회)
-		// 청원 좋아요 : 청원 좋아요 개수 (로그인 멤버의 회원 번호를 받아 청원 좋아요한 글을 조회)
-		// 청원 좋아요 글 : 글 번호, 글 제목, 글 내용, 글 삭제여부(청원 좋아요한 글의 번호를 받아 청원 좋아요한 글을 조회)
-
 		// 로그인 한 유저의 회원 번호를 이용해 작성한 글 목록 조회
 		List<Petition> petitionList = service.selectMyPetitions(loginUser.getUserNo());
 
@@ -125,7 +119,9 @@ public class MyPetitionsController {
         // 청원 업데이트 내용을 이메일로 청원 지지자에게 전송
         // 해당 청원 지지자 호출
         List<Like> likeUserList = dashboardService.selectlikeUserList(petitionNo);
-        if (likeUserList.isEmpty()) return "redirect:/myPetitions/myPetitionsDashboard/{petitionNo}";
+        if (likeUserList.isEmpty()) {
+        	return "redirect:/myPetitions/myPetitionsDashboard/{petitionNo}";
+        } 
         result = emailService.sendEmail(update, likeUserList);
        
         // 내 페티션 화면으로 리다이렉트

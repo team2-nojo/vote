@@ -220,8 +220,8 @@ public class AdminServiceImpl implements AdminService {
 	 *
 	 */
 	@Override
-	public int updateDeleteUser(int userNo) {
-		return dao.updateDeleteUser(userNo);
+	public int updateDeleteUser(int userNo2) {
+		return dao.updateDeleteUser(userNo2);
 	}
 	
 	

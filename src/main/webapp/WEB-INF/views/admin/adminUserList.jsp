@@ -151,7 +151,7 @@
         <div>
 
 
-          <form action="/adminUserDeleteCancle" method="POST" id="mainForm">
+          <form action="/adminUserDeleteCancle" method="POST" id="mainForm2">
             <div class="list-wrapper2">
                 <table class="list-table2">
                     
@@ -171,7 +171,7 @@
                                         </td>
                                     <td>${user2.userEnrollDate}</td>
                                     <td>
-                                        <button onclick="confirmDeleteUserCancle('${user2.userNo}', '${user2.userNickname}')">유저 복구</button>
+                                        <button onclick="confirmDeleteUserCancle('${user.userNo}', '${user.userNickname}')">유저 복구</button>
                                     </td>
 
                                 </tr>

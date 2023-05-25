@@ -326,3 +326,7 @@ footer {
   background-color: #2db400;
   color: white;
 }
+
+#loginBtn {
+  font-size: 16px;
+}

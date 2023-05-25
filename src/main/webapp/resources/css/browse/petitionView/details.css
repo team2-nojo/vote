@@ -35,6 +35,7 @@ main{
     flex-direction: column;
     justify-content:start;
 
+    width: 40%;
     margin-right: 60%;
 }
 
@@ -42,7 +43,6 @@ main{
 #menu{
     display: flex;
     flex-direction: row;
-    
 }
 
 
@@ -60,7 +60,6 @@ main{
     color: #2DB400;
     font-weight: bold;
     text-decoration: none;
-    
 }
 
 #updates{
@@ -79,7 +78,6 @@ main{
 
 #details{
     color: #2DB400;
-    text-decoration: underline;
     font-weight: bold;
 }
 

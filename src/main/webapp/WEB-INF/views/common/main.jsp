@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main</title>
+    <title>VOTE</title>
     <link rel="stylesheet" href="resources/css/mainPage/maincontent.css">
     <link rel="stylesheet" href="resources/css/mainPage/maincontent2.css">
 </head>
@@ -79,7 +79,7 @@
         </c:forEach>
       </div>
       <i class="fa-solid fa-angle-up fa-rotate-90" id="slide-btn2" style="color: #a9aaad;"></i>
-      <h2 style="margin: 0 auto; width: 960px; font-weight: bold;">What's happening on VOTE.org</h2>
+      <h2 style="margin: 0 auto; width: 960px; font-weight: bold;">VOTE에선 무슨 일이 일어나고 있나요?</h2>
     <section class="main-section">
       <div class="container4">
         <div>
@@ -116,7 +116,7 @@
 
       
         <div class="container5">
-          <h2 id="icon-topic">FEATURED TOPICS</h2>
+          <h2 id="icon-topic">현재 인기 키워드</h2>
           <ul>
             <li class="title-list"><a href="#" class="title-icon">북한인권</a></li>
             <li class="title-list"><a href="#" class="title-icon">러-우크라이나 전쟁</a></li>

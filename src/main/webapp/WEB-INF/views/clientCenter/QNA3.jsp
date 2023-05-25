@@ -19,7 +19,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${boardName}</title>
+    <title>VOTE ${boardName} 문의 내역</title>
 
     <link rel="stylesheet" href="/resources/css/clientCenter/QNA3.css">
 
@@ -35,7 +35,7 @@
     <div class="content">
 
         <section class="board-list">
-            <h1 class="board-name">문의 조회</h1>
+            <h1 class="board-name">문의 내역</h1>
             <div class="list-wrapper">
                 <table class="list-table">
                     <thead>

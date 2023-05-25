@@ -36,8 +36,8 @@ main section{
 
 main section>div{
     display: flex;
-    flex-direction: column;
-    justify-content: start;
+    flex-direction: row;
+    justify-content: center;
 
     margin: 10px;
 
@@ -55,24 +55,27 @@ main section>div{
 
 #email{
     height: 40px;
-    width: 400px;
-
+    width: 300px;
 }
 
 
 
 #resetPw{
-    width: 400px;
+    width: 300px;
     height: 45px;
+
     color: white;
     font-size: 16px;
-    background-color: #2DB400;
+    font-weight: bold;
+
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    background-color: #2DB400;
+    
+    /* margin: 8px; */
+    margin-top : 10px;
 }
 
-
-
-
-
+#marginTopBox {
+    margin-top: 20px;
+}

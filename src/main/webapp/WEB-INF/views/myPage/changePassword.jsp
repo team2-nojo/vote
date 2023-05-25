@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>비밀번호 변경</title>
+    <title>VOTE 비밀번호 변경</title>
     <link rel="stylesheet" href="/resources/css/myPage/changePassword.css">
 </head>
 <body>
@@ -30,8 +30,8 @@
             </div>
             <p id="message"></p>
             <div id="btnContainer">
-                <button type="submit" id="submit" class="submit-cancel-button">저장</button>
                 <a href="/myPage"><button type="button" id="cancel" class="submit-cancel-button">취소</button></a>
+                <button type="submit" id="submit" class="submit-cancel-button">저장</button>
             </div>
         </form>
     </main>

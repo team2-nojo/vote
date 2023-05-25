@@ -24,7 +24,6 @@ main {
 .now {
     color: #2db400 !important;
     font-weight: bold;
-    text-decoration: underline !important;
 }
 
 #menu a {

@@ -36,6 +36,7 @@ body{
     flex-direction: column;
     justify-content:start;
 
+    width: 40%;
     margin-right: 60%;
 }
 
@@ -75,7 +76,6 @@ body{
 
 #updates{
     color: #2DB400;
-    text-decoration: underline;
     font-weight: bold;
 }
 
@@ -85,11 +85,12 @@ body{
 /* updates  */
 
 #updatesSection1{
-    margin: 20px 40% 0 0;
+    margin: 50px 40% 0 0;
 }
 
 #updatesSection2{
     margin: 20px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

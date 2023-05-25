@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login_myPetitions</title>
+    <title>VOTE 나의 청원</title>
     <link rel="stylesheet" href="/resources/css/myPetitions/myPetitions.css">
     <link rel="stylesheet" href="/resources/css/myPetitions/myPetitionsCommon.css">
 </head>
@@ -39,13 +39,13 @@
                         <div class="userProfileID">${loginUser.userNickname}</div>
                         <div class="userProfileLocation">${loginUser.userAddress.split(" ")[0]}</div>
                         <div>
-                            <a href="/myPage/editProfile">Edit profile</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
+                            <a href="/myPage/editProfile">프로필 편집</a> <!-- '프로필 편집'으로 넘어가는 버튼 -->
                         </div>
                     </div>
                 </div>
                 <ul class="tabs"> <!-- 내가 시작한, 사인한 청원 목록 보는 탭 -->
-                    <li><a href="#" id="start" class="myPetitions-click">Start(${fn:length(petitionList)})</a></li> <!-- 내가 시작한 청원 목록  -->
-                    <li><a href="#" id="signed">Signed(${fn:length(likeList)})</a></li> <!-- 내가 사인한 청원 목록 -->
+                    <li><a href="#" id="start" class="myPetitions-click">시작한 청원(${fn:length(petitionList)})</a></li> <!-- 내가 시작한 청원 목록  -->
+                    <li><a href="#" id="signed">서명한 청원(${fn:length(likeList)})</a></li> <!-- 내가 사인한 청원 목록 -->
                 </ul> 
                 <div id="myStartPetitions">
                     <c:choose>
@@ -144,12 +144,6 @@
     </main>
     <%-- footer --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    <script>
-        const num1 = ${fn:length(petitionList)};
-        const num2 = 3;
-        let petitionLikeCount = ${petition.petitionLikeCount};
-    </script>
-
     <%-- myPetitions.js --%>
     <script src="/resources/js/myPetitions/myPetitions.js"></script>
 </body>

@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>myPetitionEdit</title>
+  <title>VOTE 청원 편집</title>
   <!-- summernote -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
       <div class="nav">
         <ul>
           <li id="nav"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">대시보드</a></li>
-          <li id="nav"><a href="#">청원상세조회</a></li>
+          <li id="nav"><a href="/browse/petitionView/details/${petitionNo}">청원 상세</a></li>
           <li id="navSelect"><a href="/myPetitions/myPetitionEdit/${petitionNo}">편집</a></li>
         </ul>
       </div>
@@ -46,7 +46,7 @@
     <div class="content">
       <div class="content-edit">
         <div class="content-top">
-          <h1>청원서 편집</h1>
+          <h1>청원 편집</h1>
           <h2>청원 주요내용</h2>
         </div>
         <form id="editForm" action="/myPetitions/myPetitionEdit/${petitionNo}" method="post" enctype="multipart/form-data">
@@ -68,11 +68,11 @@
                       </li>
                       <li>
                         <p id="tipFont">특정 장소, 조직 또는 사람 이름 지정</p>
-                        <p>예: "미니애폴리스의 최저 임금을 시간당 $15로 인상합니다."</p>
+                        <p>예: "미니애폴리스의 최저 임금을 시간당 15,000원으로 인상합니다."</p>
                       </li>
                       <li>
                         <p id="tipFont">더 긴 제목을 사용하여 핵심 세부정보 추가</p>
-                        <p>예: "2차 유방암 진단 개선 - 스캔을 합시다!"</p>
+                        <p>예: "2차 유방암 진단 개선 - 엑스레이를 찍읍시다!"</p>
                       </li>
                     </ul>
                   </div>
@@ -182,7 +182,7 @@
           </div>
           <div>
             <div class="content-data-side-title">
-              <h3 id="topicEdit">주제추가</h3>
+              <h3 id="topicEdit">주제 추가</h3>
               <i id="topicI" class="fa-regular fa-circle-question">
                 <div id="topicP">
                   <p>청원서의 주요 관련 주제는 무엇입니까? 귀하의 청원에 적합한 청중을 찾는데 도움이 될 것입니다.</p>
@@ -200,8 +200,8 @@
             <input id="inputCategory" name="inputCategory" type="hidden">
           </div>
           <div class="edit-btn">
-            <button id="cancel" type="reset">cancel</button>
-            <button id="save">save</button>
+            <button id="cancel" type="reset">삭제</button>
+            <button id="save">제출</button>
           </div>
         </form>
       </div>

@@ -50,14 +50,15 @@ main section{
 
 #DontHaveAccount{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 
 #SignUp{
-    color: red;
-    font-size: 20px;
+    color: #2DB400;
+    font-size: 14px;
     text-decoration: none;
+    margin-left: 5px;
 }
 
 .searchPw{
@@ -129,7 +130,6 @@ main input{
 }
 
 
-
 main button{
     height: 40px;
     width: 90px;
@@ -142,10 +142,24 @@ main button{
 #loginSubmit{
     width: 300px;
     height: 45px;
+
     color: white;
     font-size: 16px;
-    background-color: #2DB400;
+    font-weight: bold;
+
     border: none;
-    margin: 8px;
     border-radius: 5px;
+    background-color: #2DB400;
+    
+    /* margin: 8px; */
+    margin-top : 10px;
+}
+
+#marginBox {
+    margin-top : 25px;
+}
+
+#loginLogo {
+    width: 150px;
+    height: auto;
 }

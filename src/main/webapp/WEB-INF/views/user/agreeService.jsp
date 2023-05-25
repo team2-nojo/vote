@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>약관 및 개인정보 수집·이용 동의</title>
+    <title>VOTE 약관 및 개인정보 수집·이용 동의</title>
 
     <%-- agreeService.css --%>
     <link rel="stylesheet" href="/resources/css/user/agreeService.css">

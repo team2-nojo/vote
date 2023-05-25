@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q&A</title>
+  <title>VOTE 1대1 문의하기</title>
 
   <link rel="stylesheet" href="/resources/css/clientCenter/QNA.css">
 </head>
@@ -23,7 +23,7 @@
     <form action="QNA" method="POST"
     class="board-write" id="boardUpdateFrm">  
 
-  <h1 id="title">1:1 문의</h1>
+  <h1 id="title">1:1 문의하기</h1>
 
     <h1 class="board-title">제목   
       <input type="text" name="qnaTitle" value="" id="boardTitle">   

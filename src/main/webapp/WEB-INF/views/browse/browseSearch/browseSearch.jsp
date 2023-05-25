@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>브라우저 게시글 조회(popular)</title>
+    <title>VOTE 둘러보기</title>
 
     <%-- popular.css --%>
     <link rel="stylesheet" href="/resources/css/browse/browseSearch/browseSearch.css">
@@ -20,12 +20,12 @@
     <main>
         <section class="top">
             <div id="discoverP">
-                청원글 조회
+                청원 둘러보기
             </div>
             <div class="menu" id="menu">
-                <div><a href="/browse/browseSearch/popular" id="popular">Popular</a></div>
-                <div><a href="/browse/browseSearch/recent" id="recent">Recent</a></div>
-                <div><a href="/browse/browseSearch/victories" id="victories">Victories</a></div>
+                <div><a href="/browse/browseSearch/popular" id="popular">인기순</a></div>
+                <div><a href="/browse/browseSearch/recent" id="recent">최신순</a></div>
+                <div><a href="/browse/browseSearch/victories" id="victories">승리한 청원</a></div>
             </div>
         </section>
         <section class="middle">

@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>계정 설정</title>
+    <title>VOTE 마이 페이지</title>
     <link rel="stylesheet" href="/resources/css/myPage/myPage.css">
 </head>
 <body>

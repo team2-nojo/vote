@@ -9,9 +9,9 @@
     <div class="header-logo"><a href="/"><img id="logoimg" src="/resources/images/common/Logo.png" /></a></div>
     <div class="header-menu">
       <ul>
-        <li><a class="header-a" id="startPetitions" href="/writePetition">청원시작</a></li>
-        <li><a class="header-a" id="myPetitions" href="/myPetitions/myPetitions">나의 청원</a></li>
-        <li><a class="header-a" id="browse" href="/browse/browseSearch/popular">검색</a></li>
+        <li><a class="header-a" id="startPetitions" href="/writePetition">청원하기</a></li>
+        <li><a class="header-a" id="myPetitions" href="/myPetitions/myPetitions">나의청원</a></li>
+        <li><a class="header-a" id="browse" href="/browse/browseSearch/popular">둘러보기</a></li>
         <li><a class="header-a" id="Help" href="/clientCenter/FAQ">고객센터</a></li>
         <%-- 임시 --%>
         <div style="width: 150px; height: 57px; display:flex; flex-wrap: wrap; ">

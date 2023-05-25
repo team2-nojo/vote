@@ -72,16 +72,8 @@ main * {
   color: #2DB400;
 }
 
-.search-area{
-  padding-top: 50px;
-  width: 618px;
-  
-}
 
-#query {
-  width: 500px;
-  height: 47px;
-}
+
 
 .center-btn{
   margin: auto;

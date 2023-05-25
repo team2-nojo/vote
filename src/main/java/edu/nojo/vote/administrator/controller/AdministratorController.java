@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -136,7 +137,7 @@ public class AdministratorController {
 	}
 	
 	// 유저 목록 조회
-	@GetMapping("/adminUser")
+	@GetMapping("/adminUserList")
 	private String selectUserList(
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp
 			,Model model) {
@@ -162,11 +163,11 @@ public class AdministratorController {
 		
 		if(result > 0) {
 			message = "유저가 삭제 되었습니다.";
-			path += "/adminUser";
+			path += "/adminUserList";
 			
 		}else {
 			message = "유저 삭제 실패........";
-			path += "/adminUser";
+			path += "/adminUserList";
 		}
 		
 		ra.addFlashAttribute("message", message);
@@ -174,7 +175,7 @@ public class AdministratorController {
 		return path;
 	}
 
-	
+	// 청원삭제 버튼
 	@PostMapping("/adminPetitionDelete")
 	private String updatePetition(@RequestParam("petitionNo") int petitionNo
 								  ,@ModelAttribute Petition petition
@@ -237,5 +238,49 @@ public class AdministratorController {
 			
 			return path;
 	}
+	
+	
+	// 삭제된 유저 목록 조회
+	@GetMapping("/adminUser2")
+	@ResponseBody 
+	public String selectDelUserList(
+	    @RequestParam(value="cp", required=false, defaultValue="1") int cp2,
+	    Model model
+	) {
+	    Map<String, Object> map2 = service.selectDelUserList(cp2);
+	    model.addAttribute("map2", map2);
+	    
+	    return "admin/adminUser";
+	}
+
+	
+	
+	@PostMapping("/adminUserDeleteCancle")
+	private String updateDelUser(@RequestParam("userNo") int userNo2
+			, Model model
+			,@ModelAttribute User user
+			,RedirectAttributes ra) throws IllegalStateException, IOException{
+
+			int result = service.updateDeleteUser(userNo2);
+			
+			String message = null;
+			String path = "redirect:";
+			
+			if(result > 0) {
+			message = "유저가 복구 되었습니다.";
+			path += "/adminUser2";
+			
+			}else {
+			message = "유저 복구 실패........";
+			path += "/adminUser2";
+			}
+			
+			ra.addFlashAttribute("message", message);
+			
+			return path;
+}
+	
+	
+	
 }
 

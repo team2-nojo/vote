@@ -1,5 +1,3 @@
-const deleteCheckBtn = document.querySelector('#delete-check-btn');
-
 function confirmDeleteUser(userNo, userNickname) {
   var confirmed = confirm(
     '회원번호 : ' +
@@ -29,3 +27,18 @@ function deleteUser(userNo, userNickname) {
   form.submit();
   alert('삭제 성공~!');
 }
+
+var deleteCheckBtn = document.getElementById('delete-check-btn');
+var modalBackground = document.getElementById('modalBackground');
+var modal = document.getElementById('modal');
+var closeButton = modal.querySelector('.close-button');
+
+deleteCheckBtn.addEventListener('click', function () {
+  modalBackground.classList.add('visible');
+  modal.classList.add('visible');
+});
+
+closeButton.addEventListener('click', function () {
+  modalBackground.classList.remove('visible');
+  modal.classList.remove('visible');
+});

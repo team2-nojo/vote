@@ -72,5 +72,22 @@ public interface AdminService {
 	int updateDelPetition(int petitionNo);
 
 
+	/**삭제된 유저 조회
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> selectDelUserList(int cp2);
+
+	
+
+	
+
+	/** 삭제된 유저 복구 버
+	 * @param userNo2
+	 * @return
+	 */
+	int updateDeleteUser(int userNo2);
+
+
 
 }

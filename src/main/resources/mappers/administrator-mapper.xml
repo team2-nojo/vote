@@ -195,5 +195,26 @@ SELECT USER_NO, USER_NICKNAME, USER_EMAIL, USER_ADD, USER_ENDROLL_DT, USER_IMG,
 	 	WHERE PT_NO = #{petitionNo}
 	</update>
 	
+	<!--삭제된 유저 수 조회  -->
+	<select id="getDelUserListCount" resultType="_int">
+		SELECT COUNT(*) FROM "USER" 
+		WHERE USER_DEL_FL = 'Y'
+	</select>
+	
+	
+	<!--삭제된 유저 조회  -->
+	<select id="selectDelUserList" resultMap="user_rm">
+	SELECT USER_NO, USER_NICKNAME, USER_IMG, USER_ENDROLL_DT
+	FROM "USER"
+	WHERE USER_DEL_FL = 'Y'
+	ORDER BY USER_NO DESC
+	</select>
+	
+	<!-- 삭제된 유저 복구  -->
+	<update id="updateDeleteUser">
+	UPDATE "USER" SET
+ 	USER_DEL_FL = 'N'
+ 	WHERE USER_NO = #{userNo}
+	</update>
 	
 </mapper>

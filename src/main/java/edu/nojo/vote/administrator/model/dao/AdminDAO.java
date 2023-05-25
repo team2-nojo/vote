@@ -172,7 +172,38 @@ public class AdminDAO {
 		return sqlSession.update("adminMapper.updateDelPetition", petitionNo);
 	}
 
+	
+	
+	/** 삭제된!!! 유저 수 조회
+	 * @return listCount
+	 * */
+	public int getDelUserListCount() {
+		return sqlSession.selectOne("adminMapper.getDelUserListCount");
+	}
 
+	
+	
+
+	/** 삭제된! 유저 조회
+	 * @param pagination
+	 * @return
+	 */
+	public List<Petition> selectDelUserList(Pagination pagination) {
+		int offset = (pagination.getCurrentPage() - 1 ) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		return sqlSession.selectList("adminMapper.selectDelUserList", null, rowBounds);
+	}
+
+	/** 삭제된 유저 복구 버튼
+	 * @param userNo2
+	 * @return
+	 */
+	public int updateDeleteUser(int userNo2) {
+		return sqlSession.update("adminMapper.updateDeleteUser", userNo2);
+	}
+
+
+	
 	
 
 

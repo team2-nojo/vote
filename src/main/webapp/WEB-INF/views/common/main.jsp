@@ -98,7 +98,7 @@
             </div>
             <div class="pettition1 id">
               <span id="id-profile"><img src="${mainPetition.userImage}" style="height: 28px; margin: 5px;" class="profile-image"></span>
-              <span>${mainPetition.userNickname}</span>
+              <span style="padding-bottom: 1px">${mainPetition.userNickname}</span>
               <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>${mainPetition.petitionLikeCount} Supporters</a>
             </div>
           </li>

@@ -5,6 +5,8 @@
 <c:set var="faqList" value="${map.faqList}"/> 
 <c:set var="faqCatName" value="${faqTypeList[faqCatNo-1].FAQ_CAT_NAME}"/>
 
+
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -43,10 +45,10 @@
 
   <div class="faq-category">
 
-  <h1 class="button1">${faqCatName}<%-- 청원 --%></h1>
-<%--   <button id="button1">신고</button>
+  <button class="button1">청원</button>
+  <button id="button1">신고</button>
   <button id="button1">개인정보</button>
-  <button id="button1">전체</button> --%>
+  <button id="button1">전체</button>
   </div>
 
 

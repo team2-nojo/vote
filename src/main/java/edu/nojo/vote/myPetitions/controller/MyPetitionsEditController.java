@@ -74,12 +74,11 @@ public class MyPetitionsEditController {
 			, HttpSession session
 			) throws IllegalStateException, IOException {
 		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("loginUserNo", loginUser.getUserNo());
-		map.put("petitionNo", petitionNo);
+	
 		
 		Petition petition = new Petition();
 		
+		petition.setPetitionNo(petitionNo);
 		petition.setUserNo(loginUser.getUserNo());
 		petition.setPetitionTitle(title);
 		petition.setPetitionContent(content);
@@ -89,21 +88,21 @@ public class MyPetitionsEditController {
 		
 		String webPath = "/resources/images/writePetition/";
 		String filePath = session.getServletContext().getRealPath(webPath);
-		int result = service.myPetitionUpdate(map,petition,thumbnailImage,webPath,filePath,categoryList);
+		int result = service.myPetitionUpdate(petition,thumbnailImage,webPath,filePath,categoryList);
 		
-		String message = null;
-		String path = null;
+		String serverMessage = null;
+		String path = "redirect:/";
 		
-		if(result == 3) {
-			message = "성공적으로 수정되었습니다.";
-			path = "/browse/petitionView/details/" + petitionNo;
+		
+		if(result > 0) {
+			serverMessage = "성공적으로 수정되었습니다.";
+			path = path + "browse/petitionView/details/" + petitionNo;
 		}else {
-			message = "수정실패 하었습니다.";
-			path = "/myPetitions/myPetitionsDashboard/" + petitionNo;
+			serverMessage = "수정실패 하었습니다.";
+			path = path + "myPetitions/myPetitionsDashboard/" + petitionNo;
 		}
 		
-		ra.addFlashAttribute(message);
-		
+		ra.addFlashAttribute("serverMessage", serverMessage);
 		
 		
 		return path;

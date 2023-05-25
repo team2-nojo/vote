@@ -66,12 +66,10 @@
                                 <div class="myPetitionTitle">
                                 <c:choose>
                                     <c:when test="${fn:length(petition.petitionTitle) > 30}">
-                                        <c:out value="${fn:substring(petition.petitionTitle, 0, 31)}">...
-                                        </c:out>
+                                        ${fn:substring(petition.petitionTitle, 0, 31)}...
                                     </c:when>
                                     <c:otherwise>
-                                        <c:out value="${petition.petitionTitle}">
-                                        </c:out>
+                                        ${petition.petitionTitle}
                                     </c:otherwise>
                                 </c:choose>
                                 </div>
@@ -79,12 +77,10 @@
                                 <div class="myPetitionText">
                                 <c:choose>
                                     <c:when test="${fn:length(petition.petitionContent) > 200}">
-                                        <c:out value="${fn:substring(petition.petitionContent, 0, 201)}">...
-                                        </c:out>
+                                        ${fn:substring(petition.petitionContent, 0, 201)}...
                                     </c:when>
                                     <c:otherwise>
-                                        <c:out value="${petition.petitionContent}">
-                                        </c:out>
+                                        ${petition.petitionContent}
                                     </c:otherwise>
                                 </c:choose>
                                 </div>
@@ -116,12 +112,10 @@
                                     <div class="myPetitionTitle">
                                     <c:choose>
                                         <c:when test="${fn:length(petition.petitionTitle) > 30}">
-                                            <c:out value="${fn:substring(petition.petitionTitle, 0, 31)}">...
-                                            </c:out>
+                                            ${fn:substring(petition.petitionTitle, 0, 31)}...
                                         </c:when>
                                         <c:otherwise>
-                                            <c:out value="${petition.petitionTitle}">
-                                            </c:out>
+                                            ${petition.petitionTitle}
                                         </c:otherwise>
                                     </c:choose>
                                     </div>
@@ -129,12 +123,10 @@
                                     <div class="myPetitionText">
                                     <c:choose>
                                         <c:when test="${fn:length(petition.petitionContent) > 200}">
-                                            <c:out value="${fn:substring(petition.petitionContent, 0, 201)}">...
-                                            </c:out>
+                                            ${fn:substring(petition.petitionContent, 0, 201)}...
                                         </c:when>
                                         <c:otherwise>
-                                            <c:out value="${petition.petitionContent}">
-                                            </c:out>
+                                            ${petition.petitionContent}
                                         </c:otherwise>
                                     </c:choose>
                                     </div>

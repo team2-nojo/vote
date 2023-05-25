@@ -105,7 +105,7 @@
 	</update>
 
     <!-- FAQ 종류 목록 조회 -->
-	<select id="selectfaqTypeList" resultType="map">
+	<select id="selectfaqTypeList" resultMap="faqCat_rm">
        SELECT * FROM "FAQ_CAT" ORDER BY 1
 	</select>
 
@@ -113,11 +113,14 @@
 	<select id="faqCount_search" resultType="_int">
        SELECT COUNT(*) 
        FROM "FAQ"
+       WHERE FAQ_CAT_NO = #{faqCatNo}
 	</select>
 
 	<select id="faq2List_search" resultMap="faq_rm">
-       SELECT FAQ_QUESTIONI, FAQ_ANSWER
-       FROM "FAQ"
+		SELECT FAQ_CAT_NAME, FAQ_QUESTIONI, FAQ_ANSWER 
+		FROM "FAQ"
+		JOIN "FAQ_CAT" USING(FAQ_CAT_NO)
+		WHERE FAQ_CAT_NO  = #{faqCatNo}
 	</select>
 	
 </mapper>

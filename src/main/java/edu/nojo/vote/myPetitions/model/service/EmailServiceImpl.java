@@ -40,8 +40,6 @@ public class EmailServiceImpl implements EmailService {
              // 송신자(보내는 사람) 지정
              mail.setFrom(new InternetAddress(fromEmail, fromUsername));
              
-             System.out.println(likeUserList.get(0).getUserEmail());
-             
              // 수신자(받는사람) 지정
              InternetAddress[] likeUseradd = new InternetAddress[likeUserList.size()];
              for (int i=0; i<likeUserList.size();   i++) {

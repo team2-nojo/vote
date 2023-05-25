@@ -1,3 +1,6 @@
+const current = window.location.href.split('/').pop();
+document.getElementById(current).classList.add('now');
+
 let page = 1;
 const middle = document.querySelector('.middle');
 document.getElementById('moreView').addEventListener('click', function () {
@@ -15,12 +18,18 @@ document.getElementById('moreView').addEventListener('click', function () {
                     div.classList.add("result");
                     var petition = response[i];
                     let max = Math.ceil(petition.petitionLikeCount / 5) * 5;
+                    let img;
+                    console.log(petition.petitionImage);
+                    if(petition.petitionImage === null)
+                        img = "/resources/images/common/defaultThumbnail.png";
+                    else
+                        img = petition.petitionImage;
                     max = String(max);
                     max = max.split('.')[0];
                     div.innerHTML = `
                         <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1">
                             <div class="row-left" id="rowPicture">
-                                <img src="${petition.petitionImage}" class="picture">
+                                <img src="${img}" class="picture">
                             </div>
                             <div class="row-right">
                                 <div id="title" class="limit-title">
@@ -42,9 +51,9 @@ document.getElementById('moreView').addEventListener('click', function () {
                     `;
                     middle.append(div);
 
-                    if (response.length < 3) {
-                        document.getElementById('loadButton').style.display = 'none';
-                    }
+                }
+                if (response.length < 5) {
+                    document.getElementById('moreView').style.display = 'none';
                 }
             } else {
                 // 서버 오류 처리
@@ -52,6 +61,6 @@ document.getElementById('moreView').addEventListener('click', function () {
             }
         }
     };
-    xhr.open('GET', `/browse/load-recent?page=${page++}`, true);
+    xhr.open('GET', `/browse/load-${current}?page=${page++}`, true);
     xhr.send();
 });

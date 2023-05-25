@@ -1,51 +1,64 @@
-let index = 0;
-let position = 0;
-let go = 480;
 
-let leftBtn = document.getElementById("leftBtn");
-let rightBtn = document.getElementById("rightBtn");
-let frame = document.getElementById("frame");
+let index = 0; // 인덱스 값
+let position = 0; // translateX값 위치
 
-// function right(){
+const go = 500; // 한 번에 움직이는 너비
 
-//     if(index < frames.length){
-//         // leftBtn.removeAttribute('disabled')//뒤로 이동해 더이상 disabled가 아니여서 속성을 삭제한다.
-//         alert("확인");
-//         position += go;//IMAGE_WIDTH의 증감을 positionValue에 저장한다.
-        
-//         alert(position);
+let frame = document.getElementById("frame"); // 전체 슬라이드 프레임
+let slideContents = document.querySelectorAll(".updatesFrame"); // 모든 update 컨텐츠들
+let slideCount = slideContents.length // 모든 update 컨텐츠 개수
 
-    
-//         frame.style.transform = `translateX(${position}px)`;
-//         index += 1;
-//           //x축으로 positionValue만큼의 px을 이동한다.
-//         //   index += 1; //다음 페이지로 이동해서 pages를 1증가 시킨다.
-//     }
-//     if(index === frames.length){ //
-//         rightBtn.setAttribute('disabled', 'true')//마지막 장일 때 next버튼이 disabled된다.
-//     }
 
-// }
+const leftBtn = document.getElementById("leftBtn");
+const rightBtn = document.getElementById("rightBtn");
 
-// 슬라이드 구현
-// 슬라이드의 초기 위치 설정
-position = 0;
+// 전체 슬라이드 프레임 넓이 설정
+frame.style.width = 500* (slideCount) + 'px';
 
-// 왼쪽 버튼 클릭 시 슬라이드를 왼쪽으로 이동
-leftBtn.addEventListener('click', function() {
-position += 100; // 슬라이드를 100%만큼 왼쪽으로 이동
-if (position > 0) {
-    position = 0; // 슬라이드의 최대 이동 범위를 설정
+
+// 왼쪽 버튼
+function left(){
+    if(index > 0){
+        rightBtn.removeAttribute("disabled") /* disabled 속성 제거*/
+        position += go /* position 값 증가 */
+        frame.style.transform = `translateX(${position}px)` /* frame transform, x축 변경*/
+        index -= 1; /* index 값 감소*/
+    }
+    if(index == 0){ /* 이미지 index값 0 되면 prev 못하게 */
+        leftBtn.setAttribute("disabled", 'true')
+    }
+ }
+
+ // 오른쪽 버튼
+function right(){ 
+    if(index < slideCount){
+        leftBtn.removeAttribute("disabled")
+        position -= go
+        frame.style.transform = `translateX(${position}px)`
+        index += 1;  
+    }
+
+    if(index == slideCount-1){
+        // 뒤로 못 가게 하기
+        rightBtn.setAttribute("disabled", 'true') // 못 누르는 버튼이 됨
 }
-frame.style.transform = 'translateX(' + position + '%)';
+}
+
+// 초기 설정
+function init(){
+    // 왼쪽 버튼은 처음부터 못누르게
+    prevBtn.setAttribute("disabled", 'true')
+    prevBtn.addEventListener("click", prev)
+    nextBtn.addEventListener("click", next)
+}
+
+// 해결해야 할 문제
+// 업데이트 값을 가져올 때 .frame width 값을 바꿔줘야 함
+// 업데이트 값을 가져올 때 .frame width 값을 계산해 오른쪽 버튼이 클릭될 수 있는 마지막 값을 계산해야 함
+leftBtn.addEventListener('click', () => {
+    left(); 
 });
 
-// 오른쪽 버튼 클릭 시 슬라이드를 왼쪽으로 이동
-rightBtn.addEventListener('click', function() {
-position -= 100; // 슬라이드를 100%만큼 오른으로 이동
-var maxPosition = -(frame.offsetWidth - slide.offsetWidth);
-if (position < maxPosition) {
-    position = maxPosition; // 슬라이드의 최대 이동 범위를 설정
-}
-frame.style.transform = 'translateX(' + position + '%)';
+rightBtn.addEventListener('click', () => {
+    right(); 
 });

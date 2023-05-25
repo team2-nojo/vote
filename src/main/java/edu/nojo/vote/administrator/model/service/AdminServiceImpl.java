@@ -14,6 +14,10 @@ import edu.nojo.vote.help.model.dto.QNA3;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.user.model.dto.User;
 
+/**
+ * @author welle
+ *
+ */
 @Service
 public class AdminServiceImpl implements AdminService {
 
@@ -178,6 +182,46 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int updateDelPetition(int petitionNo) {
 		return dao.updateDelPetition(petitionNo);
+	}
+
+
+
+
+
+
+	/**삭제된 유저 조회
+	 *@param cp
+	 *
+	 */
+	@Override
+	public Map<String, Object> selectDelUserList(int cp2) {
+		
+		int listCount = dao.getUserListCount();
+		
+		Pagination pagination2 = new Pagination(listCount, cp2);
+		
+		List<Petition> delUserList = dao.selectDelUserList(pagination2);
+		
+		// pagination, boardList를 Map에 담아서 반환
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.put("pagination2", pagination2);
+		map2.put("delUserList", delUserList);
+		
+		
+		return map2;
+	}
+
+
+
+
+
+	
+	/**삭제된 유저 복구
+	 *
+	 */
+	@Override
+	public int updateDeleteUser(int userNo) {
+		return dao.updateDeleteUser(userNo);
 	}
 	
 	

@@ -45,12 +45,17 @@ public interface HelpService {
 	int qnaDelete(int qnaNo);
 
 	
+
+	
     /** FAQ와 글 조회
      * @param paramMap 
      * @param faqNo
      * @return 
      */
-	Map<String, Object> FAQList(Map<String, Object> paramMap, int faqNo);
+
+	Map<String, Object> FAQList(Map<String, Object> paramMap, int cp);
+
+
 
 
 

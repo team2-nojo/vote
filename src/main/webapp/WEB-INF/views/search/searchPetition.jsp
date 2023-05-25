@@ -44,7 +44,7 @@
                                 ${petition.petitionTitle}
                             </div>
                             <div id="content">
-                                ${petition.petitionContent}
+                                </span>${petition.petitionContent}
                                 <a href="/browse/petitionView/details/${petition.petitionNo}" id="readMore"> Read more</a>
                             </div>
                             <div class="progress">
@@ -59,11 +59,18 @@
                                     </c:choose>
                                     ${petition.userNickname}
                                 </span>
-                                <span id="count">청원 지지자 수 : ${petition.petitionLikeCount}명</span> 
+                                <span id="count"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-left: 5px;"></i> 청원 지지자 수 : ${petition.petitionLikeCount}명</span> 
                             </div>
                         </div>
                         <div class="row-right" id="rowPicture">
-                            <img src="${petition.petitionImage}" class="picture">
+                            <c:choose>
+                                <c:when test="${not empty petition.petitionImage}">
+                                    <img src="${petition.petitionImage}" class="picture">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="/resources/images/common/defaultThumbnail.png" class="picture">
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </a>
                 </div>

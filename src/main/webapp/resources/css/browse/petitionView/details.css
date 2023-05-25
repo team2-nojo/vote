@@ -141,14 +141,15 @@ main i{
 /* 패티션 만들기 */
 
 #box1{
-    border: #ccc;
-    background-color: #ccc;
+
+    border: 1px solid #939293;
+    border-radius: 5px;
 
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
 
-    padding: 30px;
+    padding: 10px;
     margin: 10px 30px;
 }
 
@@ -168,26 +169,30 @@ main i{
     font-weight: bold;
 }
 
+#startCon2{
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+#btnBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 #startBtn{
     width: 180px;
-    height: 40px;
-
-    
-    border: 3px solid #2DB400;
-    background-color: white;
-    border-radius: 5px;
-
-    margin: 20px 5px;
+    height: 50px;
+    border: 3px solid white;
+    background-color: #2DB400;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    margin: 10px 10px;
     cursor: pointer;
 }
 
-#start{
-    text-decoration: none;
-    color: #2DB400;
-    font-weight: bold;
-
-}
 
 /* 업데이트  */
 
@@ -205,9 +210,8 @@ main i{
 
 
 #box2{
-    border: #ccc;
-    background-color: #ccc;
-    
+    border: 1px solid #939293;
+    border-radius: 10px;
     
     display: flex;
     flex-direction: row;
@@ -378,6 +382,7 @@ main i{
     width: 300px;
 
     font-size: 18px;
+    text-align: center;
     margin: 20px 10px;
     margin-top: 25%;
 }
@@ -406,17 +411,19 @@ main i{
 
 
 #row3-2{
-    margin-left: 20px;
+    margin-left: 10px;
+    font-size: 14px;
 }
 
 
 #arrow{
     width: 30px;
     height: 30px;
+
     color: white;
     border-radius: 100%;
     background-color: crimson;
-    margin: 20px 0 0 0;
+
     padding: 14px 7px;
 }
 
@@ -437,12 +444,6 @@ main i{
 
 
 
-.prof{
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-
-}
 
 
 #More{
@@ -455,20 +456,37 @@ main i{
 
 .signUserBox{
     display: flex;
+    
     flex-direction: row;
     justify-content: center;
+    
     margin: 5px;
 }
 
+.prof{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
 
 .signNickname{
+    display: inline-block;
+    font-size : 15px;
     font-weight: bold;
     margin: 5px;
 }
 
-.signTime{
-    margin: 5px;
+#signTimebox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+.signTime{
+    display: inline-block;
+    margin: 5px;
+    font-size: 12px;
 }
 
 #postContent{

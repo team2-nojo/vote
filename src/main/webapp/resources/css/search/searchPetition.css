@@ -122,9 +122,9 @@ mark{
     border-collapse: collapse;
     
     border: 1px solid #d9d9d9;
-    border-radius: 10;
+    border-radius: 10px;
 
-    margin: auto;
+    margin: 10px auto;
 }
 
 .result1{
@@ -157,7 +157,7 @@ mark{
 #content{
     font-size: 3px;
     margin: 10px 20px;
-    height: 80px;
+    height: 75px;
     overflow: hidden;
     ;
 }

@@ -85,21 +85,23 @@ public class HelpServiceImpl implements HelpService{
 		return dao.qnaDelete(qnaNo);
 	}
 
+	// 게시글 조회
 	@Override
-	public Map<String, Object> FAQList( Map<String, Object> paramMap, int cp) {
-	int listCount = dao.getListCount(paramMap);
+	public Map<String, Object> FAQList(Map<String, Object> paramMap, int cp) {
 		
-		Pagination pagination = new Pagination(listCount, cp);
+	    int listCount = dao.getListCount(paramMap);
+	    
+	    Pagination pagination = new Pagination(listCount, cp);
+	    
+	    List<faq> faqList = dao.selectfaq2List(pagination, paramMap);
+	    
+		 Map<String, Object> map = new HashMap<String, Object>();
+		 map.put("pagination", pagination);
+		 map.put("faqList",faqList);
 		
-		List<faq> faqList = dao.selectfaq2List(pagination, paramMap);
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("pagination", pagination);
-		map.put("faqList", faqList);
-		
-		return map;
-
+	    return map;
 	}
+
 
 	
 

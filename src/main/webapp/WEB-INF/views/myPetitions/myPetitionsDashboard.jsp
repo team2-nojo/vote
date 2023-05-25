@@ -22,23 +22,28 @@
     <div class="title">
       <nav>
         <input id="petitionNo" type="hidden" value="${petitionNo}">
+            <div class="nav-title">
         <c:choose>
           <c:when test="${not empty MP}">
-            <div class="nav-title">
               <h2>${MP.petitionTitle}</h2>
-              <div id="vicHidden" class="vic-hidden"><div id="victory">청원승리!!</div></div>
-            </div>
           </c:when>
           <c:otherwise>
-            <div class="nav-title">
               <h2>청원 글제목</h2>
-            </div>
           </c:otherwise>
         </c:choose>
+        <c:choose>
+          <c:when test="${MP.petitionVictory eq 'Y'}">
+              <div id="vicHidden"><img src="/resources/images/common/victory.png"></div>
+          </c:when>
+          <c:otherwise>
+              <div id="vicHidden" class="vic-hidden"><img src="/resources/images/common/victory.png"></div>
+          </c:otherwise>
+        </c:choose>
+            </div>
         <div class="nav">
           <ul>
             <li id="navSelect"><a href="/myPetitions/myPetitionsDashboard/${petitionNo}">대시보드</a></li>
-            <li id="nav"><a href="#">청원상세조회</a></li>
+            <li id="nav"><a href="/browse/petitionView/details/${petitionNo}">청원상세조회</a></li>
             <li id="nav"><a href="/myPetitions/myPetitionEdit/${petitionNo}">편집</a></li>
             <li id="nav"><a href="#">댓글</a></li>
           </ul>

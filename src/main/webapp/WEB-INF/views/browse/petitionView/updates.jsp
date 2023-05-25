@@ -20,7 +20,7 @@
         <!-- 상단메뉴 -->
         <section id="top">
             <div id="menu">
-                <div><a href="/browse/petitionView/details/${petitionNo}" id="details">Petition details</a></div>
+               <div><a href="/browse/petitionView/details/${petitionNo}" id="details">Petition details</a></div>
                 <div><a href="/browse/petitionView/comments/${petitionNo}" id="comments">Comments</a></div>
                 <div id="updates">Updates</div>
             </div>
@@ -46,12 +46,11 @@
                 <button type="button" id="rightBtn"><a href="#" id="right">&rang;</a></button>
             </section>
         </c:if>
-
         <%-- 최신 소식이 있는 경우 --%>
         <c:if test="${not empty updatePetitionList}">
             <!-- updates -->
             <section id="updatesSection2">
-                <button type="button" id="leftBtn"><a href="#" id="left">&lang;</a></button>
+                <button type="button" id="leftBtn">&lang;</button>
                 <div class="slide">
                     <div class="frame" id="frame">
                         <c:forEach items="${updatePetitionList}" var="updatePetition">
@@ -59,30 +58,24 @@
                                 <%-- 업데이트 썸네일이 있는 경우 --%>
                                 <c:if test="${not empty updatePetition.petitionUpdateImage}">
                                     <div class="cImage">
-                                        <a href="/browse/petitionView/updates_detail"><img src="/resources/images/common/default-img.jpg" class="updatesImg"></a>
+                                        <img src="/resources/images/common/default-img.jpg" class="updatesImg">
                                     </div>
                                 </c:if>
                                 <%-- 업데이트 썸네일이 없는 경우 --%>
                                 <c:if test="${not empty updatePetition.petitionUpdateImage}">
                                     <div class="cImage">
-                                        <a href="/browse/petitionView/updates_detail"><img src="${updatePetition.petitionUpdateImage}" class="updatesImg"></a>
+                                       <img src="${updatePetition.petitionUpdateImage}" class="updatesImg">
                                     </div>
                                 </c:if>
                                 <div class="updatesT">
-                                    <a href="/browse/petitionView/updates_detail" class="updatesTitle">
-                                        ${updatePetition.petitionUpdateTitle}
-                                    </a>
+                                    ${updatePetition.petitionUpdateTitle}
                                 </div>
                                 <div class="updatesC">
-                                    <a href="/browse/petitionView/updates_detail" class="updatesContent">
-                                        ${updatePetition.petitionUpdateContent}
-                                    </a>
+                                    ${updatePetition.petitionUpdateContent}
                                 </div>
                                 <div class="updatesProfile">
                                     <div>
-                                        <a href="/browse/petitionView/updates_detail" class="updatesProfileImg">
-                                            <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
-                                        </a>
+                                        <img src="/resources/images/순덕이.png" alt="프로필사진" class="profileImg">
                                     </div>
                                     <div>
                                         <div class="uNickname">${updatePetition.userNo}</div>
@@ -93,14 +86,9 @@
                         </c:forEach>
                     </div>
                 </div>
-                <button type="button" id="rightBtn"><a href="#" id="right">&rang;</a></button>
+                <button type="button" id="rightBtn">&rang;</button>
             </section>
         </c:if>
-
-
-
-                    
-
         <section id="updatesSection3"></section>
     </main>
     <%-- footer --%>

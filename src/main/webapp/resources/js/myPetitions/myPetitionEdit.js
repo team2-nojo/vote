@@ -149,12 +149,10 @@ function preView(e){
     let reader = new FileReader();
 
     reader.readAsDataURL(file);
-
     reader.onload = function(e) {
         let result = e.target.result;
         
         imgframe.innerHTML="";
-    
         const img = document.createElement("img");
         img.setAttribute("src",result);
 

@@ -27,7 +27,9 @@
       </div>
     </section>
       <div class="container2">
-        <a href="/browse/petitionView/details/${mainPtList[0].petitionNo}" style="cursor:pointer" id="main-news-link"><div class="item box1"><img src="${mainPtList[0].petitionImage}" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
+        <a href="/browse/petitionView/details/${mainPtList[0].petitionNo}" style="cursor:pointer" id="main-news-link"><div class="item box1"><img src="<c:if test="${not empty mainPtList[0].petitionImage}" >
+                            ${mainPtList[0].petitionImage}</c:if><c:if test="${empty mainPtList[0].petitionImage}" >
+                            /resources/images/common/defaultThumbnail.png</c:if>" style="height: 288px; width: 477px; object-fit: cover; position: absolute;" id="mainPhoto"><span id="victory-btn">청원 승리!</span></div>
         <div class="item box2" id="newsTitle">
           <div id="newsTitle">
             <a href="/browse/petitionView/details/${mainPtList[0].petitionNo}" id="title-link"><h3 id="news-title" class="text-limit1">${mainPtList[0].petitionTitle}</h3></a></a>
@@ -62,7 +64,9 @@
       <div class="container3">
         <c:forEach var="mainPt" items="${mainPtList}">
       <div class="box6">
-        <img src="${mainPt.petitionImage}" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2">
+        <img src="<c:if test="${not empty mainPt.petitionImage}" >
+                            ${mainPt.petitionImage}</c:if><c:if test="${empty mainPt.petitionImage}" >
+                            /resources/images/common/defaultThumbnail.png</c:if>" style="height: 100px; width: 150px; object-fit: cover; position: absolute;" class="item2">
       </div>
           <div class="box13 small-news"><a href="/browse/petitionView/details/${mainPt.petitionNo}" class="text-limit3">${mainPt.petitionTitle}</a></div>
             <input type="hidden" name="petitionContent" value="${mainPt.petitionContent}">
@@ -94,11 +98,13 @@
               <div>
                 <a href="/browse/petitionView/details/${mainPetition.petitionNo}"><div class="text-limit6">${mainPetition.petitionContent}</a></a></div>
               </div>
-              <div class="photo"><img src="${mainPetition.petitionImage}" style="width: 145px; height: 145px; object-fit: cover;"></div> 
+              <div class="photo"><img src="<c:if test="${not empty mainPetition.petitionImage}" >
+                            ${mainPetition.petitionImage}</c:if><c:if test="${empty mainPetition.petitionImage}" >
+                            /resources/images/common/defaultThumbnail.png</c:if>" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>
             <div class="pettition1 id">
               <span id="id-profile"><img src="${mainPetition.userImage}" style="height: 28px; margin: 5px;" class="profile-image"></span>
-              <span>${mainPetition.userNickname}</span>
+              <span style="padding-bottom: 1px">${mainPetition.userNickname}</span>
               <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>${mainPetition.petitionLikeCount} Supporters</a>
             </div>
           </li>

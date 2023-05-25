@@ -8,7 +8,6 @@
 }
 
 
-
 /* 임시테두리 */
 /* main, header, section, footer{
     border: 1px solid black;
@@ -102,11 +101,13 @@ body{
     width: 50px;
     height: 50px;
     margin: auto;
+    color: #2DB400;
 }
 
 #right{
     width: 50px;
     height: 50px;
+    color: #2DB400;
 }
 
 #updatesBT{
@@ -118,28 +119,36 @@ body{
 }
 
 
-
-
 .slide{
     width: 550px;
     height: 500px;
-    overflow: hidden;
-}
 
+    overflow: hidden;
+    position: relative;
+}
 
 .frame{
     display: flex;
-    width: 1500px;
+    left: 0;
+    width: 10000px;
+    transition-property: transform;
+    transition-duration: 1s;
 }
 
 .updatesFrame{
     display: flex;
-    float : left;
-    width: 480px;
+    justify-content: start;
+    flex-direction: column;
+    
+    float: left;
+    
+    width: 480px !important;
     height: 480px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 10px;
+
+    overflow: scroll;
 }
 
 .updatesImg{
@@ -157,7 +166,6 @@ body{
     color: black;
     text-decoration: none;
     margin: 10px;
-    
 }
 
 .updatesC, .updatesT{
@@ -191,14 +199,6 @@ body{
 
 
 /* 버튼 */
-#right{
-    font-weight: bold;
-    font-size: 25px;
-    color: #2DB400;
-    text-decoration: none;
-    
-}
-
 #rightBtn{
     width: 50px;
     height: 50px;
@@ -207,6 +207,10 @@ body{
     border-radius: 5px;
     margin-left: 10px;
 
+    font-weight: bold;
+    font-size: 25px;
+    color: #2DB400;
+    text-decoration: none;
 }
 
 #rightBtn:active{
@@ -220,14 +224,6 @@ body{
 }
 
 
-#left{
-    font-weight: bold;
-    font-size: 25px;
-    color: #2DB400;
-    text-decoration: none;
-    
-}
-
 #leftBtn{
     width: 50px;
     height: 50px;
@@ -235,6 +231,11 @@ body{
     border: 3px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
+
+    font-weight: bold;
+    font-size: 25px;
+    color: #2DB400;
+    text-decoration: none;
 }
 
 #leftBtn:active{
@@ -261,3 +262,6 @@ body{
     border: 1px dashed #ccc;
 }
 
+button:disabled {
+    cursor: default;   
+}

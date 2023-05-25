@@ -235,7 +235,7 @@ a:hover {
 }
 
 /* 닫기 버튼 꾸미기 */
-#modalClose {
+/* #modalClose {
   position: absolute;
   top: 20px;
   right: 40px;
@@ -246,8 +246,60 @@ a:hover {
 
   transition-duration: 0.2s;
   cursor: pointer;
+} */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 600px;
+  background-color: #ffffff;
+  border: 10px solid lightgray !important;
+  z-index: 9999;
+  display: none;
+  border-radius: 15px;
+}
+.modal.visible {
+  display: block;
+}
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 9998;
+}
+.modal-background.visible {
+  display: block;
 }
 
-#modalClose:hover {
-  transform: scale(1.2);
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  z-index: 9999;
+  display: none;
+}
+.modal.visible {
+  display: block;
+}
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
+
+  transition-duration: 0.2s;
+  cursor: pointer;
 }

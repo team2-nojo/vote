@@ -21,11 +21,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.nojo.vote.browse.model.dto.Browse;
 import edu.nojo.vote.browse.model.service.BrowseService;
 import edu.nojo.vote.browse.model.service.CommentService;
+
 import edu.nojo.vote.main.model.dto.Petition;
+
 import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
+
 import edu.nojo.vote.user.model.dto.User;
 
 
@@ -42,62 +45,26 @@ public class BrowseController {
 	@Autowired 
 	private MyPetitionsDashboardService service3;
 	
-
-	// browse 페이지 이동(popular)
-	@GetMapping("/browse_search/popular")
-	public String popular(Model model) {
+	@GetMapping("/browseSearch/{order}")
+	public String browseSearch (
+			@PathVariable("order") String order
+			, Model model) {
+		List<Petition> petitionList = service.loadPetitionList(0, order);
+		model.addAttribute("petitionList", petitionList);
 		
-		// popular로 조회
-		List<Petition> popularList = service.popular();
-		model.addAttribute("popularList", popularList);
-		
-		return "/browse/browse_search/popular";
+		return "/browse/browseSearch/browseSearch";
 	}
 	
-	
-	// browse 페이지 이동(recent)
-	@GetMapping("/browse_search/recent")
-	public String recent(Model model) {
-		
-		// recent로 조회
-		List<Petition> recentList = service.recent(0);
-		model.addAttribute("recentList", recentList);
-		
-		return "/browse/browse_search/recent";
-	}
-	
-	@GetMapping("/load-recent")
+	@GetMapping("/load-{order}")
 	@ResponseBody
-	public List<Petition> loadRecent(@RequestParam int page) {
-		List<Petition> recentList= service.recent(page);
-		System.out.println(recentList);
-		return recentList;
+	public List<Petition> loadPetition(
+			@PathVariable("order") String order
+			,@RequestParam int page) {
+		List<Petition> petitionList= service.loadPetitionList(page, order);
+		return petitionList;
 	}
 	
 	
-	// browse 페이지 이동(victories)
-	@GetMapping("/browse_search/victories")
-	public String victories(Model model) {
-		
-		// victories 최신순으로 조회
-		List<Petition> victoriesList = service.victories();
-		model.addAttribute("victoriesList", victoriesList);
-		
-		
-		
-		
-		return "/browse/browse_search/victories";
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
 	// petitionView 페이지 이동(details)
 	@GetMapping("/petitionView/details/{petitionNo}")
 	public String details(@PathVariable("petitionNo") int petitionNo
@@ -105,8 +72,6 @@ public class BrowseController {
 						, RedirectAttributes ra
 						, @SessionAttribute(value="loginUser", required=false) User loginUser
 						){
-		
-		
 		Petition petition = service.selectPetitionList(petitionNo); 
 		List<Browse> selectCommentList = service2.selectCommentList(petitionNo);
 		List<Like> resetlikeUserList = service3.selectlikeUserList(petitionNo);
@@ -267,7 +232,4 @@ public class BrowseController {
 	public String report_popUp() {
 		return "/browse/petitionView/report_popUp";
 	}
-
-
-	
 }

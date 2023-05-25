@@ -10,6 +10,7 @@ import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.help.model.dto.QNA3;
 import edu.nojo.vote.help.model.dto.faq;
 
+
 @Repository
 public class HelpDAO {
 
@@ -93,14 +94,17 @@ public class HelpDAO {
 	}
 
 	// 게시글 목록 조회(검색)
-	public List<faq> selectfaq2List(Pagination pagination,  Map<String, Object> paramMap) {
+	public List<faq> selectfaq2List(Pagination pagination, Map<String, Object> paramMap) {
+		
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
 
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		return sqlSession.selectList("HelpMapper.faq2List_search", paramMap, rowBounds);
 	}
 
+	}
 
 
 
-}
+
+

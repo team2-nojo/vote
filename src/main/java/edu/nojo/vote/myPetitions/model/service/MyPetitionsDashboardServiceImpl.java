@@ -90,42 +90,44 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 		return dao.selectCatagory(petitionNo);
 	}
 	
+	// 청원 수정
 	@Override
-	public int myPetitionUpdate(Map<String, Object> map, Petition petition, MultipartFile thumbnailImage,
-			String webPath, String filePath, List<String> categoryList) throws IllegalStateException, IOException {
+	public int myPetitionUpdate(Petition petition, MultipartFile thumbnailImage, String webPath, String filePath,
+			List<String> categoryList) throws IllegalStateException, IOException {
 
-		// 기존 글 불러오기
-		Petition pt = dao.selectMyPetition(map);
-		
-		// 비교하면서 틀린거만 업데이트 하기
 		int result = 0;
-		Petition update = new Petition();
 		
-		int petitionNo = Integer.parseInt((String) map.get("petitionNo"));
-		update.setPetitionNo(petitionNo);
 		// 제목
-		if(!pt.getPetitionTitle().equals(petition.getPetitionTitle())) {
-			update.setPetitionTitle(Util.XSSHandling(petition.getPetitionTitle()));
-			result += dao.updateTitle(update);
-		}
+		petition.setPetitionTitle(Util.XSSHandling(petition.getPetitionTitle()));
+		result += dao.updateTitle(petition);
+		
 		// 내용
-		if(!pt.getPetitionContent().equals(petition.getPetitionContent())) {
-			update.setPetitionContent(petition.getPetitionContent());
-			result += dao.updateContent(update);
-		}
-		// 썸네일이 null이 아니면 주소 생성
+		result += dao.updateContent(petition);
+		
+		// 썸네일
 		if(thumbnailImage.getSize()>0) {
 			String rename = Util.fileRename(thumbnailImage.getOriginalFilename());
 			petition.setPetitionImage(webPath+rename);
 			thumbnailImage.transferTo(new File(filePath+rename));
+			result += dao.updateImage(petition);
 		}
-		if(!pt.getPetitionImage().equals(petition.getPetitionImage())) {
-			update.setPetitionImage(petition.getPetitionImage());
-			result += dao.updateImage(update);
-		}
+		
+		// 카테고리
+		
+		 List<PetitionCategory> CL =  dao.selectCatagory(petition.getPetitionNo());
+		
+		 for(String s : categoryList) {
+			 if(CL.contains(s)) {
+				break;
+			 }else {
+				 result += dao.insertCategory(s);
+			 }
+			 
+		 }
+		
+		return result;
+	}
 	
 	
-	return result;
-}
 	
 }

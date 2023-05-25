@@ -28,7 +28,7 @@ public class WritePetitionServiceImpl implements WritePetitionService{
 	
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public void writePetition(Petition petition, List<Integer> categoryItems, String directInput,
+	public int writePetition(Petition petition, List<Integer> categoryItems, String directInput,
 			List<String> directInputCategory, MultipartFile thumbnailImage, String webPath, String filePath) throws IllegalStateException, IOException, Exception{
 		if(categoryItems == null) categoryItems = new ArrayList<>();
 		petition.setPetitionTitle(Util.XSSHandling(petition.getPetitionTitle()));
@@ -64,5 +64,7 @@ public class WritePetitionServiceImpl implements WritePetitionService{
 			category.setCategoryNo(i);
 			dao.insertCategory(category);
 		}
+		
+		return result;
 	}
 }

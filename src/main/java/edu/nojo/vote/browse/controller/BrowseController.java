@@ -74,12 +74,13 @@ public class BrowseController {
 						){
 		Petition petition = service.selectPetitionList(petitionNo); 
 		List<Browse> selectCommentList = service2.selectCommentList(petitionNo);
-		List<Like> likeUserList = service3.selectlikeUserList(petitionNo);
+		List<Like> resetlikeUserList = service3.selectlikeUserList(petitionNo);
 		
 		
 		model.addAttribute("loginUser", loginUser);
 		model.addAttribute("petition", petition);
 		model.addAttribute("selectCommentList", selectCommentList);
+		model.addAttribute("resetlikeUserList", resetlikeUserList);
 		
 		
 		
@@ -106,6 +107,17 @@ public class BrowseController {
 	
 	
 	
+	// petitionView details(comments) 다시
+	@PostMapping(value="/selectComment", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<Like> selectComment(@RequestBody String petitionNo) {
+		int pno = Integer.parseInt(petitionNo);
+		return service3.resetcommentList(pno);
+	
+	}
+	
+	
+	
 	// suppoter list
 	@PostMapping(value="/selectSuppoter", produces = "application/json; charset=UTF-8")
 	@ResponseBody
@@ -122,8 +134,9 @@ public class BrowseController {
 	public List<Browse> selectCommentList(Model model, String petitionNo) {
 		// 해당 청원에 대한 댓글 조회
 		
+//		System.out.println(petitionNo);
 		int pno = Integer.parseInt(petitionNo);
-			
+		
 		return service2.selectCommentList(pno);
 	}
 	

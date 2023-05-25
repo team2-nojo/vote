@@ -45,11 +45,10 @@ function suppoterListSet(){
     fetch("/myPetitions/selectSuppoter", {
         method: "POST",
         headers: {"Content-Type": "application/json; charset=UTF-8"},
-        body: JSON.stringify(parseInt(petitionNo.value))
     })
     .then(resp => resp.json())
     .then(likeUserList => {
-        
+    
         supportList.innerHTML="";
                 
         for(let likeUser of likeUserList){

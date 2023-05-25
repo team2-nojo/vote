@@ -3,7 +3,8 @@
 
 <c:set var="petition" value="${petition}"/>
 <c:set var="likeUserList" value="${likeUserList}"/>
-<c:set var="resetlikeUserList" value="${resetlikeUserList}"/>
+<%-- <c:set var="comment" value="${selectCommentList}"/> --%>
+<c:set var="likeUserList" value="${resetlikeUserList}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -87,7 +88,9 @@
                 <br>
                 <%-- <hr> --%>
                 <br>
-${resetlikeUserList}
+
+
+                <%-- 댓글 --%>
                 <div id="commentBox">
                     <div id="reason">댓글 보기</div>
                     <ul class="commentList">
@@ -181,6 +184,8 @@ ${resetlikeUserList}
         const petitionNo = ${petition.petitionNo};
         const loginUserNo = "${loginUser.userNo}";
         const petitionLikeCount = "${petition.petitionLikeCount}";
+        const comment = "${selectCommentList}";
+        const likeUser = "${resetlikeUserList[0].userNo}"
     </script>
     
     <%-- petitionView.js --%>

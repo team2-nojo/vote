@@ -31,26 +31,26 @@ agree.addEventListener("change", ()=>{
 
 
 // 댓글 작성 시 글자수 세는 이벤트
-const count = document.getElementById("count");
-const content = document.getElementById("commentContent")
-content.addEventListener("input", () => {
-    count.innerText = content.value.length; 
+// const count = document.getElementById("count");
+// const content = document.getElementById("commentContent")
+// content.addEventListener("input", () => {
+//     count.innerText = content.value.length; 
 
-    // 글자수 확인하여 200자가 넘어가면 붉게 표시
-    if( content.value.length > 200 ){ // 댓글이 1000자 넘어가면
-        count.classList.add("error");
-    }else{ // 댓글이 200자 이내일 때
-        count.classList.remove("error");
-    }
+//     // 글자수 확인하여 200자가 넘어가면 붉게 표시
+//     if( content.value.length > 200 ){ // 댓글이 1000자 넘어가면
+//         count.classList.add("error");
+//     }else{ // 댓글이 200자 이내일 때
+//         count.classList.remove("error");
+//     }
 
-});
-
-
+// });
 
 
 
-// 페이지 로드시 댓글 목록 조회
-window.onload = selectCommentList();
+
+
+// // 페이지 로드시 댓글 목록 조회
+// window.onload = selectCommentList();
 
 
 
@@ -61,10 +61,12 @@ function selectCommentList(){
     fetch("/browse/petitionView/details/selectCommentList", {
         method: "POST",
         headers: {"Content-Type": "application/json; charset=UTF-8"},
-        body: JSON.stringify(petitionNo)
+        body: JSON.stringify(parseInt(petitionNo))
+        
     }) 
     .then(response => response.json()) // 응답 객체 -> 파싱
     .then(cList => { // cList : 댓글 목록(객체배열)
+        console.log("되나?");
         console.log(cList);
         
         // 화면에 출력되어 있는 댓글 목록 삭제
@@ -90,7 +92,7 @@ function selectCommentList(){
             if( comment.userImage != null ){ // 프로필 이미지가 있을 경우
                 userImage.setAttribute("src", comment.userImage);
             }else{ // 없을 경우 == 기본이미지
-                userImage.setAttribute("src", "/resources/images/user.png");
+                userImage.setAttribute("src", "/resources/common/images/user.png");
             }
 
             // 작성자 닉네임
@@ -188,13 +190,18 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
 
     // 좋아요(미완)
     let check; // 기존에 좋아요가 아닐 때(빈하트) : 0, 좋아요(꽉찬하트) : 1
-    if(loginUserNo !== commentUserNo){ // 좋아요가 아닐 때
-        check = 0;
-    }else{ 
-        check = 1;
+
+    for(let i = 0; i < likeUser.length; i++){
+        if(likeUser[i].userNo != loginUserNo){ // 좋아요 안 해본 사람
+            check = 0;
+        }else{
+            check = 1;
+        }
     }
-    
-    
+
+    alert(check);
+
+
     // ajax로 서버로 제출할 파라미터를 모아둔 JS객체
     const data2 = {"check": check, "petitionNo" : petitionNo, "loginUserNo" : loginUserNo};
     
@@ -216,7 +223,6 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
             return;
         }
 
-
     
         // 현재 게시글의 좋아요 수를 화면에 출력
         // likeCount.nextElementSibling.innerText = count;
@@ -231,7 +237,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
 
 
 
-    /*
+
     // 댓글등록(완료)
     const data1 = {"commentContent" : commentContent.value, 
     "userNo" : loginUserNo, "petitionNo" : petitionNo, "petitionLikeCount" : petitionLikeCount}; // JS객체
@@ -270,6 +276,6 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
     .catch(err => console.log(err));
 
     
-    */
+
 
 });

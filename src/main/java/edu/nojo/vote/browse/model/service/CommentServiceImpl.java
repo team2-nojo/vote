@@ -43,9 +43,10 @@ public class CommentServiceImpl implements CommentService{
 	
 	// details 내부 댓글 조회
 	@Override
-	public List<Browse> selectCommentList(int petitionNo) {
-		System.out.println(dao.selectCommentList(petitionNo));
-		return dao.selectCommentList(petitionNo);
+	public List<Browse> selectCommentList(int pno) {
+//		System.out.println(dao.selectCommentList(pno));
+		System.out.println(pno);
+		return dao.selectCommentList(pno);
 	}
 	
 	

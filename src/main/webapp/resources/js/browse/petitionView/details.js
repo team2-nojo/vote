@@ -1,10 +1,3 @@
-const startBtn = document.getElementById("startBtn");
-
-startBtn.addEventListener("click", ()=>{
-    location.href="writePetition.jsp"; 
-});
-
-
 const commentMore = document.getElementById("commentMore");
 
 commentMore.addEventListener("click", ()=>{

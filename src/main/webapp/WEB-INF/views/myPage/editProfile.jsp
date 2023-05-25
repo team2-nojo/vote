@@ -28,7 +28,6 @@
                             <c:if test="${empty loginUser.userImage}" >
                                 <img src="/resources/images/common/user.png" id="profileUserImage">
                             </c:if>
-
                             <%-- 프로필 이미지가 있으면 있는 이미지 --%>
                             <c:if test="${not empty loginUser.userImage}">
                                 <img src="${loginUser.userImage}" id="profileUserImage">

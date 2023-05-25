@@ -122,9 +122,9 @@ mark{
     border-collapse: collapse;
     
     border: 1px solid #d9d9d9;
-    border-radius: 10;
+    border-radius: 10px;
 
-    margin: auto;
+    margin: 10px auto;
 }
 
 .result1{

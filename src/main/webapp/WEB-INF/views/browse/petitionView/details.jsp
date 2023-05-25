@@ -43,19 +43,11 @@
                 </div>
                 <div id="postPicture">
                 
-                    <img src="/${petition.petitionImage}" id="postPic">
+                    <img src="${petition.petitionImage}" id="postPic">
                 </div>
                 <div id="postContent">
                     <div class="paragraph">
                         ${petition.petitionContent}
-                    </div>
-                    <div class="paragraph">
-
-                        내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내
-                    </div>
-                    <div class="paragraph">
-
-                        내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내
                     </div>
                 </div>
 
@@ -75,10 +67,8 @@
                         <div class="startCon" id="startCon2">이 청원글을 작성한 사람은 행동으로 옮겼습니다. 당신도 함께 동참하지 않겠습니까?</div>
                     </div>
                     <div>
-                        <button type="button" id="startBtn"><a href="/writePetition" id="start">청원 시작하기</a></button>
+                        <a href="/writePetition" id="start"><button type="button" id="startBtn">청원 시작하기</button></a>
                     </div>
-                    
-                    
                 </div>
                 <br>
                 <hr>

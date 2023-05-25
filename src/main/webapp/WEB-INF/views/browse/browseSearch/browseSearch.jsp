@@ -8,34 +8,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>브라우저 게시글 조회(recent)</title>
+    <title>브라우저 게시글 조회(popular)</title>
 
-    <%-- css --%>
-    <link rel="stylesheet" href="/resources/css/browse/browse_search/browse_search.css">
+    <%-- popular.css --%>
+    <link rel="stylesheet" href="/resources/css/browse/browseSearch/browseSearch.css">
     
 </head>
 <body>
-    
     <%-- header --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        
-        
         <section class="top">
             <div id="discoverP">
-                서명할 청원을 검색해주세요.
+                청원글 조회
             </div>
             <div class="menu" id="menu">
-                <div><a href="/browse/browse_search/popular" id="popular">Popular</a></div>
-                <div><a id="now" href="/browse/browse_search/recent" id="recent">Recent</a></div>
-                <div><a href="/browse/browse_search/victories" id="victories">Victories</a></div>
+                <div><a href="/browse/browseSearch/popular" id="popular">Popular</a></div>
+                <div><a href="/browse/browseSearch/recent" id="recent">Recent</a></div>
+                <div><a href="/browse/browseSearch/victories" id="victories">Victories</a></div>
             </div>
         </section>
-
         <section class="middle">
-            <c:forEach items="${recentList}" var="petition">
+            <c:forEach items="${petitionList}" var="petition">
                 <div class="result">
-                    <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1">
+                    <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1 contentBox">
                         <div class="row-left" id="rowPicture">
                             <img src="${petition.petitionImage}" class="picture">
                         </div>
@@ -69,6 +65,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <%-- browse_search.js --%>
-    <script src="/resources/js/browse/browse_search/recent.js"></script>
+    <script src="/resources/js/browse/browseSearch/browseSearch.js"></script>
 </body>
 </html>

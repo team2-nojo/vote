@@ -1,0 +1,139 @@
+/* section, div{ border : 1px solid black;} */
+#menu-wrap1 > ul > li:nth-child(2) {
+  background-color: #444;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.board-list2 {
+  /* display: flex; */
+  /* height: 800px; */
+}
+.list-wrapper2 {
+  width: 90%;
+}
+
+.list-table2 {
+  width: 100%;
+  padding: 20px;
+  border-collapse: collapse;
+}
+
+.list-table2 > thead {
+  background-color: #333;
+  color: white;
+}
+
+.list-table2 tr {
+  height: 60px;
+}
+
+.list-table2 > tbody > tr {
+  border-bottom: 1px solid gray;
+}
+
+.list-table2 tr > * {
+  text-align: center;
+}
+.list-table2 tr > *:nth-of-type(1) {
+  width: 5%;
+}
+
+.list-table2 tr > td:nth-of-type(2) {
+  width: 8%;
+  text-align: left;
+  padding-left: 50px;
+  text-decoration: none;
+}
+
+.list-table2 tr > *:nth-of-type(3) {
+  width: 13%;
+}
+.list-table2 tr > *:nth-of-type(4) {
+  width: 15%;
+}
+
+.pagination2 {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.pagination2 li {
+  width: 20px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.pagination2 a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.current {
+  font-weight: bold;
+  background-color: #333;
+  border-radius: 50%;
+  color: white !important;
+  letter-spacing: 0 !important;
+}
+
+#petitionSearch2 {
+  text-align: center;
+  width: 500px;
+  height: 30px;
+  margin: 30px auto;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+#petitionSearch2 * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#petitionSearch2 select {
+  width: 100px;
+}
+
+#petitionSearch2 input {
+  flex-grow: 1;
+  margin: 0 10px;
+  padding-left: 10px;
+}
+
+#petitionSearch2 button {
+  width: 100px;
+
+  font-weight: bold;
+  background-color: #333;
+  border: none;
+  color: white;
+
+  cursor: pointer;
+}
+
+/* 썸네일 */
+.list-table2 .list-thumbnail {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: -5px;
+  top: 17px;
+  border-radius: 50%;
+}
+
+.list-table2 tr > td:nth-of-type(2) {
+  position: relative;
+}

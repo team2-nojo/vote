@@ -18,12 +18,18 @@ document.getElementById('moreView').addEventListener('click', function () {
                     div.classList.add("result");
                     var petition = response[i];
                     let max = Math.ceil(petition.petitionLikeCount / 5) * 5;
+                    let img;
+                    console.log(petition.petitionImage);
+                    if(petition.petitionImage === null)
+                        img = "/resources/images/common/defaultThumbnail.png";
+                    else
+                        img = petition.petitionImage;
                     max = String(max);
                     max = max.split('.')[0];
                     div.innerHTML = `
                         <a href="/browse/petitionView/details/${petition.petitionNo}" class="result1">
                             <div class="row-left" id="rowPicture">
-                                <img src="${petition.petitionImage}" class="picture">
+                                <img src="${img}" class="picture">
                             </div>
                             <div class="row-right">
                                 <div id="title" class="limit-title">

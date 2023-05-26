@@ -86,7 +86,7 @@
             <div class="pettition1 pet-title">
               <i class="fa-solid fa-tag fa-rotate-90" style="color: #000000; margin:15px"></i>
               <span class="text-limit4">Trending in 
-                <c:forEach items="${mainPetition.categoryList}" var="category" varStatus="status"><c:if test="${status.index > 0}">, </c:if><a href="#" class="petCategory">${category.categoryName}</a></c:forEach>
+                <c:forEach items="${mainPetition.categoryList}" var="category" varStatus="status"><c:if test="${status.index > 0}">, </c:if><a href="/browse/category/${category.categoryNo}" class="petCategory">${category.categoryName}</a></c:forEach>
               </span>
               <a href="#" style="text-decoration: underline;">See more</a>
             </div>
@@ -115,11 +115,11 @@
         <div class="container5">
           <h2 id="icon-topic">현재 인기 키워드</h2>
           <ul>
-            <li class="title-list"><a href="#" class="title-icon">북한인권</a></li>
-            <li class="title-list"><a href="#" class="title-icon">러-우크라이나 전쟁</a></li>
-            <li class="title-list"><a href="#" class="title-icon">달러 강세</a></li>
-            <li class="title-list"><a href="#" class="title-icon">미-중 갈등</a></li>
-            <li class="title-list"><a href="#" class="title-icon">윤석열</a></li>
+            <li class="title-list"><a href="/browse/category/28" class="title-icon">북한인권</a></li>
+            <li class="title-list"><a href="/browse/category/29" class="title-icon">러-우크라이나 전쟁</a></li>
+            <li class="title-list"><a href="/browse/category/30" class="title-icon">달러 강세</a></li>
+            <li class="title-list"><a href="/browse/category/31" class="title-icon">미-중 갈등</a></li>
+            <li class="title-list"><a href="/browse/category/32" class="title-icon">윤석열</a></li>
           </ul>
         </div>
       </div>

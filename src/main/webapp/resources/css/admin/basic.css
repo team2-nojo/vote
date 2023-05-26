@@ -13,8 +13,7 @@
 .container {
   display: grid;
   grid-template-columns: 45% 45%;
-  grid-template-rows: 16.67% 33.33% 33.33%;
-  height: 1200px;
+  grid-template-rows: 16.67% 33.33%;
 }
 
 .color1 {
@@ -34,11 +33,10 @@
 }
 
 .slide-container {
-  width: 800px;
+  width: 700px;
   height: 100%;
   background-color: gray;
   margin: auto;
-  position: relative;
   overflow: hidden;
 }
 

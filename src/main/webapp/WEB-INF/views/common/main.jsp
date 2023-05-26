@@ -22,7 +22,7 @@
           <h1 class="title">당신의 투표를 기다립니다.</h1>
           <h3 class="subTitle"><span style="color: red;">508,140,283</span>명이 행동에 나섰습니다. 매일 승리하십시오.</h3>
 
-          <a href="/adminLogin"><button class="titleBtn">청원시작</button></a>
+          <a href="/writePetition"><button class="titleBtn">청원시작</button></a>
         </div>
       </div>
     </section>

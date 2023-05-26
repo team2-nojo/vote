@@ -1,43 +1,4 @@
-// document
-//   .getElementById('delete-check-btn2')
-//   .addEventListener('click', function () {
-//     // Fetch API를 사용하여 GET 요청
-//     fetch('/adminUser2', {
-//       method: 'GET',
-//     })
-//       .then(function (response) {
-//         if (response.ok) {
-//           return response.text();
-//         } else {
-//           throw new Error('Request failed.');
-//         }
-//       })
-//       .then(function (data) {
-//         // 응답을 받았을 때 수행할 작업
-//         console.log(data);
-//       })
-//       .catch(function (error) {
-//         // 오류 처리
-//         console.log(error);
-//       });
-//   });
-// document
-//   .getElementById('delete-check-btn')
-//   .addEventListener('click', function () {
-//     var xhr = new XMLHttpRequest();
-//     xhr.open('GET', '/adminUser2', true);
-//     xhr.onload = function () {
-//       if (xhr.status === 200) {
-//         data = xhr.responseText;
-
-//       }
-//     };
-//     xhr.onerror = function () {
-//       console.error('Request failed.');
-//     };
-//     xhr.send();
-//   });
-
+const tBody = document.getElementById('t-body');
 document
   .getElementById('delete-check-btn')
   .addEventListener('click', function () {
@@ -55,7 +16,6 @@ document
         var pagination2 = data.pagination2;
         var delUserList = data.delUserList;
 
-        var tBody = document.getElementById('t-body');
         for (var i = 0; i < delUserList.length; i++) {
           console.log(delUserList[i]);
           const tr = document.createElement('tr');
@@ -81,7 +41,9 @@ document
         console.log(error);
       });
   });
-
+const removeDeleteList = () => {
+  tBody.innerHTML = '';
+};
 function confirmDeleteUserCancle(userNo2, userNickname) {
   var confirmed = confirm(
     '회원번호: ' +
@@ -111,3 +73,5 @@ function confirmDeleteUserCancle(userNo2, userNickname) {
     console.log('복구 취소');
   }
 }
+const closeBtn = document.querySelector('.close-button');
+closeBtn.addEventListener('click', removeDeleteList);

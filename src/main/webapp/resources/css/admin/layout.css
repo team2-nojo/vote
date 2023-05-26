@@ -1,14 +1,15 @@
-article {
+.article {
   grid-template-areas:
     'header header'
-    'nav    main'
-    'nav    footer'; /* footer를 추가하여 grid-template-areas를 조정 */
+    'nav    main';
   grid-template-columns: 210px 1fr;
-  grid-template-rows: 80px 1000px 50px; /* grid-template-rows를 조정하여 footer를 맨 아래로 옮김 */
+  grid-template-rows: 50px 900px;
+  top: 100px;
+  z-index: 100;
 }
 
 .navbar {
-  position: fixed;
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -45,7 +46,7 @@ main {
   height: 100%;
   margin-left: 310px;
   margin-right: 8%;
-  margin-top: 150px;
+  margin-top: 100px;
 }
 
 footer {
@@ -99,13 +100,12 @@ footer {
 }
 
 .left {
-  position: fixed;
+  position: absolute;
   top: 70px;
   left: 0;
   width: 210px;
-  height: auto;
-  overflow-y: scroll;
   bottom: 0;
+  height: 850px;
   background-color: #555555;
 }
 .left-panel ul {

@@ -67,7 +67,7 @@
                                             ${petitionNo} : @Pathvariable로 request scope에 추가된 값임 --%>
                                         <td>
 
-                                        <a href="QNADetail/${qna.qnaNo}?cp=${pagination.currentPage}">${qna.qnaTitle}</a>
+                                        <a href="/clientCenter/QNADetail/${qna.qnaNo}?cp=${pagination.currentPage}">${qna.qnaTitle}</a>
                                         </td>
                                         <td>${qna.qnaStatus}</td>
                                         <td>${qna.qnaCreateDt}</td>
@@ -89,10 +89,10 @@
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/QNA3/${qnaCatCode}?cp=1${sp}">&lt;&lt;</a></li>
+                    <li><a href="/clientCenter/QNA3/${qnaCatCode}?cp=1${sp}">&lt;&lt;</a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/QNA3/${qnaCatCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
+                    <li><a href="/clientCenter/QNA3/${qnaCatCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
                     
 
 					
@@ -108,7 +108,7 @@
 
                             <c:otherwise>
                             <!-- 현재 페이지를 제외한 나머지 -->
-                                 <li><a href="/QNA3/${qnaCatCode}?cp=${i}${sp}">${i}</a></li>
+                                 <li><a href="/clientCenter/QNA3/${qnaCatCode}?cp=${i}${sp}">${i}</a></li>
                             </c:otherwise>
                         </c:choose>
 
@@ -118,10 +118,10 @@
     
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/QNA3/${qnaCatCode}?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="/clientCenter/QNA3/${qnaCatCode}?cp=${pagination.nextPage}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/QNA3/${qnaCatCode}?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                    <li><a href="/clientCenter/QNA3/${qnaCatCode}?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                 </ul>
             </div>

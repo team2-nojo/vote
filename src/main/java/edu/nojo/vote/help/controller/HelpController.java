@@ -97,11 +97,14 @@ public class HelpController {
     // 문의내역
     @GetMapping("/QNA3")
     public String QA3(
-    	@RequestParam(value="cp", required=false, defaultValue="1") int cp
+          @RequestParam(value="qnaCatCode", required=false, defaultValue="1") int qnaCatCode
+    	, @RequestParam(value="cp", required=false, defaultValue="1") int cp
     	, Model model,
     	@RequestParam Map<String, Object> paramMap) {
     	
-    	Map<String, Object> map = service.QA3(paramMap, cp);
+    	paramMap.put("qnaCatCode", qnaCatCode);
+		 Map<String, Object> map = service.QA3(paramMap, cp); 
+    	
     	model.addAttribute("map", map);
     	
   

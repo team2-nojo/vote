@@ -213,4 +213,23 @@ public class BrowseController {
 	public String report_popUp() {
 		return "/browse/petitionView/report_popUp";
 	}
+	
+	@GetMapping("/category/{categoryNo:\\d+}")
+	public String category(@PathVariable("categoryNo") int categoryNo
+			, Model model) {
+		Map<String,Object> categoryInfo = service.selectCategoryInfo(categoryNo);
+		model.addAttribute("categoryInfo", categoryInfo);
+		
+		List<Petition> petitionList = service.selectPetitionList(categoryNo, 0, "trending");
+		model.addAttribute("petitionList", petitionList);
+		return "browse/browseSearch/category";
+	}
+	
+	@GetMapping("/category/{order}/{categoryNo:\\d+}")
+	@ResponseBody
+	public List<Petition> ajaxCategory(@PathVariable("order") String order
+			,@PathVariable("categoryNo") int categoryNo
+			,@RequestParam("page")int page) {
+		return service.selectPetitionList(categoryNo, page, order);
+	}
 }

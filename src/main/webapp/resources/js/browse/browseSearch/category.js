@@ -34,8 +34,16 @@ const loadPetition = () => {
                     const petition=petitionList[i];
                     const petitionBox = document.createElement('div');
                     petitionBox.classList.add('petition-box');
+                    let categories = '';
+                    petition.categoryList.forEach((category, index) => {
+                        categories += `<a href="/browse/category/${category.categoryNo}" class="petition-category">${category.categoryName}</a>`;
+                        if (index < petition.categoryList.length - 1) {
+                            categories += ', ';
+                        }
+                    });
+                        
                     petitionBox.innerHTML = `
-                        <div class="categories"><i class="fa-solid fa-tag fa-flip-horizontal"> </i> Trending in </div>
+                        <div class="categories"><i class="fa-solid fa-tag fa-flip-horizontal"> </i> Trending in ${categories}</div>
                         <div class="petition">
                             <div class="img-box"><img src="${petition.petitionImage}" alt=""></div>
                             <div class="petition-contents">
@@ -44,7 +52,7 @@ const loadPetition = () => {
                                     ${petition.petitionContent}
                                 </div>
                                 <div class="petition-info">
-                                    <div class="user-info">${petition.userNickname}</div><div class="suppoters">지지자 : ${petition.petitionLikeCount}</div>
+                                    <div class="user-info"><img src="${petition.userImage}" style="width:30px; height:30px; border-radius:50%; margin-top:5px;"/>${petition.userNickname}</div><div class="suppoters"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>${petition.petitionLikeCount} Supporters</div>
                                 </div>
                             </div>
                         </div>

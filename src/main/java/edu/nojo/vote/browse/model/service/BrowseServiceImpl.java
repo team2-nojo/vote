@@ -83,6 +83,7 @@ public class BrowseServiceImpl implements BrowseService {
 		List<Petition> petitionList = dao.selectPetitionList(categoryNo, page, order);
 		for(Petition p: petitionList) {
 			if(p.getPetitionContent()!=null)
+				p.setCategoryList(dao.selectCategoryList(p.getPetitionNo()));
 				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));
 		}
 		

@@ -137,3 +137,12 @@ main {
     margin-bottom: 25px;
     text-decoration: underline;
 }
+
+.petition-category{
+    text-decoration: none;
+    color: black;
+}
+
+.petition-category:hover{
+    color: #2db400;
+}

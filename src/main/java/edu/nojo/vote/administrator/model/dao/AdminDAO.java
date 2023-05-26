@@ -199,8 +199,8 @@ public class AdminDAO {
 	 * @param userNo2
 	 * @return
 	 */
-	public int updateDeleteUser(int userNo2) {
-		return sqlSession.update("adminMapper.updateDeleteUser", userNo2);
+	public int updateDeleteUser(int userNo) {
+		return sqlSession.update("adminMapper.updateDeleteUser", userNo);
 	}
 
 

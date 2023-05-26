@@ -214,7 +214,7 @@ SELECT USER_NO, USER_NICKNAME, USER_EMAIL, USER_ADD, USER_ENDROLL_DT, NVL2(USER_
 	<update id="updateDeleteUser">
 	UPDATE "USER" SET
  	USER_DEL_FL = 'N'
- 	WHERE USER_NO = #{userNo2}
+ 	WHERE USER_NO = #{userNo}
 	</update>
 	
 </mapper>

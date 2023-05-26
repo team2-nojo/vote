@@ -83,10 +83,10 @@ public interface AdminService {
 	
 
 	/** 삭제된 유저 복구 버
-	 * @param userNo2
+	 * @param 
 	 * @return
 	 */
-	int updateDeleteUser(int userNo2);
+	int updateDeleteUser(int userNo);
 
 
 

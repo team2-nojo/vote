@@ -40,8 +40,7 @@
         
         </div>
         <div class="item box3">
-          <div id="main-user-image"><a href="/myPage/profile/${mainPtList[0].userNo}"><img src="${mainPtList[0].userImage}" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></a></div>
-          <%-- <div id="main-user-image"><img src="${mainPtList[0].userImage}" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div> --%>
+          <div id="main-user-image"><img src="${mainPtList[0].userImage}" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div>
           <div class="main-news-id-container">
             <div id="main-news-id-box">
             <div id="main-news-nickname" style="margin:7px;">${mainPtList[0].userNickname}</div>

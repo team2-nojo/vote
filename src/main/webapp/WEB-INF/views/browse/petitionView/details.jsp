@@ -112,7 +112,7 @@
                                         <img id="comImg" src="${comment.userImage}" class="profile">
                                     </c:otherwise>
                                 </c:choose>
-                                <span class="comUser" >닉네임${comment.userNickname}</span>
+                                <span class="comUser" >${comment.userNickname}</span>
                                 <span class="commentDate">${comment.commentDate}</span>
                                 <i class="fa-regular fa-thumbs-up fa-xl" style="color: red;"></i><span>${comment.commentFLY}</span>
                                 <i class="fa-regular fa-thumbs-down fa-xl" style="color: blue;"></i><span>${comment.commentFLN}</span>

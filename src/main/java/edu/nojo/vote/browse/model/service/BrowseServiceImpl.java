@@ -1,6 +1,7 @@
 package edu.nojo.vote.browse.model.service;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,5 +67,25 @@ public class BrowseServiceImpl implements BrowseService {
 		}
 		return updatePetitionList;
 	}
-
+	
+	
+	@Override
+	public Map<String, Object> selectCategoryInfo(int categoryNo) {
+		Map<String,Object> categoryInfo = new HashMap<>();
+		categoryInfo.put("categoryNo",categoryNo);
+		categoryInfo.put("count", dao.selectCategoryCount(categoryNo));
+		categoryInfo.put("categoryName", dao.selectCategoryName(categoryNo));
+		return categoryInfo;
+	}
+	
+	@Override
+	public List<Petition> selectPetitionList(int categoryNo, int page, String order) {
+		List<Petition> petitionList = dao.selectPetitionList(categoryNo, page, order);
+		for(Petition p: petitionList) {
+			if(p.getPetitionContent()!=null)
+				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));
+		}
+		
+		return petitionList;
+	}
 }

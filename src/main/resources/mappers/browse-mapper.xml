@@ -200,7 +200,36 @@
 		ORDER BY CM_NO DESC
 	</select>
 	
+	<select id="selectCategoryCount" resultType="int">
+		SELECT COUNT(*)
+		FROM PETITION_CATEGORY PC
+		JOIN "PETITION" USING(PT_NO)
+		WHERE CAT_NO = #{categoryNo}
+		AND PT_DEL_FL = 'N'
+	</select>
 	
+	<select id="selectCategoryName" resultType="string">
+		SELECT CAT_NAME FROM PETITION_CATEGORY_LIST WHERE CAT_NO = #{categoryNo}
+	</select>
 	
-	
+	<select id="selectPetitionListrecent" resultMap="petition_rm">
+		SELECT P.PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, NVL2(USER_IMG, USER_IMG, '/resources/images/common/icon.png') USER_IMG, USER_ADD,
+		(SELECT COUNT(*) FROM PETITION_LIKE PL WHERE PL.PT_NO = P.PT_NO) "LIKE_COUNT"
+		FROM PETITION P
+		JOIN PETITION_CATEGORY PCL ON PCL.PT_NO=P.PT_NO
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_DEL_FL = 'N'
+		AND CAT_NO=#{categoryNo}
+		ORDER BY PT_NO
+	</select>
+	<select id="selectPetitionListtrending" resultMap="petition_rm">
+		SELECT P.PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, NVL2(USER_IMG, USER_IMG, '/resources/images/common/icon.png') USER_IMG, USER_ADD,
+		(SELECT COUNT(*) FROM PETITION_LIKE PL WHERE PL.PT_NO = P.PT_NO) "LIKE_COUNT"
+		FROM PETITION P
+		JOIN PETITION_CATEGORY PCL ON PCL.PT_NO=P.PT_NO
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_DEL_FL = 'N'
+		AND CAT_NO=#{categoryNo}
+		ORDER BY LIKE_COUNT
+	</select>
 </mapper>

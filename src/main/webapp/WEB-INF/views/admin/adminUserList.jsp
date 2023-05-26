@@ -146,16 +146,17 @@
                 <div id="modalBackground" class="modal-background"></div>
 
                     <div id="modal" class="modal">
-                        <span class="close-button"><i class="fa-sharp fa-solid fa-circle-xmark" style="color: #4a4e54;"></i></span>
+                       
                         <section class="board-list2">
+                         <span class="close-button"><i class="fa-sharp fa-solid fa-circle-xmark" style="color: #4a4e54;"></i></span>
         <div>
 
 
-          <form action="/adminUserDeleteCancle" method="POST" id="mainForm2">
+          <%-- <form action="/adminUserDeleteCancle" method="POST" id="mainForm2"> --%>
             <div class="list-wrapper2">
                 <table class="list-table2">
                     
-                    <thead>
+                    <thead id='thead'>
                         <tr>
                             <th>회원번호</th>
                             <th>닉네임</th>
@@ -164,20 +165,13 @@
                         </tr>
                     </thead>
                     <tbody id="t-body">
-                                <tr class='tr-table'>
-                                    <td class='petitionNo'>${user2.userNo}</td>
-                                        <td>
-                                          <img class="list-thumbnail" src="${user2.userImage}">${user2.userNickname}
-                                        </td>
-                                    <td>${user2.userEnrollDate}</td>
-                                    <td>
-                                        <button onclick="confirmDeleteUserCancle('${user.userNo}', '${user.userNickname}')">유저 복구</button>
-                                    </td>
-
-                                </tr>
+                               
                             
                     </tbody>
                 </table>
+                    <div id='pagination2'>
+              
+                </div>
             </div>
                        </div>
              </form>

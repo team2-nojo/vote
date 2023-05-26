@@ -3,7 +3,7 @@
 <footer>
     <div class="footer-content">
         <div class="footer-header">
-            <div><img id="footlogo" src="/resources/images/common/Logo.png" /></div>&nbsp;
+            <a href="/adminPetitionList"><div><img id="footlogo" src="/resources/images/common/Logo.png" /></a></div>&nbsp;
             <div><a href="#"> | 개인정보처리방침</a></div>&nbsp;
             <div><a href="#"> | 이용약관</a></div>
         </div>

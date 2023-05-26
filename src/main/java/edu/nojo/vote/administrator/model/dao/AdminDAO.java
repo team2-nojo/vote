@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.nojo.vote.administrator.model.dto.Pagination;
+import edu.nojo.vote.administrator.model.dto.Pagination2;
 import edu.nojo.vote.help.model.dto.QNA3;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.user.model.dto.User;
@@ -185,12 +186,12 @@ public class AdminDAO {
 	
 
 	/** 삭제된! 유저 조회
-	 * @param pagination
+	 * @param pagination2
 	 * @return
 	 */
-	public List<Petition> selectDelUserList(Pagination pagination) {
-		int offset = (pagination.getCurrentPage() - 1 ) * pagination.getLimit();
-		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+	public List<Petition> selectDelUserList(Pagination2 pagination2) {
+		int offset = (pagination2.getCurrentPage() - 1 ) * pagination2.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination2.getLimit());
 		return sqlSession.selectList("adminMapper.selectDelUserList", null, rowBounds);
 	}
 

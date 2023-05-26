@@ -13,7 +13,7 @@
     <%-- <link rel="stylesheet" href="resources/css/admin/adminPetitionList.css"> --%>
   </head>
   <body>
-  <article>
+  <article id="article">
     <header>
         <nav class="navbar">
           <div class="navbar_logo">

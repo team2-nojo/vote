@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import edu.nojo.vote.administrator.model.dao.AdminDAO;
 import edu.nojo.vote.administrator.model.dto.Pagination;
+import edu.nojo.vote.administrator.model.dto.Pagination2;
 import edu.nojo.vote.help.model.dto.QNA3;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.user.model.dto.User;
@@ -198,7 +199,7 @@ public class AdminServiceImpl implements AdminService {
 		
 		int listCount = dao.getUserListCount();
 		
-		Pagination pagination2 = new Pagination(listCount, cp2);
+		Pagination2 pagination2 = new Pagination2(listCount, cp2);
 		
 		List<Petition> delUserList = dao.selectDelUserList(pagination2);
 		

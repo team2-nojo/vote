@@ -17,13 +17,11 @@ a:hover {
   /* height: 800px; */
 }
 .list-wrapper2 {
-  width: 90%;
+  width: 100%;
 }
 
 .list-table2 {
   width: 100%;
-  padding: 20px;
-  border-collapse: collapse;
 }
 
 .list-table2 > thead {
@@ -44,12 +42,14 @@ a:hover {
 }
 .list-table2 tr > *:nth-of-type(1) {
   width: 5%;
+  padding-left: 10px;
+  margin-left: 40px;
 }
 
 .list-table2 tr > td:nth-of-type(2) {
-  width: 8%;
+  width: 12%;
   text-align: left;
-  padding-left: 50px;
+  padding-left: 45px;
   text-decoration: none;
 }
 
@@ -57,7 +57,7 @@ a:hover {
   width: 13%;
 }
 .list-table2 tr > *:nth-of-type(4) {
-  width: 15%;
+  width: 8%;
 }
 
 .pagination2 {
@@ -129,11 +129,16 @@ a:hover {
   position: absolute;
   width: 25px;
   height: 25px;
-  left: -5px;
+  left: 10px;
   top: 17px;
   border-radius: 50%;
 }
 
 .list-table2 tr > td:nth-of-type(2) {
   position: relative;
+}
+
+#pagination2 {
+  display: flex;
+  margin: 0 auto;
 }

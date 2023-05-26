@@ -45,11 +45,11 @@
                         <c:choose>
                             <c:when test="${empty petition.userImage}">
                             <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
-                                <img src="/resources/images/common/user.png">
+                                <img id="profile-id" src="/resources/images/common/user.png">
                             </c:when>
                             <c:otherwise>
                                 <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
-                                <img src="${petition.userImage}">
+                                <img id="profile-id" src="${petition.userImage}">
                             </c:otherwise>
                         </c:choose>
                         <div class="nickname">

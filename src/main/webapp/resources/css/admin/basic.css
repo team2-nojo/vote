@@ -120,3 +120,7 @@
 .slied-page-btn > span.active {
   background-color: orangered;
 }
+
+#admin {
+  text-decoration: none;
+}

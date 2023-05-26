@@ -25,7 +25,7 @@
               <i class="fa-solid fa-user" style="color: #ffffff; font-size: 24px""></i>
               <i class="fa-solid fa-bell" style="color: #ffffff; font-size: 24px; margin-left: 18px;" ></i>
               <i class="fa-solid fa-comment" style="color: #ffffff; font-size: 24px; margin-left: 18px;"></i>
-              <a href="/"><span class="fa-solid logout-span" style="color: #ffffff; font-size: 16px; margin-left: 18px;">로그아웃</span></a>
+              <a href="/user/logout"><span class="fa-solid logout-span" style="color: #ffffff; font-size: 16px; margin-left: 18px;">로그아웃</span></a>
           </ul>
         </nav>
     </header>

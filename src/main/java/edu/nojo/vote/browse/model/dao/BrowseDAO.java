@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
+import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 @Repository
 public class BrowseDAO {
@@ -68,5 +69,9 @@ public class BrowseDAO {
 
 	public List<Petition> selectPetitionList(int categoryNo, int page, String order) {
 		return sqlSession.selectList("browseMapper.selectPetitionList"+order,categoryNo,new RowBounds(page*5,5));
+	}
+	
+	public List<PetitionCategory> selectCategoryList(int petitionNo){
+		return sqlSession.selectList("mainPageMapper.selectCategoryList",petitionNo);
 	}
 }

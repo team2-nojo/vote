@@ -45,12 +45,12 @@
                 class="menu-icon"
               />회원정보</a>
             </li>
-            <li><a href="/adminQnA">
+            <li><a href="/adminDelUserList">
               <img
                 src="resources/images/mainPage/ask_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />1:1 문의 내역</a>
+              />삭제회원조회</a>
             </li>
           </ul>
         </div>
@@ -80,12 +80,12 @@
           <ul>
             <!-- 메뉴 아이템 1 -->
             <li id="menu3">인사이트</li>
-            <li><a href="">
+            <li><a href="/adminQnA">
               <img
                 src="resources/images/mainPage/dash_menu_logo.png"
                 alt="이미지_설명"
                 class="menu-icon"
-              />대시보드</a>
+              />1:1 문의내역</a>
             </li>
             
             <li><a href="">

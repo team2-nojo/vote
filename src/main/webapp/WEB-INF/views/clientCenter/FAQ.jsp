@@ -39,12 +39,8 @@
     <a href="/clientCenter/FAQ?faqCatNo=1" id="button1">청원</a>
     <a href="/clientCenter/FAQ?faqCatNo=2" id="button1">신고</a>
     <a href="/clientCenter/FAQ?faqCatNo=3" id="button1">개인정보</a>
-    <a href="/clientCenter/FAQ?faqCatNo=4" id="button1">전체</a>
-<%--   <button id="button1">청원</button>
-  <button id="button1">신고</button>
-  <button id="button1">개인정보</button>
-  <button id="button1">전체</button>
- --%>
+    <a href="/clientCenter/FAQ?faqCatNo=4" id="button1">건의</a>
+
   </div>
 
 

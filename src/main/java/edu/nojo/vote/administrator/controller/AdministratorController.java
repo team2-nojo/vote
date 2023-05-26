@@ -241,43 +241,34 @@ public class AdministratorController {
 	
 	
 	// 삭제된 유저 목록 조회
-	@GetMapping("/adminUser2")
-	@ResponseBody 
-	public Map<String, Object> selectDelUserList(
+	@GetMapping("/adminDelUserList")
+	public String selectDelUserList(
 	    @RequestParam(value="cp", required=false, defaultValue="1") int cp2,
 	    Model model
 	) {
 	    Map<String, Object> map2 = service.selectDelUserList(cp2);
 	    model.addAttribute("map2", map2);
 	    
-	    return map2;
+	    return "admin/adminDelUserList";
 	}
 
 	
 	
 	@PostMapping("/adminUserDeleteCancle")
-	private String updateDelUser(@RequestParam("userNo2") int userNo2
+	private String updateDelUser(@RequestParam("userNo") int userNo
 			, Model model
 			,@ModelAttribute User user
 			,RedirectAttributes ra) throws IllegalStateException, IOException{
 
-			int result = service.updateDeleteUser(userNo2);
+			int result = service.updateDeleteUser(userNo);
 			
 			String message = null;
 			String path = "redirect:";
 			
-			if(result > 0) {
-			message = "유저가 복구 되었습니다.";
-			path += "/adminUser2";
-			
-			}else {
-			message = "유저 복구 실패........";
-			path += "/adminUser2";
-			}
 			
 			ra.addFlashAttribute("message", message);
 			
-			return "redirect:/adminUserList";
+			return "redirect:/adminDelUserList";
 }
 	
 	

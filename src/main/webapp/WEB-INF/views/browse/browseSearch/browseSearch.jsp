@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VOTE 둘러보기</title>
 
-    <%-- popular.css --%>
     <link rel="stylesheet" href="/resources/css/browse/browseSearch/browseSearch.css">
     
 </head>

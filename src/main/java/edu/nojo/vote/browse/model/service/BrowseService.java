@@ -45,6 +45,18 @@ public interface BrowseService {
 	List<Petition> loadPetitionList(int page, String order);
 
 
+	Map<String, Object> selectCategoryInfo(int categoryNo);
+
+
+
+	List<Petition> selectPetitionList(int categoryNo, int page, String order);
+
+
+
+
+
+
+
 
 
 }

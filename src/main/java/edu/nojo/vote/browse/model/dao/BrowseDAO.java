@@ -54,8 +54,19 @@ public class BrowseDAO {
 	public List<Petition> loadPetitionList(int page, String order) {
 		return sqlSession.selectList("browseMapper."+order,null,new RowBounds(page*5, 5));
 	}
-	
-	
-	
-	
+
+
+	public int selectCategoryCount(int categoryNo) {
+		return sqlSession.selectOne("browseMapper.selectCategoryCount",categoryNo);
+	}
+
+
+	public String selectCategoryName(int categoryNo) {
+		return sqlSession.selectOne("browseMapper.selectCategoryName",categoryNo);
+	}
+
+
+	public List<Petition> selectPetitionList(int categoryNo, int page, String order) {
+		return sqlSession.selectList("browseMapper.selectPetitionList"+order,categoryNo,new RowBounds(page*5,5));
+	}
 }

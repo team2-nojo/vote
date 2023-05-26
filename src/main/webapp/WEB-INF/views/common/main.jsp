@@ -40,14 +40,12 @@
         
         </div>
         <div class="item box3">
-          <div id="main-user-image"><img src="${mainPtList[0].userImage}" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div>
-
+          <div id="main-user-image"><a href="/myPage/profile/${mainPtList[0].userNo}"><img src="${mainPtList[0].userImage}" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></a></div>
+          <%-- <div id="main-user-image"><img src="${mainPtList[0].userImage}" style="height: 45px; width:45px; border-radius: 50%; position: absolute; margin: 5px;" id="news-id"></div> --%>
           <div class="main-news-id-container">
             <div id="main-news-id-box">
             <div id="main-news-nickname" style="margin:7px;">${mainPtList[0].userNickname}</div>
             <div id="main-news-address" style="margin-left:7px;">${mainPtList[0].userAddress}</div>
-
-            
           </div>
           </div>
         </div>
@@ -103,7 +101,7 @@
                             /resources/images/common/defaultThumbnail.png</c:if>" style="width: 145px; height: 145px; object-fit: cover;"></div> 
             </div>
             <div class="pettition1 id">
-              <span id="id-profile"><img src="${mainPetition.userImage}" style="height: 28px; margin: 5px;" class="profile-image"></span>
+              <span id="id-profile"><a href="/myPage/profile/${mainPetition.userNo}"><img src="${mainPetition.userImage}" style="height: 28px; margin: 5px;" class="profile-image"></a></span>
               <span style="padding-bottom: 1px">${mainPetition.userNickname}</span>
               <a href="#"><i class="fa-solid fa-users" style="color: #1dbf27; font-size: 15px; margin-right: 5px;"></i>${mainPetition.petitionLikeCount} Supporters</a>
             </div>

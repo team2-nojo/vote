@@ -56,7 +56,7 @@
 	</select>
 	
 	<select id="selectPetition" resultMap="petition_rm">
-		SELECT PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, NVL2(USER_IMG, USER_IMG, '/resources/images/common/icon.png') USER_IMG, USER_ADD,
+		SELECT PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_NO, NVL2(USER_IMG, USER_IMG, '/resources/images/common/icon.png') USER_IMG, USER_ADD,
 		(SELECT COUNT(*) FROM PETITION_LIKE WHERE PT_NO = P.PT_NO) "LIKE_COUNT"
 		FROM PETITION P
 		JOIN "USER" USING(USER_NO)

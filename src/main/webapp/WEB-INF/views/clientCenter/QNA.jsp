@@ -32,12 +32,7 @@
       <textarea name="qnaCont" id="boardContent"></textarea>
     </div>
 
-  <div class="filename">
-    파일명은 -,_를 제외한 특수문자 허용되지 않습니다. <br>
-    아래 파일 형식만 첨부할 수 있습니다 <br>
-    이미지:jpeg,jpg,gif,bmp,png <br>
-    문서:pdf,txt,hwp,doc,docs,xls,xlsm,ppt,pptx <br>
-  </div>
+
 
   <div class="filename">
       <div id="agree">

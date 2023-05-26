@@ -50,11 +50,13 @@ public class MyPageController {
    public String Profile(Model model
 		   				,@PathVariable("userNo") int userNo) {
 	   
+	   
 	   // 해당 유저 조회 서비스 호출
 	   User selectedUser = service.selectUser(userNo);
 	   
 	   // Model로 해당 유저의 userNo, userImage, userNickname, userAddress, userAboutMe 보내기
 	   model.addAttribute("selectedUser", selectedUser);
+	   
 	   
 	   return "/myPage/profile";
    }

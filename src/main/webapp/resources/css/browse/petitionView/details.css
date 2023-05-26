@@ -1,12 +1,13 @@
+
 main * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+
 }
 
 /* 임시테두리 */
 /* main, header, section, footer{
-    border: 1px solid black;
 } */
 
 main {
@@ -193,35 +194,70 @@ main i {
     border: 1px solid black;
 } */
 
-#commentBox {
-  overflow: auto;
+
+.commentList{
+    height: 400px;
+    margin-left: 50px;
+    overflow: auto;
+    margin-bottom: 50px;
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+}
+/* 스크롤바 숨기기 */
+.commentList::-webkit-scrollbar{
+    display: none;
 }
 
-#reason {
-  font-size: 25px;
-  font-weight: bold;
+.comment-row{
+    background-color: #eeeeee;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 100px;
+    width: 500px;
+    margin: 5px;
+    overflow: auto;
+}
+
+.comment-row::-webkit-scrollbar{
+    display: none;
+}
+
+.commentP{
+    font-size: 5px;
+}
 
   margin: 5px 6%;
 }
 
-.noti {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  margin-left: 10%;
+
+
+.noti{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.noti * {
-  font-size: 15px;
-  margin: 10px 5px;
+#comImg{
+    width: 30px;
+    height: 30px;
 }
 
-.profile {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  margin-left: 20px;
+.noti *{
+    font-size: 15px;
+    margin: 10px 5px;
+    
 }
+
+.noti i{
+    font-size: 15px;
+}
+
+.profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-left: 20px;
+
 
 .comUser {
   font-weight: bold;
@@ -241,29 +277,7 @@ main i {
   margin: 15px 140px 10px 15px;
 }
 
-#push {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  margin-left: 10%;
-}
-#push2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  margin-left: 10%;
-}
 
-#push * {
-  font-size: 20px;
-  margin: 10px 5px;
-}
-#push2 * {
-  font-size: 20px;
-  margin: 10px 5px;
-}
 
 #comReport {
   color: black;

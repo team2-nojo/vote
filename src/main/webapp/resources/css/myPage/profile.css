@@ -2,6 +2,7 @@ main *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    /* border: 1px solid black; */
 }
 
 /* div, main, section, header, footer, article, nav, aside, form
@@ -45,7 +46,7 @@ div{
 
 /* 전체 화면 출력 부분 */
 .userProfileframe {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 /* EditProfileText 상단 */
@@ -118,7 +119,6 @@ div{
     display: flex;
     justify-content: left;
     list-style: none;
-    height: 34px;
     border-bottom: 1px solid #ccc;
     margin-top: 50px;
 }
@@ -142,6 +142,7 @@ div{
     transition-duration: 0.2s;
 }
 
+
 /* started, signed 탭 메뉴 mouseover */
 .myPetitions-mouseover{
     color: #e01a2b !important;
@@ -154,10 +155,16 @@ div{
     border-bottom: 2px solid red;
 }
 
+.userAboutMe{
+    width: 700px;
+    font-size: 14px;
+    color: #939293;
+    text-align: center;
+}
 
 
 .userProfileframe  .defaultbox {
-    margin: 25px 0px;
+    margin: 0px 0px;
     border: 1px solid #737273;
     border-radius: 5px;
     display: flex;
@@ -175,7 +182,7 @@ div{
 
 
 .defaultbox > .myPetitionstatus > div{
-    margin-bottom: 20px !important;
+    margin-bottom: 10px !important;
     background-color: #f6f4f6;
     border-right: 10px;
     display: inline-block;
@@ -193,7 +200,7 @@ div{
     font-size: 12px;
     box-sizing: border-box;
     display: block;
-    padding: 20px !important;
+    padding: 10px !important;
     flex-direction: row;
     justify-content: center;
     margin: 25px 0px;
@@ -231,7 +238,12 @@ div{
     cursor : pointer;
 }
 
-
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 /* myPetitionTitle 청원 타이틀 양식 */
 .myPetitionTitle {

@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -37,12 +36,11 @@
                         </div>
                         <div class="userProfileID">${selectedUser.userNickname}</div>
                         <div class="userProfileLocation">${selectedUser.userAddress.split(" ")[0]}</div>
-                        <div class="userProfileLocation">${selectedUser.userAboutMe}</div>
                     </div>
                 </div>
-                <ul class="tabs"> <!-- 내가 시작한, 사인한 청원 목록 보는 탭 -->
-                </ul> 
+                <ul class="tabs"></ul> 
             </div>
+            <div class="userAboutMe">${selectedUser.userAboutMe}</div>
         </div>
     </main>
     <%-- footer --%>

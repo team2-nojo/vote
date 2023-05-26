@@ -3,7 +3,7 @@
 
 <c:set var="petition" value="${petition}"/>
 <c:set var="likeUserList" value="${likeUserList}"/>
-<%-- <c:set var="comment" value="${selectCommentList}"/> --%>
+<c:set var="comment" value="${commentList}"/>
 <c:set var="likeUserList" value="${resetlikeUserList}"/>
 
 <!DOCTYPE html>
@@ -45,11 +45,11 @@
                         <c:choose>
                             <c:when test="${empty petition.userImage}">
                             <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
-                                <img src="/resources/images/common/user.png">
+                                <a href="/myPage/profile/${petition.userNo}"><img src="/resources/images/common/user.png"></a>
                             </c:when>
                             <c:otherwise>
                                 <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
-                                <img src="${petition.userImage}">
+                                <a href="/myPage/profile/${petition.userNo}"><img src="${petition.userImage}"></a>
                             </c:otherwise>
                         </c:choose>
                         <div class="nickname">
@@ -95,10 +95,34 @@
                 <div id="commentBox">
                     <div id="reason">댓글 보기</div>
                     <ul class="commentList">
+                        <c:forEach items="${commentList}" var="comment">
+                        <li class="comment-row">
+                            <p class="noti">
+                                <!-- 유저아이콘 추가해야 함-->
+                                <c:choose>
+                                    <c:when test="${empty comment.userImage}">
+                                        <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
+                                        <img id="comImg" src="/resources/images/common/user.png" class="profile">
+                                    </c:when>
+
+                                    <c:otherwise>
+                                        <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
+                                        <img id="comImg" src="${comment.userImage}" class="profile">
+                                    </c:otherwise>
+                                </c:choose>
+                                <span class="comUser" >닉네임${comment.userNickname}</span>
+                                <span class="commentDate">${comment.commentDate}</span>
+                                <i class="fa-regular fa-thumbs-up fa-xl" style="color: red;"></i><span>${comment.commentFLY}</span>
+                                <i class="fa-regular fa-thumbs-down fa-xl" style="color: blue;"></i><span>${comment.commentFLN}</span>
+
+                            </p>
+                            <p class="commentCon"> ${comment.commentContent}
+                            </p>    
+                        </li>
+                        </c:forEach>
                     </ul>
+
                 </div>
-                <!-- 버튼 클릭 시 이동 -->
-                <button type="button" id="commentMore" >댓글 더 보기</button>
             
 
 

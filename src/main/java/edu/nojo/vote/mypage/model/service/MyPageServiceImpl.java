@@ -71,9 +71,9 @@ public class MyPageServiceImpl implements MyPageService {
 	// 해당 유저 조회 서비스
 	@Override
 	public User selectUser(int userNo) {
+		
 		return dao.selectUser(userNo);
 	}
-	
 
 	// 비밀번호 변경
 	@Transactional(rollbackFor = { Exception.class })

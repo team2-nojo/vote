@@ -40,6 +40,7 @@ public class MyPageDAO {
 	 * @return selectedUser
 	 */
 	public User selectUser(int userNo) {
+		
 		return sqlSession.selectOne("myPageMapper.selectUser", userNo);
 	}
 

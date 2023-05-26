@@ -25,7 +25,7 @@
 		WHERE USER_NO = #{userNo}
 	</update>
 
-	<select id="selectUser" resultType="User">
+	<select id="selectUser" resultMap="user_rm">
  		SELECT USER_NO , USER_IMG , USER_NICKNAME , USER_ADD , USER_ABOUT_ME 
 		FROM "USER"
 		WHERE USER_NO = #{userNo}
@@ -58,4 +58,23 @@
 	<update id="secession">
 		UPDATE "USER" SET USER_DEL_FL = 'Y' WHERE USER_NO = #{userNo}
 	</update>
+	
+	
+	<resultMap type="User" id="user_rm">
+	
+		<id property="userNo" column="USER_NO" />
+		
+		<result property="userGrade" column="USER_GRADE" />
+		<result property="userImage" column="USER_IMG" />
+		<result property="userEmail" column="USER_EMAIL" />
+		<result property="userNickname" column="USER_NICKNAME" />
+		<result property="userPw" column="USER_PW" />
+		<result property="userAddress" column="USER_ADD" />
+		<result property="userAboutMe" column="USER_ABOUT_ME" />
+		<result property="userSocialLogin" column="USER_SOCIAL_LOGIN" />
+		<result property="userEnrollDate" column="USER_ENDROLL_DT" />
+		<result property="userDelFl" column="USER_DEL_FL" />
+	
+	</resultMap>
+	
 </mapper>

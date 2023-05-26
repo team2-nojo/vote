@@ -78,7 +78,7 @@
 
 
                 <!-- 패티션 만들기 -->
-                <div id="box1">
+                <div class="box1">
                     <div>
                         <div class="startCon" id="startCon1">당신만의 청원을 시작할 수 있습니다.</div>
                         <div class="startCon" id="startCon2">당신의 신념을 행동으로 옮기시겠습니까??</div>
@@ -88,41 +88,50 @@
                     </div>
                 </div>
                 <br>
-    <%--             <hr> --%>
-                
                 <br>
-
-
                 <%-- 댓글 --%>
                 <div id="commentBox">
                     <div id="reason">댓글 보기</div>
-                    <ul class="commentList">
-                        <c:forEach items="${commentList}" var="comment">
-                        <li class="comment-row">
-                            <p class="noti">
-                                <!-- 유저아이콘 추가해야 함-->
-                                <c:choose>
-                                    <c:when test="${empty comment.userImage}">
-                                        <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
-                                        <img id="comImg" src="/resources/images/common/user.png" class="profile">
-                                    </c:when>
+                         <c:choose>
+                            <c:when test="${empty commentList}">
+                                <%-- 댓글이 없을 경우 --%>
+                                 <div class="box1">
+                                    <div>
+                                        <div class="startCon" id="startCon1">아직 해당 글에 대한 댓글이 없습니다.</div>
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <%-- 댓글이 있을 경우 --%>
+                                <ul class="commentList">
+                                    <c:forEach items="${commentList}" var="comment">
+                                    <li class="comment-row">
+                                        <p class="noti">
+                                            <!-- 유저아이콘 추가해야 함-->
+                                            <c:choose>
+                                                <c:when test="${empty comment.userImage}">
+                                                    <%-- 프로필 이미지 없을 경우 기본 이미지 --%>
+                                                    <img id="comImg" src="/resources/images/common/user.png" class="profile">
+                                                </c:when>
 
-                                    <c:otherwise>
-                                        <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
-                                        <img id="comImg" src="${comment.userImage}" class="profile">
-                                    </c:otherwise>
-                                </c:choose>
-                                <span class="comUser" >${comment.userNickname}</span>
-                                <span class="commentDate">${comment.commentDate}</span>
-                                <i class="fa-regular fa-thumbs-up fa-xl" style="color: red;"></i><span>${comment.commentFLY}</span>
-                                <i class="fa-regular fa-thumbs-down fa-xl" style="color: blue;"></i><span>${comment.commentFLN}</span>
+                                                <c:otherwise>
+                                                    <%-- 프로필 이미지 있을 경우 프로필 이미지 --%>
+                                                    <img id="comImg" src="${comment.userImage}" class="profile">
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <span class="comUser" >${comment.userNickname}</span>
+                                            <span class="commentDate">${comment.commentDate}</span>
+                                            <i class="fa-regular fa-thumbs-up fa-xl" style="color: red;"></i><span>${comment.commentFLY}</span>
+                                            <i class="fa-regular fa-thumbs-down fa-xl" style="color: blue;"></i><span>${comment.commentFLN}</span>
 
-                            </p>
-                            <p class="commentCon"> ${comment.commentContent}
-                            </p>    
-                        </li>
-                        </c:forEach>
-                    </ul>
+                                        </p>
+                                        <p class="commentCon"> ${comment.commentContent}
+                                        </p>    
+                                    </li>
+                                    </c:forEach>
+                                </ul>
+                            </c:otherwise>
+                        </c:choose>
 
                 </div>
             

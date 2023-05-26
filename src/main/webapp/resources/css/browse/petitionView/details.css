@@ -138,7 +138,7 @@ main * {
   
   /* 패티션 만들기 */
   
-  #box1 {
+  .box1 {
     border: 1px solid #939293;
     border-radius: 5px;
   

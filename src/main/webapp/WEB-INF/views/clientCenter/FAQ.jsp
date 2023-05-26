@@ -112,7 +112,7 @@
 
   <div class="center-btn">
     <a href="/clientCenter/QNA" id="button2"><i class="fa-solid fa-user fa-4x" id="ic"></i>1:1 문의</a>    
-    <a href="/clientCenter/QNA3" id="button3"><i class="fa-solid fa-scroll fa-4x" id="ic"></i>문의내역</a>    
+    <a href="/clientCenter/QNA3?qnaCatCode=1" id="button3"><i class="fa-solid fa-scroll fa-4x" id="ic"></i>문의내역</a>    
     <a href="/" id="button4"><i class="fa-regular fa-comment fa-4x" id="ic"></i>챗봇</a>
   </div>
 

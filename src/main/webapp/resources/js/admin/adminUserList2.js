@@ -47,7 +47,10 @@ const removeDeleteList = () => {
 function confirmDeleteUserCancle(userNo2, userNickname) {
   var confirmed = confirm(
     '회원번호: ' +
+      ' "' +
       userNo2 +
+      ' "' +
+      '\n\n' +
       ' "' +
       userNickname +
       '"' +

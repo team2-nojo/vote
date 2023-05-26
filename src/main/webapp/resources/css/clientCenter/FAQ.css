@@ -5,31 +5,50 @@ main * {
   /* border: 1px solid black; */
 }
 
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .content {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 600px;
   height: 100%;
-  align-items: center;
 }
 
 .Faq {
   font-size: 20px;
   font-weight: bold;
+
+  width: 100%;
+
   margin: 20px 0;
   margin-right: 490px;
 }
 
 #title {
   font-size: 36px;
-  padding-top: 70px;
+  font-weight: bold;
+
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .faq-category {
-  display: inline-block;
-  justify-content: space-around;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+
   padding-top: 15px;
   margin-right: 450px;
+  margin-bottom: 5px; 
+
+  width: 100%;
+
 }
 
 .center-btn {
@@ -39,18 +58,24 @@ main * {
 }
 
 #button1{
+  display: inline-block;
+
   text-decoration: none;
-  color: black;
-  background-color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 60px;
-  height: 20px;
-  border: 1px solid black;
+  color: white;
   font-weight: bold;
   font-size: 12px;
+  text-align: center;
+  
+  background-color: #2DB400;
+  border-radius: 5px;
+  
+  cursor: pointer;
+  
+  width: 60px;
+  height: auto;
+  
   margin-left: 3px;
-  padding: 0 3px 0;
+  padding: 5px
 }
 
 #button1:hover {

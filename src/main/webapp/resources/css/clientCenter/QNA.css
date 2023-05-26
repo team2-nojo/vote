@@ -1,3 +1,9 @@
+
+main *{
+    box-sizing: border-box;
+}
+
+
 .content {
     display: flex;
     flex-direction: column;
@@ -10,8 +16,13 @@
 #select2{
     width: 150px;
     height: 47px;
+
     color: white;
     background-color: #2DB400;
+
+    border: none;
+    border-radius: 5px;
+
     margin-bottom: 150px;
     margin-left: 300px;
     font-weight: bold;
@@ -36,14 +47,18 @@ main h2 {
 
 .filename {
     width: 619px;
-    height: 100px;
-    background-color: lightgray;
+    height: auto;
+
+    background-color: #F2F2F2;
+    border-radius: 5px;
+
     font-size: 12px;
-    padding-top: 10px;
-    padding-left: 10px;
-    margin-bottom: 40px;
-    margin-left: 50px;
     
+    padding: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 50px;
 }
 
 .profile-btn-area {
@@ -76,24 +91,24 @@ main li {
     margin-left: 20px;
     width: 619px;
     height: 268px;
+    resize: none;
 }
 
 #boardTitle {
-    margin-left: 20px;
+    margin-left: 15px;
     width: 200px;
     height: 20px;
 }
 
 .board-content {
+    display: flex;
     font-size: 16px;
     font-weight: bold;
-    display: flex;
     margin-top: 10px;
 }
 
 .board-title {
-    display: flex;
-    justify-content: flex-start;
+    display: inline-block;
     font-weight: bold;
     font-size: 16px;
     margin-top: 40px;
@@ -105,3 +120,12 @@ main li {
 }
 
 
+#boardContent, #boardTitle {
+    border: 1px solid #939293;
+    border-radius: 5px;
+}
+
+#agree {
+    font-weight: bold;
+    margin-bottom: 20px;
+}

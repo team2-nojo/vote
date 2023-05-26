@@ -132,7 +132,7 @@ body{
     display: flex;
     flex-direction: row-reverse;
     left: 0;
-    width: 10000px;
+    width: 550px;
     transition-property: transform;
     transition-duration: 1s;
 }

@@ -29,21 +29,17 @@
 
   <div class="content">
 
-  <h1 id="title">질문해보세요</h1>
-
-
+  <div id="title">궁금하신 질문을 찾아 보세요</div>
 
           <c:if test="${not empty param.key}" >
             <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
         </c:if>
 
   <div class="faq-category">
-
-  <a href="/clientCenter/FAQ?faqCatNo=1" id="button1">청원</a>
-  <a href="/clientCenter/FAQ?faqCatNo=2" id="button1">신고</a>
-  <a href="/clientCenter/FAQ?faqCatNo=3" id="button1">개인정보</a>
-  <a href="/clientCenter/FAQ?faqCatNo=4" id="button1">전체</a>
-  
+    <a href="/clientCenter/FAQ?faqCatNo=1" id="button1">청원</a>
+    <a href="/clientCenter/FAQ?faqCatNo=2" id="button1">신고</a>
+    <a href="/clientCenter/FAQ?faqCatNo=3" id="button1">개인정보</a>
+    <a href="/clientCenter/FAQ?faqCatNo=4" id="button1">전체</a>
 <%--   <button id="button1">청원</button>
   <button id="button1">신고</button>
   <button id="button1">개인정보</button>

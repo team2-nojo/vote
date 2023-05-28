@@ -24,20 +24,20 @@ agree.addEventListener("change", ()=>{
 });
 
 
-// 댓글 작성 시 글자수 세는 이벤트
-// const count = document.getElementById("count");
-// const content = document.getElementById("commentContent")
-// content.addEventListener("input", () => {
-//     count.innerText = content.value.length; 
+//댓글 작성 시 글자수 세는 이벤트
+const count = document.getElementById("count");
+const content = document.getElementById("commentContent")
+content.addEventListener("input", () => {
+    count.innerText = content.value.length; 
 
-//     // 글자수 확인하여 200자가 넘어가면 붉게 표시
-//     if( content.value.length > 200 ){ // 댓글이 1000자 넘어가면
-//         count.classList.add("error");
-//     }else{ // 댓글이 200자 이내일 때
-//         count.classList.remove("error");
-//     }
+    // 글자수 확인하여 200자가 넘어가면 붉게 표시
+    if( content.value.length > 200 ){ // 댓글이 1000자 넘어가면
+        count.classList.add("error");
+    }else{ // 댓글이 200자 이내일 때
+        count.classList.remove("error");
+    }
 
-// });
+});
 
 
 

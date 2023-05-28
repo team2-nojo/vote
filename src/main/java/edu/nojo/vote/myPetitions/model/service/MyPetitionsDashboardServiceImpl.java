@@ -14,9 +14,6 @@ import edu.nojo.vote.common.utility.Util;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dao.MyPetitionsDashboardDAO;
 import edu.nojo.vote.myPetitions.model.dto.Like;
-import edu.nojo.vote.user.model.dao.UserDAO;
-import edu.nojo.vote.user.model.dto.User;
-import edu.nojo.vote.writePetition.model.dao.WritePetitionDAO;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 @Service

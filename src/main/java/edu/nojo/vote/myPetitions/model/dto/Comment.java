@@ -12,6 +12,7 @@ public class Comment {
 	private int userNo;	
 	private String userImage;			
 	private String userNickname;	
+	private String userEmail;
 	
 	private int petitionNo;		
 	

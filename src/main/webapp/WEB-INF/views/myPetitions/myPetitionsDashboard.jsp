@@ -113,10 +113,10 @@
                 <div><p>지지자들의 서명과 댓글이 담긴 전체 목록을 이메일로 받으십시오.</p></div>
                 <div class="agree-B">
                   <select id="exportOpt">
-                    <option value="">좋아요(스프레드시트)</option>
-                    <option value="">댓글(스프레드시트)</option>
+                    <option value="1">좋아요(스프레드시트)</option>
+                    <option value="2">댓글(스프레드시트)</option>
                   </select>
-                  <a href="#" class="export">목록 가져오기</a>
+                  <button type="button" class="export" id="exportBtn">목록 가져오기</button>
                 </div>
               </div>
             </div>

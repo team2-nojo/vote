@@ -20,4 +20,6 @@ public class Like {
 	private String userNickname;		
 	private String userAddress;
 	
+	
+	private String commentContent;
 }

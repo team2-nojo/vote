@@ -23,3 +23,7 @@
         alert('${serverMessage}');
     </script>
 </c:if>
+
+<%-- SockJS(라이브러리)추가 / cdn방식으로 추가됨 --%>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="/resources/js/websocket/alarm.js"></script>

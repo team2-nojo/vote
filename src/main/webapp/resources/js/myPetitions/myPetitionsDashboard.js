@@ -211,3 +211,33 @@ petitionVic.addEventListener('click', () => {
     } );
 
 });
+
+
+/* 이메일로 파일 목록 보내기 */
+const exportBtn = document.getElementById("exportBtn");
+const exportOpt = document.getElementById("exportOpt");
+
+exportBtn.addEventListener('click', () => {
+
+    let data = {exportOpt : exportOpt.value, petitionNo : parseInt(petitionNo.value)}
+
+    fetch("/myPetitions/exportList", {
+        method: "POST",
+        headers: {"Content-Type": "application/json; charset=UTF-8"},
+        body: JSON.stringify(data)
+    })
+    .then(resp => resp.json())
+    .then(result => {
+
+        if(result>0){
+            alert("이메일 전송을 성공하였습니다.")
+        }else{
+            result = "이메일 전송을 실패하였습니다.";
+        };
+
+    }) 
+    .catch( err => {
+        console.log(err);
+    } );
+
+});

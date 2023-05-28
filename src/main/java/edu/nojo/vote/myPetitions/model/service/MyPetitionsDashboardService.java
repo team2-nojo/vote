@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.user.model.dto.User;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
@@ -35,7 +36,7 @@ public interface MyPetitionsDashboardService {
 	 * @param pno
 	 * @return
 	 */
-	List<Like> resetcommentList(int pno);
+	List<Comment> resetcommentList(int pno);
 
 	/** 카테고리 유무 체크
 	 * @param petitionNo
@@ -74,6 +75,12 @@ public interface MyPetitionsDashboardService {
 	 */
 	int myPetitionUpdate(Petition petition, MultipartFile thumbnailImage, String webPath, String filePath,
 			List<String> categoryList) throws IllegalStateException, IOException;
+
+	/** 이메일로 목록 보내기
+	 * @param data
+	 * @return
+	 */
+	int exportList(Map<String, Object> data);
 
 
 }

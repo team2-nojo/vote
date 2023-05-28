@@ -23,6 +23,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.Like;
 import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
 import edu.nojo.vote.user.model.dto.User;
@@ -75,7 +76,7 @@ public class MyPetitionsDashboardController {
 		}
 		
 		// 댓글 목록 조회
-		List<Like> commentList = service.resetcommentList(petitionNo);
+		List<Comment> commentList = service.resetcommentList(petitionNo);
 		
 		// 카테고리 유무 체크
 		List<PetitionCategory> catagoryCheck = service.catagoryCheck(petitionNo);
@@ -91,7 +92,7 @@ public class MyPetitionsDashboardController {
 
 	}
 	
-	// suppoter list
+	// suppoter list(지지자목록)
 	@PostMapping(value="/selectSuppoter", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public List<Like> selectSuppoter(@RequestBody String petitionNo) {
@@ -99,15 +100,15 @@ public class MyPetitionsDashboardController {
 		return service.resetlikeUserList(pno);
 	}
 	
-	// comment list
+	// comment list(댓글목록)
 	@PostMapping(value="/selectComment", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public List<Like> selectComment(@RequestBody String petitionNo) {
+	public List<Comment> selectComment(@RequestBody String petitionNo) {
 		int pno = Integer.parseInt(petitionNo);
 		return service.resetcommentList(pno);
 	}
 	
-	// petitonDelete
+	// petitonDelete(청원삭제)
 	@PostMapping(value="/petitonDelete", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public int petitonDelete(@RequestBody String petitionNo) {
@@ -115,13 +116,28 @@ public class MyPetitionsDashboardController {
 		return service.petitonDelete(pno);
 	}
 	
-	// petitonVictory
+	// petitonVictory(청원승리전환)
 	@PostMapping(value="/petitonVictory", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public int petitonVictory(@RequestBody String petitionNo) {
 		int pno = Integer.parseInt(petitionNo);
 		return service.petitonVictory(pno);
 	}
+	
+	
+    // exportList-Email(이메일로 목록 보내기)
+    @PostMapping(value="/exportList", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public int exportList(@SessionAttribute User loginUser, @RequestBody Map<String, Object> data) {
+        
+    	data.put("loginUserEmail", loginUser.getUserEmail());
+    	
+        int result = service.exportList(data);
+        
+        return result;
+        
+    }
+	
 	
 	
 	

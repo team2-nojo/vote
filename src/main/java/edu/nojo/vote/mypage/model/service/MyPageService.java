@@ -1,7 +1,6 @@
 package edu.nojo.vote.mypage.model.service;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import edu.nojo.vote.browse.model.dto.Browse;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
-import edu.nojo.vote.myPetitions.model.dto.Like;
 
 @Repository
 public class CommentDAO {

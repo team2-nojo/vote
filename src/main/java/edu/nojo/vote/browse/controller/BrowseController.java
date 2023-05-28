@@ -1,7 +1,6 @@
 package edu.nojo.vote.browse.controller;
 
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -73,7 +72,7 @@ public class BrowseController {
 						, @SessionAttribute(value="loginUser", required=false) User loginUser
 						){
 		Petition petition = service.selectPetitionList(petitionNo); 
-		List<Like> commentList = service3.resetcommentList(petitionNo);
+		List<Comment> commentList = service3.resetcommentList(petitionNo);
 		List<Like> resetlikeUserList = service3.selectlikeUserList(petitionNo);
 		
 		

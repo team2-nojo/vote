@@ -5,7 +5,9 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
@@ -26,8 +28,6 @@
 	<!-- AOP Proxy를 이용한 관점 제어 자동화 -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	
-	
-
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -57,4 +57,26 @@
 		</interceptor>
 
 	</interceptors>
+	
+	<!-- websocket -->
+	<beans:bean id="alarmHandler"
+		class="edu.nojo.vote.common.websocket.AlarmWebsocketHandler" />
+	<websocket:handlers>
+		<!-- websocket 매핑 주소 -->
+		<websocket:mapping handler="alarmHandler"
+			path="/alarmSock" />
+
+		<websocket:handshake-interceptors>
+			<!-- interceptor : http통신에서 request, response를 가로채는 역할 handshake-interceptors 
+				:Httpsession에 있는 값을 가로채서 WebSocketSession 넣어주는 역할 -->
+			<beans:bean
+				class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
+		</websocket:handshake-interceptors>
+
+		<websocket:sockjs />
+	</websocket:handlers>
+	
+	
+	
+	
 </beans:beans>

@@ -4,6 +4,7 @@
 <!-- font awesome 라이브러리 추가 + key 등록 -->
 <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/resources/css/main.css">
+
 <header>
   <section class="logo-menu-icon">
     <div class="header-logo"><a href="/"><img id="logoimg" src="/resources/images/common/Logo.png" /></a></div>
@@ -82,10 +83,18 @@
             <a class="header-a" href="/myPage">마이페이지</a>
             <a class="header-a" href="/user/logout">로그아웃</a>
           </div>
-          <i class="fa-sharp fa-solid fa-bell header-a"></i>
-          
+          <label for="alarmToggle">
+            <i class="fa-sharp fa-solid fa-bell header-a"></i>
+          </label>
+          <input type="checkbox" id="alarmToggle">
+          <div class="alarm-menu">
+            알람받는 공간
+            <ul id="alarmBox">
+            </ul>
+          </div>
         </div>
       </c:otherwise>
     </c:choose>
   </section>
 </header>
+

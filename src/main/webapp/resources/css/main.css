@@ -273,6 +273,44 @@ label[for='userMenuToggle']:hover {
   border-bottom: 2px solid #ccc;
 }
 
+/* alarm */
+#alarmToggle {
+  display: none;
+}
+
+label[for='alarmToggle'] {
+  cursor: pointer;
+}
+
+#alarmToggle + div {
+  display: none;
+}
+
+#alarmToggle:checked + div {
+  display: block;
+}
+
+.alarm-menu {
+  position: absolute;
+  top: 0;
+  left: 213px;
+
+  background-color: white;
+  z-index: 10;
+
+  border: 2px solid #ccc;
+  border-radius: 5px;
+
+  width: 330px;
+  height: 500px;
+
+  overflow-y: scroll;
+}
+
+.alarm-menu::-webkit-scrollbar{
+  display: none;
+}
+
 /* main */
 main {
   height: 100%;

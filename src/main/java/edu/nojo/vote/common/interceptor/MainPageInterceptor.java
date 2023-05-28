@@ -1,7 +1,6 @@
 package edu.nojo.vote.common.interceptor;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

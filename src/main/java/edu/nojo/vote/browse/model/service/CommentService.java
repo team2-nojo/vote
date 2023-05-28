@@ -4,7 +4,6 @@ import java.util.List;
 
 import edu.nojo.vote.browse.model.dto.Browse;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
-import edu.nojo.vote.myPetitions.model.dto.Like;
 
 public interface CommentService {
 

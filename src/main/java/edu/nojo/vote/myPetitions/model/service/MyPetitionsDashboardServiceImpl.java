@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +31,7 @@ import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dao.MyPetitionsDashboardDAO;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.Like;
+import edu.nojo.vote.writePetition.model.dao.WritePetitionDAO;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 @Service
@@ -36,10 +39,12 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 	
 	@Autowired
     private JavaMailSender mailSender;
-    
+	
 	@Autowired
 	private MyPetitionsDashboardDAO dao;
 	
+	@Autowired
+	WritePetitionDAO dao2;
 	
 	// 청원 조회 서비스
 	@Override
@@ -127,19 +132,50 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
 			result += dao.updateImage(petition);
 		}
 		
-		// 카테고리
+		// 카테고리 삭제
 		
-		 List<PetitionCategory> CL =  dao.selectCatagory(petition.getPetitionNo());
+		 result =  dao.deleteCatagory(petition.getPetitionNo());
 		
+		 
+		 List<String> categoryListTrim = new ArrayList<String>(); 
 		 for(String s : categoryList) {
-			 if(CL.contains(s)) {
-				break;
-			 }else {
-				 result += dao.insertCategory(s);
-			 }
-			 
+			 String st = s.trim();
+			 categoryListTrim.add(st);
 		 }
-		
+		 
+		 
+		 List<Map> cat = new ArrayList<>();
+		 
+		 for(String s : categoryListTrim) {
+			 String st = s.trim();
+			 
+			 String stt = "";
+			 for(int i = 0; i < st.length(); i++) {
+				 if(st.charAt(i) != ' ')
+					 stt += st.charAt(i);
+			 };
+			 
+			 stt.replaceAll(" ",  "");
+			 stt.replaceAll("\\s", "");
+			 stt.replaceAll("[^\\p{Alnum}\\p{IsHangul}]", "");
+			 
+			 String categoryNo = dao.findCategory(stt);
+			 if(categoryNo == null) {
+					result = dao2.insertCategoryList(stt);
+					categoryNo = dao2.selectCategory(stt);
+				}
+			 Map<String, Integer> category = new HashMap<String, Integer>();
+			 category.put("petitionNo", petition.getPetitionNo());
+			 category.put("categoryNo", Integer.parseInt(categoryNo));
+			 cat.add(category);
+		 }
+		 System.out.println(cat);
+		 // 카테고리 추가
+		 for(Map catMap : cat) {
+			 System.out.println(catMap);
+			 dao.insertCategory(catMap);
+		 }
+		 
 		return result;
 	}
 	

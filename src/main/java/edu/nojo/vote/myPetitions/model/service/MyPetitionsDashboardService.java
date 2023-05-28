@@ -9,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.Like;
-import edu.nojo.vote.user.model.dto.User;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 public interface MyPetitionsDashboardService {

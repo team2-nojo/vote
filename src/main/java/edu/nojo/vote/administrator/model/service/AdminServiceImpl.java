@@ -13,7 +13,6 @@ import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.administrator.model.dto.Pagination2;
 import edu.nojo.vote.help.model.dto.QNA3;
 import edu.nojo.vote.main.model.dto.Petition;
-import edu.nojo.vote.user.model.dto.User;
 
 /**
  * @author welle

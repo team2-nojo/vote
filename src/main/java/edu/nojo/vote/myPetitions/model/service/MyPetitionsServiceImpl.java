@@ -31,7 +31,6 @@ public class MyPetitionsServiceImpl implements MyPetitionsService {
 			if(p.getPetitionContent()!=null)
 				p.setPetitionContent(p.getPetitionContent().replaceAll("<[^>]*>", ""));
 				p.setPetitionTitle(p.getPetitionTitle().replaceAll("<[^>]*>", ""));
-			
 		}
 		
 		return petitionList;

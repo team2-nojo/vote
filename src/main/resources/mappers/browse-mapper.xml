@@ -164,7 +164,7 @@
 		AND PT_DEL_FL = 'N'
 	</select>
 	
-
+	
 
 	<!-- 댓글 삽입 -->
 	<insert id="insert" >
@@ -173,8 +173,8 @@
 	</insert>
 	
 	
-	<!-- 좋아요 여부 확인 -->
-	<select id="boardLikeCheck" resultType="_int">
+	<!-- 댓글 여부 확인 -->
+	<select id="commentSelect" resultType="_int">
 		SELECT COUNT(*) FROM "PETITION_LIKE"
 		WHERE PT_NO = #{petitionNo}
 		AND USER_NO = #{userNo}

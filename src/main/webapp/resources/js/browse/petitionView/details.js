@@ -297,7 +297,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
 
     // 댓글등록(완료)
     const data1 = {"commentContent" : commentContent.value, 
-    "userNo" : loginUserNo, "petitionNo" : petitionNo, "petitionLikeCount" : petitionLikeCount}; // JS객체
+    "userNo" : loginUserNo, "petitionNo" : petitionNo}; // JS객체
     
     fetch("/browse/petitionView/details/comment", {
         method: "POST",

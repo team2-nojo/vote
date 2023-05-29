@@ -260,7 +260,8 @@ const editForm = document.getElementById("editForm"); // 폼
 const category = document.getElementById("inputCategory");
 
 saveBtn.addEventListener('click', () => {
-    category.value = addTopicBox.innerText.replace(/\s*\n\s*/g, ",");
+    // category.value = addTopicBox.innerText.replace(/\s*\n\s*/g, ",");
+    category.value = addTopicBox.innerText.replace(/\s+\n/g, ",").trim();
 });
 
 

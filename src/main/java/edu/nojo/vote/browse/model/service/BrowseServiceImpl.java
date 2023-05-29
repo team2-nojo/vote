@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import edu.nojo.vote.browse.model.dao.BrowseDAO;
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 
 @Service
@@ -45,16 +46,20 @@ public class BrowseServiceImpl implements BrowseService {
 //	}
 	
 	
+	// 댓글유무확인
+	@Override
+	public int commentSelect(Comment comment) {
+		return dao.commentSelect(comment);
+	}
 	
 	/**
 	 * 청원 좋아요
 	 */
 	@Override
-	public int petitionLike(Map<String, Integer> paramMap) {
-		
-		return dao.petitionLike(paramMap);
+	public int petitionLike(Comment comment) {
+		return dao.petitionLike(comment);
 	}
-	
+
 	
 
 	// 청원 업데이트 리스트 조회

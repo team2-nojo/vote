@@ -127,7 +127,7 @@ public class BrowseController {
 			, Model model
 			, RedirectAttributes ra
 			){
-		
+		// 받아온 petition No 에 해당되는 청원에 있는 업데이트 목록 조회
 		List<PetitionUpdate> updatePetitionList = service.updatePetitionList(petitionNo);
 		model.addAttribute("updatePetitionList", updatePetitionList);
 		return "/browse/petitionView/updates";

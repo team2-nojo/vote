@@ -62,6 +62,7 @@ public class BrowseServiceImpl implements BrowseService {
 	public List<PetitionUpdate> updatePetitionList(int petitionNo) {
 		List<PetitionUpdate> updatePetitionList = dao.updatePetitionList(petitionNo);
 		for(PetitionUpdate p : updatePetitionList) {
+			// 조회한 업데이트 내역 중, 썸머노트로 입력한 값에서 html 태그를 뺀 값 구하기
 			if(p.getPetitionUpdateContent() != null) 
 				p.setPetitionUpdateContent(p.getPetitionUpdateContent().replace("<[^>]*>", ""));
 		}

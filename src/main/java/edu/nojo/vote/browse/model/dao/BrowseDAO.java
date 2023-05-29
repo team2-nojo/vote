@@ -47,6 +47,10 @@ public class BrowseDAO {
 		return sqlSession.insert("browseMapper.petitionLike", paramMap);
   }
 
+	/** 해당 청원에 있는 업데이트 목록 조회
+	 * @param petitionNo
+	 * @return
+	 */
 	public List<PetitionUpdate> updatePetitionList(int petitionNo) {
 		return sqlSession.selectList("myPetitionsMapper.updatePetitionList", petitionNo);
 

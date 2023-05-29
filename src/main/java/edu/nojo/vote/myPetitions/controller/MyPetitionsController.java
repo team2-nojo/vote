@@ -41,6 +41,8 @@ public class MyPetitionsController {
 	@Autowired
 	private EmailService emailService;
 
+	
+	
 	// myPetitions 메인에서 내 청원 페이지로 이동
 	@GetMapping("/myPetitions")
 	public String myPetitions(@SessionAttribute User loginUser, Model model) {
@@ -53,6 +55,7 @@ public class MyPetitionsController {
 			
 		// 조회한 내가 작성한 글 목록을 화면으로 전달
 		model.addAttribute("petitionList", petitionList);
+		
 		// 조회한 좋아요 한 글 목록을 화면으로 전달
 		model.addAttribute("likeList", likeList);		
 
@@ -60,6 +63,7 @@ public class MyPetitionsController {
 		return "/myPetitions/myPetitions";
 	}
 
+	
 	// myPetitionDashboardUpdate로 이동
 	@GetMapping("/myPetitionsDashboard/myPetitionDashboardUpdate/{petitionNo}")
 	public String myPetitionsDashboard(@SessionAttribute User loginUser, Model model,
@@ -92,18 +96,21 @@ public class MyPetitionsController {
 		   ,RedirectAttributes ra
 		   ) throws IllegalStateException, IOException {
 		
-		// 청원 업데이트 DB 삽입
 		String message = null;
-	
 		PetitionUpdate update = new PetitionUpdate();
 		
+		// 청원 업데이트 DB 삽입
+		// update 객체에 받아온 값 입력
 		update.setPetitionNo(petitionNo);
 		update.setPetitionUpdateTitle(petitionUpdateTitle);
 		update.setPetitionUpdateContent(petitionUpdateContent);
 		update.setUserNo(loginUser.getUserNo());
 		
+		// 이미지 파일 생성을 위한 경로값
 		String webPath = "/resources/images/petitionUpdate/";
 		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		// 이미지 업데이트 삽입을 위한 서비스 호출
 		int result = service.updateInsert(update, inputImage, webPath, filePath);
 		
         if(result <= 0) 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.Like;
+import edu.nojo.vote.user.model.dto.User;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 @Repository
@@ -144,6 +145,22 @@ public class MyPetitionsDashboardDAO {
 	 */
 	public String findCategory(String categoryName) {
 		return sqlSession.selectOne("myPetitionsMapper.findCategory", categoryName);
+	}
+
+	/** 청원조회
+	 * @param pno
+	 * @return
+	 */
+	public Petition findPetition(String pno) {
+		return sqlSession.selectOne("myPetitionsMapper.findPetition", pno);
+	}
+
+	/** 회원조회
+	 * @param uno
+	 * @return
+	 */
+	public User findUser(String uno) {
+		return sqlSession.selectOne("myPetitionsMapper.findUser", uno);
 	}
 
 	

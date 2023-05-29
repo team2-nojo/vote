@@ -222,7 +222,9 @@
         const loginUserNo = "${loginUser.userNo}";
         const petitionLikeCount = "${petition.petitionLikeCount}";
         const comment = "${selectCommentList}";
-        const likeUser = "${resetlikeUserList[0].userNo}"
+        const likeUser = "${resetlikeUserList[0].userNo}";
+        const loginUserNickname = "${loginUser.userNickname}";
+        const petitionTitle = "${petition.petitionTitle}";
     </script>
     
     <%-- petitionView.js --%>

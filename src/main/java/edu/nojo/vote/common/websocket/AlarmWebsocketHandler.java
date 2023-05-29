@@ -1,15 +1,30 @@
 package edu.nojo.vote.common.websocket;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
+import javax.mail.Message;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.service.MyPetitionsDashboardService;
+import edu.nojo.vote.user.model.dto.User;
+
 public class AlarmWebsocketHandler extends TextWebSocketHandler{
+	
+	
+	@Autowired 
+	private MyPetitionsDashboardService service;
 
 	private Set<WebSocketSession> sessions = Collections.synchronizedSet(new HashSet<>());
 
@@ -27,7 +42,7 @@ public class AlarmWebsocketHandler extends TextWebSocketHandler{
 	// - 클라이언트로부터 메세지가 도착하면 실행
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-
+		
 		// Payload : 통신 시 탑재된 데이터(메시지)
 		
 		System.out.println("전달 받은 내용 : " + message.getPayload());

@@ -191,6 +191,22 @@
 	WHERE PT_NO = ${petitionNo}
 	AND UP_DEL_FL = 'N'
 	</select>
+	
+	<!-- 청원 조회 -->
+	<select id="findPetition" resultMap="myPetitions_rm">
+		SELECT PT_NO , PT_TITLE , PT_CONTENT , PT_DATE , PT_VIEW_COUNT, PT_IMG ,PT_VICT, PT_DEL_FL
+		FROM "PETITION"
+		WHERE PT_NO = ${petitionNo}
+		AND PT_DEL_FL ='N'
+	</select>
+
+	<!-- 회원 조회 -->
+	<select id="findUser" resultMap="user_rm">
+		SELECT USER_NICKNAME
+		FROM "USER"
+		WHERE USER_NO = #{UserNo}
+		AND USER_DEL_FL = 'N'
+	</select>
 
 
 	<resultMap type="User" id="user_rm">

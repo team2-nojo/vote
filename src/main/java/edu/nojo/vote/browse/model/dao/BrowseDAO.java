@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
@@ -39,12 +40,12 @@ public class BrowseDAO {
 	
 
 	/** 청원 좋아요 삽입
-	 * @param paramMap
+	 * @param comment
 	 * @return count
 	 */
-	public int petitionLike(Map<String, Integer> paramMap) {
+	public int petitionLike(Comment comment) {
 		
-		return sqlSession.insert("browseMapper.petitionLike", paramMap);
+		return sqlSession.insert("browseMapper.petitionLike", comment);
   }
 
 	/** 해당 청원에 있는 업데이트 목록 조회
@@ -77,5 +78,16 @@ public class BrowseDAO {
 	
 	public List<PetitionCategory> selectCategoryList(int petitionNo){
 		return sqlSession.selectList("mainPageMapper.selectCategoryList",petitionNo);
+	}
+
+	
+	
+	/** 댓글유무확인
+	 * @param comment
+	 * @return
+	 */
+	public int commentSelect(Comment comment) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("browseMapper.commentSelect",comment);
 	}
 }

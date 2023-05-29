@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:set var="petition" value="${petition}"/>
 <c:set var="likeUserList" value="${likeUserList}"/>
@@ -153,12 +154,12 @@
                             명이 서명했습니다.
                         </strong>
                     </div>
-                    <progress id="progress" value="${petition.petitionLikeCount}" min="0" max="50" ></progress>
+                    <progress id="progress" value="${petition.petitionLikeCount}" min="0" max="${fn:substringBefore((Math.ceil(petition.petitionLikeCount / 5) * 5), '.')}" ></progress>
                     <div id="row2">
                         청원 달성까지 서포터 단
                         <strong>
                             <!-- 청원 달성 위해 남은 사람의 수-->
-                            <span id="remainNumber">${50-petition.petitionLikeCount}</span>
+                            <span id="remainNumber">${fn:substringBefore((Math.ceil(petition.petitionLikeCount / 5) * 5), '.') - petition.petitionLikeCount}</span>
                             명만 더!
                         </strong> 
                     </div>

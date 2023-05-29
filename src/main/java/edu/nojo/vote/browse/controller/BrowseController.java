@@ -142,34 +142,24 @@ public class BrowseController {
 	// 댓글 삽입
 	@PostMapping("/petitionView/details/comment")
 	@ResponseBody
-	public int insert(@RequestBody Comment comment) {
+	public int commentInsert(@RequestBody Comment comment) {
 		// 요청 데이터 (JSON)을 HttpMessageConverter가 해석해서 Java객체(comment)에 대입
 		
-		int result = service2.insert(comment);
-//		System.out.println(result);
+		
+		// 댓글유무확인
+		int result = service.commentSelect(comment);
+		
+		
+		if(result>0) { // 댓글 작성됨
+			result = 0;
+		}else { // 댓글 작성안됨
+			result = service2.insert(comment);
+			result = service.petitionLike(comment);
+		}
+		
 		
 		return result;
 	}
-	
-	
-	
-	
-	// 청원 좋아요
-	// 좋아요 처리
-	@PostMapping("/petitionView/details/like")
-	@ResponseBody // 반환되는 값이 비동기 요청한 곳으로 돌아가게 함
-	public int petitionLike(@RequestBody Map<String, Integer> paramMap) {
-		
-		int result = service.petitionLike(paramMap);
-		
-//			System.out.println(service.petitionLike(paramMap));
-		return result;
-	}
-
-	
-	
-	
-	
 	
 	
 	
@@ -185,11 +175,6 @@ public class BrowseController {
 	}
 
 
-	
-	
-	
-	
-	
 	
 	
 	// petitionView 페이지 이동(updates)

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.nojo.vote.main.model.dto.Petition;
+import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.PetitionUpdate;
 
 public interface BrowseService {
@@ -24,10 +25,10 @@ public interface BrowseService {
 //	int petitionLikeCheck(Map<String, Object> map);
 
 	/** 청원 좋아요
-	 * @param paramMap
+	 * @param comment
 	 * @return count
 	 */
-	int petitionLike(Map<String, Integer> paramMap);
+	int petitionLike(Comment comment);
 
 	
 	
@@ -50,6 +51,17 @@ public interface BrowseService {
 
 
 	List<Petition> selectPetitionList(int categoryNo, int page, String order);
+
+
+
+	/** 댓글유무확인
+	 * @param comment
+	 * @return
+	 */
+	int commentSelect(Comment comment);
+
+
+
 
 
 

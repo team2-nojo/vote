@@ -5,14 +5,15 @@
 // 2. SockJS를 이용해서 클라이언트용 웹소켓 객체 생성
 let testSock = new SockJS("/alarmSock");
 
-function sendMessage(name, str){
+function sendMessage(CP, userNo, petitionNo){
 
     // 매개변수를 JS 객체에 저장
     let msg = {}; // 비어있는 객체
 
     // 객체에 일치하는 key가 없다면 자동으로 추가
-    msg.name = name; 
-    msg.str = str; 
+    msg.CP = CP;
+    msg.userNo = userNo; 
+    msg.petitionNo = petitionNo; 
 
     // console.log(obj);
 
@@ -35,18 +36,24 @@ document.addEventListener("DOMContentLoaded", function() {
         // e.date : 전달 받은 메시지 (JSON)
         const msg = JSON.parse(e.data); // JSON -> JS객체
         console.log(msg);
+
         const alarmList = document.createElement("li");
-
-        const span1 = document.createElement("span");
-        span1.innerText = "보낸사람" + msg.name;
         
-        const span2 = document.createElement("span");
-        span2.innerText = "내용" + msg.str;
+        const div1 = document.createElement("div");
+        div1.innerText = msg.petitionNo.substr(0,10) + "... 게시글에";
+        
+        const div2 = document.createElement("div");
+        div2.innerText = msg.userNo + "님 께서 댓글을 작성하였습니다.";
 
-        alarmList.append(span1, span2);
+
+        alarmList.append(div1, div2);
 
         alarmBox.append(alarmList);
 
+
+
+
+        
     }
 
 });

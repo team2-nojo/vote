@@ -31,6 +31,7 @@ import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dao.MyPetitionsDashboardDAO;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.Like;
+import edu.nojo.vote.user.model.dto.User;
 import edu.nojo.vote.writePetition.model.dao.WritePetitionDAO;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
@@ -280,6 +281,17 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
         return 1;
     }
 	
+	// 청원조회
+	@Override
+	public Petition findPetition(String pno) {
+		return dao.findPetition(pno);
+	}
+	
+	// 회원조회
+	@Override
+	public User findUser(String uno) {
+		return dao.findUser(uno);
+	}
 	
 	
 }

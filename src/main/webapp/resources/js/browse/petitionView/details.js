@@ -48,7 +48,7 @@ content.addEventListener("input", () => {
 
 
 //댓글 목록 조회
-function selectCommentList(){
+// function selectCommentList(){
     /*
     fetch("/browse/petitionView/details/selectCommentList", {
         method: "POST",
@@ -118,70 +118,70 @@ function selectCommentList(){
 
     */
 
-    fetch("/browse/petitionView/details/" + petitionNo )
-    .then(response => response.json()) // 응답 객체 -> 파싱
-    .then(cList => { // cList : 댓글 목록(객체배열)
+//     fetch("/browse/petitionView/details/" + petitionNo )
+//     .then(response => response.json()) // 응답 객체 -> 파싱
+//     .then(cList => { // cList : 댓글 목록(객체배열)
         
-        // console.log(cList);
+//         // console.log(cList);
         
-        // 화면에 출력되어 있는 댓글 목록 삭제
-        const commentList = document.getElementById("commentList"); // ul태그
-        commentList.innerHTML = "";
+//         // 화면에 출력되어 있는 댓글 목록 삭제
+//         const commentList = document.getElementById("commentList"); // ul태그
+//         commentList.innerHTML = "";
 
-        // cList에 저장된 요소를 하나씩 접근
-        for(let comment of cList){
+//         // cList에 저장된 요소를 하나씩 접근
+//         for(let comment of cList){
 
-            // 행
-            const commentRow = document.createElement("li");
-            commentRow.classList.add("comment-row");
+//             // 행
+//             const commentRow = document.createElement("li");
+//             commentRow.classList.add("comment-row");
         
 
 
-            // 작성자
-            const commentWriter = document.createElement("p");
-            commentWriter.classList.add("noti");
+//             // 작성자
+//             const commentWriter = document.createElement("p");
+//             commentWriter.classList.add("noti");
 
-            // 프로필 이미지
-            const userImage = document.createElement("img");
+//             // 프로필 이미지
+//             const userImage = document.createElement("img");
 
-            if( comment.userImage != null ){ // 프로필 이미지가 있을 경우
-                userImage.setAttribute("src", comment.userImage);
-            }else{ // 없을 경우 == 기본이미지
-                userImage.setAttribute("src", "/resources/common/images/user.png");
-            }
+//             if( comment.userImage != null ){ // 프로필 이미지가 있을 경우
+//                 userImage.setAttribute("src", comment.userImage);
+//             }else{ // 없을 경우 == 기본이미지
+//                 userImage.setAttribute("src", "/resources/common/images/user.png");
+//             }
 
-            // 작성자 닉네임
-            const userNickname = document.createElement("span");
-            userNickname.innerText = comment.userNickname;
+//             // 작성자 닉네임
+//             const userNickname = document.createElement("span");
+//             userNickname.innerText = comment.userNickname;
             
-            // 작성일
-            const commentDate = document.createElement("span");
-            commentDate.classList.add("commentDate");
-            commentDate.innerText =  "(" + comment.commentDate + ")";
+//             // 작성일
+//             const commentDate = document.createElement("span");
+//             commentDate.classList.add("commentDate");
+//             commentDate.innerText =  "(" + comment.commentDate + ")";
 
-            // 작성자 영역(p)에 프로필,닉네임,작성일 마지막 자식으로(append) 추가
-            commentWriter.append(userImage , userNickname , commentDate);
+//             // 작성자 영역(p)에 프로필,닉네임,작성일 마지막 자식으로(append) 추가
+//             commentWriter.append(userImage , userNickname , commentDate);
 
             
 
-            // 댓글 내용
-            const commentContent = document.createElement("p");
-            commentContent.classList.add("class_content");
-            commentContent.innerHTML = comment.commentContent;
+//             // 댓글 내용
+//             const commentContent = document.createElement("p");
+//             commentContent.classList.add("class_content");
+//             commentContent.innerHTML = comment.commentContent;
 
-            // 행에 작성자, 내용 추가
-            commentRow.append(commentWriter, commentContent);
+//             // 행에 작성자, 내용 추가
+//             commentRow.append(commentWriter, commentContent);
 
-            // 댓글 목록(ul)에 행(li)추가
-            commentList.append(commentRow);
-        }
+//             // 댓글 목록(ul)에 행(li)추가
+//             commentList.append(commentRow);
+//         }
 
-    })
-    .catch(err => console.log(err));
+//     })
+//     .catch(err => console.log(err));
 
 
 
-}
+// }
 
 
 
@@ -309,7 +309,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
         // console.log(result);
         if(result > 0){ // 등록 성공
             alert("댓글이 등록되었습니다.");
-            
+            sendMessage(1, loginUserNickname, petitionTitle.replace(/"가 &quot;/g, ''));
 
             // DB반영 안 됨 임시로 작성함.-----------
             progress.value += 1;

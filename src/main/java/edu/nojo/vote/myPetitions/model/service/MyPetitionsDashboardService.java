@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import edu.nojo.vote.main.model.dto.Petition;
 import edu.nojo.vote.myPetitions.model.dto.Comment;
 import edu.nojo.vote.myPetitions.model.dto.Like;
+import edu.nojo.vote.user.model.dto.User;
 import edu.nojo.vote.writePetition.model.dto.PetitionCategory;
 
 public interface MyPetitionsDashboardService {
@@ -80,6 +81,18 @@ public interface MyPetitionsDashboardService {
 	 * @return
 	 */
 	int exportList(Map<String, Object> data);
+
+	/** 청원조회
+	 * @param pno
+	 * @return
+	 */
+	Petition findPetition(String pno);
+
+	/** 회원조회
+	 * @param uno
+	 * @return
+	 */
+	User findUser(String uno);
 
 
 }

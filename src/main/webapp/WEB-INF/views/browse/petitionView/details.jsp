@@ -93,10 +93,10 @@
                 <%-- 댓글 --%>
                 <div id="commentBox">
                     <div id="reason">댓글 보기</div>
-                         <c:choose>
+                        <c:choose>
                             <c:when test="${empty commentList}">
                                 <%-- 댓글이 없을 경우 --%>
-                                 <div class="box1">
+                                <div class="box1">
                                     <div>
                                         <div class="startCon" id="startCon1">아직 해당 글에 대한 댓글이 없습니다.</div>
                                     </div>

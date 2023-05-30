@@ -18,7 +18,7 @@
     <%-- header --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main>
-        <section class="search">
+        <section class="search"> <%-- 전체검색 입력란 --%>
             <div id="search">
                 <h2>청원 검색</h2>
             </div>
@@ -32,7 +32,7 @@
             <ul id="searchResult" class="close"></ul>
         </section>
         <c:if test="${not empty searchList}" >
-        <div class="resultCount">
+        <div class="resultCount"> <%-- 입력된 것을 제출시 출력 --%>
             <h2>검색결과 : ${searchList.size()} 개</h2>
         </div>
         <section class="middle">

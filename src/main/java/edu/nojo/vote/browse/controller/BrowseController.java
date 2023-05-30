@@ -107,13 +107,6 @@ public class BrowseController {
 
 	
 	
-	// suppoter list
-	@PostMapping(value="/selectSuppoter", produces = "application/json; charset=UTF-8")
-	@ResponseBody
-	public List<Like> selectSuppoter(@RequestBody String petitionNo) {
-		int pno = Integer.parseInt(petitionNo);
-		return service3.resetlikeUserList(pno);
-	}
 	
 	
 	

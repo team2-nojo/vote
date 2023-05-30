@@ -4,7 +4,6 @@ let check2 = document.getElementById('serviceUse');
 let check3 = document.getElementById('MarketingInfo');
 let check4 = document.getElementById('emailInfo');
 
-window.onload = function(){} // 이거로 감싸면 에러는 사라지나 실행이 안됨...
 window.resizeTo(1040,1200);
 
 document.addEventListener('DOMContentLoaded', function () {

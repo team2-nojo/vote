@@ -30,6 +30,11 @@ body{
     align-items: start;
 }
 
+
+
+
+
+
 /* 상단메뉴 */
 #top{
     display: flex;
@@ -58,14 +63,6 @@ body{
     
 }
 
-#comments:hover{
-    color: #2DB400;
-    font-weight: bold;
-    text-decoration: none;
-    
-}
-
-
 #details:hover{
     color: #2DB400;
     font-weight: bold;
@@ -82,12 +79,24 @@ body{
 
 
 
-/* updates  */
 
+
+/* 업데이트 페이지 타이틀  */
 #updatesSection1{
     margin: 50px 40% 0 0;
 }
 
+
+#updatesBT{
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+    margin: 10px;
+}
+
+
+/* 업데이트 내용 */
 #updatesSection2{
     margin: 20px;
     margin-bottom: 50px;
@@ -97,7 +106,7 @@ body{
     align-items: center;
 }
 
-
+/* 슬라이드 버튼 */
 #left{
     width: 50px;
     height: 50px;
@@ -111,15 +120,8 @@ body{
     color: #2DB400;
 }
 
-#updatesBT{
-    font-weight: bold;
-    font-size: 25px;
-    color: black;
-    text-decoration: none;
-    margin: 10px;
-}
 
-
+/* 고정된 슬라이드 영역 */
 .slide{
     width: 600px;
     height: 600px;
@@ -128,6 +130,7 @@ body{
     position: relative;
 }
 
+/* 슬라이드의 내용이 되는 페이지 영역 */
 .frame{
     display: flex;
     flex-direction: row-reverse;
@@ -137,6 +140,7 @@ body{
     transition-duration: 1s;
 }
 
+/* frame 내부 업데이트 건건의 영역 */
 .updatesFrame{
     display: flex;
     justify-content: start;
@@ -155,6 +159,7 @@ body{
     overflow: scroll;
 }
 
+/* 각 업데이트의 내용 */
 .updatesImg{
     width: 440px;
     height: 250px;
@@ -200,6 +205,8 @@ body{
     border-radius: 100%;
     margin: 10px;
 }
+
+
 
 
 /* 버튼 */

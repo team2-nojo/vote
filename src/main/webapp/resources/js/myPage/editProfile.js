@@ -157,15 +157,6 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우
         // 이전 프로필 이미지가 있다 -> 새 이미지
         if(initCheck && deleteCheck == 1)   flag = false;
         
-        // if(flag){ // flag == true -> 제출하면 안되는 경우
-        //     e.preventDefault(); // form 기본 이벤트 제거
-        //     alert("프로필 사진 수정 후 클릭하세요");
-        // }
-
-        // if(sample6_address.value.trim() == "" && sample6_detailAddress.value.trim() == "") {
-        //     e.preventDefault(); // form 기본 이벤트 제거
-        //     alert("프로필 수정 후 클릭하세요");
-        // }
 
     });
 

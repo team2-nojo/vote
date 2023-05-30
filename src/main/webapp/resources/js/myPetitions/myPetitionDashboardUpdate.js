@@ -23,13 +23,6 @@ submit.addEventListener("click", e => {
 
 })
 
-// /* 모달창의 클로즈(x) 버튼을 누르면 모달창이 꺼지게 하기 */
-// const closeBtn = modal.querySelector(".close-area")
-// closeBtn.addEventListener("click", e => {
-//     modal.style.display = "none"
-//     document.body.style.removeProperty('overflow');
-// })
-
 
 
 /* 모달창 바깥 영역을 클릭하면 모달창이 꺼지게 하기 */
@@ -106,15 +99,6 @@ $(document).ready( () => {
     });
 });
 
-
-// 내용이 있는 지 체크
-// const checkContentsLength = () => {
-//       let str = f_SkipTags_html(content).trim();
-//       if(str=='') {
-//         document.getElementById("updatePetitionPost").preventDefault(); // 제출 이벤트 제거
-//         alert("업데이트 내용을 작성해 주시기 바랍니다.")
-//       }
-//   }
   
 
 // ajax로 이미지 업로드

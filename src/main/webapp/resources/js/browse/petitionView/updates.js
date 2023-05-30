@@ -53,9 +53,6 @@ function init(){
     nextBtn.addEventListener("click", next)
 }
 
-// 해결해야 할 문제
-// 업데이트 값을 가져올 때 .frame width 값을 바꿔줘야 함
-// 업데이트 값을 가져올 때 .frame width 값을 계산해 오른쪽 버튼이 클릭될 수 있는 마지막 값을 계산해야 함
 leftBtn.addEventListener('click', () => {
     left(); 
 });

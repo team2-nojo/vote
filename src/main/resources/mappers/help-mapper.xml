@@ -19,19 +19,19 @@
 
 <resultMap type="edu.nojo.vote.help.model.dto.faq" id="faq_rm">
 
- <result property="faqQuestionI" column="FAQ_QUESTIONI" />
+    <result property="faqQuestionI" column="FAQ_QUESTIONI" />
     <result property="faqAnswer" column="FAQ_ANSWER" />
     <result property="faqCatCode" column="FAQ_CAT_CODE" />
     <result property="faqNo" column="FAQ_NO" />
     
-    </resultMap>
+</resultMap>
     
-    <resultMap type="edu.nojo.vote.help.model.dto.faqCat" id="faqCat_rm">
+<resultMap type="edu.nojo.vote.help.model.dto.faqCat" id="faqCat_rm">
     
-     <result property="faqCatNo" column="FAQ_CAT_NO" />
+    <result property="faqCatNo" column="FAQ_CAT_NO" />
     <result property="faqCatName" column="FAQ_CAT_NAME" />
     
-    </resultMap>
+</resultMap>
     
 	<!-- 삭제되지 않은 문의 수 조회 -->
 	<select id="QA3" resultType="_int">
@@ -110,12 +110,14 @@
 	</select>
 
 
+     <!-- FAQ 특정 카테고리의 글 수 조회 -->
 	<select id="faqCount_search" resultType="_int">
        SELECT COUNT(*) 
        FROM "FAQ"
        WHERE FAQ_CAT_NO = #{faqCatNo}
 	</select>
 
+    <!-- FAQ 특정 카테고리의 글 조회 -->
 	<select id="faq2List_search" resultMap="faq_rm">
 		SELECT FAQ_CAT_NAME, FAQ_QUESTIONI, FAQ_ANSWER 
 		FROM "FAQ"

@@ -19,7 +19,7 @@ public class HelpServiceImpl implements HelpService{
 	private HelpDAO dao;
 
 	
-	// 문의내역 조회
+	// 1:1문의내역 조회
 	@Override
 	public Map<String, Object> QA3(Map<String, Object> paramMap, int cp) {
 		
@@ -38,7 +38,7 @@ public class HelpServiceImpl implements HelpService{
 		return map;
 	}
 
-	// 게시글 삽입
+	// 1:1문의 게시글 삽입
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int helpInsert(QNA3 qna3) {
@@ -52,13 +52,13 @@ public class HelpServiceImpl implements HelpService{
 		return qnaNo;
 	}
 
-	// 상세 조회
+	// 1:1 문의 상세 조회
 	@Override
 	public QNA3 selectqna(Map<String, Object> map) {
 		return dao.selectqna(map);
 	}
 
-	// 게시글 수정
+	// 1:1 문의 게시글 수정
     @Transactional(rollbackFor = Exception.class)
 	@Override
 	public int qnaUpdate(QNA3 qna3) {
@@ -72,20 +72,20 @@ public class HelpServiceImpl implements HelpService{
 	}
 
 
-    // FAQ 목록 불러오기
+    // FAQ 카테고리 불러오기
 	@Override
 	public List<Map<String, Object>> selectFaqTypeList() {
 		return dao.selectFaqTypeList();
 	}
 
-	// 게시글 삭제
+	// 1:1 문의 게시글 삭제
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int qnaDelete(int qnaNo) {
 		return dao.qnaDelete(qnaNo);
 	}
 
-	// 게시글 조회
+	// FAQ 글 조회
 	@Override
 	public Map<String, Object> FAQList(Map<String, Object> paramMap, int cp) {
 		

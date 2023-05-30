@@ -43,167 +43,13 @@ content.addEventListener("input", () => {
 
 
 
-// // 페이지 로드시 댓글 목록 조회
-// window.onload = selectCommentList();
-
-
-//댓글 목록 조회
-// function selectCommentList(){
-    /*
-    fetch("/browse/petitionView/details/selectCommentList", {
-        method: "POST",
-        headers: {"Content-Type": "application/json; charset=UTF-8"},
-        body: JSON.stringify(parseInt(petitionNo))
-        
-    }) 
-    .then(response => response.json()) // 응답 객체 -> 파싱
-    .then(cList => { // cList : 댓글 목록(객체배열)
-        
-        // console.log(cList);
-        
-        // 화면에 출력되어 있는 댓글 목록 삭제
-        const commentList = document.getElementById("commentList"); // ul태그
-        commentList.innerHTML = "";
-
-        // cList에 저장된 요소를 하나씩 접근
-        for(let comment of cList){
-
-            // 행
-            const commentRow = document.createElement("li");
-            commentRow.classList.add("comment-row");
-        
-
-
-            // 작성자
-            const commentWriter = document.createElement("p");
-            commentWriter.classList.add("noti");
-
-            // 프로필 이미지
-            const userImage = document.createElement("img");
-
-            if( comment.userImage != null ){ // 프로필 이미지가 있을 경우
-                userImage.setAttribute("src", comment.userImage);
-            }else{ // 없을 경우 == 기본이미지
-                userImage.setAttribute("src", "/resources/common/images/user.png");
-            }
-
-            // 작성자 닉네임
-            const userNickname = document.createElement("span");
-            userNickname.innerText = comment.userNickname;
-            
-            // 작성일
-            const commentDate = document.createElement("span");
-            commentDate.classList.add("commentDate");
-            commentDate.innerText =  "(" + comment.commentDate + ")";
-
-            // 작성자 영역(p)에 프로필,닉네임,작성일 마지막 자식으로(append) 추가
-            commentWriter.append(userImage , userNickname , commentDate);
-
-            
-
-            // 댓글 내용
-            const commentContent = document.createElement("p");
-            commentContent.classList.add("class_content");
-            commentContent.innerHTML = comment.commentContent;
-
-            // 행에 작성자, 내용 추가
-            commentRow.append(commentWriter, commentContent);
-
-            // 댓글 목록(ul)에 행(li)추가
-            commentList.append(commentRow);
-        }
-
-    })
-    .catch(err => console.log(err));
-
-    */
-
-//     fetch("/browse/petitionView/details/" + petitionNo )
-//     .then(response => response.json()) // 응답 객체 -> 파싱
-//     .then(cList => { // cList : 댓글 목록(객체배열)
-        
-//         // console.log(cList);
-        
-//         // 화면에 출력되어 있는 댓글 목록 삭제
-//         const commentList = document.getElementById("commentList"); // ul태그
-//         commentList.innerHTML = "";
-
-//         // cList에 저장된 요소를 하나씩 접근
-//         for(let comment of cList){
-
-//             // 행
-//             const commentRow = document.createElement("li");
-//             commentRow.classList.add("comment-row");
-        
-
-
-//             // 작성자
-//             const commentWriter = document.createElement("p");
-//             commentWriter.classList.add("noti");
-
-//             // 프로필 이미지
-//             const userImage = document.createElement("img");
-
-//             if( comment.userImage != null ){ // 프로필 이미지가 있을 경우
-//                 userImage.setAttribute("src", comment.userImage);
-//             }else{ // 없을 경우 == 기본이미지
-//                 userImage.setAttribute("src", "/resources/common/images/user.png");
-//             }
-
-//             // 작성자 닉네임
-//             const userNickname = document.createElement("span");
-//             userNickname.innerText = comment.userNickname;
-            
-//             // 작성일
-//             const commentDate = document.createElement("span");
-//             commentDate.classList.add("commentDate");
-//             commentDate.innerText =  "(" + comment.commentDate + ")";
-
-//             // 작성자 영역(p)에 프로필,닉네임,작성일 마지막 자식으로(append) 추가
-//             commentWriter.append(userImage , userNickname , commentDate);
-
-            
-
-//             // 댓글 내용
-//             const commentContent = document.createElement("p");
-//             commentContent.classList.add("class_content");
-//             commentContent.innerHTML = comment.commentContent;
-
-//             // 행에 작성자, 내용 추가
-//             commentRow.append(commentWriter, commentContent);
-
-//             // 댓글 목록(ul)에 행(li)추가
-//             commentList.append(commentRow);
-//         }
-
-//     })
-//     .catch(err => console.log(err));
-
-
-
-// }
 
 
 
 
 
 
-// 좋아요 버튼 누르면 게이지 올라감, 좋아요 누른 사람 수 & 남은 사람 수 표시
-// const signButton = document.getElementById("signButton");
 
-// signButton.addEventListener("click", ()=> {
-//         // alert(progress.max);
-//         progress.value += 1;
-        
-//         const crrent1 = parseInt(likeCount.innerText, 10)
-//         likeCount.innerText = crrent1 + 1;
-    
-//         const crrent2 = parseInt(remainNumber.innerText, 10)
-//         remainNumber.innerText = progress.max - likeCount.innerText ;
-        
-        
-    
-// });
 
 
 
@@ -240,56 +86,7 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
     }
     
     
-    
-    // 3) AJAX를 이용해서 댓글 내용 DB에 저장(INSERT)
-    
 
-
-    // 좋아요(미완)
-    // let check; // 기존에 좋아요가 아닐 때(빈하트) : 0, 좋아요(꽉찬하트) : 1
-
-    // for(let i = 0; i < likeUser.length; i++){
-    //     if(likeUser[i].userNo != loginUserNo){ // 좋아요 안 해본 사람
-    //         check = 0;
-    //     }else{
-    //         check = 1;
-    //     }
-    // }
-
-    // alert(check);
-
-
-    // ajax로 서버로 제출할 파라미터를 모아둔 JS객체
-    // const data2 = {"check": check, "petitionNo" : petitionNo, "loginUserNo" : loginUserNo};
-    
-    // // ajax코드 작성
-    // fetch("/browse/petitionView/details/like", {
-    //     method : "POST",
-    //     headers : {"Content-Type" : "application/json"},
-    //     body : JSON.stringify(data2)
-    // })
-    // .then(response => response.text()) // 응답 객체를 필요한 형태로 파싱하여 리턴
-    // .then(count => { 
-        
-        
-    //     // alert(check)
-    //     console.log("count : " + count);
-
-    //     if(count > 0){ // INSERT, DELETE실패 시 
-    //         console.log("좋아요 처리 실패");
-    //         return;
-    //     }
-
-    
-    //     // 현재 게시글의 좋아요 수를 화면에 출력
-    //     e.target.nextElementSibling.innerText = count;
-
-    // }) // 파싱된 데이터를 받아서 처리하는 코드 작성
-    
-    // .catch(err => {
-    //     console.log("예외발생");
-    //     console.log(err);
-    // }) //예외 발생시 처리하는 부분
 
 
 
@@ -312,13 +109,13 @@ like.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이 되�
             sendMessage(1, loginUserNickname, petitionTitle.replace(/"가 &quot;/g, ''));
 
             // DB반영 안 됨 임시로 작성함.-----------
-            progress.value += 1;
+            // progress.value += 1;
             
-            const crrent1 = parseInt(likeCount.innerText, 10)
-            likeCount.innerText = crrent1 + 1;
+            // const crrent1 = parseInt(likeCount.innerText, 10)
+            // likeCount.innerText = crrent1 + 1;
             
-            const crrent2 = parseInt(remainNumber.innerText, 10)
-            remainNumber.innerText = 50 - likeCount.innerText ;
+            // const crrent2 = parseInt(remainNumber.innerText, 10)
+            // remainNumber.innerText = 50 - likeCount.innerText ;
             //-------------------------------------
             
             commentContent.value = ""; // 작성했던 댓글 삭제

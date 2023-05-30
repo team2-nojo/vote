@@ -15,7 +15,7 @@ searchPw.addEventListener("click", () => {
 });  
 
 
-// 헤더에 있는 로그인 버튼 주석처리해야 실행 됨
+
 // 로그인 시도
 const loginFrm = document.getElementById("loginFrm"); //로그인 폼
 const userEmail = document.querySelector("#loginFrm input[name='userEmail']");

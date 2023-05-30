@@ -6,6 +6,8 @@ let check4 = document.getElementById('emailInfo');
 
 window.resizeTo(1040,1200);
 
+
+// 모두체크에 클릭 시 각각의 체크박스에도 체크표시
 document.addEventListener('DOMContentLoaded', function () {
     allAgree.addEventListener('change', () => {
         check1.checked = allAgree.checked;
@@ -27,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     
+
+    // 각각의 체크박스 체크여부에 따라 모두체크에 체크 또는 미체크
     let checkList = document.querySelectorAll('.check');
     checkList.forEach(function (e) {
         e.addEventListener('change', () => {

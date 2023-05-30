@@ -42,6 +42,15 @@ document.getElementById('moreView').addEventListener('click', function () {
                                 <div class="progress">
                                     <progress id="progress" value="${petition.petitionLikeCount}" min="0" max="${max}" ></progress>
                                     <div id="value"></div>
+                                    
+                                </div>
+                                <div class="profile">
+                                    <div class="writer">
+                                        <span id="id-profile"><img src="${petition.userImage}" style="height: 25px; margin: 5px;" class="profile-image"></span>
+                                        <div class="nickname">
+                                            ${petition.userNickname}
+                                        </div>
+                                    </div>
                                     <div id="goal">
                                         청원 지지자 수 <span id="count">${petition.petitionLikeCount}</span> 명
                                     </div>
@@ -50,7 +59,6 @@ document.getElementById('moreView').addEventListener('click', function () {
                         </a>
                     `;
                     middle.append(div);
-
                 }
                 if (response.length < 5) {
                     document.getElementById('moreView').style.display = 'none';

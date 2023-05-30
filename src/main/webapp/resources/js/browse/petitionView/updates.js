@@ -27,7 +27,7 @@ function left(){
     if(index == 0){ /* 이미지 index값 0 되면 prev 못하게 */
         leftBtn.setAttribute("disabled", 'true')
     }
- }
+}
 
  // 오른쪽 버튼
 function right(){

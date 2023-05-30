@@ -1,6 +1,6 @@
 
 
-
+// 체크박스 클릭 시 팝업창 열림
 const reportClick = document.getElementById("reportClick");
 
 reportClick.addEventListener("click", () => {

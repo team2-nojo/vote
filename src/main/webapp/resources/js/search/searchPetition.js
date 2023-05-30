@@ -1,4 +1,4 @@
-
+// 전체 검색 입력시 일치하는 청원 제목 요소로 추가
 document.addEventListener("DOMContentLoaded", () => {
 
     const query = document.querySelector("#searchPetitions");
@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
 });
 
+
+// 검색창 닫기
 document.addEventListener("click", e => {
     const elementList = document.querySelectorAll(".search, .search *");
     const searchResult = document.querySelector("#searchResult"); // 검색창 자동 완성 영역

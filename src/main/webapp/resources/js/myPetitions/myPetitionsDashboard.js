@@ -156,7 +156,7 @@ supportBtn.addEventListener('click', suppoterListSet );
 commentBtn.addEventListener('click', commentListSet );
 
 
-/* 승리 삭제 */
+/* 청원 삭제 */
 const petitionDel = document.getElementById("petitionDel");
 const petitionVic = document.getElementById("petitionVic");
 const vicHidden = document.getElementById("vicHidden");
@@ -182,7 +182,7 @@ petitionDel.addEventListener('click', () => {
     } );
 
 });
-
+/* 청원 승리 */
 petitionVic.addEventListener('click', () => {
 
     fetch("/myPetitions/petitonVictory", {

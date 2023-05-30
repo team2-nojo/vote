@@ -284,10 +284,6 @@ editForm.addEventListener("submit", () => {
     
 });
 
-
-
-
-console.log(category.value)
 // 엔터키 제출 막기
 editForm.addEventListener("keydown", evt => {
     if (evt.code === "Enter") 

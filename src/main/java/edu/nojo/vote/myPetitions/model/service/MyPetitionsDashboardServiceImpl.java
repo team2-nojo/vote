@@ -215,6 +215,7 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
         	
             String filePath = "C:/semi/vote/src/main/webapp/resources/list/" + fileName; 
             
+            // 댓글 또는 지지자 목록을 불러와 텍스트 파일 생성
             FileWriter writer = new FileWriter(filePath);
             
             if(exportOpt == 1) {
@@ -242,11 +243,11 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
             
             // 이메일 보내기
             MimeMessage mail = mailSender.createMimeMessage();
-            String subject = "메일보낸다 받아라";
+            String subject = "vote사이트 입니다. 메일을 확인해주세요.";
             String charset = "UTF-8";
     
             // 메일 내용
-            String mailContent = "보내지는지 테스트 한다";
+            String mailContent = "당신의 청원을 지지하는 사람들에 대한 목록입니다.";
     
             // 송신자(보내는 사람) 지정
             mail.setFrom(new InternetAddress(fromEmail, fromUsername));
@@ -260,7 +261,7 @@ public class MyPetitionsDashboardServiceImpl implements MyPetitionsDashboardServ
             // 내용 세팅
             mail.setText(mailContent, charset, "html"); // "html" 추가 시 HTML 태그가 해석됨
     
-            
+            // 지정된 경로에 있는 파일을 첨부파일로 세팅
             MimeBodyPart attachmentBodyPart = new MimeBodyPart();
             DataSource source = new FileDataSource(filePath); // 첨부할 파일의 경로를 설정하세요.
             attachmentBodyPart.setDataHandler(new DataHandler(source));

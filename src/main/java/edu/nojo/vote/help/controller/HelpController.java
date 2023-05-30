@@ -28,6 +28,7 @@ public class HelpController {
 	private HelpService service;
 
 	
+	// FAQ 화면, 카테고리별로 아래 아코디언 메뉴 바뀌는
 	@GetMapping("/FAQ")
 	public String clientCenterFAQ(
 		   @RequestParam(value="faqCatNo", required=false, defaultValue="1") int faqCatNo,
@@ -38,7 +39,7 @@ public class HelpController {
 	       ) {
 		
 		
-		
+		// FAQ 카테고리 넘버를 통해 불러옴
 		paramMap.put("faqCatNo", faqCatNo);
 		
 		
@@ -94,7 +95,7 @@ public class HelpController {
     }    
     
     
-    // 문의내역
+    // 1:1문의내역
     @GetMapping("/QNA3")
     public String QA3(
           @RequestParam(value="qnaCatCode", required=false, defaultValue="1") int qnaCatCode
@@ -102,6 +103,7 @@ public class HelpController {
     	, Model model,
     	@RequestParam Map<String, Object> paramMap) {
     	
+    	// QNA 카테고리 넘버를 통해 불러옴
     	paramMap.put("qnaCatCode", qnaCatCode);
 		 Map<String, Object> map = service.QA3(paramMap, cp); 
     	
@@ -111,7 +113,7 @@ public class HelpController {
     	return "/clientCenter/QNA3";
     } 
     
-    // 문의내역 상세조회
+    // 1:1문의내역 상세조회
     @GetMapping("/QNADetail/{qnaNo:[0-9]+}")
     public String qnaDetail(
     		@SessionAttribute(value="loginUser", required=false) User loginUser
@@ -133,27 +135,24 @@ public class HelpController {
         return path;
      }
     
-	// 문의글 수정 화면 전환
+	// 1:1문의글 수정 화면 전환
 	@GetMapping("/QNAupdate/{qnaNo}")
 	public String qnaUpdate(
 		 @PathVariable("qnaNo") int qnaNo
 		,Model model) {
-		// Model : 데이터 전달용 객체(기본 scope : request)
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("qnaNo", qnaNo);
 		
 		QNA3 qna3 = service.selectqna(map);
 		
-		/* if(로그인회원번호 != 작성자 번호) 리다이렉트 */
 		model.addAttribute("qna", qna3);
 
-		// forward(요청 위임) -> request scope 유지
 		return "clientCenter/QNAupdate";
 	}
 	
     
-	// 문의글 수정
+	// 1:1문의글 수정
     @PostMapping("/QNAupdate/{qnaNo}")
     public String qnaUpdate(
     	QNA3 qna3
@@ -181,7 +180,7 @@ public class HelpController {
 	return path;
 }
     
-    // 문의글 삭제
+    // 1:1문의글 삭제
     @GetMapping("/QNAupdate/{qnaNo}/delete")
     public String qnaDelete(
     		  QNA3 qna3

@@ -10,20 +10,25 @@ import edu.nojo.vote.administrator.model.dto.Pagination;
 import edu.nojo.vote.help.model.dto.QNA3;
 import edu.nojo.vote.help.model.dto.faq;
 
+// 임포트 구문
 
-@Repository
+@Repository // 영속성 관련 클래스와 Bean 등록
 public class HelpDAO {
 
-	/** 문의 글 조회
-	 */
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	
+	/** 1:1 문의 글 조회
+	 * @param paramMap
+	 * @return
+	 */
+
 	public int QA3(Map<String, Object> paramMap) {
 		return sqlSession.selectOne("HelpMapper.QA3");
 	}
 	
-	/** 현재 페이지에 해당하는 부분에 대한 문의 글 조회
+	/** 현재 페이지에 해당하는 부분에 대한 1:1 문의 글 조회
 	 * @param pagination
 	 * @param paramMap 
 	 * @return
@@ -37,7 +42,7 @@ public class HelpDAO {
 		return sqlSession.selectList("HelpMapper.QNA3", paramMap, rowBounds);
 	}
 
-	/** 문의 글 삽입
+	/** 1:1 문의 글 삽입
 	 * @param qna3
 	 * @return
 	 */
@@ -49,7 +54,7 @@ public class HelpDAO {
 		return result;
 	}
 
-	/** 게시글 상세 조회
+	/** 1:1 게시글 상세 조회
 	 * @param map
 	 * @return
 	 */
@@ -57,7 +62,7 @@ public class HelpDAO {
 		return sqlSession.selectOne("HelpMapper.selectqna", map);
 	}
 
-	/** 게시글 수정
+	/** 1:1 게시글 수정
 	 * @param qna3
 	 * @return
 	 */
@@ -65,18 +70,17 @@ public class HelpDAO {
 		return sqlSession.update("HelpMapper.helpUpdate", qna3);
 	}
 
-	/** FAQ 종류 목록 조회
+	/** FAQ 카테고리 목록 조회
 	 * @param pagination
 	 * @param paramMap
 	 * @return
 	 */
-
 	public List<Map<String, Object>> selectFaqTypeList() {
 		return sqlSession.selectList("HelpMapper.selectfaqTypeList");
 	}
 	
 
-	/** 문의글 삭제
+	/** 1:1문의글 삭제
 	 * @param qnaNo
 	 * @return
 	 */
@@ -85,7 +89,7 @@ public class HelpDAO {
 	}
 
 
-	/** 게시글 수 조회(검색)
+	/** FAQ 게시글 수 조회
 	 * @param paramMap
 	 * @return
 	 */
@@ -93,7 +97,11 @@ public class HelpDAO {
 		return sqlSession.selectOne("HelpMapper.faqCount_search", paramMap);
 	}
 
-	// 게시글 목록 조회(검색)
+	/** FAQ 게시글 목록 조회
+	 * @param pagination
+	 * @param paramMap
+	 * @return
+	 */
 	public List<faq> selectfaq2List(Pagination pagination, Map<String, Object> paramMap) {
 		
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();

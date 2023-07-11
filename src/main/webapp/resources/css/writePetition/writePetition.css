@@ -1,14 +1,14 @@
-.write-petition-container{
+.write-petition-container {
   width: 960px;
   margin: 0 auto;
 }
 
-main *{
+main * {
   box-sizing: border-box;
   /* border: 1px solid black; */
 }
 
-#page1Tip{
+#page1Tip {
   margin-top: 20px;
 }
 
@@ -21,45 +21,44 @@ main *{
 
 .wp-progress {
   height: 100%;
-  background-color: #2DB400;
+  background-color: #2db400;
   width: 0px;
   transition: width 0.1s ease-in-out;
 }
 
-
-.container{
+.container {
   display: flex;
   width: 600px;
   margin: 30px auto;
   flex-direction: column;
 }
 
-.medium{
+.medium {
   font-size: 1.5rem;
 }
 
-.large{
+.large {
   font-size: 2rem;
 }
 
-.bold{
+.bold {
   font-weight: bold;
 }
 
-.btn-container{
+.btn-container {
   width: 600px;
   display: flex;
   justify-content: flex-end;
   margin: 30px auto;
 }
 
-.select-container{
+.select-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.scope-item{
+.scope-item {
   display: flex;
   height: 80px;
   flex-basis: 32%;
@@ -71,48 +70,47 @@ main *{
   cursor: pointer;
 }
 
-.scope-item:hover{
+.scope-item:hover {
   background-color: #eee;
 }
 
-.selected-item{
-  border: 2px solid #2DB400;
-  color: #2DB400;
+.selected-item {
+  border: 2px solid #2db400;
+  color: #2db400;
   font-weight: bold;
 }
 
-.my-btn{
+.my-btn {
   margin: 5px;
   width: 100px;
   height: 40px;
-  border: 2px solid #2DB400;
+  border: 2px solid #2db400;
   border-radius: 5px;
   /* font-size: 1rem; */
   font-weight: bold;
 }
 
-.my-btn:hover{
+.my-btn:hover {
   border-color: black;
 }
 
-#prevBtn{
+#prevBtn {
   display: none;
 }
 
-#nextBtn{
-  background-color: #2DB400;
+#nextBtn {
+  background-color: #2db400;
   color: white;
 }
 
-
-#submitBtn{
+#submitBtn {
   display: none;
   width: auto;
-  background-color: #2DB400;
+  background-color: #2db400;
   color: white;
 }
 
-.tip{
+.tip {
   border: 1px solid #bbb;
   background-color: #eee;
   border-radius: 5px;
@@ -122,7 +120,7 @@ main *{
   padding: 20px 0;
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,27 +131,27 @@ main *{
   align-items: center;
 } */
 
-.scope-icon{
+.scope-icon {
   margin-left: 10px;
   margin-right: 10px;
   pointer-events: none;
 }
 
-.page{
-  display:none;
+.page {
+  display: none;
 }
 
-.page.current{
+.page.current {
   display: flex;
 }
 
-#categoryContainer{
+#categoryContainer {
   display: flex;
   padding: 3px;
   flex-wrap: wrap;
 }
 
-.category-item{
+.category-item {
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
@@ -162,7 +160,7 @@ main *{
   cursor: pointer;
 }
 
-.pointer-events-none{
+.pointer-events-none {
   pointer-events: none;
 }
 
@@ -195,80 +193,80 @@ main *{
   margin-top: 5px;
 }
 
-.red{
+.red {
   color: red;
 }
 
-button:disabled{
+button:disabled {
   background-color: #bbb !important;
   border: 2px solid #bbb;
 }
 
-button:disabled:hover{
+button:disabled:hover {
   cursor: not-allowed;
 }
-.input-img-btn{
+.input-img-btn {
   background-color: white;
-  color: #2DB400;
+  color: #2db400;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#page6{
+#page6 {
   width: 960px;
 }
-#previewContainer{
+#previewContainer {
   width: 100%;
   display: flex;
 }
 
-#previewTitle{
+#previewTitle {
   font-weight: bold;
   align-self: center;
 }
 
-#previewContent{
+#previewContent {
   white-space: pre-wrap;
   word-break: break-all;
 }
 
-#previewImgAndSignContainer{
+#previewImgAndSignContainer {
   display: flex;
   flex-direction: row;
 }
 
-.profile-img{
+.profile-img {
   border-radius: 50%;
   width: 30px;
   height: 30px;
 }
 
-#writer{
+#writer {
   display: flex;
   align-items: center;
   font-weight: bold;
 }
 
-.profile-img{
+.profile-img {
   margin-right: 5px;
 }
 
-#signContainer{
+#signContainer {
   padding: 10px;
 }
-#signContainer *{
+#signContainer * {
   margin: 5px;
 }
 
-#progC{
+#progC {
   height: 10px;
   background-color: #eee;
   border-radius: 10px;
   padding: 0px;
 }
 
-#prog{
+#prog {
   width: 20%;
   height: 100%;
   background-image: linear-gradient(to right, orange, red);
@@ -276,7 +274,7 @@ button:disabled:hover{
   margin: 0px;
 }
 
-.sticky{
+.sticky {
   background-color: white;
   bottom: 0px;
   position: sticky;
@@ -284,21 +282,23 @@ button:disabled:hover{
 }
 
 /* 숨기기 */
-.hidden{
+/* .hidden {
   display: none;
-}
+} */
 
 /* 체크박스 선택되었을 때, 검색된 아이템의 색상 변경 */
-input[name="categoryItems"]:checked + label,#directInputCheckbox:checked + label, .direct-input-item {
-  border: 2px solid #2DB400;
-  background-color: #2DB400;
+input[name='categoryItems']:checked + label,
+#directInputCheckbox:checked + label,
+.direct-input-item {
+  border: 2px solid #2db400;
+  background-color: #2db400;
   color: white;
   font-weight: bold;
 }
 
 .direct-input-item {
   display: inline;
-  position:relative;
+  position: relative;
 }
 
 .category-item:hover {
@@ -306,28 +306,27 @@ input[name="categoryItems"]:checked + label,#directInputCheckbox:checked + label
   color: black;
 }
 
-.direct-input-item:hover>span{
+.direct-input-item:hover > span {
   color: red;
 }
 
 #directInputInputContainer,
-#directInputItemContainer{
+#directInputItemContainer {
   display: flex;
   align-items: center;
 }
 
-
-#progHr{
+#progHr {
   width: 100%;
   margin: 10px 0;
 }
 
-#signer{
+#signer {
   display: flex;
   align-items: center;
 }
 
-#directInputItemContainer{
+#directInputItemContainer {
   display: flex;
   padding: 3px;
   flex-wrap: wrap;
@@ -345,55 +344,55 @@ input[name="categoryItems"]:checked + label,#directInputCheckbox:checked + label
   border-radius: 8px;
 }
 
-#categoryInputBtn{
-  background-color: #2DB400;
+#categoryInputBtn {
+  background-color: #2db400;
   color: white;
 }
 
-.scope-item i{
+.scope-item i {
   font-size: 20px;
 }
 
-#previewImage{
+#previewImage {
   width: 100%;
   height: 100%;
 }
 
-.no-img-container{
+.no-img-container {
   width: 100%;
   height: 100%;
   border: 1px dashed #aaa;
   border-radius: 8px;
 }
 
-.input-img-container{
+.input-img-container {
   width: 560px;
   height: 350px;
   position: relative;
 }
 
-.img-container{
+.img-container {
   width: 100%;
   height: 100%;
   position: relative;
 }
-.img-container:hover>.delete-image{
+.img-container:hover > .delete-image {
   display: flex;
 }
-.delete-image:hover{
-  color:red;
+.delete-image:hover {
+  color: red;
   border: 2px solid red;
   cursor: pointer;
 }
 
-.delete-image{
+.delete-image {
   display: none;
 }
 
-.delete-image{
-  position:absolute;
-  top:10px;
-  right:10px;
+.delete-image {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   width: 30px;
   height: 30px;
   border: 1px solid black;
@@ -405,7 +404,7 @@ input[name="categoryItems"]:checked + label,#directInputCheckbox:checked + label
   margin-bottom: 5px;
 }
 
-#writeImageTitle{
+#writeImageTitle {
   margin-bottom: 5px;
 }
 

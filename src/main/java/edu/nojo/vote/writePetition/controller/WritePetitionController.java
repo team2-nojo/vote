@@ -35,7 +35,7 @@ public class WritePetitionController {
 	
 	@PostMapping
 	public String writePetition(@SessionAttribute("loginUser") User loginUser
-			, @RequestParam(value="categoryItems", required=false)List<Integer> categoryItems
+			, @RequestParam(value="categoryItems", required=false)List<Integer> categoryItems //input name 속
 			, @RequestParam(value="directInput", defaultValue="n")String directInput
 			, @RequestParam(value="directInputCategory", required=false)List<String> directInputCategory
 			, @RequestParam(value="title")String title
